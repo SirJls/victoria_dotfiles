@@ -1,0 +1,272 @@
+#######################################################################
+#                      php Snippets for UltiSnips                     #
+#######################################################################
+
+priority 1
+
+
+#########################
+#  classes and structs  #
+#########################
+
+snippet nc "php namespace and class or interface/trait" 
+<?php
+
+namespace ${1:`!p 
+abspath = os.path.abspath(path)
+m = re.search(r'[A-Z].+(?=/)', abspath)
+if m:
+	snip.rv = m.group().replace('/', '\\')
+`};
+
+/**
+ * ${3:@author `whoami`}${4}
+ */
+`!p
+m = re.search(r'Abstract', path)
+if m:
+	snip.rv = 'abstract '
+``!p
+if re.search(r'Interface', path):
+	snip.rv = 'interface'
+elif re.search(r'Trait', path):
+	snip.rv = 'trait'
+else:
+	snip.rv = 'class'
+` ${2:`!p
+snip.rv = re.match(r'.*(?=\.)', fn).group()
+`}
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet _c "php constructor"
+public function __construct()
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet sg "Setter and Getter"
+${1:protected} $${2};
+
+${VISUAL}$0
+
+public function set`!p snip.rv = t[2][0:1].upper() + t[2][1:]`(`!p
+if re.match(r'^(\\|[A-Z]).*', t[3]):
+	snip.rv = t[3] + ' '
+else:
+	snip.rv = ''
+`$$2)
+{
+	$this->$2 = $$2;
+}
+
+public function get`!p snip.rv = t[2][0:1].upper() + t[2][1:]`()
+{
+	return $this->$2;
+}
+endsnippet
+
+
+###############
+#  functions  #
+###############
+
+snippet pubf "Public function"
+public function ${1:functionName}()
+{
+	${0:// insert incredible smart code here...}
+}
+endsnippet
+
+snippet pubsf "Public static function"
+public static function ${1:functionName}()
+{
+	${0:// insert incredible smart code here...}
+}
+endsnippet
+
+snippet prof "Protected function"
+protected function ${1:functionName}()
+{
+	${2:// insert incredible smart code here...}
+}
+endsnippet
+
+snippet prosf "Protected static function"
+protected static function ${1:functionName}()
+{
+	${2:// insert incredible smart code here...}
+}
+endsnippet
+
+snippet prif "Private function"
+private function ${1:functionName}()
+{
+	${2:// insert incredible smart code here...}
+}
+endsnippet
+
+snippet prisf "Private static function"
+private static function ${1:functionName}()
+{
+	${2:// insert incredible smart code here...}
+}
+endsnippet
+
+
+#################
+#  collections  #
+#################
+
+snippet ar "array"
+$${1:arrayName} = ['${2}' => ${3}];${4}
+endsnippet
+
+
+################
+#  iterations  #
+################
+
+snippet do "do"
+do {
+	${0:// insert incredible smart code here }
+} while (${1:/* condition */});
+endsnippet
+
+snippet for "for loop"
+for ($${1:i} = 0; $$1 < count(${2:collection}); $$1++)
+{
+	${0:// insert incredible smart code here }
+}
+endsnippet
+
+snippet forr "for loop (reverse)"
+for ($${1:i} = ${2:collection}; $$1 > 0;  $$1--)
+{
+	${0:// insert incredible smart code here }
+}
+endsnippet
+
+snippet fori "foreach loop" 
+foreach ($${1:collection} as $${2:val})
+{
+	${0:// insert incredible smart code here }
+}
+endsnippet
+
+snippet forik "foreach loop retrieve value with key"
+foreach ($${1:collection} as $${2:key} => $${3:val}) {
+	${0:// insert incredible smart code here }
+}
+endsnippet
+
+snippet while "while"
+while (${1})
+{
+	${0:// insert incredible smart code here }
+}
+endsnippet
+
+
+################
+#  conditions  #
+################
+
+snippet switch
+switch ($${1})
+{
+	case '${2}':
+		${3}
+		break;
+	default :
+		${4}
+		break;
+}
+endsnippet
+
+snippet case
+case '${1:value}':
+	$2
+	break;
+endsnippet
+
+snippet if "if condition"
+if (${1:condition})
+{
+	${0:// insert incredible smart code here }
+}
+endsnippet
+
+snippet ife "if else"
+if (${1:/* condition */}) {
+	${2:// insert incredible smart code here }
+} else {
+	${0:// insert incredible smart code here }
+}
+endsnippet
+
+snippet else
+else
+{
+	${0:// insert incredible smart code here }
+}
+endsnippet
+
+snippet elif
+else if (${1:condition})
+{
+	${0:// insert incredible smart code here }
+}
+endsnippet
+
+
+###############
+#  try catch  #
+###############
+
+snippet try
+try
+{
+	${4}
+}
+catch (${2:\Exception} $${1:e})
+{
+	${3}
+}
+endsnippet
+
+snippet catch
+catch (${2:\Exception} $${1:ex})
+{
+	${3}
+}
+endsnippet
+
+
+###########
+#  other  #
+###########
+
+snippet def "def"
+define('${1:VARIABLE_NAME}', ${2:'definition'});
+endsnippet
+
+
+####################################
+#  comment block and annotatation  #
+####################################
+
+snippet ta "phpunit test annotation"
+/** @test **/
+endsnippet
+
+snippet cb "php comment block"
+/**
+ * @${1}
+ */
+endsnippet
+
+# vim:ft=snippets:

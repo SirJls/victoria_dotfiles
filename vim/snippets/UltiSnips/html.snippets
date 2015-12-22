@@ -1,0 +1,88 @@
+#######################################################################
+#                      html Snippets for UltiSnips                    #
+#######################################################################
+
+priority 1
+
+snippet html5 "Html starter template" [i]
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title></title>
+		<!--insert bootstrap-->
+	</head>
+<body>
+	<!--do something-->>
+</body>
+</html>
+endsnippet
+
+snippet div "<div>"
+<div class="${1:name}">
+	$0
+</div>
+endsnippet
+
+snippet span "<span>"
+<span class="${1:name}">
+	$0
+</span>
+endsnippet
+
+snippet ul "<ul>"
+<ul class="${1:name}">
+	$0
+</ul>
+endsnippet
+
+snippet li "<li>"
+<li class="${1:name}">$0</li>
+endsnippet
+
+snippet cl "class tag"
+class="${1:name}"
+endsnippet
+
+snippet dv "bootstrap divider"
+<li class="divider"></li>
+endsnippet
+
+snippet mailto "<a mailto: >"
+<a href="mailto:${1:joe@example.com}?subject=${2:feedback}">${3:email me}</a>
+endsnippet
+
+snippet textfield "<textfield>"
+<div class="form-group">
+	<label for="${1:name}">${2:Name}:</label>
+	<input type="text" name="$1" id="$1" class="formcontrol" value="{{ old('$1') }}">
+</div>
+endsnippet
+
+snippet textareafield "<textareafield>"
+<div class="form-group">
+	<label for="${1:name}">${2:Name}:</label>
+	<textarea type="text" name="$1" id="$1" class="form-control">
+		{{ old('$1') }}
+	</textarea>
+</div>
+endsnippet
+
+snippet submitfield "<submitfield>"
+<div class="form-group">
+	<button type="submit" class="btn btn-primary">${1:Submit}</button>
+</div>
+endsnippet
+
+snippet form "<form>"
+<form method="POST" action="${1:/destination}" accept-charset="UTF-8" autocomplete="on">
+	{{ csrf_field() }}
+	$0
+</form>
+endsnippet
+
+
+snippet dropdown "<dropdown>"
+<select id="$1" name="$1" class="${2:form-control}"</select>
+endsnippet

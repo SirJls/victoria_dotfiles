@@ -1,0 +1,154 @@
+# ----------------------------------------------------
+# file:     $HOME/dotfiles/config/mutt/muttrc
+# author    jls - http://sjorssparreboom.nl
+## vim:fenc=utf-8:nu:ai:si:et:ts=4:sw=4:ft=muttrc
+ ----------------------------------------------------
+
+# Configuration settings
+# ----------------------------------------------------
+
+# Folder Hooks
+# ----------------------------------------------------
+# folder-hook 'account.gmail.com.jls' 'source ~/.config/mutt/account.com.gmail.jls'
+
+# Macro's
+# ----------------------------------------------------
+# go to mailbox
+macro index <F12> '<sync-mailbox><enter-command>source ~/.config/mutt/account.com.gmail<enter><change-folder>!<enter>'
+macro index <F10> '<sync-mailbox><enter-command>source ~/.config/mutt/account.nl.hro<enter><change-folder>!<enter>'
+
+macro index,pager <F1> "<shell-escape>less /usr/share/doc/mutt/manual.txt<enter>"   "Show Mutt documentation"
+macro index,pager <F2> ":toggle help<enter>:set ?help<enter>"                       "toggle help status line"
+macro index,pager <F5> ":source ~/.config/mutt/muttrc\n"                            "Reload the muttrc"
+macro index,pager F  "<save-message>=GMail/Flagged<enter>"                          "mark message as Flagged/Starred"
+macro index B        "<limit>~b "                                                   "search message bodies"
+macro attach W <save-entry><kill-line>/home/jls/documents/attachments/              "default directory for saving attachments"
+macro compose Y pfy                                                                 "send mail without pgp"
+
+# View URL's
+# ----------------------------------------------------
+macro index,pager \Cu "<enter-command> set my_pdsave=\$pipe_decode<enter>\
+          <enter-command> unset pipe_decode<enter>\
+          <pipe-message>extract_url<enter>\
+          <enter-command> set pipe_decode=\$my_pdsave<enter>" "get URLs"
+
+# Fetch mail
+# ----------------------------------------------------
+bind index G imap-fetch-mail
+
+# Basic configuration
+# ----------------------------------------------------
+set beep_new = yes                                                  # beep on incoming mail
+set mail_check = 0                                                  # look for new mail in seconds
+set timeout = 1                                                     # seconds to wait before timout & mail check
+set sleep_time = 0                                                  # rapid display!
+set mbox_type = Maildir                                             # mailbox type
+set imap_keepalive = 200                                            # seconds polling imap connection
+set move = no                                                       # don't ask let gmail move
+set sort = 'threads'                                                # sort like gmail
+set sort_aux = 'reverse-last-date-received'                         # sort like gmail
+set imap_peek = no                                                  # Gmail mark as read
+set auto_tag = yes                                                  # apply function to tagged msg
+set quit = yes                                                      # don't ask to quit, just do it!
+set delete = yes                                                    # don't ask to delete, just do it!
+set confirmappend = no                                              # don't ask to append a message to an existing mailbox, just do it!
+set mark_old = no                                                   # new || read is good enough!
+set editor = `echo \$EDITOR`
+
+# Pages configurations
+# ----------------------------------------------------
+set status_on_top = yes                                             # display statusbar at top
+set markers = no                                                    # get rid of the ugly +
+set tilde = yes                                                     # like ViM!!
+set pager_index_lines = 10                                          # number of index lines to show
+set pager_context = 5                                               # number of context lines to show
+set pager_stop = yes                                                # don't go to next message automatically
+auto_view text/html                                                 # view html automatically
+alternative_order text/plain text/enriched text/html                # save html for last
+set smart_wrap = yes                                                # don't split the words!
+set menu_scroll = yes                                               # let me scroll through the menu!
+
+# Formats
+# ----------------------------------------------------
+set date_format = "%d/%m/%y at %I:%M%P"
+set index_format = "%3C  %S   %D  •  %-25.25L %s %> %c"
+set pager_format = "Reading message %C of %m %> %lL [%P]"           # pager statusbar
+set folder_format = "%2C %t %N %8s %d %f"                           # mailbox list view
+set status_format = " %?M?%M/?%m Mails %?n?%n new, ?%?u?%u unread, ?%?p?%p drafts, ?%?t?%t +tagged, ?%?d?%d deleted, ?[%f %l]  %?b?%b unread messages. ?%>  %V  [%P]"
+# set alias_format = "%4n %t %-20a  %r"
+
+# Rebinding
+# ----------------------------------------------------
+bind index,pager \#     noop
+bind index i            noop
+
+# Always sourced
+# ----------------------------------------------------
+source ~/.config/mutt/gpg.rc                                        # use GPG
+source ~/.config/mutt/colours.muttrc                                # colorscheme
+source ~/.config/mutt/sidebar                                       # set sidebar
+
+# Default account
+# ----------------------------------------------------
+source ~/.config/mutt/account.com.gmail
+
+# Composing mail configuration
+# ----------------------------------------------------
+# ------------------------------------
+set realname = "Sjors Sparreboom"                                   # self explanatory...
+set envelope_from = yes                                             # sender from?
+set sig_dashes = yes                                                # dash before my signature
+set edit_headers = yes                                              # let me do/have this :)
+set fast_reply = yes                                                # no prompting go to composing!
+set askcc = yes                                                     # ask me for a cc
+set fcc_attach = yes                                                # save the attachment with the body
+set mailcap_path = ~/.config/mutt/mailcap                           # entries for filetypes
+set sendmail_wait = -1                                              # make this a background process :)
+set mime_forward = yes                                              # forward attachments as part of body
+set mime_forward_rest = yes                                         # include attachments
+set attribution = "On %d, %n wrote:"                                # set the attribution
+set forward_format = "Fwd: %s"                                      # format for subject when forwarding
+set forward_decode = yes                                            # decode when formatting (text/plain)
+set reply_to = yes                                                  # ask me if i want to use the header of reply-to
+set reverse_name = yes                                              # reply to original author
+set include = yes                                                   # include msg in reply
+set forward_quote = yes                                             # include message in forwards
+set print_command = "muttprint"                                     # printer…
+
+# Headers configuration
+# ----------------------------------------------------
+ignore *                                                            # ignore all headers
+unignore from: to: cc: date: subject:                               # show only these
+hdr_order from: to: cc: date: subject:                              # and in this order
+
+# Bindings
+# ----------------------------------------------------
+bind pager q            exit
+bind pager /            search
+bind pager <up>         previous-line
+bind pager <down>       next-line
+bind pager k            previous-line
+bind pager j            next-line
+bind pager gg           top
+bind pager G            bottom
+bind index gg           first-entry
+bind index G            last-entry
+bind pager K            previous-undeleted
+bind pager J            next-undeleted
+bind index K            previous-unread
+bind index J            next-unread
+bind index W            clear-flag
+bind index w            set-flag
+bind index,pager R      group-reply
+bind compose p          pgp-menu
+bind attach <return>    view-mailcap
+
+# Use abook with Mutt
+# ----------------------------------------------------
+set query_command="abook --mutt-query '%s'"
+macro index,pager a "<pipe-message>abook --add-email-quiet<return>" 'add sender to abook'
+bind editor <Tab> complete-query
+
+# View URLs inside Mutt
+# ----------------------------------------------------
+macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'

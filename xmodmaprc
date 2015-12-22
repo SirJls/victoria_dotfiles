@@ -1,0 +1,9 @@
+! ------------------------------------
+! file $HOME/.config/xmodmap/.xmodmaprc
+! ------------------------------------
+
+! Rebindings
+! ------------------------------------
+clear Lock
+keycode   9 = Caps_Lock
+keycode  66 = Escape

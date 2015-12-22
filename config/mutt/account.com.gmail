@@ -1,0 +1,35 @@
+# ------------------------------------
+# file: $HOME/.config/mutt/account.com.gmail.jls
+# ------------------------------------
+
+# ------------------------------------
+# Account Settings
+# ------------------------------------
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set mbox = '+GMail/archive'
+# set record = '+[Gmail]/Sent Mail'                                   # outgoing msg goes here
+set record = ""
+set postponed = '+[Gmail]/Drafts'
+set header_cache = '~/.config/mutt/com.gmail.jls/cache/headers'     # store headers here
+set message_cachedir = '~/.config/mutt/com.gmail.jls/cache/bodies'  # store bodies here
+set certificate_file = '~/.config/mutt/com.gmail.jls/certificates'  # store certs here
+set mailcap_path = '~/.config/mutt/mailcap'                         # entries for filetypes
+set signature = '~/.config/mutt/jls.sig'                            # signature file
+
+# Color status
+# ------------------------------------
+color status     brightwhite  black
+color indicator  brightwhite  black
+
+# Sourced settings
+# ------------------------------------
+source "gpg -d ~/sync/pass/account.com.gmail.details.jls.asc |"
+
+# Macro's
+# ------------------------------------
+macro index S "<save-message>+GMail/[Gmail].Spam<enter>"         "mark message as spam"
+macro index gs "<change-folder> =[Gmail]/Sent<tab><enter>"       "go to sent mail"
+macro index gi  "<change-folder>=INBOX<enter>"                   "go to INBOX"
+macro index gf  "<change-folder>=[Gmail]/Starred<enter>"         "go to starred"
+macro index gt  "<change-folder>=[Gmail]/Bin<enter>"             "go to trash"

@@ -1,0 +1,425 @@
+Delivered-To: jlssparreboom@gmail.com
+Received: by 10.36.67.13 with SMTP id s13csp2900917itb;
+        Mon, 21 Dec 2015 13:37:53 -0800 (PST)
+X-Received: by 10.195.11.129 with SMTP id ei1mr27309662wjd.80.1450733873677;
+        Mon, 21 Dec 2015 13:37:53 -0800 (PST)
+Return-Path: <noreply@internet.icscards.nl>
+Received: from mail.internet.icscards.nl (mail.internet.icscards.nl. [185.70.113.19])
+        by mx.google.com with ESMTPS id gg6si52072574wjb.56.2015.12.21.13.37.53
+        for <jlssparreboom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 21 Dec 2015 13:37:53 -0800 (PST)
+Received-SPF: pass (google.com: domain of noreply@internet.icscards.nl designates 185.70.113.19 as permitted sender) client-ip=185.70.113.19;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of noreply@internet.icscards.nl designates 185.70.113.19 as permitted sender) smtp.mailfrom=noreply@internet.icscards.nl;
+       dkim=pass header.i=@internet.icscards.nl;
+       dmarc=pass (p=REJECT dis=NONE) header.from=icscards.nl
+Message-ID: <56787131.c668c20a.2371a.ffff9a23SMTPIN_ADDED_BROKEN@mx.google.com>
+X-Google-Original-Message-ID: <b7b25538-402d-4f7f-a9b6-9fdc87acc553-ICS>
+Received: from licsa23pv.localdomain (unknown [172.30.250.77])
+	by mail.internet.icscards.nl (Postfix) with ESMTP id 2A8693B
+	for <jlssparreboom@gmail.com>; Mon, 21 Dec 2015 22:37:53 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=internet.icscards.nl;
+	s=s20150223; t=1450733873;
+	bh=pMk/mw0xI94/upnnQNCiwiofWdl6eaG5XaQtIzMeaPQ=;
+	h=Date:From:To:Subject;
+	b=etbvGztgYC7xHn5jgxzGt1GFkKy7BQrXBi6t2L4Wb44HA6rZcxpAW7FbVlVysN9wQ
+	 cELukyn8WSstxSCX1l1NiOYFEZvQZ/sMAHb/YeiP23nX2iOXn1fVvoQKn5jgITFeG1
+	 WFjypGoULehH+f7GaDG6IulYSxhHtuw93voeUatM=
+Received: from licsa23pv.cipe.local (localhost [127.0.0.1])
+	by licsa23pv.localdomain (Postfix) with ESMTP id 0F0C2294
+	for <jlssparreboom@gmail.com>; Mon, 21 Dec 2015 22:37:53 +0100 (CET)
+Date: Mon, 21 Dec 2015 22:37:53 +0100 (CET)
+From: International Card Services <noreply@internet.icscards.nl>
+To: jlssparreboom@gmail.com
+Subject: Validatiecode voor Mijn Account
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_115754_262082463.1450733873059"
+
+------=_Part_115754_262082463.1450733873059
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_115755_288362800.1450733873059"
+
+------=_Part_115755_288362800.1450733873059
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+
+
+
+
+
+Validatiecode voor Mijn Account
+
+
+
+
+
+
+
+ 
+  
+   
+   
+    
+     
+       
+        
+       
+      
+      
+       
+        
+       
+      
+    
+   
+   
+   
+   
+   
+   
+   
+   
+    
+     &nbsp;
+    
+    
+     
+     Validatiecode voor Mijn Account
+     
+    
+    
+     &nbsp;
+    
+    
+     
+    
+	
+   
+   
+   
+   
+    
+     
+     
+       
+        
+		   		   Geachte heer
+		   		   		   Sparreboom,
+		   			
+			
+Hierbij ontvangt u de door u aangevraagde validatiecode.
+Uw validatiecode is: DHWHR
+				
+				Met vriendelijke groet,
+				International Card Services BV
+						
+       
+      
+     
+    
+    
+     
+    
+   
+
+ 
+ 
+
+
+   
+
+
+
+ 
+  
+   
+   
+    
+	
+    
+	 
+       
+        
+			
+			  
+			   
+			  
+			 
+			 
+			  
+			   
+			  
+			 
+		   
+		   
+			Dit is een automatisch gegenereerd bericht.
+			 
+		   
+		   
+			Let op! Ga voorzichtig om met uw persoonlijke gegevens. Medewerkers van ICS zullen nooit naar uw gebruikersnaam, wachtwoord en/of pincode vragen. Niet via e-mail, telefoon of op welke andere manier dan ook.
+			 
+		   
+		   
+		
+       
+       
+        
+		Dit bericht is verzonden door International Card Services BV, statutair gevestigd aan de Wisselwerking 32 te (1112 XP) Diemen, ingeschreven in het Handelsregister Amsterdam onder nummer 33.200.596.
+         
+         This message has been sent by International Card Services BV, which has its seat at Wisselwerking 32 (1112 XP) Diemen, the Netherlands, and is registered in the Commercial Register of Amsterdam under number 33.200.596.
+       
+      
+	  
+    
+   
+ 
+
+
+
+
+
+------=_Part_115755_288362800.1450733873059
+Content-Type: text/html;charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="iso-8859-1"/>
+<title>Validatiecode voor Mijn Account</title>
+</head>
+<body bgcolor="#ffffff" style="background-color:#ffffff;">
+<style type="text/css">
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100% !important;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+}
+.ReadMsgBody {
+  width: 100%;
+}
+.ExternalClass {
+  width: 100%;
+}
+.ExternalClass * {
+  line-height: 100%;
+}
+table td {
+  border-collapse: collapse;
+  mso-table-lspace: 0pt;
+  mso-table-rspace: 0pt;
+  margin: 0;
+  padding: 0;
+}
+img {
+  display: block;
+  line-height: 100%;
+  outline: none;
+  text-decoration: none;
+}
+
+@media (max-width:600px) {
+*[class="text-smaller"] {
+  font-size: 10px !important;
+}
+*[class="mobile-view"] {
+	width: 310px !important;
+	max-width: 310px !important;
+	min-width: 310px !important;
+}
+*[class="mobileSnippet"] {
+  text-align: left;
+}
+*[class="headerTitle"] {
+  height: 60px;
+}
+*[class="text"] {
+  font-size: 14px !important;
+  line-height: 20px !important;
+}
+*[class="text2"] {
+  font-size: 16px !important;
+  line-height: 20px !important;
+}
+*[class="fullwidth640"] {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 100% !important;
+}
+*[class="hide640"] {
+  display: none !important;
+}
+*[class="hide"] {
+  display: none !important;
+}
+*[class="show"] {
+  display: block !important;
+}
+*[class="height640"] {
+  height: 22px !important;
+}
+img[class="image640"] {
+  width: 100% !important;
+  height: auto !important;
+}
+img[class="imgFullWidth"] {
+  width: 100% !important;
+}
+*[class="menuPadding"] {
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+}
+*[class="mobilePaddingNumbers"] {
+  padding: 2px !important;
+  font-size: 8px !important;
+}
+}
+</style>
+
+<!-- MainWrapper-A -->
+
+<table align="center" class="mobile-view" style="BACKGROUND-COLOR: #ffffff; width:100%;" border="0" cellspacing="0" cellpadding="0">
+ <tr>
+  <td><!-- Logo laag -->
+   
+   <table id="logo-laag" class="hide" align="center" bgcolor="#FFFFFF" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+     <td class="fullwidth640" height="106" style="width:630px; max-width:630px;"><table align="left" border="0" cellspacing="0" cellpadding="0">
+       <tr>
+        <td valign="middle" height="100"><img class="headerLogoLeft" style="DISPLAY: block;" border="0" title="" alt="" src="https://www.pubcontent.icscards.nl/ICS-BIJENKORF/content/images/email/icon_logo_bijenkorf.gif" width="206" height="56" /></td>
+       </tr>
+      </table>
+      <table align="right" border="0" cellspacing="0" cellpadding="0">
+       <tr>
+        <td valign="top"><img class="headerLogoLeft" style="DISPLAY: block;" border="0" title="INTERNATIONAL CARD SERVICES" alt="INTERNATIONAL CARD SERVICES" src="https://www.pubcontent.icscards.nl/ICS-BIJENKORF/content/images/email/icon_header_right_bijenkorf.gif" width="251" height="88" /></td>
+       </tr>
+      </table></td>
+    </tr>
+   </table>
+   <table class="show" align="center" style="width:100%; display:none" bgcolor="#FFFFFF" border="0" cellspacing="0" cellpadding="0">
+   <tr><td><img style="DISPLAY: block;" border="0" title="INTERNATIONAL CARD SERVICES" alt="INTERNATIONAL CARD SERVICES" src="https://www.pubcontent.icscards.nl/ICS-BIJENKORF/content/images/email/beeld_header_bijenkorf_mobile.jpg" width="310" height="80" /></td></tr>
+   </table>
+   
+   <!-- Header type A0 -->
+   
+   <table id="header-laag-A0" align="center" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+     <td height="20" colspan="3" style="border-top:1px solid #e3a715;">&nbsp;</td>
+    </tr>
+    <tr>
+     <td style="width:10px; min-width:10px;"></td>
+     <td class="fullwidth640" height="33" valign="middle" style="width:610px; max-width:610px; min-width:610px; font-size:24px; line-height:32px; font-family: Arial, Helvetica, sans-serif; color:#000d2e;">Validatiecode voor Mijn Account</td>
+     <td style="width:10px; min-width:10px;"></td>
+    </tr>
+    <tr>
+     <td height="20" colspan="3" style="border-bottom:1px solid #e3a715;">&nbsp;</td>
+    </tr>
+    <tr>
+     <td height="20"></td>
+    </tr>
+	</table>
+   
+   <!-- Laag type B100 -->
+   
+   <table id="laag-B1" align="center" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+     <td style="width:10px; min-width:10px;"></td>
+     <td class="fullwidth640" valign="top" style="width:610px; max-width:610px; min-width:610px;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+       <tr>
+        <td class="text" style="font-size:12px; line-height:18px; font-family: Arial, Helvetica, sans-serif; color:#000000;">
+		   		   Geachte heer
+		   		   		   Sparreboom,
+		   			<br />
+			<br />
+Hierbij ontvangt u de door u aangevraagde validatiecode.<br />
+Uw validatiecode is: DHWHR
+				<br /><br />
+				Met vriendelijke groet,<br />
+				International Card Services BV<br />
+						</td>
+       </tr>
+      </table></td>
+     <td style="width:10px; min-width:10px;"></td>
+    </tr>
+    <tr>
+     <td colspan="3" height="20"></td>
+    </tr>
+   </table>
+
+ </td>
+ </tr>
+</table>
+<!-- Einde MainWrapper-A -->
+   
+<!-- FooterWrapper -->
+
+<table bgcolor="#f9f9f9" align="center" class="mobile-view" width="100%" border="0" cellspacing="0" cellpadding="0">
+ <tr>
+  <td><!-- Footer Laag -->
+   
+   <table align="center" id="footer-laag" bgcolor="#f9f9f9" cellspacing="0" cellpadding="0" border="0">
+    <tr>
+	<td width="10" style="width:10px;"></td>
+    <td class="fullwidth640" valign="top" style="width:610px; max-width:610px; min-width:610px; padding-top:25px; padding-bottom:20px; padding-left:10px; padding-right:10px;border-top:1px solid #e3a715;">
+	 <table width="100%" border="0" cellspacing="0" cellpadding="0">
+       <tr>
+        <td valign="top" height="70" style="font-size:11px; line-height:18px; font-family: Arial, Helvetica, sans-serif; color:#999999;">
+			<table class="fullwidth640" align="left" border="0" cellspacing="0" cellpadding="0">
+			  <tr>
+			   <td width="100%"></td>
+			  </tr>
+			 </table>
+			 <table align="right" border="0" cellspacing="0" cellpadding="0" width=115>
+			  <tr>
+			   <td align=right><img style="DISPLAY: block;" border="0" title="" alt="" src="https://www.pubcontent.icscards.nl/ICS-BIJENKORF/content/images/email/icon_logo_ics_grey.png" width="116" height="49" /><br /></td>
+			  </tr>
+			 </table>
+		   <table align="left" border="0" cellspacing="0" cellpadding="0" width=78% class="fullwidth640">
+		   <tr>
+			<td align="left" valign="middle" height="20" style="font-size:11px; line-height:18px; font-family: Arial, Helvetica, sans-serif; color:#999999;">Dit is een automatisch gegenereerd bericht.<br />
+			 <br /></td>
+		   </tr>
+		   <tr>
+			<td align="left" valign="middle" height="20" style="font-size:11px; line-height:18px; font-family: Arial, Helvetica, sans-serif; color:#999999;">Let op! Ga voorzichtig om met uw persoonlijke gegevens. Medewerkers van ICS zullen nooit naar uw gebruikersnaam, wachtwoord en/of pincode vragen. Niet via e-mail, telefoon of op welke andere manier dan ook.<br />
+			 <br /></td>
+		   </tr>
+		   </table>
+		</td>
+       </tr>
+       <tr>
+        <td height="20" align="left" style="font-size:11px; line-height:18px; font-family: Arial, Helvetica, sans-serif; color:#999999;">
+		Dit bericht is verzonden door International Card Services BV, statutair gevestigd aan de Wisselwerking 32 te (1112 XP) Diemen, ingeschreven in het Handelsregister Amsterdam onder nummer 33.200.596.<br />
+         <br />
+         This message has been sent by International Card Services BV, which has its seat at Wisselwerking 32 (1112 XP) Diemen, the Netherlands, and is registered in the Commercial Register of Amsterdam under number 33.200.596.</td>
+       </tr>
+      </table></td>
+	  <td width="10" style="width:10px;"></td>
+    </tr>
+   </table></td>
+ </tr>
+</table>
+<!-- FooterWrapper -->
+
+</body>
+</html>
+------=_Part_115755_288362800.1450733873059--
+
+------=_Part_115754_262082463.1450733873059--
+

@@ -1,0 +1,371 @@
+#######################################################################
+#                      C# Snippets for UltiSnips                      #
+#######################################################################
+
+priority 1
+
+#########################
+#  classes and structs  #
+#########################
+
+snippet namespace "namespace"
+namespace ${1:MyNamespace}
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet class "class"
+class ${1:MyClass}
+{
+	$0
+}
+endsnippet
+
+snippet struct "struct"
+struct ${1:MyStruct}
+{
+	$0
+}
+endsnippet
+
+snippet interface "interface"
+interface I${1:Interface}
+{
+	$0
+}
+endsnippet
+
+snippet enum "enumeration"
+enum ${1:MyEnum} { ${2:Item} };
+endsnippet
+
+
+############
+#  Main()  #
+############
+
+snippet psim "static int main"
+public static int Main(string[] args)
+{
+	$0
+}
+endsnippet
+
+snippet psvm "static void main"
+public static void Main(string[] args)
+{
+	$0
+}
+endsnippet
+
+
+###############
+#  functions  #
+###############
+
+snippet pubf "Public function"
+public ${1:output} ${2:functionName}()
+{
+	${3:// insert incredible smart code here...}
+}
+endsnippet
+
+snippet pubsf "Public static function"
+public static ${1:output} ${2:functionName}()
+{
+	${3:// insert incredible smart code here...}
+}
+endsnippet
+
+snippet prof "Protected function"
+protected ${1:output} ${2:functionName}()
+{
+	${3:// insert incredible smart code here...}
+}
+endsnippet
+
+snippet prosf "Protected static function"
+protected static ${1:output} ${2:functionName}()
+{
+	${3:// insert incredible smart code here...}
+}
+endsnippet
+
+snippet prif "Private function"
+private ${1:output} ${2:functionName}()
+{
+	${3:// insert incredible smart code here...}
+}
+endsnippet
+
+snippet prisf "Private static function"
+private static ${1:output} ${2:functionName}()
+{
+	${3:// insert incredible smart code here...}
+}
+endsnippet
+
+################
+#  properties  #
+################
+
+snippet prop "Simple property declaration"
+public ${1:int} ${2:MyProperty} { get; set; }
+endsnippet
+
+snippet propfull "Full property declaration"
+private ${1:int} ${2:_myProperty};
+
+public $1 ${3:MyProperty}
+{
+	get { return $2; }
+	set { $2 = value; }
+}
+endsnippet
+
+snippet propg "Property with a private setter"
+public ${1:int} ${2:MyProperty} { get; private set; }
+endsnippet
+
+
+############
+#  blocks  #
+############
+
+snippet #if "#if #endif" b
+#if ${1:DEBUG}
+${VISUAL}$0
+#endif
+endsnippet
+
+snippet #region "#region #endregion"
+#region ${1:Region}
+${VISUAL}$0
+#endregion
+endsnippet
+
+
+###########
+#  loops  #
+###########
+
+snippet for "for loop"
+for (int ${1:i} = 0; $1 < ${2:10}; $1++)
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet forr "for loop (reverse)"
+for (int ${1:i} = ${2:10}; $1 >= 0; $1--)
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet fori "foreach loop"
+foreach (${3:var} ${2:item} in ${1:items})
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet while "while loop"
+while (${1:true})
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet do "do loop"
+do
+{
+	${VISUAL}$0
+} while (${1:true});
+endsnippet
+
+
+###############
+#  branching  #
+###############
+
+snippet if "if statement"
+if ($1)
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet ife "if else statement"
+if ($1)
+{
+	${VISUAL}$2
+}
+else
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet elif "else if"
+else if ($1)
+{
+	$0
+}
+endsnippet
+
+snippet ifnn "if not null"
+if ($1 != null)
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet switch "switch statement"
+switch (${1:statement})
+{
+	case ${2:value}:
+		break;
+
+	default:
+		$0break;
+}
+endsnippet
+
+snippet case "case"
+case ${1:value}:
+	$2
+	break;
+endsnippet
+
+
+##############
+#  wrappers  #
+##############
+
+snippet using "using statement"
+using (${1:resource})
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet unchecked "unchecked block"
+unchecked
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet checked "checked block"
+checked
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet unsafe "unsafe"
+unsafe
+{
+	${VISUAL}$0
+}
+endsnippet
+
+
+########################
+#  exception handling  #
+########################
+
+snippet try "try catch block"
+try
+{
+	${VISUAL}$0
+}
+catch (${1:Exception} ${2:e})
+{
+	throw;
+}
+endsnippet
+
+snippet tryf "try finally block"
+try
+{
+	${VISUAL}$0
+}
+finally
+{
+}
+endsnippet
+
+snippet throw "throw"
+throw new ${1}Exception("${2}");
+endsnippet
+
+
+##########
+#  LINQ  #
+##########
+
+snippet from "LINQ syntax"
+var ${1:seq} =
+	from ${2:item1} in ${3:items1}
+	join ${4:item2} in ${5:items2} on $2.${6:prop1} equals $4.${7:prop2}
+	select ${8:$2.prop3}
+	where ${9:clause}
+endsnippet
+
+
+############################
+#  feedback and debugging  #
+############################
+
+snippet da "Debug.Assert"
+Debug.Assert(${1:true});
+endsnippet
+
+snippet cw "Console.WriteLine"
+Console.WriteLine("$1");
+endsnippet
+
+# as you first type comma-separated parameters on the right, {n} values appear in the format string
+snippet cwp "Console.WriteLine with parameters"
+Console.WriteLine("${2:`!p
+snip.rv = ' '.join(['{' + str(i) + '}' for i in range(t[1].count(','))])
+`}"${1:, something});
+endsnippet
+
+snippet mbox "Message box"
+MessageBox.Show("${1:message}");
+endsnippet
+
+
+##################
+#  full methods  #
+##################
+
+snippet equals "Equals method"
+public override bool Equals(object obj)
+{
+	if (obj == null || GetType() != obj.GetType())
+	{
+		return false;
+	}
+	$0
+	return base.Equals(obj);
+}
+endsnippet
+
+
+##############
+#  comments  #
+##############
+
+snippet /// "XML comment"
+/// <summary>
+/// $1
+/// </summary>
+endsnippet
+
+# vim:ft=snippets:
+

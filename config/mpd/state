@@ -1,0 +1,35 @@
+sw_volume: 1
+audio_device_state:1:pulse audio
+audio_device_state:1:my_fifo
+state: play
+current: 18
+time: 101.912000
+random: 0
+repeat: 1
+single: 0
+consume: 0
+crossfade: 0
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:Enya/2 Compilation albums/2002 Best Of Enya @320/01 Orinoco Flow.mp3
+1:Enya/2 Compilation albums/2002 Best Of Enya @320/02 Caribbean Blue.mp3
+2:Enya/2 Compilation albums/2002 Best Of Enya @320/03 Only Time.mp3
+3:Enya/2 Compilation albums/2002 Best Of Enya @320/04 Anywhere.mp3
+4:Enya/2 Compilation albums/2002 Best Of Enya @320/05 How Can I Keep From Singing.mp3
+5:Enya/2 Compilation albums/2002 Best Of Enya @320/06 Wild Child.mp3
+6:Enya/2 Compilation albums/2002 Best Of Enya @320/07 Book Of Days.mp3
+7:Enya/2 Compilation albums/2002 Best Of Enya @320/08 Storm In Africa.mp3
+8:Enya/2 Compilation albums/2002 Best Of Enya @320/09 Only If.mp3
+9:Enya/2 Compilation albums/2002 Best Of Enya @320/10 A Day Without Rain.mp3
+10:Enya/2 Compilation albums/2002 Best Of Enya @320/11 The Celts.mp3
+11:Enya/2 Compilation albums/2002 Best Of Enya @320/12 Watermark.mp3
+12:Enya/2 Compilation albums/2002 Best Of Enya @320/13 Flora's Secret.mp3
+13:Enya/2 Compilation albums/2002 Best Of Enya @320/14 Tempus Vernum.mp3
+14:Enya/2 Compilation albums/2002 Best Of Enya @320/15 Deora Ar Mo Chroi.mp3
+15:Enya/2 Compilation albums/2002 Best Of Enya @320/16 Lazy Days.mp3
+16:Enya/2 Compilation albums/2002 Best Of Enya @320/17 The First Of Autumn.mp3
+17:Enya/2 Compilation albums/2002 Best Of Enya @320/18 Fallen Embers.mp3
+18:Enya/2 Compilation albums/2002 Best Of Enya @320/19 Pilgrim.mp3
+19:Enya/2 Compilation albums/2002 Best Of Enya @320/20 One By One.mp3
+playlist_end

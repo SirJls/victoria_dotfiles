@@ -1,0 +1,68 @@
+# ------------------------------------
+# file: $HOME/dotfiles/xbindkeysrc
+# ------------------------------------
+
+#keystate_numlock = enable
+#keystate_capslock = enable
+#keystate_scrolllock= enable
+
+# Volume settings
+# ------------------------------------
+
+# Muter/UnMute
+# ------------------------------------
+"amixer set "Master" toggle"
+m:0x00 + c:121
+XF86AudioMute
+
+# Volume up
+# ------------------------------------
+"amixer set "Master" 5%+"
+m:0x0 + c:123
+XF86AudioRaiseVolume
+
+# Volume down
+# ------------------------------------
+"amixer set "Master" 5%-"
+m:0x0 + c:122
+XF86AudioLowerVolume
+
+# Stop alsaplayer
+# ------------------------------------
+"alsaplayer --pause"
+m:0x0 + c:172
+XF86AudioPlay
+
+# Next alsaplayer
+# ------------------------------------
+"alsaplayer --next"
+m:0x0 + c:171
+XF86AudioNext
+
+# Previous alsaplayer"
+# ------------------------------------
+"alsaplayer --prev"
+m:0x0 + c:173
+XF86AudioPrev
+
+# Other settings
+# ------------------------------------
+
+# Suspend to ram
+# ------------------------------------
+"sudo pm-suspend"
+m:0x0 + c:150
+XF86Sleep
+
+# Brightness up
+# ------------------------------------
+"xbacklight -inc 10"
+m:0x0 + c:233
+XF86MonBrightnessUp
+
+# Brightness down
+# ------------------------------------
+"xbacklight -dec 10"
+m:0x0 + c:232
+XF86MonBrightnessDown
+

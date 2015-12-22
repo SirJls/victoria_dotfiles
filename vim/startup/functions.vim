@@ -1,0 +1,129 @@
+" ----------------------------------------------------
+" file:     $HOME/dotfiles/vim/startup/functions.vim
+" author    jls - http://sjorssparreboom.nl
+" vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=conf:
+" ----------------------------------------------------
+
+" {{{ toggle colored right border after 80 chars
+set colorcolumn=0
+let s:color_column_old = 80
+
+function! s:ToggleColorColumn()
+    if s:color_column_old == 0
+        let s:color_column_old = &colorcolumn
+        windo let &colorcolumn = 0
+    else
+        windo let &colorcolumn=s:color_column_old
+        let s:color_column_old = 0
+    endif
+endfunction
+nnoremap <bar> :call <SID>ToggleColorColumn()<cr>
+" }}}
+
+" {{{ Map keys to toggle functions
+function! MapToggle(key, opt)
+    let cmd = ':set '.a:opt.'! \| set '.a:opt."?\<CR>"
+    exec 'nnoremap '.a:key.' '.cmd
+    exec 'inoremap '.a:key." \<C-O>".cmd
+endfunction
+
+command! -nargs=+ MapToggle call MapToggle(<f-args>)
+" }}}
+
+" {{{ Let me use the enter to insert snippets without lossing it's functionality
+function! <SID>ExpandSnippetOrReturn()
+    let snippet = UltiSnips#ExpandSnippetOrJump()
+    if g:ulti_expand_or_jump_res > 0
+        return snippet
+    else
+        return "\<CR>"
+    endif
+endfunction
+inoremap <expr> <CR> pumvisible() ? "<C-R>=<SID>ExpandSnippetOrReturn()<CR>" : "\<CR>"
+" }}}
+
+" {{{ Let me Count words
+let g:word_count=" "
+function WordCount()
+    return g:word_count
+endfunction
+function UpdateWordCount()
+    let lnum = 1
+    let n = 0
+    while lnum <= line('$')
+        let n = n + len(split(getline(lnum)))
+        let lnum = lnum + 1
+    endwhile
+    let g:word_count = n
+endfunction
+" Update the count when cursor is idle in command or insert mode.
+" Update when idle for 1000 msec (default is 4000 msec).
+set updatetime=1000
+augroup WordCounter
+    au! CursorHold,CursorHoldI * call UpdateWordCount()
+augroup END
+" }}}
+
+" {{{ Concept - load underlying class for Laravel
+function! FacadeLookup()
+    let facade = input('Facade Name: ')
+    let classes = {
+                \       'Form': 'Html/FormBuilder.php',
+                \       'Html': 'Html/HtmlBuilder.php',
+                \       'File': 'Filesystem/Filesystem.php',
+                \       'Eloquent': 'Database/Eloquent/Model.php'
+                \   }
+
+    execute ":edit vendor/laravel/framework/src/Illuminate/" . classes[facade]
+endfunction
+" }}}
+
+" {{{ let me create a directory and file in one go
+function s:MKDir(...)
+    if         !a:0 
+                \|| stridx('`+', a:1[0])!=-1
+                \|| a:1=~#'\v\\@<![ *?[%#]'
+                \|| isdirectory(a:1)
+                \|| filereadable(a:1)
+                \|| isdirectory(fnamemodify(a:1, ':p:h'))
+        return
+    endif
+    return mkdir(fnamemodify(a:1, ':p:h'), 'p')
+endfunction
+command -bang -bar -nargs=? -complete=file E :call s:MKDir(<f-args>) | e<bang> <args>
+" }}}
+
+
+" {{{ fix all the tab issues
+if exists("+showtabline")
+     function MyTabLine()
+         let s = ''
+         let t = tabpagenr()
+         let i = 1
+         while i <= tabpagenr('$')
+             let buflist = tabpagebuflist(i)
+             let winnr = tabpagewinnr(i)
+             let s .= '%' . i . 'T'
+             let s .= (i == t ? '%1*' : '%2*')
+             let s .= ' '
+             let s .= i . ')'
+             let s .= ' %*'
+             let s .= (i == t ? '%#TabLineSel#' : '%#TabLine#')
+             let file = bufname(buflist[winnr - 1])
+             let file = fnamemodify(file, ':p:t')
+             if file == ''
+                 let file = '[No Name]'
+             endif
+             let s .= file
+             let i = i + 1
+         endwhile
+         let s .= '%T%#TabLineFill#%='
+         let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
+         return s
+     endfunction
+     set stal=2
+     set tabline=%!MyTabLine()
+endif
+" }}}
+
+" vim:ft=vim
