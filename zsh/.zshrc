@@ -90,7 +90,7 @@ alias toad="$HOME/scripts/./hypnotoad.pl"
 
 # Code & file editing related
 #-------------------------------------
-alias code="cd $HOME/documents/code"
+alias code="cd $HOME/code"
 alias tx="tmux -f ~/.config/tmux/conf"
 
 # Viewers

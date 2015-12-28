@@ -1,9 +1,11 @@
-! ------------------------------------
-! file $HOME/.config/xmodmap/.xmodmaprc
-! ------------------------------------
+! -------------------------------------------------
+! file $HOME/dotfiles/xmodmaprc
+! author    jls - http://sjorssparreboom.nl
+! vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=xmodmap:
+! -------------------------------------------------
 
 ! Rebindings
-! ------------------------------------
+! -------------------------------------------------
 clear Lock
 keycode   9 = Caps_Lock
 keycode  66 = Escape

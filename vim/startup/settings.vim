@@ -1,7 +1,7 @@
 " ----------------------------------------------------
 " file:     $HOME/dotfiles/vim/startup/settings.vim
 " author    jls - http://sjorssparreboom.nl
-" vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=conf:
+" vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=vim:
 " ----------------------------------------------------
 
 " The actual settings

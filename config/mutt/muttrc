@@ -1,8 +1,8 @@
 # ----------------------------------------------------
 # file:     $HOME/dotfiles/config/mutt/muttrc
 # author    jls - http://sjorssparreboom.nl
-## vim:fenc=utf-8:nu:ai:si:et:ts=4:sw=4:ft=muttrc
- ----------------------------------------------------
+# vim:fenc=utf-8:nu:ai:si:et:ts=4:sw=4:ft=muttrc
+# ----------------------------------------------------
 
 # Configuration settings
 # ----------------------------------------------------
