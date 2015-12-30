@@ -1,5 +1,5 @@
 # ----------------------------------------------------
-# file: $HOME/.zsh/.zshrc
+# file: $HOME/dotfiles/zsh/zshrc
 # author    jls - http://sjorssparreboom.nl
 # vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=conf:
 # ----------------------------------------------------
@@ -58,7 +58,7 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:pacman:*' force-list always
 zstyle ':completion:*:*:pacman:*' menu yes select
 zstyle -e ':completion:*' hosts 'reply=(cent pi sent veles)'
-zstyle :compinstall filename '$HOME/.zshrc'
+zstyle :compinstall filename '$HOME/zsh/.zshrc'
 
 # avoid duplicate params completion in cp, mv, rm
 # ----------------------------------------------------
