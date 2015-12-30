@@ -6,6 +6,8 @@
 ! Credits for this code goes to json wryan
 !----------------------------------------------------
 
+! Cursor
+! ---------------------------------------------------
 Xcursor.size:                             24
 
 ! Urxvt
@@ -17,9 +19,9 @@ URxvt.geometry:                           80x22
 URxvt.transparent:                        0
 URxvt.urgentOnBell:                       true
 URxvt.letterSpace:                        -1
-URxvt.lineSpace:                          4
+URxvt.lineSpace:                          6
 ! URxvt.internalBorder:                     4
-URxvt.internalBorder:                     0
+URxvt.internalBorder:                     4
 
 ! borderless and no scrollbar
 ! ---------------------------------------------------

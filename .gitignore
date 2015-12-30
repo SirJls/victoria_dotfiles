@@ -6,7 +6,6 @@ config/NuGet
 config/xbuild
 config/chromium/
 config/autostart/
-config/awesome/
 config/PornTime/
 config/dconf/
 config/gtk-*

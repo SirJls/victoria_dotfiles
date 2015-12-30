@@ -1,8 +1,10 @@
 #-------------------------------------------------
 # file:     $HOME/dotfiles/zsh/functions.zsh
-# author:   jason ryan - http://jasonwryan.com/
+# author:   jls - http://sjorssparreboom.nl
 # vim:fenc=utf-8:nu:ai:si:et:ts=4:sw=4:ft=zsh:
 #-------------------------------------------------
+# Credits for this code goes to json wryan
+#----------------------------------------------------
 
 # Extract Files
 extract() {
