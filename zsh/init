@@ -1,0 +1,30 @@
+#!/bin/bash
+# ----------------------------------------------------
+# file: $HOME/.zsh/aliases.zsh
+# author    jls - http://sjorssparreboom.nl
+# vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=conf:
+# ----------------------------------------------------
+
+# ----------------------------------------------------
+# RUN THIS SCRIPT AFTER CLONING REPO
+# ----------------------------------------------------
+
+while true
+do
+read -p "do you want to link zshenv to ~/.zshenv (Y/N)" yn
+case $yn in
+	[Yy]*) ln -s ~/.zsh/zshenv ~/.zshenv; break;;
+	[Nn]*) break;;
+	*) echo "please answer yes or no";;
+esac
+done
+
+while true
+do
+read -p "do you want to link zshrc to ~/.zshrc (Y/N)" yn
+case $yn in
+	[Yy]*) ln -s ~/.zsh/zshrc ~/.zshrc; break;;
+	[Nn]*) break;;
+	*) echo "please answer yes or no";;
+esac
+done

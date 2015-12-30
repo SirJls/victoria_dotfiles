@@ -4,44 +4,63 @@
 # vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=conf:
 # ----------------------------------------------------
 
-# Trun of screensaves
-# ------------------------------------
-xset s off
-
-# Speed up key repeat
-# ------------------------------------
-xset r rate 200 30
-
 # X settings
-# ------------------------------------
-xrdb -merge .Xresources && 
+# ----------------------------------------------------
+xrdb -merge .Xresources &&
 
-# Set background
-# ------------------------------------
-# feh --bg-tile ~/documents/pictures/wallpapers/vintage.jpg
+# create global xdg variables
+# ----------------------------------------------------
+. ~/scripts/make-xdg
 
-# Enable restart X
-# ------------------------------------
+# enable restart X
+# ----------------------------------------------------
 setxkbmap -option terminate:ctrl_alt_bk
 
-# Start xbindkeys
-# ------------------------------------
+# start xbindkeys
+# ----------------------------------------------------
 xbindkeys --file ~/dotfiles/xbindkeysrc
 
-# Start pulseaudio
-# -----------------------------------
+# start pulseaudio
+# ----------------------------------------------------
 pulseaudio --start
 
-# Activate modmap
-# -----------------------------------
-if [ -f ~/dotfiles/xmodmaprc ]; then
-    xmodmap ~/dotfiles/xmodmaprc
-fi
+# disable CapsLock & map to Escape
+# ----------------------------------------------------
+/usr/bin/setxkbmap -option caps:swapescape
 
-# Activate xcompmgr
-# -----------------------------------
-# xcompmgr -c &
+# compose key
+# ----------------------------------------------------
+setxkbmap -option compose:ral
 
-# Start awesome
-# -----------------------------------
+# brightness
+# ----------------------------------------------------
+xbacklight -set 45% &
+
+# numlock
+# ----------------------------------------------------
+/usr/bin/numlockx &
+
+# turn of screensaver
+# ----------------------------------------------------
+xset s off -dpms
+
+# hide cursor
+# ----------------------------------------------------
+/usr/bin/unclutter -noevents -idle 3 &
+
+# speed up key repeat
+# ----------------------------------------------------
+xset r rate 200 30
+
+# set cursor
+# ----------------------------------------------------
+/usr/bin/xsetroot -cursor_name left_ptr &
+
+# clipboard synching
+# ----------------------------------------------------
+/usr/bin/autocutsel -fork &
+/usr/bin/autocutsel -selection PRIMARY -fork &
+
+# start awesome
+# ----------------------------------------------------
 exec awesome

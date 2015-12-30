@@ -7,6 +7,7 @@ config/xbuild
 config/chromium/
 config/autostart/
 config/awesome/
+config/PornTime/
 config/dconf/
 config/gtk-*
 config/stetic/
@@ -37,6 +38,16 @@ config/mpd/state
 config/mpd/playlists
 config/mpd/sticker.sql
 config/mpd/database
+config/vimb/closed
+config/vimb/bookmark
+config/vimb/command
+config/vimb/cookies
+config/vimb/history
+config/vimb/hsts
+config/vimb/queue
+config/vimb/search
+config/vimprobable/closed
+config/vimprobable/cookies
 ncmpcpp/error.log
 ncmpcpp/artists/
 vim/bundle/
@@ -45,5 +56,6 @@ vim/spell/
 vim/syntax/
 vim/backup/
 zsh/histfile
+zsh/.zcompdump
 .git-*
 

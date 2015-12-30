@@ -1,0 +1,91 @@
+# -------------------------------------------------
+# file:     ~/dotfiles/config/vimb/config
+# author:   jls - jlssparreboom.nl
+# vim:fenc=utf-8:nu:ai:si:et:ts=2:sw=2:ft=sh:
+# -------------------------------------------------
+
+# set options
+# -------------------------------------------------
+handler-add mailto=urxvt -e mutt %s
+handler-add ftp=urxvt -e wget %s -P /tmp/vimb
+set editor-command=urxvt -title scratchpad -geometry 86x24+40+60 -e vim %s
+set home-page=https://bbs.archlinux.org/
+set cookie-accept=origin
+set download-path=/home/jls/downloads
+set header=DNT=1
+set history-max-items=30000
+set maximum-cache-size=20000
+set plugins=off
+set scripts=on
+set strict-focus=off
+set stylesheet=on
+set webinspector=off
+set x-hint-command=:sh! /home/jls/scripts/tube <C-R>;<CR>
+
+# appearance
+# -------------------------------------------------
+set fontsize=10
+set monofontsize=9
+set minimumfontsize=7
+set status-color-bg=#222222
+set status-color-fg=#696969
+set status-font=DejaVu Sans 7
+set status-ssl-font=DejaVu Sans 7
+set status-sslinvalid-font=DejaVu Sans 7
+set status-ssl-color-fg=#53A6A6
+set status-ssl-color-bg=#222
+set status-sslinvalid-color-fg=#8A2F58
+set status-sslinvalid-color-bg=#222222
+set input-font-error=DejaVu Sans 7
+set input-font-normal=DejaVu Sans 7
+set input-bg-normal=#222222
+set input-fg-normal=#CCCCCC
+set input-bg-error=#222222
+set input-fg-error=#8A2F58
+set completion-font=DejaVu Sans 7
+set completion-fg-normal=#899CA1
+set completion-fg-active=#FFFFFF
+set completion-bg-normal=#222222
+set completion-bg-active=#111111
+
+# shortcuts
+# -------------------------------------------------
+shortcut-add s=https://ixquick.com/do/metasearch.pl?&cat=web&query=host:unix.stackexchange.com+$0
+shortcut-add k=http://stackoverflow.com/search?q=[awk]+$0
+shortcut-add h=http://stackoverflow.com/search?q=[bash]+$0
+shortcut-add x=http://www.google.com/search?hl=en&source=hp&ie=ISO-8859-l&q=$0
+shortcut-add gh=https://github.com/search?q=$0&type=Code
+shortcut-add d=https://duckduckgo.com/?q=$0&t=Vimprobable
+shortcut-add y=https://www.youtube.com/results?search_query=$0
+shortcut-add g=https://ixquick.com/do/metasearch.pl?language=english&cat=web&query=$0
+shortcut-add b=https://ixquick.com/do/metasearch.pl?&cat=web&query=host:bbs.archlinux.org+$0
+shortcut-add a=https://wiki.archlinux.org/index.php?title=Special%%3ASearch&search=$0&go=Go
+shortcut-add w=https://secure.wikimedia.org/wikipedia/en/w/index.php?title=Special%%3ASearch&search=$0&go=Go
+shortcut-add B=https://api-ssl.bitly.com/v3/shorten?access_token=20e9827b9c5ddee1b0cec7722bfc557dec833791&longUrl=$0&format=txt
+
+# quick tabs
+# -------------------------------------------------
+nnoremap gb :tabopen https://github.com/git-jls<CR>
+nnoremap ge :tabopen https://wiki.archlinux.org/index.php/Forum_Etiquette<CR>
+nnoremap gf :tabopen http://flickr.jasonwryan.com<CR>
+nnoremap gw :tabopen http://sjorssparreboom.nl<CR>
+nnoremap gp :tabopen http://project.dev<CR>
+# nnoremap gr :tabopen https://www.reedah.com/reader.php<CR>
+# nnoremap gs :tabopen https://unix.stackexchange.com<CR>
+
+# basic mappings
+# -------------------------------------------------
+nnoremap b <C-O>
+nnoremap m <C-I>
+nnoremap x <C-Q>
+nnoremap <C-S> gf
+nnoremap <F11> :set fullscreen!<CR>
+nmap <C-C>o :set caret=on<CR>
+nmap <C-C>f :set caret=off<CR>
+nmap <C-A> :set useragent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36"<CR>
+nmap <C-B> :eval! document.location='https://pinboard.in/add?next=same&url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title)<CR>
+
+# navigate tabs
+# -------------------------------------------------
+nnoremap gt :sh! xdotool key --window /tmp/tabbed.xid ctrl+shift+l<CR><Esc>
+nnoremap gT :sh! xdotool key --window /tmp/tabbed.xid ctrl+shift+h<CR><Esc>

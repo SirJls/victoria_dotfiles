@@ -1,10 +1,9 @@
 Xresources
+irssi
 dir_colors
 vimencrypt
 vimrc
 xbindkeysrc
-xmodmaprc
-zshenv
 xinitrc
 config
 ncmpcpp
