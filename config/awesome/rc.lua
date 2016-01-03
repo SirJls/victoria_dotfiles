@@ -569,7 +569,7 @@ mailwidget = lain.widgets.imap({
                                     -- Dropdown terminal
                                     awful.key({ modkey, },  "z",       function () drop(terminal, "top", "right", 0.30, 0.10) end),
 
-                                    awful.key({ modkey, },  "b",       function () awful.util.spawn_with_shell("`tabbed -d > /tmp/tabbed.xid`; vimb -e `cat /tmp/tabbed.xid`") end),
+                                    awful.key({ modkey, },  "b",       function () awful.util.spawn("`tabbed -d > /tmp/tabbed.xid`; vimb -e `cat /tmp/tabbed.xid`") end),
 
                                     -- Prompt
                                     awful.key({ modkey },   "r",       function () mypromptbox[mouse.screen]:run() end),
@@ -730,8 +730,8 @@ mailwidget = lain.widgets.imap({
                                                 awful.placement.no_overlap(c)
                                                 awful.placement.no_offscreen(c)
                                             end
-                                                -- Hack fixes gaps for applications with fixed dimensions
-                                                c.size_hints_honor = false
+                                            -- Hack fixes gaps for applications with fixed dimensions
+                                            c.size_hints_honor = false
                                         end
 
                                         local titlebars_enabled = false
@@ -785,6 +785,6 @@ mailwidget = lain.widgets.imap({
                                     -- }}}
                                     -- {{{ Autostart
                                     -- Autostart apps after login
-                                    awful.util.spawn_with_shell("`tabbed -d > /tmp/tabbed.xid`; vimb -e `cat /tmp/tabbed.xid`")
-                                    awful.util.spawn(terminal .. " -e mutt -F ~/.config/mutt/muttrc")
+                                    -- awful.util.spawn_with_shell("`tabbed -d > /tmp/tabbed.xid`; vimprobable2 -e `cat /tmp/tabbed.xid`")
+                                    -- awful.util.spawn(terminal .. " -e mutt -F ~/.config/mutt/muttrc")
                                     -- }}}

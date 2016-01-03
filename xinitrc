@@ -12,6 +12,10 @@ xrdb -merge .Xresources &&
 # ----------------------------------------------------
 . ~/scripts/make-xdg
 
+# run urxvt daemon client
+# ----------------------------------------------------
+urxvtd -q -f -o
+
 # enable restart X
 # ----------------------------------------------------
 setxkbmap -option terminate:ctrl_alt_bk
@@ -24,33 +28,36 @@ xbindkeys --file ~/dotfiles/xbindkeysrc
 # ----------------------------------------------------
 pulseaudio --start
 
-# disable CapsLock & map to Escape
-# ----------------------------------------------------
-/usr/bin/setxkbmap -option caps:swapescape
-
 # compose key
 # ----------------------------------------------------
-setxkbmap -option compose:ral
+setxkbmap -option compose:ralt
 
 # brightness
 # ----------------------------------------------------
 xbacklight -set 45% &
 
-# numlock
-# ----------------------------------------------------
-/usr/bin/numlockx &
-
 # turn of screensaver
 # ----------------------------------------------------
 xset s off -dpms
+
+# speed up key repeat
+# ----------------------------------------------------
+xset r rate 200 30
+
+# set wallpaper
+# ----------------------------------------------------
+/usr/bin/setroot --restore 2>/dev/null
 
 # hide cursor
 # ----------------------------------------------------
 /usr/bin/unclutter -noevents -idle 3 &
 
-# speed up key repeat
+# disable CapsLock & map to Escape
 # ----------------------------------------------------
-xset r rate 200 30
+/usr/bin/setxkbmap -option caps:swapescape
+
+# ----------------------------------------------------
+/usr/bin/numlockx &
 
 # set cursor
 # ----------------------------------------------------
@@ -63,4 +70,5 @@ xset r rate 200 30
 
 # start awesome
 # ----------------------------------------------------
-exec awesome
+# exec awesome
+exec $HOME/scripts/dwm-start

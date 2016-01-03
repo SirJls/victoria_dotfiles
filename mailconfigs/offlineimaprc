@@ -1,0 +1,98 @@
+[general]
+metadata = ~/.offlineimap
+accounts = school, gmail
+maxsyncaccounts = 2
+socktimeout = 60
+ui = Basic
+
+# This helper file lets you use gnome-keyring to store usernames / passwords
+pythonfile = ~/.mailconfigs/offlineimap.py
+
+[mbnames]
+# Create a list of available mailboxes for mutt
+# ----------------------------------------------------
+
+enabled = yes
+
+filename = ~/.mutt/mailboxes
+
+header = "mailboxes "
+
+
+# Exclude these mailboxes from the above mailbox list
+# ----------------------------------------------------
+folderfilter = lambda accountname, foldername: not re.search('(^bak.*|.*drafts$|.*spam$|.*sent$|.*trash$)', foldername)
+
+peritem = "+%(accountname)s/%(foldername)s"
+sep = .
+footer = "\n"
+
+[Account school]
+localrepository = local-school
+remoterepository = remote-school
+
+[Account gmail]
+localrepository = local-gmail
+remoterepository = remote-gmail
+
+[Repository local-school]
+type = Maildir
+localfolders = ~/.mail/school
+
+# Translate names from local names to remote names:
+# This one does:
+# 1. Capitalizes all the folder names
+# 2. Changes any underscores to spaces
+# 3. Changes Inbox -> INBOX
+nametrans = lambda foldername: re.sub('Inbox', 'INBOX',
+                               re.sub ('_', ' ', foldername.capitalize()))
+
+
+[Repository remote-school]
+type = IMAP
+maxconnections = 2
+remotehost     = imap.hro.nl
+remoteuser     = 0890040@hro.nl
+remotepasseval = keyring.get_password("HRO", "0890040")
+
+# If using ssl, you will need to specify certificates to use with them
+ssl            = yes
+sslcacertfile  = /etc/ssl/certs/ca-certificates.crt
+realdelete     = yes
+
+# Translate remote names to local names:
+# This one does:
+# 1. Transforms names to lowercase
+# 2. Replaces spaces with underscores
+nametrans = lambda foldername: re.sub (' ', '_', foldername.lower())
+
+[Repository local-gmail]
+type = Maildir
+localfolders = ~/.mail/gmail
+# Note the nametrans below in remote-gmail: it undoes this one
+nametrans = lambda foldername: re.sub ('Inbox', 'INBOX',
+                               re.sub ('Drafts', '[Gmail].Drafts',
+                               re.sub ('Sent', '[Gmail].Sent Mail',
+                               re.sub ('Flagged', 'Starred',
+                               re.sub ('_', ' ', foldername.capitalize())))))
+
+
+[Repository remote-gmail]
+type = Gmail
+maxconnections = 2
+remotehost     = imap.gmail.com
+remoteuser     = jlssparreboom@gmail.com
+remotepasseval = keyring.get_password("gmail", "jls")
+
+# If using ssl, you will need to specify certificates to use with them
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+realdelete = no
+# Note the nametrans above in local-gmail: it undoes this one
+nametrans = lambda foldername: re.sub ('^\[gmail\]\/', '',
+                               re.sub ('sent_mail', 'sent',
+                               re.sub ('starred', 'flagged',
+                               re.sub (' ', '_', foldername.lower()))))
+
+# We don't want to sync all mail, it would pull everything again
+folderfilter = lambda foldername: foldername not in ['[Gmail]/All Mail']

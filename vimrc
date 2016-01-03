@@ -46,6 +46,9 @@ Plugin 'Valloric/YouCompleteMe'
 " Track engine for snippets
 Plugin 'SirVer/UltiSnips'
 
+" Snippets are separated from the engine. Add this if you want them:
+" Plugin 'honza/vim-snippets'
+
 " Syntaxchecker
 Plugin 'scrooloose/syntastic'
 
@@ -72,7 +75,6 @@ call vundle#end()
 "========== Filetype stuff on ========
 syntax on
 filetype plugin on
-filetype indent on
 filetype plugin indent on
 
 "========== Load custom settings =====

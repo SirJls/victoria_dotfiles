@@ -32,7 +32,7 @@ extract() {
 }
 
 # check history
-zhist() { grep -i "$1" "$ZDOTDIR"/histfile ;}
+zhist() { "history" 0 | grep -i "$1" ;}
 
 # hostblocking
 urlcheck() { sudo hostsblock-urlcheck "$1" ;}

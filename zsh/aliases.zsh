@@ -28,7 +28,7 @@ alias lsr="tree -Csu"                                       # nice alternative t
 alias pong="ping -c 3 google.com"
 alias wifi="sudo wifi-menu"
 alias edu='sudo netctl start eduroam'
-alias odd='sudo netclt stat wlp2s0-Oudedijk3A03'
+alias odd='sudo netctl start wlp2s0-Oudedijk3A03'
 alias cp3='sudo netctl start wlp2s0-Composer3\(2.4GHz\)'
 alias cp4='sudo netctl start wlp2s0-Composer4\(2.4GHz\)'
 
@@ -72,8 +72,9 @@ alias z='zathura'
 
 # mail
 # ----------------------------------------------------
-alias m="mutt -F ~/.config/mutt/muttrc"
-alias mail="m"
+# alias m="mutt -F ~/.config/mutt/muttrc"
+alias m='mutt'
+alias abook="abook --config $HOME/sync/abook/abookrc --datafile $HOME/sync/abook/addressbook"
 
 # editor
 # ----------------------------------------------------

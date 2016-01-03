@@ -17,7 +17,7 @@ zmodload zsh/complist
 # ----------------------------------------------------
 LPROMPT () {
 PS1=""
-PS1+="┌─[%{$fg[cyan]%}%m%{$fg_bold[blue]%}"
+PS1+="┌─[%{$fg[magenta]%}%m%{$fg_bold[blue]%}"
 # PS1+="[%T]%F{red}%(?.. exited %1v)%F{reset}"
 PS1+="%F{yellow}${vcs_info_msg_0_}%F{reset}"
 PS1+="%~ %{$fg_no_bold[yellow]%}%(0?..%?)%{$reset_color%}]
@@ -38,8 +38,9 @@ zle -N zle-keymap-select
 function precmd {
    vcs_info
    LPROMPT
-   PROMPT_EOL_MARK=" •"
 }
+
+PROMPT_EOL_MARK=" •"
 
 # completions
 # add custom completion scripts

@@ -1,0 +1,26 @@
+# -------------------------------------
+# file: $HOME/.config/mutt/sidebar
+# -------------------------------------
+
+# Change width accordingly
+# -------------------------------------
+
+# Visible at first, then change its value to yes
+# -------------------------------------
+
+# settings
+# -------------------------------------
+set sidebar_delim       = ' || '
+set sidebar_visible     = no
+set sidebar_width       = 20
+
+# colors
+# -------------------------------------
+color sidebar_new brightyellow default
+
+# bindings
+# -------------------------------------
+macro index b '<enter-command>toggle sidebar_visible<enter>'
+bind index,pager \CN    sidebar-next
+bind index,pager \CN    sidebar-prev
+bind index,pager \CO    sidebar-open

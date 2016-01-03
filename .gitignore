@@ -30,7 +30,7 @@ config/awesome/themes/miro/icons/
 config/awesome/themes/miro/wallpaper.*
 config/.isolated-storage/
 config/.protobuild-cache/
-config/mutt/*/cache/
+mutt/*/cache/
 config/mpd/log
 config/mpd/pid
 config/mpd/state
@@ -47,6 +47,9 @@ config/vimb/queue
 config/vimb/search
 config/vimprobable/closed
 config/vimprobable/cookies
+config/Trolltech.conf
+config/shaman
+config/setroot
 ncmpcpp/error.log
 ncmpcpp/artists/
 vim/bundle/

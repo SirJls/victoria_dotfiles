@@ -129,8 +129,12 @@ let g:ycm_key_list_select_completion=["<tab>"]
 let g:ycm_key_list_previous_completion=["<S-tab>"]
 let g:UltiSnipsJumpForwardTrigger="["
 let g:UltiSnipsJumpBackwardTrigger="]"
+let g:UltiSnipsListSnippets="<c-l>"
 let g:UltiSnipsExpandTrigger="<nop>"
 let g:ulti_expand_or_jump_res = 0
+let g:UltiSnipsSnippetsDir = "/home/jls/dotfiles/vim/snips/"
+let g:UltiSnipsSnippetDirectories=["snips"]
+
 
 " YouCompleteMe (YCM)
 " ----------------------------------------------------

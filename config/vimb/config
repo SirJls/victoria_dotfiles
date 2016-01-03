@@ -8,7 +8,8 @@
 # -------------------------------------------------
 handler-add mailto=urxvt -e mutt %s
 handler-add ftp=urxvt -e wget %s -P /tmp/vimb
-set editor-command=urxvt -title scratchpad -geometry 86x24+40+60 -e vim %s
+# set editor-command=urxvt -title scratchpad -geometry 86x24+40+60 -e vim %s
+set editor-command=urxvt -title scratchpad -e vim %s
 set home-page=https://bbs.archlinux.org/
 set cookie-accept=origin
 set download-path=/home/jls/downloads
@@ -78,7 +79,7 @@ nnoremap gp :tabopen http://project.dev<CR>
 nnoremap b <C-O>
 nnoremap m <C-I>
 nnoremap x <C-Q>
-nnoremap <C-S> gf
+nnoremap <C-S> gc
 nnoremap <F11> :set fullscreen!<CR>
 nmap <C-C>o :set caret=on<CR>
 nmap <C-C>f :set caret=off<CR>
