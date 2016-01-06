@@ -27,7 +27,7 @@ alias lsr="tree -Csu"                                       # nice alternative t
 # ----------------------------------------------------
 alias pong="ping -c 3 google.com"
 alias wifi="sudo wifi-menu"
-alias edu='sudo netctl start eduroam'
+alias edu='python $HOME/scripts/edu && sudo netctl start eduroam'
 alias odd='sudo netctl start wlp2s0-Oudedijk3A03'
 alias cp3='sudo netctl start wlp2s0-Composer3\(2.4GHz\)'
 alias cp4='sudo netctl start wlp2s0-Composer4\(2.4GHz\)'
@@ -60,6 +60,7 @@ alias color="$HOME/scripts/./color"
 alias inf="$HOME/scripts/./info"
 alias toad="$HOME/scripts/./hypnotoad"
 alias xdg="$HOME/scripts/xdg"
+alias tube="$HOME/scripts/tube"
 
 # code & file editing related
 # ----------------------------------------------------
@@ -85,9 +86,7 @@ alias vi="vim"
 
 # homestead
 # ----------------------------------------------------
-alias hssh="homestead ssh"
-alias hsup="homestead up"
-alias hspr="homestead provision"
+alias hs="homestead"
 
 # pacman
 # ----------------------------------------------------

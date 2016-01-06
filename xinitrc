@@ -4,6 +4,19 @@
 # vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=conf:
 # ----------------------------------------------------
 
+# Start keyring nd export environment variables
+# ----------------------------------------------------
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
+
+# external monitor
+# ----------------------------------------------------
+external=$(xrandr -q | awk '/HDMI1/ {print $2}')
+if [ "$external" = connected ]; then
+  xrandr --output eDP1 --mode 1600x900 --pos 0x0 --below HDMI1 \
+  --output HDMI1 --mode 1680x1050 --pos 0x900
+fi
+
 # X settings
 # ----------------------------------------------------
 xrdb -merge .Xresources &&
@@ -56,6 +69,7 @@ xset r rate 200 30
 # ----------------------------------------------------
 /usr/bin/setxkbmap -option caps:swapescape
 
+# run numlckx
 # ----------------------------------------------------
 /usr/bin/numlockx &
 
@@ -70,5 +84,4 @@ xset r rate 200 30
 
 # start awesome
 # ----------------------------------------------------
-# exec awesome
 exec $HOME/scripts/dwm-start

@@ -1,10 +1,12 @@
-# ------------------------------------
-# file: $HOME/.config/mutt/account.com.gmail.jls
-# ------------------------------------
+# ----------------------------------------------------
+# file:     $HOME/dotfiles/mutt/account.com.gmail.jls
+# author    jls - http://sjorssparreboom.nl
+# vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=conf:
+# ----------------------------------------------------
 
-# ------------------------------------
+# ----------------------------------------------------
 # Account Settings
-# ------------------------------------
+# ----------------------------------------------------
 # set folder = "imaps://imap.gmail.com:993"
 # set spoolfile = "+INBOX"
 # set mbox = '+GMail/archive'
@@ -18,22 +20,23 @@
 # set signature = '~/.config/mutt/jls.sig'                                # signature file
 
 set from      = "jlssparreboom@gmail.com"
-set sendmail  = "/usr/bin/msmtp -a GMail"
+set sendmail  = "/usr/bin/msmtp -a gmail"
 set mbox      = "+gmail/archive"
 set record    = "+gmail/sent"
 set postponed = "+gmail/drafts"
 
 # Color status
-# ------------------------------------
+# ----------------------------------------------------
+# Account Settings
 color status     brightwhite  black
 color indicator  brightwhite  black
 
 # Sourced settings
-# ------------------------------------
+# ----------------------------------------------------
 # source "gpg -d ~/sync/pass/account.com.gmail.details.jls.asc |"
 
 # Macro's
-# ------------------------------------
+# ----------------------------------------------------
 # macro index S   "<save-message>+GMail/[Gmail].Spam<enter>"       "mark message as spam"
 # macro index gs  "<change-folder> =[Gmail]/Sent<tab><enter>"      "go to sent mail"
 # macro index gi  "<change-folder>=INBOX<enter>"                   "go to INBOX"

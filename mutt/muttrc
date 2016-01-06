@@ -1,5 +1,5 @@
 # ----------------------------------------------------
-# file:     $HOME/dotfiles/config/mutt/muttrc
+# file:     $HOME/dotfiles/mutt/muttrc
 # author    jls - http://sjorssparreboom.nl
 # vim:fenc=utf-8:nu:ai:si:et:ts=4:sw=4:ft=muttrc
 # ----------------------------------------------------
@@ -47,18 +47,18 @@ unset help
 # ----------------------------------------------------
 # set sleep_time = 0                                              # rapid display!
 # set imap_keepalive = 200                                        # seconds polling imap connection
-set sort = 'threads'                                            # sort like gmail
-set sort_aux = 'reverse-last-date-received'                     # sort like gmail
+set sort                = 'threads'                             # sort like gmail
+set sort_aux            = 'reverse-last-date-received'          # sort like gmail
 set uncollapse_jump                                             # don't collapse on an unread message
-set auto_tag = yes                                              # apply function to tagged msg
+set auto_tag            = yes                                   # apply function to tagged msg
 set reply_regexp        = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 
 # Pager
 # ----------------------------------------------------
 set status_on_top                                               # display statusbar at top
 set tilde                                                       # like ViM!!
-set pager_index_lines = 10                                      # number of index lines to show
-set pager_context = 5                                           # number of context lines to show
+set pager_index_lines  = 10                                     # number of index lines to show
+set pager_context      = 5                                      # number of context lines to show
 set pager_stop                                                  # don't go to next message automatically
 set smart_wrap                                                  # don't split the words!
 set menu_scroll                                                 # let me scroll through the menu!
@@ -68,12 +68,12 @@ alternative_order text/plain text/enriched text/html            # save html for 
 
 # Formats
 # ----------------------------------------------------
-set date_format = "%d/%m/%y at %I:%M%P"
-set index_format = "%3C  %S   %D  •  %-25.25L %s %> %c"
-set pager_format = "Reading message %C of %m %> %lL [%P]"       # pager statusbar
-set folder_format = "%2C %t %N %8s %d %f"                       # mailbox list view
-set status_format = " %?M?%M/?%m Mails %?n?%n new, ?%?u?%u unread, ?%?p?%p drafts, ?%?t?%t +tagged, ?%?d?%d deleted, ?[%f %l]  %?b?%b unread messages. ?%>  %V  [%P]"
-set alias_format = "%4n %t %-20a  %r"
+set date_format     = "%d/%m/%y at %I:%M%P"
+set index_format    = "%3C  %S   %D  •  %-25.25L %s %> %c"
+set pager_format    = "Reading message %C of %m %> %lL [%P]"    # pager statusbar
+set folder_format   = "%2C %t %N %8s %d %f"                     # mailbox list view
+set status_format   = " %?M?%M/?%m Mails %?n?%n new, ?%?u?%u unread, ?%?p?%p drafts, ?%?t?%t +tagged, ?%?d?%d deleted, ?[%f %l]  %?b?%b unread messages. ?%>  %V  [%P]"
+set alias_format    = "%4n %t %-20a  %r"
 
 # Composing mail
 # ----------------------------------------------------
@@ -119,29 +119,25 @@ folder-hook gmail/* source ~/.mutt/gmail.muttrc
 
 # Mailing lists
 # ----------------------------------------------------
-lists arch-announce@archlinux.org                                # Arch announcements
+lists arch-announce@archlinux.org                        # Arch announcements
 subscribe arch-announce@archlinux.org
 
-lists arch-general@archlinux.org                                 # Arch general list
+lists arch-general@archlinux.org                         # Arch general list
 subscribe arch-general@archlinux.org
 
-lists dev@suckless.org                                           # suckless.org
+lists dev@suckless.org                                   # suckless.org
 subscribe dev@suckless.org
 
-lists hackers@suckless.org                                       # suckless patches
+lists hackers@suckless.org                               # suckless patches
 subscribe hackers@suckelss.org
 
-lists surfraw-devel@lists.alioth.debian.org                      # Surfraw list
+lists surfraw-devel@lists.alioth.debian.org              # Surfraw list
 subscribe surfraw-devel@lists.alioth.debian.org
 
 # Rebinding
 # ----------------------------------------------------
 bind index,pager \#     noop
 bind index i            noop
-
-# Default account
-# ----------------------------------------------------
-# source ~/.config/mutt/account.com.gmail
 
 # Bindings
 # ----------------------------------------------------
@@ -200,7 +196,7 @@ macro index A \
 
 # quick-sync ~/Mail immediately with offlineimap
 # ----------------------------------------------------
-macro index Z   "<shell-escape>/usr/bin/offlineimap -q -o -u ttyui<enter>" "sync IMAP"
+macro index Z   "<shell-escape>/usr/bin/offlineimap -c ~/.mailconfigs/offlineimaprc -q -o -u ttyui<enter>" "sync IMAP"
 
 # View URLs inside Mutt
 # ----------------------------------------------------

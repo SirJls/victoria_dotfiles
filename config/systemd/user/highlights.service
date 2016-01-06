@@ -1,0 +1,11 @@
+[Unit]
+Description=Highlights in IRC over Syncthing
+After=network.target
+
+[Service]
+Environment=DISPLAY=:0
+ExecStart=/home/jls/scripts/highlights
+Restart=always
+
+[Install]
+WantedBy=default.target

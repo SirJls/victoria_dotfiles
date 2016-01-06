@@ -1,3 +1,8 @@
+# ----------------------------------------------------
+# file:     $HOME/dotfiles/offlineimaprc
+# author    jls - http://sjorssparreboom.nl
+# vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=conf:
+# ----------------------------------------------------
 [general]
 metadata = ~/.offlineimap
 accounts = school, gmail
@@ -5,8 +10,8 @@ maxsyncaccounts = 2
 socktimeout = 60
 ui = Basic
 
-# This helper file lets you use gnome-keyring to store usernames / passwords
-pythonfile = ~/.mailconfigs/offlineimap.py
+# This helper file lets you use python-keyring to store usernames / passwords
+pythonfile = ~/.offlineimap.py
 
 [mbnames]
 # Create a list of available mailboxes for mutt
@@ -52,8 +57,8 @@ nametrans = lambda foldername: re.sub('Inbox', 'INBOX',
 type = IMAP
 maxconnections = 2
 remotehost     = imap.hro.nl
-remoteuser     = 0890040@hro.nl
-remotepasseval = keyring.get_password("HRO", "0890040")
+remoteuser     = 0890040
+remotepasseval = keyring.get_password('HRO', '0890040')
 
 # If using ssl, you will need to specify certificates to use with them
 ssl            = yes
@@ -82,7 +87,7 @@ type = Gmail
 maxconnections = 2
 remotehost     = imap.gmail.com
 remoteuser     = jlssparreboom@gmail.com
-remotepasseval = keyring.get_password("gmail", "jls")
+remotepasseval = keyring.get_password('gmail', 'jls')
 
 # If using ssl, you will need to specify certificates to use with them
 ssl = yes

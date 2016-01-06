@@ -1,0 +1,10 @@
+# standardize dmenu appearance
+
+font="Dejavu Sans Mono:medium:size=7"
+nb='#121212'
+nf='#696969'
+sb='#121212'
+sf='#4779B3'
+
+dmenucmd=( dmenu -i -fn "$font" -nb "$nb" -nf "$nf" -sb "$sb" -sf "$sf" )
+

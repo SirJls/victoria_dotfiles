@@ -1,0 +1,12 @@
+[Unit]
+Description=Lock screen after a few minutes of inactivity
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=10
+ExecStart=/usr/bin/xautolock -time 8 -locker "/usr/bin/slock" -nowlocker "/usr/bin/slock" -detectsleep
+ExecReload=/usr/bin/kill -HUB $MAINPID
+
+[Install]
+WantedBy=default.target

@@ -71,6 +71,18 @@ set incsearch                           " increment search
 set ignorecase                          " case-insensitive search
 set smartcase                           " uppercase causes case-sensitive search
 
+" Set default filetype to txt
+" ----------------------------------------------------
+autocmd BufEnter * if &filetype == "" | setlocal ft=text | endif
+
+" Add spell for LaTeX documents
+" ----------------------------------------------------
+autocmd FileType tex setlocal spell spelllang=en_us 
+
+" All tex files as tex
+" ----------------------------------------------------
+let g:tex_flavor = "latex"
+
 " Associate blade with html, php
 " ----------------------------------------------------
 autocmd BufNewFile,BufRead *.php set ft=html | set ft=php

@@ -1,0 +1,10 @@
+program_options:
+  udisks_version: 1
+  automount: true
+  notify: false
+
+mount_options:
+- id_type: vfat
+  options: flush
+- id_type: ext4
+  options: [noatime, sync]

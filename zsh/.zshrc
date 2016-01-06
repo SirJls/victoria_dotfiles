@@ -149,7 +149,8 @@ autoload bashcompinit
 bashcompinit
 
 # command not found hook
-source "/usr/share/doc/pkgfile/command-not-found.zsh"
+# ----------------------------------------------------
+source $HOME/.zsh/command-not-found.zsh
 
 # source highlighting
 # ----------------------------------------------------

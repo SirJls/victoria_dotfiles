@@ -16,6 +16,6 @@ hi ErrorMsg       ctermfg=Red       ctermfg=Black
 hi CursorLineNr   ctermfg=White     ctermbg=Black
 hi LineNr         ctermfg=DarkGrey
 hi Visual         ctermfg=Black     ctermbg=White
-hi TabLine        ctermfg=Cyan      ctermbg=232     cterm=none
-hi TabLineSel     ctermfg=fg        ctermbg=magenta cterm=bold
+hi TabLine        ctermfg=Magenta   ctermbg=232     cterm=none
+hi TabLineSel     ctermfg=Cyan      ctermbg=232      cterm=bold
 hi TabLineFill    ctermfg=232       ctermbg=232     cterm=none

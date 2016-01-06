@@ -8,9 +8,8 @@
 # -------------------------------------------------
 handler-add mailto=urxvt -e mutt %s
 handler-add ftp=urxvt -e wget %s -P /tmp/vimb
-# set editor-command=urxvt -title scratchpad -geometry 86x24+40+60 -e vim %s
-set editor-command=urxvt -title scratchpad -e vim %s
-set home-page=https://bbs.archlinux.org/
+set editor-command=urxvt -title scratchpad -geometry 86x24+40+60 -e vim %s
+set home-page=http://bbs.archlinux.org
 set cookie-accept=origin
 set download-path=/home/jls/downloads
 set header=DNT=1
@@ -20,7 +19,7 @@ set plugins=off
 set scripts=on
 set strict-focus=off
 set stylesheet=on
-set webinspector=off
+set webinspector=on
 set x-hint-command=:sh! /home/jls/scripts/tube <C-R>;<CR>
 
 # appearance
@@ -66,9 +65,8 @@ shortcut-add B=https://api-ssl.bitly.com/v3/shorten?access_token=20e9827b9c5ddee
 
 # quick tabs
 # -------------------------------------------------
-nnoremap gb :tabopen https://github.com/git-jls<CR>
+nnoremap gh :tabopen https://github.com/git-jls<CR>
 nnoremap ge :tabopen https://wiki.archlinux.org/index.php/Forum_Etiquette<CR>
-nnoremap gf :tabopen http://flickr.jasonwryan.com<CR>
 nnoremap gw :tabopen http://sjorssparreboom.nl<CR>
 nnoremap gp :tabopen http://project.dev<CR>
 # nnoremap gr :tabopen https://www.reedah.com/reader.php<CR>
@@ -79,14 +77,10 @@ nnoremap gp :tabopen http://project.dev<CR>
 nnoremap b <C-O>
 nnoremap m <C-I>
 nnoremap x <C-Q>
-nnoremap <C-S> gc
+nnoremap <C-S> gf
 nnoremap <F11> :set fullscreen!<CR>
+nmap gq :q<CR>
 nmap <C-C>o :set caret=on<CR>
 nmap <C-C>f :set caret=off<CR>
 nmap <C-A> :set useragent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36"<CR>
 nmap <C-B> :eval! document.location='https://pinboard.in/add?next=same&url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title)<CR>
-
-# navigate tabs
-# -------------------------------------------------
-nnoremap gt :sh! xdotool key --window /tmp/tabbed.xid ctrl+shift+l<CR><Esc>
-nnoremap gT :sh! xdotool key --window /tmp/tabbed.xid ctrl+shift+h<CR><Esc>

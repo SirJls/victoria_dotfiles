@@ -1,10 +1,12 @@
-# ------------------------------------
-# file: $HOME/.config/mutt/account.nl.hro.jls
-# ------------------------------------
+# ----------------------------------------------------
+# file:     $HOME/dotfiles/mutt/account.nl.hro.jls
+# file:     $HOME/path/to/file
+# author    jls - http://sjorssparreboom.nl
+# vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=conf:
+# ----------------------------------------------------
 
-# ------------------------------------
 # Account Settings
-# ------------------------------------
+# ----------------------------------------------------
 set folder = "imaps://imap.hro.nl:993"
 set spoolfile = "+INBOX"
 set record = ""
@@ -15,13 +17,9 @@ set mailcap_path = '~/.config/mutt/mailcap'                         # entries fo
 set signature = '~/.config/mutt/jls.sig'                            # signature file
 
 # Color status
-# ------------------------------------
+# ----------------------------------------------------
 color status     white   blue
 color indicator  white   blue
-
-# Sourced settings
-# ------------------------------------
-source "gpg -d ~/sync/pass/account.hro.nl.details.0890040.asc |"
 
 # Macro's
 # ------------------------------------

@@ -1,4 +1,5 @@
 config/VirtualBox/
+config/systemd/user/default.target.wants
 config/MonoDevelop/
 config/MonoDevelop-5.0/
 config/xbuild/
@@ -45,6 +46,7 @@ config/vimb/history
 config/vimb/hsts
 config/vimb/queue
 config/vimb/search
+config/vimb/closed.POSMAY
 config/vimprobable/closed
 config/vimprobable/cookies
 config/Trolltech.conf
