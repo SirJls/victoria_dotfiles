@@ -3,6 +3,8 @@
 # author    jls - http://sjorssparreboom.nl
 # vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=conf:
 # ----------------------------------------------------
+# Based on the work of http://jasonwrya.com
+# ---------------------------------------------------
 
 # Autoload & colours
 # ----------------------------------------------------

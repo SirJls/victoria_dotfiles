@@ -199,7 +199,7 @@ macro index I "<shell-escape>~/scripts/abook-import-aliases<enter>" "Import alia
 
 # quick-sync ~/Mail immediately with offlineimap
 # ----------------------------------------------------
-macro index Z   "<shell-escape>/usr/bin/offlineimap -c ~/.mailconfigs/offlineimaprc -q -o -u ttyui<enter>" "sync IMAP"
+macro index Z   "<shell-escape>/usr/bin/offlineimap -q -o -u ttyui<enter>" "sync IMAP"
 
 # View URLs inside Mutt
 # ----------------------------------------------------

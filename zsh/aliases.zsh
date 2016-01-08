@@ -44,10 +44,11 @@ alias say="fortune | cowsay -f tux"
 alias vbmod="sudo modprobe vboxdrv"
 alias upterm='xrdb $HOME/.Xresources'
 alias rm='rm -iv'
-alias fn='sudo find / -name'
 alias mpvw="mpv --aspect=16:9"
-alias fmnt="findmnt"
 alias cd..="cd .."
+alias dush="du -sm *|sort -n|tail"
+alias makeup="updpkgsums && makepkg -ci"
+alias irc="rm -f $HOME/.irssi/saved_colors && irssi"
 
 # GPG
 # ----------------------------------------------------
@@ -55,17 +56,17 @@ alias fp="gpg --list-keys --fingerprint"
 
 # scripts
 # ----------------------------------------------------
-alias fs="sudo ~/scripts/auto-mount"
+alias fs="$HOME/scripts/auto-mount"
 alias color="$HOME/scripts/color"
 alias inf="$HOME/scripts/info"
 alias toad="$HOME/scripts/hypnotoad"
 alias xdg="$HOME/scripts/xdg"
 alias tube="$HOME/scripts/tube"
 alias archshot="$HOME/scripts/archshot"
+alias speedtest="$HOME/scripts/speedtest-cli"
 
 # code & file editing related
 # ----------------------------------------------------
-alias code="cd $HOME/code"
 alias tx="tmux -f ~/.config/tmux/conf"
 
 # viewers
@@ -74,14 +75,10 @@ alias z='zathura'
 
 # mail
 # ----------------------------------------------------
-# alias m="mutt -F ~/.config/mutt/muttrc"
 alias m='mutt'
-# alias abook="abook --config $HOME/sync/abook/abookrc --datafile $HOME/sync/abook/addressbook"
 
 # editor
 # ----------------------------------------------------
-alias awrc='$EDITOR $HOME/.config/awesome/rc.lua'
-alias awtheme='$EDITOR $HOME/.config/awesome/themes/miro/theme.lua'
 alias ve='vim -u ~/.vimencrypt -x'
 alias vi="vim"
 
