@@ -53,6 +53,7 @@ set completion-bg-active=#111111
 shortcut-add s=https://ixquick.com/do/metasearch.pl?&cat=web&query=host:unix.stackexchange.com+$0
 shortcut-add k=http://stackoverflow.com/search?q=[awk]+$0
 shortcut-add h=http://stackoverflow.com/search?q=[bash]+$0
+shortcut-add c=http://stackoverflow.com/search?q=[c%23]+$0
 shortcut-add x=http://www.google.com/search?hl=en&source=hp&ie=ISO-8859-l&q=$0
 shortcut-add gh=https://github.com/search?q=$0&type=Code
 shortcut-add d=https://duckduckgo.com/?q=$0&t=Vimprobable

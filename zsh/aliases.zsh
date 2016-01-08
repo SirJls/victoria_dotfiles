@@ -55,12 +55,13 @@ alias fp="gpg --list-keys --fingerprint"
 
 # scripts
 # ----------------------------------------------------
-alias fs="sudo ~/scripts/./auto-mount"
-alias color="$HOME/scripts/./color"
-alias inf="$HOME/scripts/./info"
-alias toad="$HOME/scripts/./hypnotoad"
+alias fs="sudo ~/scripts/auto-mount"
+alias color="$HOME/scripts/color"
+alias inf="$HOME/scripts/info"
+alias toad="$HOME/scripts/hypnotoad"
 alias xdg="$HOME/scripts/xdg"
 alias tube="$HOME/scripts/tube"
+alias archshot="$HOME/scripts/archshot"
 
 # code & file editing related
 # ----------------------------------------------------
@@ -75,7 +76,7 @@ alias z='zathura'
 # ----------------------------------------------------
 # alias m="mutt -F ~/.config/mutt/muttrc"
 alias m='mutt'
-alias abook="abook --config $HOME/sync/abook/abookrc --datafile $HOME/sync/abook/addressbook"
+# alias abook="abook --config $HOME/sync/abook/abookrc --datafile $HOME/sync/abook/addressbook"
 
 # editor
 # ----------------------------------------------------

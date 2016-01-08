@@ -24,6 +24,16 @@ PS1+="%~ %{$fg_no_bold[yellow]%}%(0?..%?)%{$reset_color%}]
 └─╼ "
 }
 
+# Set and configure ssh agent
+# ----------------------------------------------------
+if ! pgrep -u $USER ssh-agent > /dev/null; then
+    ssh-agent > ~/.ssh-agent-thing
+fi
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+    eval $(<~/.ssh-agent-thing) 1>/dev/null
+fi
+ssh-add -l >/dev/null || alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
+
 # Show vi mode
 # ----------------------------------------------------
 function zle-line-init zle-keymap-select {

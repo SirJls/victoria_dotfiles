@@ -14,7 +14,7 @@ set header_cache        = ~/.mutt/cache/headers                 # where to store
 set message_cachedir    = ~/.mutt/cache/bodies                  # where to store bodies
 set certificate_file    = ~/.mutt/certificates                  # where to store certs
 set mailcap_path        = ~/.mutt/mailcap                       # entrys for filetypes
-set signature           = ~/.mutt/sig                           # my signature file
+set signature           = ~/.mutt/jls.sig                       # my signature file
 set tmpdir              = ~/.mutt/temp                          # where to keep temp files
 
 # Commands
@@ -104,7 +104,8 @@ hdr_order from: to: cc: date: subject:                          # and in this or
 
 # Boxes
 # ----------------------------------------------------
-mailboxes +gmail/inbox +gmail/sent mail +gmail/drafts +gmail/trash
+mailboxes +gmail/inbox +gmail/sent +gmail/drafts +gmail/trash
+mailboxes +school/inbox +school/sent_items +school/deleted_items
 
 # Always sourced
 # ----------------------------------------------------
@@ -116,6 +117,7 @@ source $alias_file                                       # required for function
 # Folder Hooks
 # ----------------------------------------------------
 folder-hook gmail/* source ~/.mutt/gmail.muttrc
+folder-hook school/* source ~/.mutt/hogeschool.muttrc
 
 # Mailing lists
 # ----------------------------------------------------
@@ -163,8 +165,8 @@ bind attach <return>    view-mailcap
 
 # macros
 # ----------------------------------------------------
-macro index gm       "<change-folder> =gmail/inbox<enter>"     "go to Gmail inbox"
-macro index gs       "<change-folder> =school/inbox<enter>"    "go to Gmail inbox"
+macro index gl       "<change-folder>=gmail/inbox<enter>"     "go to Gmail inbox"
+macro index gs       "<change-folder>=school/inbox<enter>"    "go to school inbox"
 macro index B        "<limit>~b "                              "search message bodies"
 macro index \Cr      "<tag-prefix><clear-flag>N"               "mark tagged messages as read"
 macro index \Cp      "<pipe-message>cat > ~/"                  "save message as" 
@@ -193,6 +195,7 @@ macro index \Ca "!~/scripts/abook-autoexport\n:source ~/.mutt/aliases\n" "Start 
 macro index A \
     "|~/scripts/abook-autoexport --add-email-quiet\n:source ~/.mutt/aliases\n" \
     "Create new alias from the actual message"
+macro index I "<shell-escape>~/scripts/abook-import-aliases<enter>" "Import aliases"
 
 # quick-sync ~/Mail immediately with offlineimap
 # ----------------------------------------------------

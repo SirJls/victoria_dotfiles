@@ -7,14 +7,10 @@
 
 # Account Settings
 # ----------------------------------------------------
-set folder = "imaps://imap.hro.nl:993"
-set spoolfile = "+INBOX"
-set record = ""
-set header_cache = '~/.config/mutt/nl.hro.jls/cache/headers'        # store headers here
-set message_cachedir = '~/.config/mutt/nl.hro.jls/cache/bodies'     # store bodies here
-set certificate_file = '~/.config/mutt/nl.hro.jls/certificates'     # store certs here
-set mailcap_path = '~/.config/mutt/mailcap'                         # entries for filetypes
-set signature = '~/.config/mutt/jls.sig'                            # signature file
+set sendmail  = "/usr/bin/msmtp -a school"
+set mbox      = "+school/archive"
+set record    = "+shool/sent"
+set postponed = "+school/drafts"
 
 # Color status
 # ----------------------------------------------------

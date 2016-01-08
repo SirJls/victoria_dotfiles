@@ -3,14 +3,16 @@
 # author    jls - http://sjorssparreboom.nl
 # vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=conf:
 # ----------------------------------------------------
+
 [general]
 metadata = ~/.offlineimap
-accounts = school, gmail
+accounts = school
 maxsyncaccounts = 2
 socktimeout = 60
 ui = Basic
 
 # This helper file lets you use python-keyring to store usernames / passwords
+# ----------------------------------------------------
 pythonfile = ~/.offlineimap.py
 
 [mbnames]
@@ -49,18 +51,22 @@ localfolders = ~/.mail/school
 # 1. Capitalizes all the folder names
 # 2. Changes any underscores to spaces
 # 3. Changes Inbox -> INBOX
+# ----------------------------------------------------
 nametrans = lambda foldername: re.sub('Inbox', 'INBOX',
                                re.sub ('_', ' ', foldername.capitalize()))
 
 
 [Repository remote-school]
 type = IMAP
+auth_mechanisms = LOGIN
 maxconnections = 2
-remotehost     = imap.hro.nl
-remoteuser     = 0890040
+remotehost     = outlook.office365.com
+# remotehost     = imap.hro.nl
+remoteuser     = 0890040@hr.nl
 remotepasseval = keyring.get_password('HRO', '0890040')
 
 # If using ssl, you will need to specify certificates to use with them
+# ----------------------------------------------------
 ssl            = yes
 sslcacertfile  = /etc/ssl/certs/ca-certificates.crt
 realdelete     = yes
@@ -69,12 +75,14 @@ realdelete     = yes
 # This one does:
 # 1. Transforms names to lowercase
 # 2. Replaces spaces with underscores
+# ----------------------------------------------------
 nametrans = lambda foldername: re.sub (' ', '_', foldername.lower())
 
 [Repository local-gmail]
 type = Maildir
 localfolders = ~/.mail/gmail
 # Note the nametrans below in remote-gmail: it undoes this one
+# ----------------------------------------------------
 nametrans = lambda foldername: re.sub ('Inbox', 'INBOX',
                                re.sub ('Drafts', '[Gmail].Drafts',
                                re.sub ('Sent', '[Gmail].Sent Mail',
@@ -84,16 +92,19 @@ nametrans = lambda foldername: re.sub ('Inbox', 'INBOX',
 
 [Repository remote-gmail]
 type = Gmail
+auth_mechanisms = LOGIN
 maxconnections = 2
 remotehost     = imap.gmail.com
 remoteuser     = jlssparreboom@gmail.com
 remotepasseval = keyring.get_password('gmail', 'jls')
 
 # If using ssl, you will need to specify certificates to use with them
+# ----------------------------------------------------
 ssl = yes
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 realdelete = no
 # Note the nametrans above in local-gmail: it undoes this one
+# ----------------------------------------------------
 nametrans = lambda foldername: re.sub ('^\[gmail\]\/', '',
                                re.sub ('sent_mail', 'sent',
                                re.sub ('starred', 'flagged',

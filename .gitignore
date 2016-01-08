@@ -31,7 +31,9 @@ config/awesome/themes/miro/icons/
 config/awesome/themes/miro/wallpaper.*
 config/.isolated-storage/
 config/.protobuild-cache/
-mutt/*/cache/
+mutt/*/cache
+mutt/temp
+mutt/mailboxes
 config/mpd/log
 config/mpd/pid
 config/mpd/state
@@ -46,6 +48,7 @@ config/vimb/history
 config/vimb/hsts
 config/vimb/queue
 config/vimb/search
+config/vimb/closed.Y99LAY
 config/vimb/closed.POSMAY
 config/vimprobable/closed
 config/vimprobable/cookies
