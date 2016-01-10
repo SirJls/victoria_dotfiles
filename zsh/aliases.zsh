@@ -64,10 +64,13 @@ alias xdg="$HOME/scripts/xdg"
 alias tube="$HOME/scripts/tube"
 alias archshot="$HOME/scripts/archshot"
 alias speedtest="$HOME/scripts/speedtest-cli"
+alias todo="$HOME/scripts/todo"
+alias dpass="$HOME/scripts/dpass"
+alias sysd="$HOME/scripts/sysd"
 
 # code & file editing related
 # ----------------------------------------------------
-alias tx="tmux -f ~/.config/tmux/conf"
+alias tx="tmux -f ~/.tmux/conf"
 
 # viewers
 # ----------------------------------------------------

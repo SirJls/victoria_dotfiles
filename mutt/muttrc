@@ -104,8 +104,8 @@ hdr_order from: to: cc: date: subject:                          # and in this or
 
 # Boxes
 # ----------------------------------------------------
-mailboxes +gmail/inbox +gmail/sent +gmail/drafts +gmail/trash
-mailboxes +school/inbox +school/sent_items +school/deleted_items
+mailboxes +gmail/inbox +gmail/sent +gmail/drafts +gmail/bin +gmail/archive
+mailboxes +school/inbox +school/sent +school/drafts +school/trash +school/archive
 
 # Always sourced
 # ----------------------------------------------------
@@ -167,9 +167,9 @@ bind attach <return>    view-mailcap
 # ----------------------------------------------------
 macro index gl       "<change-folder>=gmail/inbox<enter>"     "go to Gmail inbox"
 macro index gs       "<change-folder>=school/inbox<enter>"    "go to school inbox"
-macro index B        "<limit>~b "                              "search message bodies"
-macro index \Cr      "<tag-prefix><clear-flag>N"               "mark tagged messages as read"
-macro index \Cp      "<pipe-message>cat > ~/"                  "save message as" 
+macro index B        "<limit>~b "                             "search message bodies"
+macro index \Cr      "<tag-prefix><clear-flag>N"              "mark tagged messages as read"
+macro index \Cp      "<pipe-message>cat > ~/"                 "save message as" 
 
 macro index,pager <F1> "<shell-escape>less /usr/share/doc/mutt/manual.txt<enter>" "Show Mutt documentation"
 macro index,pager <F2> ":toggle help<enter>:set ?help<enter>"  "toggle help status line"
@@ -177,7 +177,7 @@ macro index,pager <F5> ":source ~/.mutt/muttrc\n"              "Reload the muttr
 
 macro compose \Cg    "Fgpg --clearsign\ny"
 macro compose \Cp    "Fgpg --clearsign\ny^T^Uapplication/pgp; format=text; x-action=sign\n"
-macro compose Y pfy  "send mail without pgp"
+macro compose Y pfy                                            "send mail without pgp"
 
 # Use abook with Mutt
 # ----------------------------------------------------
@@ -199,7 +199,7 @@ macro index I "<shell-escape>~/scripts/abook-import-aliases<enter>" "Import alia
 
 # quick-sync ~/Mail immediately with offlineimap
 # ----------------------------------------------------
-macro index Z   "<shell-escape>/usr/bin/offlineimap -q -o -u ttyui<enter>" "sync IMAP"
+macro index Z "<shell-escape>/usr/bin/offlineimap -q -o -u ttyui<enter>" "sync IMAP"
 
 # View URLs inside Mutt
 # ----------------------------------------------------

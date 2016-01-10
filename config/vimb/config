@@ -8,6 +8,7 @@
 # -------------------------------------------------
 handler-add mailto=urxvt -e mutt %s
 handler-add ftp=urxvt -e wget %s -P /tmp/vimb
+set dom-paste=on
 set editor-command=urxvt -title scratchpad -geometry 86x24+40+60 -e vim %s
 set home-page=http://bbs.archlinux.org
 set cookie-accept=origin
@@ -71,7 +72,7 @@ nnoremap ge :tabopen https://wiki.archlinux.org/index.php/Forum_Etiquette<CR>
 nnoremap gw :tabopen http://sjorssparreboom.nl<CR>
 nnoremap gp :tabopen http://project.dev<CR>
 # nnoremap gr :tabopen https://www.reedah.com/reader.php<CR>
-# nnoremap gs :tabopen https://unix.stackexchange.com<CR>
+nnoremap gs :tabopen https://stackoverflow.com<CR>
 
 # basic mappings
 # -------------------------------------------------

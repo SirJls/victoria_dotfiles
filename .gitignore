@@ -53,8 +53,11 @@ config/vimb/closed.POSMAY
 config/vimprobable/closed
 config/vimprobable/cookies
 config/Trolltech.conf
+config/keepassx
 config/shaman
 config/setroot
+config/systemd/user/mail.target.wants
+config/systemd/user/sockets.target.wants
 ncmpcpp/error.log
 ncmpcpp/artists/
 vim/bundle/
@@ -62,7 +65,10 @@ vim/plugin/
 vim/spell/
 vim/syntax/
 vim/backup/
+vim/MarkDownRes
 zsh/histfile
 zsh/.zcompdump
+abook/addressbook
+abook/addressbook~
 .git-*
 

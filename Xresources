@@ -49,8 +49,8 @@ URxvt.boldFont:                           xft:dejavu sans mono:size=12
 URxvt.perl-ext-common:                    default,matcher,keyboard-select,url-select,clipboard,resize-font
 URxvt.keysym.M-Escape:                    perl:keyboard-select:activate
 URxvt.clipboard.autocopy:                 true
-URxvt.resize-font.smaller:                M-Down
-URxvt.resize-font.bigger:                 M-Up
+URxvt.resize-font.smaller:                M-Up
+URxvt.resize-font.bigger:                 M-Down
 URxvt.keysym.M-u:                         perl:url-select:select_next
 URxvt.keysym.M-s:                         perl:keyboard-select:search
 URxvt.keysym.M-c:                         perl:clipboard:copy

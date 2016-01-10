@@ -4,6 +4,13 @@
 # vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=conf:
 # ----------------------------------------------------
 
+# Source xmodmap
+# ----------------------------------------------------
+
+if [ -f ~/dotfiles/xmodmaprc ]; then
+    xmodmap ~/.xmodmaprc
+fi
+
 # Start keyring nd export environment variables
 # ----------------------------------------------------
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)

@@ -19,5 +19,7 @@ color indicator  white   blue
 
 # Macro's
 # ------------------------------------
-
+macro index E       "<change-folder>+gmail/archive<enter><limit>~B "    "search everything"
+macro index,pager F "<save-message>=+gmail/flagged<enter>"              "mark message as Flagged/Starred"
+macro index S       "<save-message>+gmail/spam<enter>"                  "mark message as spam"
 

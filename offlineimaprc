@@ -6,7 +6,7 @@
 
 [general]
 metadata = ~/.offlineimap
-accounts = school
+accounts = school, gmail
 maxsyncaccounts = 2
 socktimeout = 60
 ui = Basic
@@ -37,23 +37,37 @@ footer = "\n"
 [Account school]
 localrepository = local-school
 remoterepository = remote-school
+autorefresh = 0
+status_backend = sqlite
 
 [Account gmail]
 localrepository = local-gmail
 remoterepository = remote-gmail
+autorefresh = 0
+status_backend = sqlite
 
 [Repository local-school]
 type = Maildir
 localfolders = ~/.mail/school
 
 # Translate names from local names to remote names:
-# This one does:
-# 1. Capitalizes all the folder names
-# 2. Changes any underscores to spaces
-# 3. Changes Inbox -> INBOX
 # ----------------------------------------------------
-nametrans = lambda foldername: re.sub('Inbox', 'INBOX',
-                               re.sub ('_', ' ', foldername.capitalize()))
+nametrans = lambda foldername: re.sub('inbox', 'INBOX',
+                               re.sub('sent', 'Sent Items',
+                               re.sub('drafts', 'Drafts',
+                               re.sub('trash', 'Deleted Items',
+                               re.sub('spam', 'Junk Email',
+                               re.sub('clutter', 'Clutter',
+                               re.sub('cabinet', 'Cabinet',
+                               re.sub('journal', 'Journal',
+                               re.sub('notes', 'Notes',
+                               re.sub('outbox', 'Outbox',
+                               re.sub('tasklist', 'Tasklist',
+                               re.sub('tasks', 'Tasks',
+                               re.sub('archive', 'Archive',
+                               re.sub('contacts', 'Contacts',
+                               re.sub('calendar', 'Calendar',
+                               foldername)))))))))))))))
 
 
 [Repository remote-school]
@@ -76,19 +90,37 @@ realdelete     = yes
 # 1. Transforms names to lowercase
 # 2. Replaces spaces with underscores
 # ----------------------------------------------------
-nametrans = lambda foldername: re.sub (' ', '_', foldername.lower())
+nametrans = lambda foldername: re.sub('.*INBOX$', 'inbox', 
+                               re.sub('.*Sent Items$', 'sent', 
+                               re.sub('.*Drafts$', 'drafts', 
+                               re.sub('.*Deleted Items$', 'trash', 
+                               re.sub('.*Junk Email$', 'spam', 
+                               re.sub('.*Clutter$', 'clutter', 
+                               re.sub('.*Cabinet$', 'cabinet', 
+                               re.sub('.*Journal$', 'journal', 
+                               re.sub('.*Notes$', 'notes', 
+                               re.sub('.*Outbox$', 'outbox', 
+                               re.sub('.*Tasklist$', 'tasklist', 
+                               re.sub('.*Tasks$', 'tasks', 
+                               re.sub('.*Archive$', 'archive',
+                               re.sub('.*Contacts', 'contacts',
+                               re.sub('.*Calendar', 'calendar',
+                               foldername)))))))))))))))
 
 [Repository local-gmail]
 type = Maildir
 localfolders = ~/.mail/gmail
 # Note the nametrans below in remote-gmail: it undoes this one
 # ----------------------------------------------------
-nametrans = lambda foldername: re.sub ('Inbox', 'INBOX',
-                               re.sub ('Drafts', '[Gmail].Drafts',
-                               re.sub ('Sent', '[Gmail].Sent Mail',
-                               re.sub ('Flagged', 'Starred',
-                               re.sub ('_', ' ', foldername.capitalize())))))
-
+nametrans = lambda folder: re.sub('inbox', 'INBOX',
+                           re.sub('bin', '[Gmail].Bin',
+                           re.sub('spam', '[Gmail].Spam',
+                           re.sub('drafts', '[Gmail].Drafts',
+                           re.sub('sent', '[Gmail].Sent Mail',
+                           re.sub('flagged', '[Gmail].Starred',
+                           re.sub('important', '[Gmail].Important',
+                           re.sub('archive', '[Gmail].All Mail', folder))))))))
+                           # re.sub('trash', '[Gmail].Trash',
 
 [Repository remote-gmail]
 type = Gmail
@@ -102,13 +134,17 @@ remotepasseval = keyring.get_password('gmail', 'jls')
 # ----------------------------------------------------
 ssl = yes
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-realdelete = no
+realdelete = yes
 # Note the nametrans above in local-gmail: it undoes this one
 # ----------------------------------------------------
-nametrans = lambda foldername: re.sub ('^\[gmail\]\/', '',
-                               re.sub ('sent_mail', 'sent',
-                               re.sub ('starred', 'flagged',
-                               re.sub (' ', '_', foldername.lower()))))
-
+nametrans = lambda folder: re.sub(',*INBOX$', 'inbox',
+                           re.sub('.*Spam$', 'spam',
+                           re.sub('.*Bin$', 'bin',
+                           re.sub('.*Drafts$', 'drafts',
+                           re.sub('.*Sent Mail$', 'sent',
+                           re.sub('.*Starred$', 'flagged',
+                           re.sub('.*Important$', 'important',
+                           re.sub('.*All Mail$', 'archive', folder))))))))
+                           # re.sub('.*Trash$', 'trash',
 # We don't want to sync all mail, it would pull everything again
-folderfilter = lambda foldername: foldername not in ['[Gmail]/All Mail']
+folderfilter = lambda foldername: foldername not in ['[Gmail].All Mail']

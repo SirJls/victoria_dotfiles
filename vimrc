@@ -43,6 +43,9 @@ Plugin 'Colorizer'
 " YouCompeleteMe (YCM)
 Plugin 'Valloric/YouCompleteMe'
 
+" Markdown preview
+Plugin 'MikeCoder/markdown-preview.vim'
+
 " Track engine for snippets
 Plugin 'SirVer/UltiSnips'
 

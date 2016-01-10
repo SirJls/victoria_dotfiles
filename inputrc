@@ -1,18 +1,23 @@
 $include /etc/inputrc
 
 # coloured completions
+# ----------------------------------------------------
+
 set colored-stats on
 
 # TAB completion
+# ----------------------------------------------------
 set show-all-if-ambiguous on
 set show-all-if-unmodified on
 
 # for vi mode
+# ----------------------------------------------------
 set editing-mode vi
 $if mode=vi
 
 set keymap vi-command
 # these are for vi-command mode
+# ----------------------------------------------------
 "\e[A": history-search-backward
 "\e[B": history-search-forward
 "\e.": yank-last-arg
@@ -21,6 +26,7 @@ Control-l: clear-screen
 
 set keymap vi-insert
 # these are for vi-insert mode
+# ----------------------------------------------------
 "\e[A": history-search-backward
 "\e[B": history-search-forward
 "\e.": yank-last-arg

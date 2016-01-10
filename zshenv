@@ -28,7 +28,7 @@ export COMPOSER_HOME="$HOME/.composer/vendor/bin"
 export PAGER="/usr/bin/less"
 export SDCV_PAGER="/usr/bin/less"
 export SYSTEMD_PAGER="less -j4aR"
-export PASS_DIR="$HOME/sync/pass"
+export PASS_DIR="$HOME/.password-store"
 export PATH="$PATH:$COMPOSER_HOME"
 
 # setup default dirs
