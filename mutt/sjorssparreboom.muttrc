@@ -1,0 +1,24 @@
+# ----------------------------------------------------
+# file:     $HOME/dotfiles/mutt/sjorssparreboom.muttrc
+# author    jls - http://sjorssparreboom.nl
+# vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=conf:
+# ----------------------------------------------------
+
+# Account Settings
+# ----------------------------------------------------
+set from      = "mail@sjorssparreboom.nl"
+set sendmail  = "/usr/bin/msmtp -a sjorssparreboom"
+set mbox      = "+sjorssparreboom/archive"
+set record    = "+sjorssparreboom/sent"
+set postponed = "+sjorssparreboom/drafts"
+
+# Color status
+# ----------------------------------------------------
+color status     brightwhite  black
+color indicator  brightwhite  black
+
+# Macro's
+# ------------------------------------
+macro index S       "<save-message>+sjorssparreboom/spam<enter>"                     "mark message as spam"
+macro index E       "<change-folder>+sjorssparreboom/archive<enter><limit>~B "       "search everything"
+macro index N       "<change-folder>+sjorssparreboom/sent<enter>"                    "search everything"

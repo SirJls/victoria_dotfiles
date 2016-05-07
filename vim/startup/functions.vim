@@ -64,20 +64,6 @@ augroup WordCounter
 augroup END
 " }}}
 
-" {{{ Concept - load underlying class for Laravel
-function! FacadeLookup()
-    let facade = input('Facade Name: ')
-    let classes = {
-                \       'Form': 'Html/FormBuilder.php',
-                \       'Html': 'Html/HtmlBuilder.php',
-                \       'File': 'Filesystem/Filesystem.php',
-                \       'Eloquent': 'Database/Eloquent/Model.php'
-                \   }
-
-    execute ":edit vendor/laravel/framework/src/Illuminate/" . classes[facade]
-endfunction
-" }}}
-
 " {{{ let me create a directory and file in one go
 function s:MKDir(...)
     if         !a:0 
@@ -125,5 +111,36 @@ if exists("+showtabline")
      set tabline=%!MyTabLine()
 endif
 " }}}
+
+function! BufSel(pattern)
+  let bufcount = bufnr("$")
+  let currbufnr = 1
+  let nummatches = 0
+  let firstmatchingbufnr = 0
+  while currbufnr <= bufcount
+    if(bufexists(currbufnr))
+      let currbufname = bufname(currbufnr)
+      if(match(currbufname, a:pattern) > -1)
+        echo currbufnr . ": ". bufname(currbufnr)
+        let nummatches += 1
+        let firstmatchingbufnr = currbufnr
+      endif
+    endif
+    let currbufnr = currbufnr + 1
+  endwhile
+  if(nummatches == 1)
+    execute ":buffer ". firstmatchingbufnr
+  elseif(nummatches > 1)
+    let desiredbufnr = input("Enter buffer number: ")
+    if(strlen(desiredbufnr) != 0)
+      execute ":buffer ". desiredbufnr
+    endif
+  else
+    echo "No matching buffers"
+  endif
+endfunction
+
+"Bind the BufSel() function to a user-command
+command! -nargs=1 Bs :call BufSel("<args>")
 
 " vim:ft=vim

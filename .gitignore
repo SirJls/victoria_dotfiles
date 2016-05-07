@@ -1,4 +1,10 @@
 config/VirtualBox/
+config/remmina/
+config/psysh/
+config/menus/
+config/lgogdownloader/
+config/freerdp/
+config/Skype/
 config/systemd/user/default.target.wants
 config/MonoDevelop/
 config/MonoDevelop-5.0/
@@ -48,8 +54,7 @@ config/vimb/history
 config/vimb/hsts
 config/vimb/queue
 config/vimb/search
-config/vimb/closed.Y99LAY
-config/vimb/closed.POSMAY
+config/vimb/closed.*
 config/vimprobable/closed
 config/vimprobable/cookies
 config/Trolltech.conf
@@ -58,6 +63,10 @@ config/shaman
 config/setroot
 config/systemd/user/mail.target.wants
 config/systemd/user/sockets.target.wants
+irssi/default.theme
+irssi/sasl-ecdsa-freenode.key
+irssi/sasl-ecdsa-freenode.pub
+irssi/sasl.auth
 ncmpcpp/error.log
 ncmpcpp/artists/
 vim/bundle/
@@ -69,6 +78,9 @@ vim/MarkDownRes
 zsh/histfile
 zsh/.zcompdump
 abook/addressbook
+abook/addressbook.bak
 abook/addressbook~
 .git-*
-
+config/gpick/
+mutt/aliases.bak
+mutt/aliases

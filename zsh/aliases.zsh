@@ -44,7 +44,7 @@ alias say="fortune | cowsay -f tux"
 alias vbmod="sudo modprobe vboxdrv"
 alias upterm='xrdb $HOME/.Xresources'
 alias rm='rm -iv'
-alias mpvw="mpv --aspect=16:9"
+alias mpvw="mpv --video-aspect=16:9"
 alias cd..="cd .."
 alias dush="du -sm *|sort -n|tail"
 alias makeup="updpkgsums && makepkg -ci"

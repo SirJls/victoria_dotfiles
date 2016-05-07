@@ -76,9 +76,18 @@ xset r rate 200 30
 # ----------------------------------------------------
 /usr/bin/setxkbmap -option caps:swapescape
 
-# run numlckx
+# run numlockx
 # ----------------------------------------------------
 /usr/bin/numlockx &
+
+# Intellij fix for misbehaving java application for dwm
+# ----------------------------------------------------
+wmname LG3D
+
+# Intellij needs a higher watch limit
+# ----------------------------------------------------
+sysctl fs.inotify.max_user_watches=524288
+sysctl --system
 
 # set cursor
 # ----------------------------------------------------
@@ -89,6 +98,6 @@ xset r rate 200 30
 /usr/bin/autocutsel -fork &
 /usr/bin/autocutsel -selection PRIMARY -fork &
 
-# start awesome
+# start dwm
 # ----------------------------------------------------
 exec $HOME/scripts/dwm-start

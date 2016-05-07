@@ -37,12 +37,11 @@ set mouse=a                             " let me use the mouse (on special ocass
 set pdev=Canon-MP620-series             " setup the printer
 
 let g:fanfingtastic_ignorecase = 1      " ignore case with f
-let mapleader='\'                       " Bind/set leader key
+let mapleader=','                       " Bind/set leader key
 let g:is_posix=1                        " POSIX shell scripts
 let g:loaded_matchparen=1               " disable parenthesis highlighting
 let g:is_bash=1                         " bash syntax the default for highlighting
 let g:vimsyn_noerror=1                  " hack for correct syntax highlighting
-
 
 " Colors
 " ----------------------------------------------------
@@ -55,14 +54,11 @@ set shiftwidth=4                        " n cols for auto-indenting
 set expandtab                           " spaces instead of tabs
 set autoindent                          " auto indents next new line
 set copyindent                          " copy the prevois indentation on autoindenting
-set linespace=15                        " set the linespace
 
 " Splits
 " ----------------------------------------------------
 set splitbelow
 set splitright
-" set winheight=30                        " make current window 30 lines
-" set winminheight=5
 
 " searching
 " ----------------------------------------------------
@@ -87,10 +83,19 @@ let g:tex_flavor = "latex"
 " ----------------------------------------------------
 autocmd BufNewFile,BufRead *.php set ft=html | set ft=php
 autocmd BufNewFile,BufRead *.blade.php set ft=blade.html.php
+" autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
-" Let Ctags look recursively down to $HOME
+" Let Ctags look recursively down to $HOME/code
 " ----------------------------------------------------
-set tags=./tags,tags;$HOME
+set tags=./tags,tags;$HOME/code
+
+" Setting the default comment character for filetypes
+" ----------------------------------------------------
+au FileType haskell,vhdl,ada let b:comment_leader = '-- '
+au FileType vim let b:comment_leader = '" '
+au FileType c,cpp,java,go,php let b:comment_leader = '// '
+au FileType sh,make,zsh let b:comment_leader = '# '
+au FileType tex let b:comment_leader = '% '
 
 " listchars
 " ----------------------------------------------------
@@ -110,11 +115,9 @@ no / /\v
 " ----------------------------------------------------
 if has("autocmd")
     " always jump to the last cursor position
-    " ----------------------------------------------------
     autocmd BufReadPost * if line("'\"")>0 && line("'\"")<=line("$") | exe "normal g`\""|endif
 
     " settings for specific filetypes
-    " ----------------------------------------------------
     autocmd BufRead *.txt set tw=79
     autocmd BufRead *.tex,*.markdown,*.md,*.txt set spell
     autocmd BufRead,BufNewFile ~/.mutt/temp/mutt-* set ft=mail wrap lbr nolist spell wm=0
@@ -137,8 +140,6 @@ endif
 
 " Utlisnips config so it does't conflict with YCM
 " ----------------------------------------------------
-let g:ycm_key_list_select_completion=["<tab>"]
-let g:ycm_key_list_previous_completion=["<S-tab>"]
 let g:UltiSnipsJumpForwardTrigger="["
 let g:UltiSnipsJumpBackwardTrigger="]"
 let g:UltiSnipsListSnippets="<c-l>"
@@ -146,6 +147,7 @@ let g:UltiSnipsExpandTrigger="<nop>"
 let g:ulti_expand_or_jump_res = 0
 let g:UltiSnipsSnippetsDir = "/home/jls/dotfiles/vim/snips/"
 let g:UltiSnipsSnippetDirectories=["snips"]
+let g:UltiSnipsEditSplit="vertical"
 
 
 " YouCompleteMe (YCM)
@@ -156,6 +158,11 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
 let g:ycm_extra_conf_vim_data   = ['&filetype']
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_filetype_blacklist = { 'help': 1 }
+let g:ycm_cache_omnifunc = 0
+let g:ycm_key_list_select_completion=["<tab>"]
+let g:ycm_key_list_previous_completion=["<S-tab>"]
+let g:ycm_disable_for_files_larger_than_kb = 500
+
 
 " NERDTree
 " ----------------------------------------------------

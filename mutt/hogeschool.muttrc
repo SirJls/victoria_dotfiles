@@ -1,5 +1,5 @@
 # ----------------------------------------------------
-# file:     $HOME/dotfiles/mutt/account.nl.hro.jls
+# file:     $HOME/dotfiles/mutt/hogeschool.muttrc
 # file:     $HOME/path/to/file
 # author    jls - http://sjorssparreboom.nl
 # vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=conf:
@@ -7,9 +7,10 @@
 
 # Account Settings
 # ----------------------------------------------------
+set from      = "0890040@hr.nl"
 set sendmail  = "/usr/bin/msmtp -a school"
 set mbox      = "+school/archive"
-set record    = "+shool/sent"
+set record    = "+school/sent"
 set postponed = "+school/drafts"
 
 # Color status
@@ -19,7 +20,6 @@ color indicator  white   blue
 
 # Macro's
 # ------------------------------------
-macro index E       "<change-folder>+gmail/archive<enter><limit>~B "    "search everything"
-macro index,pager F "<save-message>=+gmail/flagged<enter>"              "mark message as Flagged/Starred"
-macro index S       "<save-message>+gmail/spam<enter>"                  "mark message as spam"
+macro index E       "<change-folder>+school/archive<enter><limit>~B "   "search everything"
+macro index S       "<save-message>+school/spam<enter>"                 "mark message as spam"
 

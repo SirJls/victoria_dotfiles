@@ -1,5 +1,5 @@
 # -------------------------------------
-# file: $HOME/.vim/ycm_extra_coonf.py
+# file: $HOME/.vim/ycm_extra_conf.py
 # -------------------------------------
 # Original Author: https://github.com/vheon
 import os

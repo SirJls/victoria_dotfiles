@@ -2,6 +2,14 @@ priority -50
 
 extends texmath
 
+snippet "docclass" "documentclass" b
+\documentclass[${1:12pt}]{${2:article}}
+endsnippet
+
+snippet "defc" "definecolor" "b"
+\definecolor{$1}{${2:rgb}}{$3}}
+endsnippet
+
 snippet "docstyle" "documentstyle" b
 \documentstyle{${1:article}}
 endsnippet
@@ -116,7 +124,7 @@ ${0}
 endsnippet
 
 snippet pac "Package" b
-\usepackage[${1:options}]{${2:package}}$0
+\usepackage[${1:options}]{${2:package}}
 endsnippet
 
 snippet lp "Long parenthesis"

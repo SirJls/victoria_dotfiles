@@ -22,7 +22,7 @@ export VISUAL="$EDITOR"
 export SUDO_EDITOR="$EDITOR"
 export TERM="rxvt-unicode-256color"
 export GPG_TTY=$(tty)
-export GPGKEY="4681B4A7"
+export GPGKEY="B5204A3E"
 export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent"
 export COMPOSER_HOME="$HOME/.composer/vendor/bin"
 export PAGER="/usr/bin/less"
@@ -30,6 +30,9 @@ export SDCV_PAGER="/usr/bin/less"
 export SYSTEMD_PAGER="less -j4aR"
 export PASS_DIR="$HOME/.password-store"
 export PATH="$PATH:$COMPOSER_HOME"
+export NPM_CONFIG_PREFIX=~/.node_modules
+export PATH="$HOME/.node_modules/bin:$PATH"
+
 
 # setup default dirs
 # ----------------------------------------------------
@@ -39,13 +42,22 @@ export PATH="$PATH:$COMPOSER_HOME"
 
 # Man page colours
 # ----------------------------------------------------
-export LESS_TERMCAP_mb=$'\E[01;31m'
-export LESS_TERMCAP_md=$'\E[01;35m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[01;30;03;36m'
-export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;34m'
+# export LESS_TERMCAP_mb=$'\E[01;31m'
+# export LESS_TERMCAP_md=$'\E[01;35m'
+# export LESS_TERMCAP_me=$'\E[0m'
+# export LESS_TERMCAP_se=$'\E[0m'
+# export LESS_TERMCAP_so=$'\E[01;30;03;36m'
+# export LESS_TERMCAP_ue=$'\E[0m'
+# export LESS_TERMCAP_us=$'\E[01;34m'
+
+# Less Colors for Man Pages
+export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking
+export LESS_TERMCAP_md=$'\e[01;38;5;74m'  # begin bold
+export LESS_TERMCAP_me=$'\e[0m'           # end mode
+export LESS_TERMCAP_se=$'\e[0m'           # end standout-mode
+export LESS_TERMCAP_so=$'\e[38;5;246m'    # begin standout-mode - info box
+export LESS_TERMCAP_ue=$'\e[0m'           # end underline
+export LESS_TERMCAP_us=$'\e[04;38;5;146m' # begin underline
 
 # Linux console colours
 # ----------------------------------------------------

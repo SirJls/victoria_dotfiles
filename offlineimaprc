@@ -6,7 +6,7 @@
 
 [general]
 metadata = ~/.offlineimap
-accounts = school, gmail
+accounts = sjorssparreboom, school, gmail
 maxsyncaccounts = 2
 socktimeout = 60
 ui = Basic
@@ -46,6 +46,51 @@ remoterepository = remote-gmail
 autorefresh = 0
 status_backend = sqlite
 
+[Account sjorssparreboom]
+localrepository = local-sjorssparreboom
+remoterepository = remote-sjorssparreboom
+autorefresh = 0
+status_backend = sqlite
+
+[Repository local-sjorssparreboom]
+type = Maildir
+localfolders = ~/.mail/sjorssparreboom
+
+# Translate names from local names to remote names:
+# ----------------------------------------------------
+nametrans = lambda foldername: re.sub('inbox', 'INBOX',
+                               re.sub('sent', 'INBOX.Sent',
+                               re.sub('drafts', 'INBOX.Drafts',
+                               re.sub('trash', 'INBOX.Trash',
+                               re.sub('spam', 'INBOX.Junk',
+                               foldername)))))
+
+[Repository remote-sjorssparreboom]
+type = IMAP
+auth_mechanisms = LOGIN
+maxconnections = 2
+remotehost     = www70.totaalholding.nl
+remoteuser     = mail@sjorssparreboom.nl
+remotepasseval = keyring.get_password('neostrada', 'mail')
+
+# If using ssl, you will need to specify certificates to use with them
+# ----------------------------------------------------
+ssl            = yes
+sslcacertfile  = /etc/ssl/certs/ca-certificates.crt
+realdelete     = yes
+
+# Translate remote names to local names:
+# This one does:
+# 1. Transforms names to lowercase
+# 2. Replaces spaces with underscores
+# ----------------------------------------------------
+nametrans = lambda foldername: re.sub('.*INBOX$', 'inbox', 
+                               re.sub('.*Sent$', 'sent', 
+                               re.sub('.*Drafts$', 'drafts', 
+                               re.sub('.*Trash$', 'trash', 
+                               re.sub('.*Junk$', 'spam', 
+                               foldername)))))
+
 [Repository local-school]
 type = Maildir
 localfolders = ~/.mail/school
@@ -57,18 +102,7 @@ nametrans = lambda foldername: re.sub('inbox', 'INBOX',
                                re.sub('drafts', 'Drafts',
                                re.sub('trash', 'Deleted Items',
                                re.sub('spam', 'Junk Email',
-                               re.sub('clutter', 'Clutter',
-                               re.sub('cabinet', 'Cabinet',
-                               re.sub('journal', 'Journal',
-                               re.sub('notes', 'Notes',
-                               re.sub('outbox', 'Outbox',
-                               re.sub('tasklist', 'Tasklist',
-                               re.sub('tasks', 'Tasks',
-                               re.sub('archive', 'Archive',
-                               re.sub('contacts', 'Contacts',
-                               re.sub('calendar', 'Calendar',
-                               foldername)))))))))))))))
-
+                               foldername)))))
 
 [Repository remote-school]
 type = IMAP
@@ -95,17 +129,9 @@ nametrans = lambda foldername: re.sub('.*INBOX$', 'inbox',
                                re.sub('.*Drafts$', 'drafts', 
                                re.sub('.*Deleted Items$', 'trash', 
                                re.sub('.*Junk Email$', 'spam', 
-                               re.sub('.*Clutter$', 'clutter', 
-                               re.sub('.*Cabinet$', 'cabinet', 
-                               re.sub('.*Journal$', 'journal', 
-                               re.sub('.*Notes$', 'notes', 
-                               re.sub('.*Outbox$', 'outbox', 
-                               re.sub('.*Tasklist$', 'tasklist', 
-                               re.sub('.*Tasks$', 'tasks', 
-                               re.sub('.*Archive$', 'archive',
-                               re.sub('.*Contacts', 'contacts',
-                               re.sub('.*Calendar', 'calendar',
-                               foldername)))))))))))))))
+                               foldername)))))
+
+folderfilter = lambda foldername: foldername not in ['Calendar', 'Clutter', 'Contacts', 'Journal', 'Notes', 'Outbox', 'Tasks']
 
 [Repository local-gmail]
 type = Maildir
@@ -113,17 +139,15 @@ localfolders = ~/.mail/gmail
 # Note the nametrans below in remote-gmail: it undoes this one
 # ----------------------------------------------------
 nametrans = lambda folder: re.sub('inbox', 'INBOX',
-                           re.sub('bin', '[Gmail].Bin',
+                           re.sub('trash', '[Gmail].Bin',
                            re.sub('spam', '[Gmail].Spam',
                            re.sub('drafts', '[Gmail].Drafts',
                            re.sub('sent', '[Gmail].Sent Mail',
-                           re.sub('flagged', '[Gmail].Starred',
-                           re.sub('important', '[Gmail].Important',
-                           re.sub('archive', '[Gmail].All Mail', folder))))))))
-                           # re.sub('trash', '[Gmail].Trash',
+                           folder)))))
 
 [Repository remote-gmail]
 type = Gmail
+type = IMAP
 auth_mechanisms = LOGIN
 maxconnections = 2
 remotehost     = imap.gmail.com
@@ -139,12 +163,10 @@ realdelete = yes
 # ----------------------------------------------------
 nametrans = lambda folder: re.sub(',*INBOX$', 'inbox',
                            re.sub('.*Spam$', 'spam',
-                           re.sub('.*Bin$', 'bin',
+                           re.sub('.*Bin$', 'trash',
                            re.sub('.*Drafts$', 'drafts',
                            re.sub('.*Sent Mail$', 'sent',
-                           re.sub('.*Starred$', 'flagged',
-                           re.sub('.*Important$', 'important',
-                           re.sub('.*All Mail$', 'archive', folder))))))))
-                           # re.sub('.*Trash$', 'trash',
+                           folder)))))
 # We don't want to sync all mail, it would pull everything again
-folderfilter = lambda foldername: foldername not in ['[Gmail].All Mail']
+# folderfilter = lambda foldername: foldername not in ['[Gmail].All Mail']
+

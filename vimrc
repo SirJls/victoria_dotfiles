@@ -16,26 +16,20 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" Vim mail client interface
-" Plugin 'felipec/notmuch-vim'
+" vim-matchit
+Plugin 'edsono/vim-matchit'
 
-" Distractfree reading
-" Plugin 'junegunn/goyo.vim'
-
-" Let me match more characters
-" Plugin 'tmhedberg/matchit'
+" vim R plugin
+Plugin 'vim-scripts/Vim-R-plugin'
 
 " Surround t-pope quoting/parenthesizing made simple
 Plugin 'tpope/vim-surround'
 
-" Add Tcomments for comments
-Plugin 'tomtom/tcomment_vim'
-
-" Add powerline
-" Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
-
 " Let me use the f
 Plugin 'dahu/vim-fanfingtastic'
+
+" Dependency for fanfingtastic
+Plugin 'tpope/vim-repeat'
 
 " Show color for the color codes
 Plugin 'Colorizer'
@@ -43,14 +37,8 @@ Plugin 'Colorizer'
 " YouCompeleteMe (YCM)
 Plugin 'Valloric/YouCompleteMe'
 
-" Markdown preview
-Plugin 'MikeCoder/markdown-preview.vim'
-
 " Track engine for snippets
 Plugin 'SirVer/UltiSnips'
-
-" Snippets are separated from the engine. Add this if you want them:
-" Plugin 'honza/vim-snippets'
 
 " Syntaxchecker
 Plugin 'scrooloose/syntastic'
@@ -61,14 +49,8 @@ Plugin 'majutsushi/tagbar'
 " NERDTree
 Plugin  'scrooloose/nerdtree'
 
-" XSbeats
-Plugin 'xsbeats/vim-blade'
-
 " Control p
 Plugin 'kien/ctrlp.vim'
-
-" Omnicompleter
-Plugin 'shawncplus/phpcomplete.vim'
 
 " Fast navigation
 Plugin 'yegappan/mru'

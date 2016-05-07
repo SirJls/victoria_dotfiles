@@ -4,8 +4,9 @@
 # vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=conf:
 # ----------------------------------------------------
 
-# GPG settings sourced from $HOME/.config/mutt/.muttrc
+# GPG settings sourced from $HOME//mutt/.muttrc
 # Use GPGME
+# ----------------------------------------------------
 set crypt_use_gpgme = yes
 set crypt_autosign = yes
 set pgp_sign_as = $GPGKEY

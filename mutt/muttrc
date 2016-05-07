@@ -28,7 +28,7 @@ set imap_peek           = no                                    # Gmail mark as 
 # ----------------------------------------------------
 set mbox_type           = Maildir                               # mailbox type
 set folder              = ~/.mail                               # mailbox location
-set spoolfile           = "+gmail/inbox"                        # JLS is default inbox
+set spoolfile           = "+sjorssparreboom/inbox"              # sjorssparreboom is default inbox
 set timeout             = 3                                     # seconds to wait before timout & mail check
 set mail_check          = 0                                     # look for new mail in seconds
 set sort_alias          = alias                                 # sort alias file by alias
@@ -104,20 +104,21 @@ hdr_order from: to: cc: date: subject:                          # and in this or
 
 # Boxes
 # ----------------------------------------------------
-mailboxes +gmail/inbox +gmail/sent +gmail/drafts +gmail/bin +gmail/archive
+mailboxes +gmail/inbox +gmail/sent +gmail/drafts +gmail/bin +gmail/archive +gmail/flagged
 mailboxes +school/inbox +school/sent +school/drafts +school/trash +school/archive
+mailboxes +sjorssparreboom/inbox +sjorssparreboom/sent +sjorssparreboom/drafts +sjorssparreboom/trash +sjorssparreboom/archive
 
 # Always sourced
 # ----------------------------------------------------
 source ~/.mutt/gpg.rc                                    # use GPG
 source ~/.mutt/colours.muttrc                            # colorscheme
-source ~/.mutt/sidebar                                   # set sidebar
 source $alias_file                                       # required for functionality
 
 # Folder Hooks
 # ----------------------------------------------------
-folder-hook gmail/* source ~/.mutt/gmail.muttrc
-folder-hook school/* source ~/.mutt/hogeschool.muttrc
+folder-hook gmail/*              source ~/.mutt/gmail.muttrc
+folder-hook school/*             source ~/.mutt/hogeschool.muttrc
+folder-hook sjorssparreboom/*    source ~/.mutt/sjorssparreboom.muttrc
 
 # Mailing lists
 # ----------------------------------------------------
@@ -165,19 +166,20 @@ bind attach <return>    view-mailcap
 
 # macros
 # ----------------------------------------------------
-macro index gl       "<change-folder>=gmail/inbox<enter>"     "go to Gmail inbox"
-macro index gs       "<change-folder>=school/inbox<enter>"    "go to school inbox"
-macro index B        "<limit>~b "                             "search message bodies"
-macro index \Cr      "<tag-prefix><clear-flag>N"              "mark tagged messages as read"
-macro index \Cp      "<pipe-message>cat > ~/"                 "save message as" 
+macro index gl       "<change-folder>=gmail/inbox<enter>"                           "go to gmail inbox"
+macro index gs       "<change-folder>=school/inbox<enter>"                          "go to school inbox"
+macro index gm       "<change-folder>=sjorssparreboom/inbox<enter>"                 "go to sjorssparreboom inbox"
+macro index B        "<limit>~b "                                                   "search message bodies"
+macro index \Cr      "<tag-prefix><clear-flag>N"                                    "mark tagged messages as read"
+macro index \Cp      "<pipe-message>cat > ~/"                                       "save message as"
 
-macro index,pager <F1> "<shell-escape>less /usr/share/doc/mutt/manual.txt<enter>" "Show Mutt documentation"
-macro index,pager <F2> ":toggle help<enter>:set ?help<enter>"  "toggle help status line"
-macro index,pager <F5> ":source ~/.mutt/muttrc\n"              "Reload the muttrc"
+macro index,pager <F1> "<shell-escape>less /usr/share/doc/mutt/manual.txt<enter>"   "Show Mutt documentation"
+macro index,pager <F2> ":toggle help<enter>:set ?help<enter>"                       "toggle help status line"
+macro index,pager <F5> ":source ~/.mutt/muttrc\n"                                   "Reload the muttrc"
 
 macro compose \Cg    "Fgpg --clearsign\ny"
 macro compose \Cp    "Fgpg --clearsign\ny^T^Uapplication/pgp; format=text; x-action=sign\n"
-macro compose Y pfy                                            "send mail without pgp"
+macro compose Y pfy                                                                 "send mail without pgp"
 
 # Use abook with Mutt
 # ----------------------------------------------------

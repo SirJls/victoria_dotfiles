@@ -33,10 +33,6 @@ nmap N Nzz
 nmap } }zz
 nmap { {zz
 
-" pop open spell suggestion menu
-" ----------------------------------------------------
-nnoremap <C-c> z=
-
 " Navigation up or down is really up or down
 " ----------------------------------------------------
 nnoremap j gj
@@ -44,24 +40,25 @@ nnoremap k gk
 
 " Quick Pairs
 " ----------------------------------------------------
-imap '' ''<ESC>i
-imap "" ""<ESC>i
-imap ( ()<ESC>i
-imap [ []<ESC>i
-imap { {}<ESC>i
+ino " ""<left>
+ino ' ''<left>
+ino ( ()<left>
+ino [ []<left>
+ino { {}<left>
+ino {<CR> {<CR>}<ESC>O
+
+"  Comment visually selected text
+" ----------------------------------------------------
+noremap <silent> ,c :<C-B>sil <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:noh<CR>
+noremap <silent> ,u :<C-B>sil <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:noh<CR>
 
 " Insert current date and time
 " ----------------------------------------------------
-nnoremap <leader>d "=strftime("%d %b, %Y %X")<CR>p
-nnoremap <leader>D "=strftime("%d %b, %Y %X")<CR>P
+nnoremap ,d "=strftime("%d %b, %Y %X")<CR>p
 
 " Change to current directory
 " ----------------------------------------------------
 nnoremap cd :cd %:p:h<CR>:pwd<CR>
-
-" Let me ESCAPE!
-" ----------------------------------------------------
-inoremap <leader><leader> \
 
 " Allow all window commands in insert mode
 " ----------------------------------------------------
@@ -69,10 +66,15 @@ imap <C-w> <C-o><C-w>
 
 " Map for save & quit operations
 " ----------------------------------------------------
-nnoremap gq :q!<CR>
-nnoremap gw :w!<CR>
+nnoremap ,q :q!<CR>
+nnoremap ,w :w!<CR>
+
+" Yank file path
+" ----------------------------------------------------
+nmap cp :let @+ = expand("%")<CR>
 
 " Map sort function to a key
+" ----------------------------------------------------
 vnoremap s :sort<CR>
 
 " Easier moving of code blocks (better indentation)
@@ -87,8 +89,8 @@ nnoremap gO O<ESC>j
 
 " Window splitting
 " ----------------------------------------------------
-nnoremap gv :vsplit<CR>
-nnoremap gh :split<CR>
+nnoremap ,v :vsplit<CR>
+nnoremap ,h :split<CR>
 
 " Tabs
 " ----------------------------------------------------
@@ -117,11 +119,7 @@ nnoremap <C-l> <C-w>l
 " Fast navigation
 " ----------------------------------------------------
 nnoremap m :MRU<CR>
-" nnoremap ; :
-
-" Run PHPUnits tests
-" ----------------------------------------------------
-map <leader>t :!phpunit %<CR>
+nnoremap ; :
 
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving
@@ -137,15 +135,7 @@ map <C-P> :CtrlPBufTag<cr>
 " I don't want to pull up these folders/files when calling CtrlP
 " --------------------------------------------------
 set wildignore+=*/vendor/**
-set wildignore+=*/public/forum/**
-
-" Abbreviations
-" ----------------------------------------------------
-abbrev pft PHPUnit_Framework_TestCase
-
-abbrev gm !php artisan make:model
-abbrev gc !php artisan make:controller
-abbrev gmig !php artisan make:migration
+set wildignore+=*/public/**
 
 " Edit todo list for project
 " ----------------------------------------------------
@@ -154,21 +144,6 @@ nmap todo :e todo.txt<CR>
 " Auto-remove trailing spaces
 " ----------------------------------------------------
 autocmd BufWritePre *.php :%s/\s\+$//e
-
-" Laravel framework commons
-" ----------------------------------------------------
-nmap <leader>lr  :e app/Http/routes.php<cr>
-nmap <leader>lca :e config/app.php<cr>81Gf(%O
-nmap <leader>lcd :e config/database.php<cr>
-nmap <leader>lc :e composer.json<cr>
-
-" Homestead
-" ----------------------------------------------------
-nmap <leader>hs :e /home/jls/.homestead/Homestead.yaml
-
-" Concept - load underlying class for Laravel
-" ----------------------------------------------------
-nmap lf :call FacadeLookup()<cr>
 
 " Create/edit file in the current directory
 " ----------------------------------------------------
@@ -185,9 +160,9 @@ map <C-b> :NERDTreeToggle<CR>
 " Keys & functions
 " ----------------------------------------------------
 command! -nargs=+ MapToggle call MapToggle(<f-args>)
+:nnoremap <F4> :buffers<CR>:buffer<Space>
 MapToggle <F5> spell
 MapToggle <F6> paste
 MapToggle <F7> hlsearch
 MapToggle <F8> wrap
-
 " vim: ft=vim

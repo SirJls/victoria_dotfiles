@@ -58,6 +58,7 @@ sprung() { curl -F "sprunge=<-" http://sprunge.us <"$1" ;}
 aurup() { awk '{print $2}' </tmp/aurupdates* ;}
 
 # check pacman's log
+# ----------------------------------------------------
 paclog() { tail -n"$1" /var/log/pacman.log ;}
 
 # paste from clipboard
