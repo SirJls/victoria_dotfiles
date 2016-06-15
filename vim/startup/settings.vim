@@ -8,7 +8,6 @@
 " ----------------------------------------------------
 set encoding=utf-8                      " UTF-8 encoding for all new files
 set ttyfast                             " don't lag...
-set ttyscroll=3                         " don't lag...
 set lazyredraw                          " to avoid scrolling problems
 set cursorline                          " track position
 set nocompatible                        " leave the old ways behind…
@@ -27,31 +26,35 @@ set linebreak                           " attempt to wrap lines cleanly
 set wildmenu                            " enhanced tab-completion shows all matching cmds in a popup menu
 set wildmode=list:longest,full          " full completion options
 set spelllang=en_gb                     " real English spelling
+set dictionary+=/usr/share/dict/words
 set wmh=0                               " no displaying current line for minimized files
 set nofoldenable                        " disable folding
-au WinEnter * set nofen                 " disable disable DISABLE!
-au WinLeave * set nofen                 " disable disable DISABLE!
 set timeoutlen=1000                     " faster
 set ttimeoutlen=10                      " faster
 set mouse=a                             " let me use the mouse (on special ocassions)
 set pdev=Canon-MP620-series             " setup the printer
 
-let g:fanfingtastic_ignorecase = 1      " ignore case with f
 let mapleader=','                       " Bind/set leader key
 let g:is_posix=1                        " POSIX shell scripts
 let g:loaded_matchparen=1               " disable parenthesis highlighting
 let g:is_bash=1                         " bash syntax the default for highlighting
 let g:vimsyn_noerror=1                  " hack for correct syntax highlighting
 
-" Colors
+" Auto commands
 " ----------------------------------------------------
-set t_Co=256
+" au WinEnter * set nofen                 " disable disable DISABLE!
+" au WinLeave * set nofen                 " disable disable DISABLE!
+au FileType c,cpp,go setlocal comments-=:// comments+=f://
 
 " tabs and indenting
 " ----------------------------------------------------
-set tabstop=4                           " tabs appear as n number of columns
-set shiftwidth=4                        " n cols for auto-indenting
-set expandtab                           " spaces instead of tabs
+set modeline
+set linespace=2
+set tabstop=8                           " tabs appear as n number of columns
+set softtabstop=8
+set noexpandtab
+set shiftwidth=8                        " n cols for auto-indenting
+" set expandtab                           " spaces instead of tabs
 set autoindent                          " auto indents next new line
 set copyindent                          " copy the prevois indentation on autoindenting
 
@@ -73,11 +76,12 @@ autocmd BufEnter * if &filetype == "" | setlocal ft=text | endif
 
 " Add spell for LaTeX documents
 " ----------------------------------------------------
-autocmd FileType tex setlocal spell spelllang=en_us 
+autocmd FileType tex setlocal spell spelllang=en_gb
 
 " All tex files as tex
 " ----------------------------------------------------
 let g:tex_flavor = "latex"
+set suffixes+=.log,.aux,.bbl,.blg,.idx,.ilg,.ind,.out,.pdf
 
 " Associate blade with html, php
 " ----------------------------------------------------
@@ -88,14 +92,6 @@ autocmd BufNewFile,BufRead *.blade.php set ft=blade.html.php
 " Let Ctags look recursively down to $HOME/code
 " ----------------------------------------------------
 set tags=./tags,tags;$HOME/code
-
-" Setting the default comment character for filetypes
-" ----------------------------------------------------
-au FileType haskell,vhdl,ada let b:comment_leader = '-- '
-au FileType vim let b:comment_leader = '" '
-au FileType c,cpp,java,go,php let b:comment_leader = '// '
-au FileType sh,make,zsh let b:comment_leader = '# '
-au FileType tex let b:comment_leader = '% '
 
 " listchars
 " ----------------------------------------------------
@@ -125,11 +121,13 @@ endif
 
 " Load colorschemes
 " ----------------------------------------------------
+colorscheme pyte
 
-if exists('$WINDOWID') && (&term =~ "termite" || &term =~ "tmux")
-    colorscheme miromiro
+if has("nvim")
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1   " True gui colors in terminal
 else
-    colorscheme miro8                   " colourscheme for the 8 colour linux term
+    set ttyscroll=3                         " don't lag...
+    set t_Co=256
 endif
 
 " vimdiff
@@ -140,15 +138,13 @@ endif
 
 " Utlisnips config so it does't conflict with YCM
 " ----------------------------------------------------
-let g:UltiSnipsJumpForwardTrigger="["
-let g:UltiSnipsJumpBackwardTrigger="]"
-let g:UltiSnipsListSnippets="<c-l>"
-let g:UltiSnipsExpandTrigger="<nop>"
-let g:ulti_expand_or_jump_res = 0
+" let g:UltiSnipsJumpForwardTrigger = "<tab>"
+" let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:UltiSnipsExpandTrigger = "<c-j>"
 let g:UltiSnipsSnippetsDir = "/home/jls/dotfiles/vim/snips/"
 let g:UltiSnipsSnippetDirectories=["snips"]
 let g:UltiSnipsEditSplit="vertical"
-
+let g:UltiSnipsListSnippets="<c-e>"
 
 " YouCompleteMe (YCM)
 " ----------------------------------------------------
@@ -158,11 +154,7 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
 let g:ycm_extra_conf_vim_data   = ['&filetype']
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_filetype_blacklist = { 'help': 1 }
-let g:ycm_cache_omnifunc = 0
-let g:ycm_key_list_select_completion=["<tab>"]
-let g:ycm_key_list_previous_completion=["<S-tab>"]
 let g:ycm_disable_for_files_larger_than_kb = 500
-
 
 " NERDTree
 " ----------------------------------------------------
@@ -179,6 +171,16 @@ let NERDTreeBookmarksFile=expand("$HOME/.vim/vim-NERDTreeBookmarks")
 " ----------------------------------------------------
 let NERDTreeShowBookmarks=1
 let NERDTreeModifiable=1
+
+" Go environment setting
+" ----------------------------------------------------
+let g:go_fmt_command = "goimports"
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
 
 " tmux
 " ----------------------------------------------------

@@ -30,18 +30,6 @@ endfunction
 command! -nargs=+ MapToggle call MapToggle(<f-args>)
 " }}}
 
-" {{{ Let me use the enter to insert snippets without lossing it's functionality
-function! <SID>ExpandSnippetOrReturn()
-    let snippet = UltiSnips#ExpandSnippetOrJump()
-    if g:ulti_expand_or_jump_res > 0
-        return snippet
-    else
-        return "\<CR>"
-    endif
-endfunction
-inoremap <expr> <CR> pumvisible() ? "<C-R>=<SID>ExpandSnippetOrReturn()<CR>" : "\<CR>"
-" }}}
-
 " {{{ Let me Count words
 let g:word_count=" "
 function WordCount()
@@ -104,7 +92,7 @@ if exists("+showtabline")
              let i = i + 1
          endwhile
          let s .= '%T%#TabLineFill#%='
-         let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
+         " let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
          return s
      endfunction
      set stal=2
@@ -112,6 +100,7 @@ if exists("+showtabline")
 endif
 " }}}
 
+" {{{ let me select the file from the buffer
 function! BufSel(pattern)
   let bufcount = bufnr("$")
   let currbufnr = 1
@@ -142,5 +131,22 @@ endfunction
 
 "Bind the BufSel() function to a user-command
 command! -nargs=1 Bs :call BufSel("<args>")
+" }}}
+
+" {{{ Strip the newline from the end of a string
+function! Chomp(str)
+  return substitute(a:str, '\n$', '', '')
+endfunction
+" }}}
+
+" {{{ Find a file and pass it to cmd
+function! DmenuOpen(cmd)
+  let fname = Chomp(system("git ls-files | dmenu -i -l 20 -p " . a:cmd))
+  if empty(fname)
+    return
+  endif
+  execute a:cmd . " " . fname
+endfunction
+" }}}
 
 " vim:ft=vim

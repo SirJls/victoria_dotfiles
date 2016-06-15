@@ -9,9 +9,13 @@
 nnoremap j jzz
 nnoremap k kzz
 
-" Indent everything
+" Jump out of parenthesis
 " ----------------------------------------------------
-nnoremap <C-i> gg=G
+inoremap ,e <C-o>a
+
+" 
+" ----------------------------------------------------
+
 
 " Allows writing to files with root priviledges
 " ----------------------------------------------------
@@ -42,27 +46,31 @@ nnoremap k gk
 " ----------------------------------------------------
 ino " ""<left>
 ino ' ''<left>
+ino ` ``<left>
 ino ( ()<left>
 ino [ []<left>
 ino { {}<left>
 ino {<CR> {<CR>}<ESC>O
 
-"  Comment visually selected text
+" Let me escape!
 " ----------------------------------------------------
-noremap <silent> ,c :<C-B>sil <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:noh<CR>
-noremap <silent> ,u :<C-B>sil <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:noh<CR>
+inoremap <leader><space> , 
+
+" Helpers
+" ----------------------------------------------------
+noremap <leader>a =ip
+noremap cp yap<S-}>p
+
+nnoremap Q @q
+vnoremap Q :norm @q<cr>
 
 " Insert current date and time
 " ----------------------------------------------------
-nnoremap ,d "=strftime("%d %b, %Y %X")<CR>p
+nnoremap ,D "=strftime("%d %b, %Y %X")<CR>p
 
 " Change to current directory
 " ----------------------------------------------------
 nnoremap cd :cd %:p:h<CR>:pwd<CR>
-
-" Allow all window commands in insert mode
-" ----------------------------------------------------
-imap <C-w> <C-o><C-w>
 
 " Map for save & quit operations
 " ----------------------------------------------------
@@ -71,7 +79,7 @@ nnoremap ,w :w!<CR>
 
 " Yank file path
 " ----------------------------------------------------
-nmap cp :let @+ = expand("%")<CR>
+nmap yp :let @+ = expand("%")<CR>
 
 " Map sort function to a key
 " ----------------------------------------------------
@@ -94,27 +102,36 @@ nnoremap ,h :split<CR>
 
 " Tabs
 " ----------------------------------------------------
-nnoremap gn :tabnew<CR>
+nnoremap ,t :tabnew<CR>
 
 " Window resizing mappings (ALT KEY)
 " ----------------------------------------------------
-execute "set <M-h>=\eh"
-nnoremap <M-h> :vertical resize -5<cr>
-execute "set <M-j>=\ej"
-nnoremap <M-j> :resize +5<cr>
-execute "set <M-k>=\ek"
-nnoremap <M-k> :resize -5<cr>
-execute "set <M-l>=\el"
-nnoremap <M-l> :vertical resize +5<cr>
-execute "set <M-0>=\e0"
-nnoremap <M-0> <C-w>=
+if has("nvim")
+    nnoremap <a-h> :vertical resize -5<cr>
+    nnoremap <a-j> :resize +5<cr>
+    nnoremap <a-k> :resize -5<cr>
+    nnoremap <a-l> :vertical resize +5<cr>
+    nnoremap <a-0> <C-w>=
+else
+    execute "set <M-h>=\eh"
+    nnoremap <M-h> :vertical resize -5<cr>
+    execute "set <M-j>=\ej"
+    nnoremap <M-j> :resize +5<cr>
+    execute "set <M-k>=\ek"
+    nnoremap <M-k> :resize -5<cr>
+    execute "set <M-l>=\el"
+    nnoremap <M-l> :vertical resize +5<cr>
+    execute "set <M-0>=\e0"
+    nnoremap <M-0> <C-w>=
+endif
 
-" Switch between window with vi keybindings
+" Allow all window commands in insert mode
 " ----------------------------------------------------
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+" imap <C-w> <C-o><C-w>
+" imap <s-h> <c-o><c-w>h
+" imap <s-j> <c-o><c-w>j
+" imap <s-k> <c-o><c-w>k
+" imap <s-l> <c-o><c-w>l
 
 " Fast navigation
 " ----------------------------------------------------
@@ -128,23 +145,6 @@ nnoremap ; :
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endi
 
-" Familiar commands for file/browsing (CTRL-P)
-" --------------------------------------------------
-map <C-P> :CtrlPBufTag<cr>
-
-" I don't want to pull up these folders/files when calling CtrlP
-" --------------------------------------------------
-set wildignore+=*/vendor/**
-set wildignore+=*/public/**
-
-" Edit todo list for project
-" ----------------------------------------------------
-nmap todo :e todo.txt<CR>
-
-" Auto-remove trailing spaces
-" ----------------------------------------------------
-autocmd BufWritePre *.php :%s/\s\+$//e
-
 " Create/edit file in the current directory
 " ----------------------------------------------------
 nmap :ed :edit %:p:h/
@@ -157,6 +157,18 @@ nmap <F2> :TagbarToggle<cr>
 " ----------------------------------------------------
 map <C-b> :NERDTreeToggle<CR>
 
+" vim-go
+" ----------------------------------------------------
+au FileType go nmap <leader>rt <Plug>(go-run-tab)
+let g:go_term_enabled = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+
 " Keys & functions
 " ----------------------------------------------------
 command! -nargs=+ MapToggle call MapToggle(<f-args>)
@@ -165,4 +177,10 @@ MapToggle <F5> spell
 MapToggle <F6> paste
 MapToggle <F7> hlsearch
 MapToggle <F8> wrap
+
+" Use dmenu with vim so it sucksless
+" ----------------------------------------------------
+map <c-t> :call DmenuOpen("tabe")<cr>
+map <c-f> :call DmenuOpen("e")<cr>
+
 " vim: ft=vim
