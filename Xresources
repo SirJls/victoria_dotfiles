@@ -127,8 +127,5 @@ xcalc.ti.button39.background:             #555595
 XCalc*Cursor:                             hand2
 XCalc*ShapeStyle:                         rectangle
 
-! -- Colours -- !
-! ---------------------------------------------------
-#include "/home/jls/dotfiles/colours/dark"
 
 ! vim: ft=xdefaults

@@ -15,11 +15,10 @@ set postponed = "+school/drafts"
 
 # Color status
 # ----------------------------------------------------
-color status     white   blue
-color indicator  white   blue
+color status     white   red
+color indicator  white   red
 
 # Macro's
 # ------------------------------------
 macro index E       "<change-folder>+school/archive<enter><limit>~B "   "search everything"
 macro index S       "<save-message>+school/spam<enter>"                 "mark message as spam"
-

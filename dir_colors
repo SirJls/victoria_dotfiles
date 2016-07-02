@@ -1,32 +1,8 @@
 # ----------------------------------------
 # file: $HOME/.dir_colors
-# author: jason ryan http:/jasonwryan.com
+# author: jason ryan
 # vim:fenc=utf-8:nu:ai:si:et:ts=4:sw=4:
 # ----------------------------------------
-#
-# COLOR needs one of these arguments: 'tty' colorizes output to ttys, but not
-# pipes. 'all' adds color characters to all output. 'none' shuts colorization
-# off.
-COLOR all
-
-# Extra command line options for ls go here.
-# Basically these ones are:
-#  -F = show '/' for dirs, '*' for executables, etc.
-#  -T 0 = don't trust tab spacing when formatting ls output.
-# -b = better support for special characters
-OPTIONS -F -b -T 0
-
-# EIGHTBIT, followed by '1' for on, '0' for off. (8-bit output)
-EIGHTBIT 1
-
-# Below are the color init strings for the basic file types. A color init
-# string consists of one or more of the following numeric codes:
-# Attribute codes: 
-# 00=none 01=bold 04=underscore 05=blink 07=reverse 08=concealed
-# Text color codes:
-# 30=black 31=red 32=green 33=yellow 34=blue 35=magenta 36=cyan 37=white
-# Background color codes:
-# 40=black 41=red 42=green 43=yellow 44=blue 45=magenta 46=cyan 47=white
  
 NORMAL             00         # global default, although everything should be something.
 FILE               00;37      # normal file
@@ -76,17 +52,17 @@ STICKY             01;34      # dir with the sticky bit set (+t) and not other-w
 
 .mp3               00;32      # media (green)
 .fla               00;32
+.flac              00;32
 .mid               00;32
 .wav               00;32
 .au                00;32
-.nes               00;32
-.smc               00;32
-.fig               00;32
-.pls               00;32
-.sfc               00;32
-.smc.gz            00;32
-.fig.gz            00;32
-.sfc.gz            00;32
+.nes               00;31
+.smc               00;31
+.fig               00;31
+.sfc               00;31
+.smc.gz            00;31
+.fig.gz            00;31
+.sfc.gz            00;31
 
 .avi               01;35
 .flc               01;35
@@ -98,6 +74,7 @@ STICKY             01;34      # dir with the sticky bit set (+t) and not other-w
 .mov               01;35
 .mpg               01;35     # movies (magenta)
 .mpeg              01;35
+.ogg               01;35
 .ogv               01;35
 
 # all of the rest
@@ -123,16 +100,17 @@ STICKY             01;34      # dir with the sticky bit set (+t) and not other-w
 .cs                00;36
 .css               00;36
 .csv               00;36
-.curlrc            01;34
 .db                00;32
 .deb               00;36
-.diff              01;33 
+.diff              01;33
+.dirs              01;33
 .dir_colors        01;33
 .dmenurc           00;32
 .dmenu_cache       00;32
 .dmenu-short       00;32
 .enc               00;36
 .eps               00;36
+.esd_auth          00;36
 .etx               00;36
 .ex                00;36
 .example           00;36
@@ -141,7 +119,7 @@ STICKY             01;34      # dir with the sticky bit set (+t) and not other-w
 .fonts             00;36
 .gemrc             00;32
 .git               00;36
-.gitconfig         00;35
+.gitconfig         01;34
 .gitignore         00;36
 .hgrc              00;35
 .hgignore          00;35
@@ -150,7 +128,6 @@ STICKY             01;34      # dir with the sticky bit set (+t) and not other-w
 .gtk-bookmarks     01;34
 .gtkrc-2.0         01;34
 .gtkrc-2.0.mine    01;34
-.guvcviewrc        01;34
 .h                 01;34
 .hs                01;34
 .htm               01;34
@@ -220,16 +197,16 @@ STICKY             01;34      # dir with the sticky bit set (+t) and not other-w
 .tfm               01;35
 .tfnt              01;35
 .theme             01;35
-.viminfo           00;32
+.viminfo           01;35
 .xml               01;35
 .yml               01;35
 .zsh               01;35
 .txt               01;35
 .ttytterkey        01;31
 .ttytterrc         01;35
+.urlview           01;35
 .vim               01;35
 .vimrc             00;32
-.xbindkeysrc       01;34
 .xinitrc           00;33 
 .Xauthority        01;31
 .Xmodmap           00;31
@@ -244,11 +221,10 @@ STICKY             01;34      # dir with the sticky bit set (+t) and not other-w
 # sysd file types
 *.mount            01;32
 *.path             01;33
-*.rules            01;34
+*.rules            00;34
 *.socket           00;35
 *.service          00;33
-*.target           01;36
-*.timer            00;36
+*.target           00;35
 
 # Below, there should be one TERM entry for each termtype that is colorizable
 TERM Eterm
@@ -298,3 +274,5 @@ TERM xterm-256color
 TERM xterm-88color
 TERM xterm-color
 TERM xterm-debian 
+
+# vim: ft=dircolors:fdm=marker:et:sw=2:

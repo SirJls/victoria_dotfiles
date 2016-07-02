@@ -1,11 +1,4 @@
-# ----------------------------------------------------
-# file:     $HOME/dotfiles/config/termite/config
-# author:   jls - http://sjorssparreboom.nl
-# vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=conf:
-# ----------------------------------------------------
-
 [options]
-
 resize_grip = false
 scroll_on_output = false
 scroll_on_keystroke = true
@@ -16,68 +9,74 @@ allow_bold = false
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = droid sans mono slashed 12
+font = Monospace 12
 scrollback_lines = 10000
 search_wrap = true
 geometry = 640x480
-browser = /home/jls/scripts/vimprobtab.sh
 #icon_name = terminal
 
-# transparency
-# ----------------------------------------------------
+# 0.0: opaque, 1.0: transparent
 transparency = 0.0
 pseudo_transparency = false
 
 # "system", "on" or "off"
-# ----------------------------------------------------
 cursor_blink = off
 
 # "block", "underline" or "ibeam"
-# ----------------------------------------------------
 cursor_shape = block
+
+# $BROWSER is used by default
+browser = /home/jls/scripts/run_browser
 
 # word characters used for word selection
 # (default if unset: all graphic non-punctuation/space characters)
 #word_chars = -A-Za-z0-9,./?%&#:_=+@~
-
 [colors]
 
-foreground      = #999999
-foreground_bold = #ffffff
-#foreground_dim = #888888
-background      = #080808
-cursor          = #5E468C
+# special
+foreground      = #a8b6b8
+foreground_bold = #a8b6b8
+cursor          = #a8b6b8
+background      = #1c1c1c
 
-# if unset, will reverse foreground and background
-# ----------------------------------------------------
-highlight = #2f2f2f
+# black
+color0  = #353535
+color8  = #404040
 
-# colors from color0 to color254 can be set
-# ----------------------------------------------------
-color0  = #242424
-color1  = #8A2F58
-color2  = #287373
-color3  = #914E89
-color4  = #395573
-color5  = #5E468C
-color6  = #2B7694
-color7  = #899CA1
-color8  = #474747
-color9  = #CF4F88
-color10 = #53A6A6
-color11 = #BF85CC
-color12 = #4779B3
-color13 = #7F62B3
-color14 = #47959E
-color15 = #C0C0C0
+# red
+color1  = #ae8686
+color9  = #ba8f8f
+
+# green
+color2  = #86ae86
+color10 = #8fba8f
+
+# yellow
+color3  = #aeae86
+color11 = #baba8f
+
+# blue
+color4  = #8690ae
+color12 = #919cbd
+
+# magenta
+color5  = #ae86ae
+color13 = #ba8fba
+
+# cyan
+color6  = #86aeae
+color14 = #8fbaba
+
+# white
+color7  = #90a2a0
+color15 = #b0bdbd
 
 [hints]
-# ----------------------------------------------------
-font         = DejaVu Sans Mono 10
-foreground   = #121212
-background   = #888888
-padding      = 2
-border       = #3f3f3f
+font = Monospace 10
+foreground = #121212
+background = #888888
+padding = 2
+border = #3f3f3f
 border_width = 0
 #roundness = 2.0
 

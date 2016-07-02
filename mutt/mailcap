@@ -11,7 +11,7 @@ text/calendar; $XDG_SCRIPTS_DIR/ical_filter; copiousoutput
 image/*; feh %s
 video/*; mpv %s
 audio/*; mpv %s
-text/*; vim %s
+text/*; nvim %s
 application/pdf; zathura %s
 application/odt; libreoffice %s
 application/ods; libreoffice %s

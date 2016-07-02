@@ -3,8 +3,6 @@
 # author    jls - http://sjorssparreboom.nl
 # vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=conf:
 # ----------------------------------------------------
-# Based on the work of http://jasonwrya.com
-# ---------------------------------------------------
 
 # Autoload & colours
 # ----------------------------------------------------
@@ -19,7 +17,7 @@ zmodload zsh/complist
 # ----------------------------------------------------
 LPROMPT () {
 PS1=""
-PS1+="┌─[%{$fg[magenta]%}%m%{$fg_bold[blue]%}"
+PS1+="┌─[%{$fg[red]%}%m%{$fg_bold[blue]%}"
 # PS1+="[%T]%F{red}%(?.. exited %1v)%F{reset}"
 PS1+="%F{yellow}${vcs_info_msg_0_}%F{reset}"
 PS1+="%~ %{$fg_no_bold[yellow]%}%(0?..%?)%{$reset_color%}]
@@ -84,7 +82,7 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
 
 # History
 # ----------------------------------------------------
-export HISTFILE="$ZDOTDIR/histfile"
+export HISTFILE="$ZDOTDIR/history/histfile"
 export HISTSIZE=10000
 export SAVEHIST=$((HISTSIZE/2))
 setopt HIST_IGNORE_ALL_DUPS
@@ -146,23 +144,14 @@ zstyle ':urlglobber' url-other-schema ftp git http https magnet
 zstyle ':url-quote-magic:*' url-metas '*?[]^(|)~#='
 zle -N self-insert url-quote-magic
 
-# colour coreutils
-# ----------------------------------------------------
-export GREP_COLOR="1;31"
-
 # colors for ls
 # ----------------------------------------------------
-if [[ -f ~/dotfiles/dir_colors ]]; then
-    eval $(dircolors -b ~/.dir_colors)
-fi
+eval $(dircolors "$ZDOTDIR/dircolors/zenburn")
+
 # to run bash functions
 # ----------------------------------------------------
 autoload bashcompinit
 bashcompinit
-
-# command not found hook
-# ----------------------------------------------------
-source $HOME/.zsh/command-not-found.zsh
 
 # source highlighting
 # ----------------------------------------------------
@@ -172,7 +161,7 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 # functions
 # ----------------------------------------------------
 if [[ -d "$ZDOTDIR" ]]; then
-  for file in "$ZDOTDIR"/*.zsh; do
+  for file in "$ZDOTDIR/configs/"*.zsh; do
     source "$file"
   done
 fi

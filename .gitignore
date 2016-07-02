@@ -16,6 +16,7 @@ config/autostart/
 config/PornTime/
 config/dconf/
 config/gtk-*
+config/gtk-*/*
 config/stetic/
 config/ranger/__pycache__
 config/ranger/bookmarks
@@ -37,6 +38,7 @@ config/awesome/themes/miro/icons/
 config/awesome/themes/miro/wallpaper.*
 config/.isolated-storage/
 config/.protobuild-cache/
+config/libfm
 mutt/*/cache
 mutt/temp
 mutt/mailboxes
@@ -70,12 +72,13 @@ irssi/sasl.auth
 ncmpcpp/error.log
 ncmpcpp/artists/
 vim/bundle/
+vim/plugged/
 vim/plugin/
 vim/spell/
 vim/syntax/
 vim/backup/
 vim/MarkDownRes
-zsh/histfile
+zsh/history/*
 zsh/.zcompdump
 abook/addressbook
 abook/addressbook.bak
@@ -84,3 +87,4 @@ abook/addressbook~
 config/gpick/
 mutt/aliases.bak
 mutt/aliases
+vim/pythonx/__pycache__/

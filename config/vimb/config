@@ -30,20 +30,20 @@ set monofontsize=9
 set minimumfontsize=7
 set status-color-bg=#222222
 set status-color-fg=#696969
-set status-font=DejaVu Sans 7
-set status-ssl-font=DejaVu Sans 7
-set status-sslinvalid-font=DejaVu Sans 7
+set status-font=Cantarell 7
+set status-ssl-font=Cantarell 7
+set status-sslinvalid-font=Cantarell 7
 set status-ssl-color-fg=#53A6A6
 set status-ssl-color-bg=#222
 set status-sslinvalid-color-fg=#8A2F58
 set status-sslinvalid-color-bg=#222222
-set input-font-error=DejaVu Sans 7
-set input-font-normal=DejaVu Sans 7
+set input-font-error=Cantarell 7
+set input-font-normal=Cantarell 7
 set input-bg-normal=#222222
 set input-fg-normal=#CCCCCC
 set input-bg-error=#222222
 set input-fg-error=#8A2F58
-set completion-font=DejaVu Sans 7
+set completion-font=Cantarell 7
 set completion-fg-normal=#899CA1
 set completion-fg-active=#FFFFFF
 set completion-bg-normal=#222222
@@ -53,7 +53,7 @@ set completion-bg-active=#111111
 # -------------------------------------------------
 shortcut-add k=http://stackoverflow.com/search?q=[awk]+$0
 shortcut-add h=http://stackoverflow.com/search?q=[bash]+$0
-shortcut-add v=http://stackoverflow.com/search?q=[vue.js]+$0
+shortcut-add g=http://stackoverflow.com/search?q=[go]+$0
 shortcut-add x=http://www.google.com/search?hl=en&source=hp&ie=ISO-8859-l&q=$0
 shortcut-add gh=https://github.com/search?q=$0&type=Code
 shortcut-add d=https://duckduckgo.com/?q=$0

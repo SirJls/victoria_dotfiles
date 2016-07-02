@@ -11,11 +11,7 @@ nnoremap k kzz
 
 " Jump out of parenthesis
 " ----------------------------------------------------
-inoremap ,e <C-o>a
-
-" 
-" ----------------------------------------------------
-
+inoremap <leader>e <C-o>a
 
 " Allows writing to files with root priviledges
 " ----------------------------------------------------
@@ -54,7 +50,7 @@ ino {<CR> {<CR>}<ESC>O
 
 " Let me escape!
 " ----------------------------------------------------
-inoremap <leader><space> , 
+inoremap <leader><space> \ 
 
 " Helpers
 " ----------------------------------------------------
@@ -66,7 +62,7 @@ vnoremap Q :norm @q<cr>
 
 " Insert current date and time
 " ----------------------------------------------------
-nnoremap ,D "=strftime("%d %b, %Y %X")<CR>p
+nnoremap <leader>D "=strftime("%d %b, %Y %X")<CR>p
 
 " Change to current directory
 " ----------------------------------------------------
@@ -74,8 +70,8 @@ nnoremap cd :cd %:p:h<CR>:pwd<CR>
 
 " Map for save & quit operations
 " ----------------------------------------------------
-nnoremap ,q :q!<CR>
-nnoremap ,w :w!<CR>
+nnoremap <leader>q :q!<CR>
+nnoremap <leader>w :w!<CR>
 
 " Yank file path
 " ----------------------------------------------------
@@ -136,7 +132,6 @@ endif
 " Fast navigation
 " ----------------------------------------------------
 nnoremap m :MRU<CR>
-nnoremap ; :
 
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving

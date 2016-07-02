@@ -19,7 +19,7 @@ set tmpdir              = ~/.mutt/temp                          # where to keep 
 
 # Commands
 # ----------------------------------------------------
-set editor              = "/usr/bin/vim -c 'set tw=80 ft=mail' -c 'set wrap'"
+set editor              = "/usr/bin/nvim -c 'set tw=80 ft=mail' -c 'set wrap'"
 set ispell              = "/usr/bin/aspell -e -c"               # use aspell as ispell
 set print_command       = /usr/bin/enscript                     # print with enscript
 set imap_peek           = no                                    # Gmail mark as read
@@ -112,6 +112,7 @@ mailboxes +sjorssparreboom/inbox +sjorssparreboom/sent +sjorssparreboom/drafts +
 # ----------------------------------------------------
 source ~/.mutt/gpg.rc                                    # use GPG
 source ~/.mutt/colours.muttrc                            # colorscheme
+source ~/.mutt/sjorssparreboom.muttrc                    # source as default
 source $alias_file                                       # required for functionality
 
 # Folder Hooks

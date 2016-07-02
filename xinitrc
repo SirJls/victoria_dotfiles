@@ -1,17 +1,16 @@
 # ----------------------------------------------------
 # file: $HOME/dotfiles/xinitrc
 # author    jls - http://sjorssparreboom.nl
-# vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=conf:
+# vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=conf
 # ----------------------------------------------------
 
 # Source xmodmap
 # ----------------------------------------------------
-
 if [ -f ~/dotfiles/xmodmaprc ]; then
     xmodmap ~/.xmodmaprc
 fi
 
-# Start keyring nd export environment variables
+# Start keyring and export environment variables
 # ----------------------------------------------------
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
@@ -20,21 +19,12 @@ export SSH_AUTH_SOCK
 # ----------------------------------------------------
 external=$(xrandr -q | awk '/HDMI1/ {print $2}')
 if [ "$external" = connected ]; then
-  xrandr --output eDP1 --mode 1600x900 --pos 0x0 --below HDMI1 \
-  --output HDMI1 --mode 1680x1050 --pos 0x900
+    . ~/scripts/detect_monitor
 fi
-
-# X settings
-# ----------------------------------------------------
-xrdb -merge .Xresources &&
 
 # create global xdg variables
 # ----------------------------------------------------
 . ~/scripts/make-xdg
-
-# run urxvt daemon client
-# ----------------------------------------------------
-urxvtd -q -f -o
 
 # enable restart X
 # ----------------------------------------------------
@@ -60,13 +50,18 @@ xbacklight -set 45% &
 # ----------------------------------------------------
 xset s off -dpms
 
+# let me print pdf files
+# ----------------------------------------------------
+lpadmin -p Canon-MP620-series -o pdftops-renderer-default=pdftops
+
 # speed up key repeat
 # ----------------------------------------------------
 xset r rate 200 30
 
 # set wallpaper
 # ----------------------------------------------------
-/usr/bin/setroot --restore 2>/dev/null
+# /usr/bin/setroot --restore 2>/dev/null
+feh --bg-scale /home/jls/pictures/wallpaper/determinate.jpg
 
 # hide cursor
 # ----------------------------------------------------
@@ -75,6 +70,7 @@ xset r rate 200 30
 # disable CapsLock & map to Escape
 # ----------------------------------------------------
 /usr/bin/setxkbmap -option caps:swapescape
+xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 
 # run numlockx
 # ----------------------------------------------------

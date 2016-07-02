@@ -6,56 +6,51 @@ syntax off
 filetype plugin off
 filetype indent off
 
-"========== Load Plugins =============
+"========== Load Plugs =============
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+" set the runtime path to include Plugged and initialize
 
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " vim-matchit
-Plugin 'edsono/vim-matchit'
+Plug 'edsono/vim-matchit'
 
 " vim R plugin
-Plugin 'vim-scripts/Vim-R-plugin'
+Plug 'vim-scripts/Vim-R-plugin'
+
+" Go plugin
+Plug 'fatih/vim-go'
+
+" Comment lines
+Plug 'tpope/vim-commentary'
+" Show the git diff in the gutter
+Plug 'airblade/vim-gitgutter'
 
 " Surround t-pope quoting/parenthesizing made simple
-Plugin 'tpope/vim-surround'
-
-" Let me use the f
-Plugin 'dahu/vim-fanfingtastic'
-
-" Dependency for fanfingtastic
-Plugin 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
 
 " Show color for the color codes
-Plugin 'Colorizer'
+Plug 'Colorizer'
 
 " YouCompeleteMe (YCM)
-Plugin 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 
 " Track engine for snippets
-Plugin 'SirVer/UltiSnips'
-
-" Syntaxchecker
-Plugin 'scrooloose/syntastic'
+Plug 'SirVer/UltiSnips'
 
 " Tagbar
-Plugin 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
+
+" Colorschemes
+Plug 'flazz/vim-colorschemes'
 
 " NERDTree
-Plugin  'scrooloose/nerdtree'
-
-" Control p
-Plugin 'kien/ctrlp.vim'
+Plug  'scrooloose/nerdtree'
 
 " Fast navigation
-Plugin 'yegappan/mru'
+Plug 'yegappan/mru'
 
-call vundle#end()
+call plug#end()
 
 "========== Filetype stuff on ========
 syntax on

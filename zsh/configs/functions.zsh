@@ -3,7 +3,7 @@
 # author:   jls - http://sjorssparreboom.nl
 # vim:fenc=utf-8:nu:ai:si:et:ts=4:sw=4:ft=zsh:
 # ----------------------------------------------------
-# Credits for this code goes to json wryan
+# Credits for this code go to json wryan
 # ----------------------------------------------------
 
 
@@ -37,13 +37,9 @@ extract() {
 # ----------------------------------------------------
 zhist() { "history" 0 | grep -i "$1" ;}
 
-# hostblocking
-# ----------------------------------------------------
-urlcheck() { sudo hostsblock-urlcheck "$1" ;}
-
 # ssh and run application
 # ----------------------------------------------------
-shux() { ssh "$1" -t LANG=en_NZ.utf-8 tmux a -d ;}
+shux() { TERM=xterm-256color; ssh "$1" -t LANG=en_GB.utf-8 tmux a -d ;}
 
 # grab pid
 # ----------------------------------------------------
@@ -52,10 +48,6 @@ pids() { ps aux | grep "$1" ;}
 # paste to sprunge
 # ----------------------------------------------------
 sprung() { curl -F "sprunge=<-" http://sprunge.us <"$1" ;}
-
-# grab list of updates
-# ----------------------------------------------------
-aurup() { awk '{print $2}' </tmp/aurupdates* ;}
 
 # check pacman's log
 # ----------------------------------------------------
@@ -103,7 +95,7 @@ zones() { ls /usr/share/zoneinfo/"$1" ;}
 # ----------------------------------------------------
 nmount() { (echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2=$4="";1') | column -t; }
 
-# Print man pages 
+# Print man pages
 # ----------------------------------------------------
 manp() { man -t "$@" | lpr -pPrinter; }
 
@@ -135,4 +127,24 @@ nls() {
     else if (NF==3) printf "  %s\n", $3
   }'
 }
+
+# ranger
+# ----------------------------------------------------
+function ranger() {
+  if [ -z "$RANGER_LEVEL" ]; then
+    local tempfile="$(mktemp -t tmp.XXXXXXX)"
+    # for manual install
+    /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    # for package install
+    # /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    test -f "$tempfile" &&
+    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+        builtin cd -- "$(cat "$tempfile")"
+    fi
+    rm -f -- "$tempfile"
+  else
+    exit
+  fi
+}
+
 

@@ -1,7 +1,7 @@
 # ----------------------------------------------------
 # file: $HOME/dotfiles/zsh/aliases.zsh
 # author    jls - http://sjorssparreboom.nl
-# vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=conf:
+# vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=zsh:
 # ----------------------------------------------------
 
 # colour coreutils
@@ -49,24 +49,15 @@ alias cd..="cd .."
 alias dush="du -sm *|sort -n|tail"
 alias makeup="updpkgsums && makepkg -ci"
 alias irc="rm -f $HOME/.irssi/saved_colors && irssi"
+alias printers="system-config-printer"
+
+# thefuck plugin for zsh
+# ----------------------------------------------------
+eval $(thefuck --alias)
 
 # GPG
 # ----------------------------------------------------
 alias fp="gpg --list-keys --fingerprint"
-
-# scripts
-# ----------------------------------------------------
-alias fs="$HOME/scripts/auto-mount"
-alias color="$HOME/scripts/color"
-alias inf="$HOME/scripts/info"
-alias toad="$HOME/scripts/hypnotoad"
-alias xdg="$HOME/scripts/xdg"
-alias tube="$HOME/scripts/tube"
-alias archshot="$HOME/scripts/archshot"
-alias speedtest="$HOME/scripts/speedtest-cli"
-alias todo="$HOME/scripts/todo"
-alias dpass="$HOME/scripts/dpass"
-alias sysd="$HOME/scripts/sysd"
 
 # code & file editing related
 # ----------------------------------------------------
@@ -74,7 +65,7 @@ alias tx="tmux -f ~/.tmux/conf"
 
 # viewers
 # ----------------------------------------------------
-alias z='zathura'
+alias z='zathura $1 --fork'
 
 # mail
 # ----------------------------------------------------
@@ -83,7 +74,14 @@ alias m='mutt'
 # editor
 # ----------------------------------------------------
 alias ve='vim -u ~/.vimencrypt -x'
+
+if hash nvim 2>/dev/null; then
+  alias vim='nvim'
+  alias vimdiff='nvim -d'
+fi
+
 alias vi="vim"
+alias v="vim"
 
 # homestead
 # ----------------------------------------------------

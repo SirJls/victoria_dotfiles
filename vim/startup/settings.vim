@@ -34,7 +34,7 @@ set ttimeoutlen=10                      " faster
 set mouse=a                             " let me use the mouse (on special ocassions)
 set pdev=Canon-MP620-series             " setup the printer
 
-let mapleader=','                       " Bind/set leader key
+let mapleader='\'                       " Bind/set leader key
 let g:is_posix=1                        " POSIX shell scripts
 let g:loaded_matchparen=1               " disable parenthesis highlighting
 let g:is_bash=1                         " bash syntax the default for highlighting
@@ -121,7 +121,7 @@ endif
 
 " Load colorschemes
 " ----------------------------------------------------
-colorscheme pyte
+colorscheme easy-reading
 
 if has("nvim")
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1   " True gui colors in terminal
