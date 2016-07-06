@@ -1,1 +1,1 @@
-../vimrc
+/home/enigma/.vimrc

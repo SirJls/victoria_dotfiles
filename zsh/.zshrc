@@ -1,13 +1,20 @@
 # ----------------------------------------------------
 # file: $HOME/dotfiles/zsh/zshrc
 # author    jls - http://sjorssparreboom.nl
-# vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=conf:
+# vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=zsh:
 # ----------------------------------------------------
 
 # Autoload & colours
 # ----------------------------------------------------
 autoload -U colors && colors
 zmodload zsh/complist
+
+# ruby settings
+# ----------------------------------------------------
+if [[ -e /usr/share/chruby ]]; then
+    source /usr/share/chruby/{chruby,auto}.sh
+    chruby $(<"$XDG_CONFIG_HOME"/ruby-version)
+fi
 
 # Autostartx
 # ----------------------------------------------------
@@ -66,6 +73,18 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' file-sort name
 zstyle ':completion:*' ignore-parents pwd
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
+# Group matches and Describe
+# ----------------------------------------------------
+zstyle ':completion:*:matches' group 'yes'
+zstyle ':completion:*:options' description 'yes'
+zstyle ':completion:*:options' auto-description '%d'
+zstyle ':completion:*:descriptions' format $'\e[01;33m -- %d --\e[0m'
+zstyle ':completion:*:messages' format $'\e[01;35m -- %d --\e[0m'
+zstyle ':completion:*:warnings' format $'\e[01;31m -- No Matches Found --\e[0m'
+zstyle ':completion:*' group-name '' 
+
 zstyle ':completion:*:pacman:*' force-list always
 zstyle ':completion:*:*:pacman:*' menu yes select
 zstyle -e ':completion:*' hosts 'reply=(cent pi sent veles)'

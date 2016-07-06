@@ -13,15 +13,17 @@ ZDOTDIR="${ZDOTDIR:-$HOME/.zsh}"
 export LC_ALL=
 export LC_COLLATE="C"
 export LC_CTYPE=$LANG
-export LESS="FX"
+export LESS='-iMRj.5'
 export PERL_SIGNALS="unsafe"
 export EDITOR="/usr/bin/nvim"
 export BROWSER="/usr/bin/vimb"
+export FT2_SUBPIXEL_HINTING="1"
+export QUOTING_STYLE="literal"
 export JavaScriptCoreUseJIT="0"
 export FCEDIT="$EDITOR"
 export VISUAL="$EDITOR"
 export SUDO_EDITOR="$EDITOR"
-export TERM="xterm-termite"
+# export TERM="xterm-256color"
 export GPG_TTY=$(tty)
 export GPGKEY="B5204A3E"
 export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent"
@@ -51,23 +53,13 @@ export RANGER_LOAD_DEFAULT_RC=false
 [[ $XDG_CONFIG_HOME ]] || export XDG_CONFIG_HOME="$HOME/.config"
 [[ $XDG_DATA_HOME ]] || export XDG_DATA_HOME="$HOME/.local/share"
 
-# ruby settings
-# ----------------------------------------------------
-if [[ -e /usr/share/chruby ]]; then
-    source /usr/share/chruby/{chruby,auto}.sh
-    chruby $(<"$XDG_CONFIG_HOME"/ruby-version)
-fi
-
 # Man page colours
 # ----------------------------------------------------
-# less options:
-export LESS='-iMRj.5'
-
 # colored less
 export LESS_TERMCAP_mb=$(tput bold)                # begin blinking
 export LESS_TERMCAP_md=$(tput bold; tput setaf 4)  # begin bold (blue)
 export LESS_TERMCAP_me=$(tput sgr0)                # end mode
 export LESS_TERMCAP_se=$(tput sgr0)                # end standout-mode
-export LESS_TERMCAP_so=$(tput setaf 3; tput rev)  # begin standout-mode (yellow)
+export LESS_TERMCAP_so=$(tput setaf 3; tput rev)   # begin standout-mode (yellow)
 export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)     # end underline
 export LESS_TERMCAP_us=$(tput smul; tput setaf 2)  # begin underline (green)

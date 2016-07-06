@@ -1,13 +1,7 @@
-#######################################################################
-#                      php Snippets for UltiSnips                     #
-#######################################################################
+# php Snippets for UltiSnips
+# ----------------------------------------------------
 
 priority 1
-
-
-#########################
-#  classes and structs  #
-#########################
 
 snippet nc "php namespace and class or interface/trait" 
 <?php
@@ -69,11 +63,6 @@ public function get`!p snip.rv = t[2][0:1].upper() + t[2][1:]`()
 }
 endsnippet
 
-
-###############
-#  functions  #
-###############
-
 snippet pubf "Public function"
 public function ${1:functionName}()
 {
@@ -116,19 +105,9 @@ private static function ${1:functionName}()
 }
 endsnippet
 
-
-#################
-#  collections  #
-#################
-
 snippet ar "array"
 $${1:arrayName} = ['${2}' => ${3}];${4}
 endsnippet
-
-
-################
-#  iterations  #
-################
 
 snippet do "do"
 do {
@@ -169,11 +148,6 @@ while (${1})
 	${0:// insert incredible smart code here }
 }
 endsnippet
-
-
-################
-#  conditions  #
-################
 
 snippet switch
 switch ($${1})
@@ -222,11 +196,6 @@ else if (${1:condition})
 }
 endsnippet
 
-
-###############
-#  try catch  #
-###############
-
 snippet try
 try
 {
@@ -245,19 +214,9 @@ catch (${2:\Exception} $${1:ex})
 }
 endsnippet
 
-
-###########
-#  other  #
-###########
-
 snippet def "def"
 define('${1:VARIABLE_NAME}', ${2:'definition'});
 endsnippet
-
-
-####################################
-#  comment block and annotatation  #
-####################################
 
 snippet ta "phpunit test annotation"
 /** @test **/

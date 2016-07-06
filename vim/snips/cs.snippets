@@ -1,12 +1,6 @@
-#######################################################################
-#                      C# Snippets for UltiSnips                      #
-#######################################################################
-
+# C# Snippets for UltiSnips
+# ----------------------------------------------------
 priority 1
-
-#########################
-#  classes and structs  #
-#########################
 
 snippet namespace "namespace"
 namespace ${1:MyNamespace}
@@ -40,11 +34,6 @@ snippet enum "enumeration"
 enum ${1:MyEnum} { ${2:Item} };
 endsnippet
 
-
-############
-#  Main()  #
-############
-
 snippet psim "static int main"
 public static int Main(string[] args)
 {
@@ -58,11 +47,6 @@ public static void Main(string[] args)
 	$0
 }
 endsnippet
-
-
-###############
-#  functions  #
-###############
 
 snippet pubf "Public function"
 public ${1:output} ${2:functionName}()
@@ -106,10 +90,6 @@ private static ${1:output} ${2:functionName}()
 }
 endsnippet
 
-################
-#  properties  #
-################
-
 snippet prop "Simple property declaration"
 public ${1:int} ${2:MyProperty} { get; set; }
 endsnippet
@@ -128,11 +108,6 @@ snippet propg "Property with a private setter"
 public ${1:int} ${2:MyProperty} { get; private set; }
 endsnippet
 
-
-############
-#  blocks  #
-############
-
 snippet #if "#if #endif" b
 #if ${1:DEBUG}
 ${VISUAL}$0
@@ -144,11 +119,6 @@ snippet #region "#region #endregion"
 ${VISUAL}$0
 #endregion
 endsnippet
-
-
-###########
-#  loops  #
-###########
 
 snippet for "for loop"
 for (int ${1:i} = 0; $1 < ${2:10}; $1++)
@@ -184,11 +154,6 @@ do
 	${VISUAL}$0
 } while (${1:true});
 endsnippet
-
-
-###############
-#  branching  #
-###############
 
 snippet if "if statement"
 if ($1)
@@ -239,11 +204,6 @@ case ${1:value}:
 	break;
 endsnippet
 
-
-##############
-#  wrappers  #
-##############
-
 snippet using "using statement"
 using (${1:resource})
 {
@@ -272,11 +232,6 @@ unsafe
 }
 endsnippet
 
-
-########################
-#  exception handling  #
-########################
-
 snippet try "try catch block"
 try
 {
@@ -302,11 +257,6 @@ snippet throw "throw"
 throw new ${1}Exception("${2}");
 endsnippet
 
-
-##########
-#  LINQ  #
-##########
-
 snippet from "LINQ syntax"
 var ${1:seq} =
 	from ${2:item1} in ${3:items1}
@@ -314,11 +264,6 @@ var ${1:seq} =
 	select ${8:$2.prop3}
 	where ${9:clause}
 endsnippet
-
-
-############################
-#  feedback and debugging  #
-############################
 
 snippet da "Debug.Assert"
 Debug.Assert(${1:true});
@@ -339,11 +284,6 @@ snippet mbox "Message box"
 MessageBox.Show("${1:message}");
 endsnippet
 
-
-##################
-#  full methods  #
-##################
-
 snippet equals "Equals method"
 public override bool Equals(object obj)
 {
@@ -355,11 +295,6 @@ public override bool Equals(object obj)
 	return base.Equals(obj);
 }
 endsnippet
-
-
-##############
-#  comments  #
-##############
 
 snippet /// "XML comment"
 /// <summary>

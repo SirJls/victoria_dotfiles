@@ -8,11 +8,11 @@
 # -------------------------------------------------
 handler-add mailto=urxvt -e mutt %s
 handler-add ftp=urxvt -e wget %s -P /tmp/vimb
+set editor-command=urxvt -title scratchpad -geometry 86x24+40+60 -e nvim %s
 set dom-paste=on
-set editor-command=urxvt -title scratchpad -geometry 86x24+40+60 -e vim %s
 set home-page=http://bbs.archlinux.org
 set cookie-accept=origin
-set download-path=/home/jls/downloads
+set download-path=/home/enigma/downloads
 set header=DNT=1
 set history-max-items=30000
 set maximum-cache-size=20000
@@ -21,7 +21,7 @@ set scripts=on
 set strict-focus=off
 set stylesheet=on
 set webinspector=on
-set x-hint-command=:sh! /home/jls/scripts/tube <C-R>;<CR>
+set x-hint-command=:sh! /home/enigma/scripts/tube <C-R>;<CR>
 
 # appearance
 # -------------------------------------------------
@@ -30,20 +30,20 @@ set monofontsize=9
 set minimumfontsize=7
 set status-color-bg=#222222
 set status-color-fg=#696969
-set status-font=Cantarell 7
-set status-ssl-font=Cantarell 7
-set status-sslinvalid-font=Cantarell 7
+set status-font=DejaVu Sans 7
+set status-ssl-font=DejaVu Sans 7
+set status-sslinvalid-font=DejaVu Sans 7
 set status-ssl-color-fg=#53A6A6
 set status-ssl-color-bg=#222
 set status-sslinvalid-color-fg=#8A2F58
 set status-sslinvalid-color-bg=#222222
-set input-font-error=Cantarell 7
-set input-font-normal=Cantarell 7
+set input-font-error=DejaVu Sans 7
+set input-font-normal=DejaVu Sans 7
 set input-bg-normal=#222222
 set input-fg-normal=#CCCCCC
 set input-bg-error=#222222
 set input-fg-error=#8A2F58
-set completion-font=Cantarell 7
+set completion-font=DejaVu Sans 7
 set completion-fg-normal=#899CA1
 set completion-fg-active=#FFFFFF
 set completion-bg-normal=#222222

@@ -28,17 +28,9 @@ alias lsr="tree -Csu"                                       # nice alternative t
 alias pong="ping -c 3 google.com"
 alias wifi="sudo wifi-menu"
 alias edu='python $HOME/scripts/edu && sudo netctl start eduroam'
-alias odd='sudo netctl start wlp2s0-Oudedijk3A03'
-alias cp3='sudo netctl start wlp2s0-Composer3\(2.4GHz\)'
-alias cp4='sudo netctl start wlp2s0-Composer4\(2.4GHz\)'
-
-# media
-# ----------------------------------------------------
-alias mp="ncmpcpp"
 
 # convenience
 # ----------------------------------------------------
-mkfile() { mkdir -p -- "$1" && touch -- "$1"/"$2" }
 alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""'
 alias say="fortune | cowsay -f tux"
 alias vbmod="sudo modprobe vboxdrv"
@@ -50,6 +42,7 @@ alias dush="du -sm *|sort -n|tail"
 alias makeup="updpkgsums && makepkg -ci"
 alias irc="rm -f $HOME/.irssi/saved_colors && irssi"
 alias printers="system-config-printer"
+alias zreload="rm -f ~/dotfiles/zsh/.zcompdump* && . ~/.zsh/.zshrc autload -Ux compinit compinit"
 
 # thefuck plugin for zsh
 # ----------------------------------------------------
@@ -67,10 +60,6 @@ alias tx="tmux -f ~/.tmux/conf"
 # ----------------------------------------------------
 alias z='zathura $1 --fork'
 
-# mail
-# ----------------------------------------------------
-alias m='mutt'
-
 # editor
 # ----------------------------------------------------
 alias ve='vim -u ~/.vimencrypt -x'
@@ -82,10 +71,6 @@ fi
 
 alias vi="vim"
 alias v="vim"
-
-# homestead
-# ----------------------------------------------------
-alias hs="homestead"
 
 # pacman
 # ----------------------------------------------------

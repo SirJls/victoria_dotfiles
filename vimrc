@@ -10,7 +10,7 @@ filetype indent off
 
 " set the runtime path to include Plugged and initialize
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/dotfiles/vim/plugged')
 
 " vim-matchit
 Plug 'edsono/vim-matchit'
@@ -23,6 +23,7 @@ Plug 'fatih/vim-go'
 
 " Comment lines
 Plug 'tpope/vim-commentary'
+
 " Show the git diff in the gutter
 Plug 'airblade/vim-gitgutter'
 
@@ -33,7 +34,14 @@ Plug 'tpope/vim-surround'
 Plug 'Colorizer'
 
 " YouCompeleteMe (YCM)
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
+
+" Deoplete
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'zchee/deoplete-clang'
 
 " Track engine for snippets
 Plug 'SirVer/UltiSnips'
@@ -43,9 +51,6 @@ Plug 'majutsushi/tagbar'
 
 " Colorschemes
 Plug 'flazz/vim-colorschemes'
-
-" NERDTree
-Plug  'scrooloose/nerdtree'
 
 " Fast navigation
 Plug 'yegappan/mru'

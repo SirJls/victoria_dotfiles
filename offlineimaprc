@@ -1,8 +1,9 @@
 # ----------------------------------------------------
 # file:     $HOME/dotfiles/offlineimaprc
 # author    jls - http://sjorssparreboom.nl
-# vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=conf:
+# vim:nu:ai:et:sw=4:ts=4:ft=conf
 # ----------------------------------------------------
+
 
 [general]
 metadata = ~/.offlineimap
@@ -11,9 +12,9 @@ maxsyncaccounts = 2
 socktimeout = 60
 ui = Basic
 
-# This helper file lets you use python-keyring to store usernames / passwords
+# this helper file lets you use python-keyring to store usernames / passwords
 # ----------------------------------------------------
-pythonfile = ~/.offlineimap.py
+pythonfile = ~/scripts/offlineimap.py
 
 [mbnames]
 # Create a list of available mailboxes for mutt
@@ -71,7 +72,7 @@ auth_mechanisms = LOGIN
 maxconnections = 2
 remotehost     = www70.totaalholding.nl
 remoteuser     = mail@sjorssparreboom.nl
-remotepasseval = keyring.get_password('neostrada', 'mail')
+remotepasseval = keyring.get_password('sjorssparreboom', 'mail')
 
 # If using ssl, you will need to specify certificates to use with them
 # ----------------------------------------------------
@@ -111,7 +112,7 @@ maxconnections = 2
 remotehost     = outlook.office365.com
 # remotehost     = imap.hro.nl
 remoteuser     = 0890040@hr.nl
-remotepasseval = keyring.get_password('HRO', '0890040')
+remotepasseval = keyring.get_password('school', '0890040')
 
 # If using ssl, you will need to specify certificates to use with them
 # ----------------------------------------------------

@@ -1,7 +1,7 @@
 " ----------------------------------------------------
 " file:     $HOME/dotfiles/vim/startup/settings.vim
 " author    jls - http://sjorssparreboom.nl
-" vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=vim:
+" vim:nu:ai:et:sw=4:ts=4:tw=78:ft=vim
 " ----------------------------------------------------
 
 " The actual settings
@@ -40,10 +40,16 @@ let g:loaded_matchparen=1               " disable parenthesis highlighting
 let g:is_bash=1                         " bash syntax the default for highlighting
 let g:vimsyn_noerror=1                  " hack for correct syntax highlighting
 
+" speedup
+" ----------------------------------------------------
+set nocursorcolumn                      " do not highlight column
+set nocursorline                        " do not highlight line
+syntax sync minlines=256                " start highlighting from 256 lines backwards
+set synmaxcol=300                       " do not highlith very long lines
+set re=1                                " use explicit old regexpengine, seems to be more faster
+
 " Auto commands
 " ----------------------------------------------------
-" au WinEnter * set nofen                 " disable disable DISABLE!
-" au WinLeave * set nofen                 " disable disable DISABLE!
 au FileType c,cpp,go setlocal comments-=:// comments+=f://
 
 " tabs and indenting
@@ -119,58 +125,55 @@ if has("autocmd")
     autocmd BufRead,BufNewFile ~/.mutt/temp/mutt-* set ft=mail wrap lbr nolist spell wm=0
 endif
 
-" Load colorschemes
+" Load colorscheme
 " ----------------------------------------------------
 colorscheme easy-reading
 
 if has("nvim")
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1   " True gui colors in terminal
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1       " True gui colors in terminal
 else
     set ttyscroll=3                         " don't lag...
     set t_Co=256
 endif
 
-" vimdiff
+" vimdiff the tool for the job
 " ----------------------------------------------------
 if &diff
     set diffopt=filler,foldcolumn:0
 endif
 
-" Utlisnips config so it does't conflict with YCM
+" Utlisnips, because it's awesome
 " ----------------------------------------------------
-" let g:UltiSnipsJumpForwardTrigger = "<tab>"
-" let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:UltiSnipsExpandTrigger = "<c-j>"
 let g:UltiSnipsSnippetsDir = "/home/jls/dotfiles/vim/snips/"
 let g:UltiSnipsSnippetDirectories=["snips"]
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsListSnippets="<c-e>"
 
-" YouCompleteMe (YCM)
+" Uncomment if you use (YCM)
+" YouCompleteMe (YCM) 
 " ----------------------------------------------------
-let g:ycm_confirm_extra_conf    = 0
-let g:ycm_complete_in_comments  = 1
-let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
-let g:ycm_extra_conf_vim_data   = ['&filetype']
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_filetype_blacklist = { 'help': 1 }
-let g:ycm_disable_for_files_larger_than_kb = 500
+" let g:ycm_confirm_extra_conf    = 0
+" let g:ycm_complete_in_comments  = 1
+" let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
+" let g:ycm_extra_conf_vim_data   = ['&filetype']
+" let g:ycm_seed_identifiers_with_syntax = 1
+" let g:ycm_filetype_blacklist = { 'help': 1 }
+" let g:ycm_disable_for_files_larger_than_kb = 500
 
-" NERDTree
+" Deoplete
 " ----------------------------------------------------
-map <C-b> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-autocmd StdinReadPre * let s:std_in=1
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_refresh_always = 1
+let g:deoplete#enable_ignore_case = 1 
+let g:deoplete#auto_complete_start_length = 1
+call deoplete#custom#set('buffer', 'rank', 9999)
+call deoplete#custom#set('ultisnips', 'rank', 9999)
 
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" Store the bookmarks file
+" libclang for neovim
 " ----------------------------------------------------
-let NERDTreeBookmarksFile=expand("$HOME/.vim/vim-NERDTreeBookmarks")
-
-" Show the bookmarks table on startup
-" ----------------------------------------------------
-let NERDTreeShowBookmarks=1
-let NERDTreeModifiable=1
+let g:deoplete#sources#clang#libclang_path = "/usr/lib/libclang.so"
+let g:deoplete#sources#clang#clang_header ="/usr/include/clang/"
 
 " Go environment setting
 " ----------------------------------------------------
@@ -184,6 +187,6 @@ let g:go_highlight_structs = 1
 
 " tmux
 " ----------------------------------------------------
-autocmd BufReadPost,FileReadPost,BufNewFile,BufEnter * call system("tmux rename-window 'vim | " . expand("%:t") . "'")
+autocmd BufReadPost,FileReadPost,BufNewFile,BufEnter * call system("tmux rename-window 'nvim | " . expand("%:t") . "'")
 
 " vim: ft=vim

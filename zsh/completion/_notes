@@ -1,0 +1,4 @@
+#compdef n
+_notes() {
+  _files -g "*" -W $HOME/.notes
+}

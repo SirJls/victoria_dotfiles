@@ -30,6 +30,19 @@ endfunction
 command! -nargs=+ MapToggle call MapToggle(<f-args>)
 " }}}
 
+" {{{
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+" }}}
+
+nnoremap <C-n> :call NumberToggle()<cr>
+
 " {{{ Let me Count words
 let g:word_count=" "
 function WordCount()

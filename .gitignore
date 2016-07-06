@@ -88,3 +88,5 @@ config/gpick/
 mutt/aliases.bak
 mutt/aliases
 vim/pythonx/__pycache__/
+vim/.init.vim-rplugin~
+vim/.netrwhist

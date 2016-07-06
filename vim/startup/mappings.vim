@@ -11,7 +11,7 @@ nnoremap k kzz
 
 " Jump out of parenthesis
 " ----------------------------------------------------
-inoremap <leader>e <C-o>a
+inoremap e<space> <C-o>a<space>
 
 " Allows writing to files with root priviledges
 " ----------------------------------------------------

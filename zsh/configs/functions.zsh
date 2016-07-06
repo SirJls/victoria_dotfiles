@@ -3,9 +3,8 @@
 # author:   jls - http://sjorssparreboom.nl
 # vim:fenc=utf-8:nu:ai:si:et:ts=4:sw=4:ft=zsh:
 # ----------------------------------------------------
-# Credits for this code go to json wryan
+# Heavily based on the work of Json Ryan
 # ----------------------------------------------------
-
 
 # Extract Files
 # ----------------------------------------------------
@@ -82,6 +81,10 @@ goto() { [ -d "$1" ] && cd "$1" || cd "$(dirname "$1")"; }
 # ----------------------------------------------------
 wmip() { printf "External IP: %s\n" $(curl -s  http://ifconfig.co/) ;}
 
+# Netctl profiles
+# ----------------------------------------------------
+wx() { [[ $# -eq 1 ]] && { sudo netctl stop-all && sudo netctl start "$1" ; } }
+
 # attach tmux to existing session
 # ----------------------------------------------------
 mux() { [[ -z "$TMUX" ]] && { tmux attach -d || tmux -f $HOME/.tmux/conf new -s secured ;} }
@@ -90,6 +93,10 @@ mux() { [[ -z "$TMUX" ]] && { tmux attach -d || tmux -f $HOME/.tmux/conf new -s 
 # ----------------------------------------------------
 zone() { TZ="$1"/"$2" date; }
 zones() { ls /usr/share/zoneinfo/"$1" ;}
+
+# weather
+# ----------------------------------------------------
+forecast() { curl -s wttr.in/rotterdam | head -n -2 ;}
 
 # Nice mount output
 # ----------------------------------------------------
@@ -111,13 +118,6 @@ n() {
   ${EDITOR:-vi} $files
 }
 
-# TAB completion for notes
-# ----------------------------------------------------
-_notes() {
-  _files -g "*" -W $HOME/.notes
-}
-compdef _notes n
-
 # list notes
 # ----------------------------------------------------
 nls() {
@@ -127,6 +127,10 @@ nls() {
     else if (NF==3) printf "  %s\n", $3
   }'
 }
+
+# snap from webcam
+# ----------------------------------------------------
+selfie() { fswebcam --resolution 640x480 --no-banner --jpeg 95 --skip 10 $HOME/pictures/webcam/$(date +%H:%M-%d%m%y).jpeg ; }
 
 # ranger
 # ----------------------------------------------------
@@ -146,5 +150,3 @@ function ranger() {
     exit
   fi
 }
-
-

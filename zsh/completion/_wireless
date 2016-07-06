@@ -1,0 +1,5 @@
+#compdef wx
+_wireless() {
+  _files -g "*" -W /etc/netctl
+}
+
