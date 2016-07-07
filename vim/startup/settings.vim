@@ -48,6 +48,11 @@ syntax sync minlines=256                " start highlighting from 256 lines back
 set synmaxcol=300                       " do not highlith very long lines
 set re=1                                " use explicit old regexpengine, seems to be more faster
 
+" fix spell check not always working in tex documents
+" ----------------------------------------------------
+syn sync maxlines=200
+syn sync minlines=50
+
 " Auto commands
 " ----------------------------------------------------
 au FileType c,cpp,go setlocal comments-=:// comments+=f://

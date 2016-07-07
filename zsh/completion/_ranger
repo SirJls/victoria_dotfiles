@@ -15,7 +15,7 @@ _ranger() {
     '--list-tagged-files[List all files which are tagged with the given tag.  Note: Tags are single characters. The default tag is "*"]:tag:(* a-z)'\
     '--profile[Print statistics of CPU usage on exit.]'\
     '--cmd=[Execute the command after the configuration has been read.  Use this option multiple times to run multiple commands.]:command:'\
-    '--versioin[Print the version and exit.]'\
+    '--version[Print the version and exit.]'\
     {-h,--help}'[Print a list of option and exit.]'\
     && return 0
   return 1
