@@ -44,9 +44,26 @@ alias irc="rm -f $HOME/.irssi/saved_colors && irssi"
 alias printers="system-config-printer"
 alias zreload="rm -f ~/dotfiles/zsh/.zcompdump* && . ~/.zsh/.zshrc autload -Ux compinit compinit"
 
+# management
+# ----------------------------------------------------
+alias grpall="cut -d: -f1 /etc/group"
+alias usrall="cut -d: -f1 /etc/passwd"
+
+# audio management
+# ----------------------------------------------------
+alias audio="pacmd list-cards"
+alias hdmi="pacmd set-card-profile 1 off; pacmd set-card-profile 0 output:hdmi-stereo-extra1"
+alias analog="pacmd set-card-profile 0 off; pacmd set-card-profile 1 output:analog-stereo+input:analog-stereo"
+alias alsamixer="alsamixer -g"
+alias mixer="alsamixer"
+
 # thefuck plugin for zsh
 # ----------------------------------------------------
 eval $(thefuck --alias)
+
+# vpn
+# ----------------------------------------------------
+alias vpn="sudo ip route add default dev ppp0"
 
 # GPG
 # ----------------------------------------------------

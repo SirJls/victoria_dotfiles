@@ -4,17 +4,16 @@
 # vim:nu:ai:et:sw=4:ts=4:ft=conf
 # ----------------------------------------------------
 
-
 [general]
 metadata = ~/.offlineimap
 accounts = sjorssparreboom, school, gmail
-maxsyncaccounts = 2
+maxsyncaccounts = 3
 socktimeout = 60
-ui = Basic
+ui = basic
 
 # this helper file lets you use python-keyring to store usernames / passwords
 # ----------------------------------------------------
-pythonfile = ~/scripts/offlineimap.py
+pythonfile = /home/enigma/scripts/offlineimap.py
 
 [mbnames]
 # Create a list of available mailboxes for mutt
@@ -25,11 +24,6 @@ enabled = yes
 filename = ~/.mutt/mailboxes
 
 header = "mailboxes "
-
-
-# Exclude these mailboxes from the above mailbox list
-# ----------------------------------------------------
-folderfilter = lambda accountname, foldername: not re.search('(^bak.*|.*drafts$|.*spam$|.*sent$|.*trash$)', foldername)
 
 peritem = "+%(accountname)s/%(foldername)s"
 sep = .
@@ -53,19 +47,6 @@ remoterepository = remote-sjorssparreboom
 autorefresh = 0
 status_backend = sqlite
 
-[Repository local-sjorssparreboom]
-type = Maildir
-localfolders = ~/.mail/sjorssparreboom
-
-# Translate names from local names to remote names:
-# ----------------------------------------------------
-nametrans = lambda foldername: re.sub('inbox', 'INBOX',
-                               re.sub('sent', 'INBOX.Sent',
-                               re.sub('drafts', 'INBOX.Drafts',
-                               re.sub('trash', 'INBOX.Trash',
-                               re.sub('spam', 'INBOX.Junk',
-                               foldername)))))
-
 [Repository remote-sjorssparreboom]
 type = IMAP
 auth_mechanisms = LOGIN
@@ -78,18 +59,33 @@ remotepasseval = keyring.get_password('sjorssparreboom', 'mail')
 # ----------------------------------------------------
 ssl            = yes
 sslcacertfile  = /etc/ssl/certs/ca-certificates.crt
-realdelete     = yes
+realdelete     = no
+
+# Exclude these mailboxes from the above mailbox list
+# ----------------------------------------------------
+folderfilter = lambda folder: not re.search('(.*Archive$|^INBOX.INBOX.*$)', folder)
+
 
 # Translate remote names to local names:
-# This one does:
-# 1. Transforms names to lowercase
-# 2. Replaces spaces with underscores
 # ----------------------------------------------------
-nametrans = lambda foldername: re.sub('.*INBOX$', 'inbox', 
-                               re.sub('.*Sent$', 'sent', 
-                               re.sub('.*Drafts$', 'drafts', 
-                               re.sub('.*Trash$', 'trash', 
-                               re.sub('.*Junk$', 'spam', 
+nametrans = lambda foldername: re.sub('.*INBOX$', 'inbox',
+                               re.sub('.*Drafts$', 'drafts',
+                               re.sub('.*Sent$', 'sent',
+                               re.sub('.*Trash$', 'trash',
+                               re.sub('.*Junk$', 'spam',
+                               foldername)))))
+
+[Repository local-sjorssparreboom]
+type = Maildir
+localfolders = ~/.mail/sjorssparreboom
+
+# Translate names from local names to remote names:
+# ----------------------------------------------------
+nametrans = lambda foldername: re.sub('inbox', 'INBOX',
+                               re.sub('drafts', 'INBOX.Drafts',
+                               re.sub('sent', 'INBOX.Sent',
+                               re.sub('trash', 'INBOX.Trash',
+                               re.sub('spam', 'INBOX.Junk',
                                foldername)))))
 
 [Repository local-school]
@@ -120,10 +116,11 @@ ssl            = yes
 sslcacertfile  = /etc/ssl/certs/ca-certificates.crt
 realdelete     = yes
 
+# Exclude these mailboxes from the above mailbox list
+# ----------------------------------------------------
+folderfilter = lambda folder: not re.search('(.*Calendar$|.*Clutter$|.*Contacts$|.*Journal$|.*Notes$|.*Outbox$|.*Tasks$|.*Conversation History$|.*Verzonden$)', folder)
+
 # Translate remote names to local names:
-# This one does:
-# 1. Transforms names to lowercase
-# 2. Replaces spaces with underscores
 # ----------------------------------------------------
 nametrans = lambda foldername: re.sub('.*INBOX$', 'inbox', 
                                re.sub('.*Sent Items$', 'sent', 
@@ -132,7 +129,6 @@ nametrans = lambda foldername: re.sub('.*INBOX$', 'inbox',
                                re.sub('.*Junk Email$', 'spam', 
                                foldername)))))
 
-folderfilter = lambda foldername: foldername not in ['Calendar', 'Clutter', 'Contacts', 'Journal', 'Notes', 'Outbox', 'Tasks']
 
 [Repository local-gmail]
 type = Maildir
@@ -162,12 +158,9 @@ sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 realdelete = yes
 # Note the nametrans above in local-gmail: it undoes this one
 # ----------------------------------------------------
-nametrans = lambda folder: re.sub(',*INBOX$', 'inbox',
+nametrans = lambda folder: re.sub('.*INBOX$', 'inbox',
                            re.sub('.*Spam$', 'spam',
                            re.sub('.*Bin$', 'trash',
                            re.sub('.*Drafts$', 'drafts',
                            re.sub('.*Sent Mail$', 'sent',
                            folder)))))
-# We don't want to sync all mail, it would pull everything again
-# folderfilter = lambda foldername: foldername not in ['[Gmail].All Mail']
-

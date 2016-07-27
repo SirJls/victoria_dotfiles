@@ -25,17 +25,12 @@ export VISUAL="$EDITOR"
 export SUDO_EDITOR="$EDITOR"
 # export TERM="xterm-256color"
 export GPG_TTY=$(tty)
-export GPGKEY="B5204A3E"
+export GPGKEY="534064D4"
 export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent"
 export PAGER="/usr/bin/less"
 export SDCV_PAGER="/usr/bin/less"
 export SYSTEMD_PAGER="less -j4aR"
 export PASS_DIR="$HOME/.password-store"
-
-# Laravel specifs
-# ----------------------------------------------------
-export COMPOSER_HOME="$HOME/.composer/vendor/bin"
-export PATH="$PATH:$COMPOSER_HOME"
 
 # Golang specifs
 # ----------------------------------------------------
@@ -63,3 +58,12 @@ export LESS_TERMCAP_se=$(tput sgr0)                # end standout-mode
 export LESS_TERMCAP_so=$(tput setaf 3; tput rev)   # begin standout-mode (yellow)
 export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)     # end underline
 export LESS_TERMCAP_us=$(tput smul; tput setaf 2)  # begin underline (green)
+
+# start keychain
+# ----------------------------------------------------
+if [[ -z $(pidof ssh-agent) && -z $(pidof gpg-agent) ]]; then
+  eval $(/usr/bin/keychain --eval -Q -q --nogui --agents "ssh,gpg" id_rsa 534064D4)
+  [[ -z $HOSTNAME ]] && HOSTNAME=$(uname -n)
+  [[ -f $HOME/.keychain/${HOSTNAME}-sh ]] && source $HOME/.keychain/${HOSTNAME}-sh
+  [[ -f $HOME/.keychain/${HOSTNAME}-sh-gpg ]] && source $HOME/.keychain/${HOSTNAME}-sh-gpg
+fi

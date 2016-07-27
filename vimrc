@@ -46,6 +46,9 @@ Plug 'zchee/deoplete-clang'
 " Track engine for snippets
 Plug 'SirVer/UltiSnips'
 
+" Paper colorscheme
+Plug 'NLKNguyen/papercolor-theme'
+
 " Tagbar
 Plug 'majutsushi/tagbar'
 

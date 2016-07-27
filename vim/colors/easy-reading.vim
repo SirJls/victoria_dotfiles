@@ -18,7 +18,7 @@ hi Visual                                  ctermbg=238                          
 hi Search                                  ctermfg=238                            guibg=#444444
 hi StatusLine                 ctermfg=236  ctermbg=242              guifg=#303030 guibg=#666666
 hi WildMenu     cterm=bold    ctermfg=255  ctermbg=23   gui=bold    guifg=#eeeeee guibg=#005f5f
-hi ColorColumn                             ctermbg=233                            guibg=#121212
+hi ColorColumn                             ctermbg=11                             guibg=#decc94
 hi LineNr       cterm=bold    ctermfg=242  ctermbg=236  gui=bold    guifg=#666666 guibg=#303030
 hi CursorColumn                            ctermbg=None                           guibg=#1c1c1c
 hi CursorLineNr cterm=bold    ctermfg=248  ctermbg=238  gui=bold    guifg=#a8a8a8 guibg=#444444

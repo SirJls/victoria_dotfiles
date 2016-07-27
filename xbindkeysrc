@@ -13,43 +13,21 @@
 
 # Muter/UnMute
 # -------------------------------------------------
-"amixer set "Master" toggle"
+sh -c "pactl set-sink-mute $(pactl list sinks short | awk '{ if(/RUNNING/) { {print $2} ; } ; }') toggle"
 m:0x00 + c:121
 XF86AudioMute
 
 # Volume up
 # -------------------------------------------------
-"amixer set "Master" 5%+"
+sh -c "pactl set-sink-mute $(pactl list sinks short | awk '{ if(/RUNNING/) { {print $2} ; } ; }') false ; pactl set-sink-volume $(pactl list sinks short | awk '{ if(/RUNNING/) { {print $2} ; } ; }') +5%"
 m:0x0 + c:123
 XF86AudioRaiseVolume
 
 # Volume down
 # -------------------------------------------------
-"amixer set "Master" 5%-"
+sh -c "pactl set-sink-mute $(pactl list sinks short | awk '{ if(/RUNNING/) { {print $2} ; } ; }') false ; pactl set-sink-volume $(pactl list sinks short | awk '{ if(/RUNNING/) { {print $2} ; } ; }') -5%"
 m:0x0 + c:122
 XF86AudioLowerVolume
-
-# Stop alsaplayer
-# -------------------------------------------------
-"alsaplayer --pause"
-m:0x0 + c:172
-XF86AudioPlay
-
-# Next alsaplayer
-# -------------------------------------------------
-"alsaplayer --next"
-m:0x0 + c:171
-XF86AudioNext
-
-# Previous alsaplayer"
-# -------------------------------------------------
-"alsaplayer --prev"
-m:0x0 + c:173
-XF86AudioPrev
-
-# Other settings
-# -------------------------------------------------
-# ------------------------------------
 
 # Suspend to ram
 # -------------------------------------------------

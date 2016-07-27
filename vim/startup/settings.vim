@@ -132,7 +132,7 @@ endif
 
 " Load colorscheme
 " ----------------------------------------------------
-colorscheme easy-reading
+colorscheme PaperColor
 
 if has("nvim")
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1       " True gui colors in terminal

@@ -70,8 +70,8 @@ nnoremap cd :cd %:p:h<CR>:pwd<CR>
 
 " Map for save & quit operations
 " ----------------------------------------------------
-nnoremap <leader>q :q!<CR>
-nnoremap <leader>w :w!<CR>
+nnoremap gq :q!<CR>
+nnoremap gw :w!<CR>
 
 " Yank file path
 " ----------------------------------------------------
@@ -93,8 +93,8 @@ nnoremap gO O<ESC>j
 
 " Window splitting
 " ----------------------------------------------------
-nnoremap ,v :vsplit<CR>
-nnoremap ,h :split<CR>
+nnoremap gv :vsplit<CR>
+nnoremap gh :split<CR>
 
 " Tabs
 " ----------------------------------------------------

@@ -165,7 +165,7 @@ zle -N self-insert url-quote-magic
 
 # colors for ls
 # ----------------------------------------------------
-eval $(dircolors "$ZDOTDIR/dircolors/zenburn")
+eval $(dircolors "$ZDOTDIR/dircolors/paperflies")
 
 # to run bash functions
 # ----------------------------------------------------

@@ -1,4 +1,8 @@
-# ---------------------------------------------------- # file: $HOME/dotfiles/xinitrc # author    jls - http://sjorssparreboom.nl # vim:nu:ai:et:sw=4:ts=4:ft=xinitrc # ----------------------------------------------------
+# ----------------------------------------------------
+# file: $HOME/dotfiles/xinitrc
+# author jls - http://sjorssparreboom.nl
+# vim:nu:ai:et:sw=4:ts=4:ft=xinitrc
+# ----------------------------------------------------
 
 # source Xresources
 # ----------------------------------------------------
@@ -34,9 +38,9 @@ xbindkeys --file ~/dotfiles/xbindkeysrc
 
 # start pulseaudio
 # ----------------------------------------------------
-if [[ -e /usr/bin/pulseaudio ]]; then
-    /usr/bin/pulseaudio --start
-fi
+#if [[ -e /usr/bin/pulseaudio ]]; then
+#    /usr/bin/pulseaudio --start
+#fi
 
 # compose key
 # ----------------------------------------------------
@@ -116,6 +120,22 @@ fi
 # ----------------------------------------------------
 if [[ -e /usr/bin/dunst ]]; then
      /usr/bin/dunst &
+fi
+
+# set wallpaper
+# ----------------------------------------------------
+feh --bg-scale $HOME/pictures/wallpapers/arch-paper-wallpaper.jpg
+
+# export dbus session address so it can be used by cron
+# ----------------------------------------------------
+if [[ -f ~/scripts/export-x-info ]]; then
+    . ~/scripts/export-x-info
+fi
+
+# external usb sound card fix
+# ----------------------------------------------------
+if [[ -f ~/scripts/usb-audio-fix ]]; then
+    . ~/scripts/usb-audio-fix
 fi
 
 # start dwm

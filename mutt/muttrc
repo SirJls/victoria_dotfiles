@@ -111,6 +111,7 @@ mailboxes +sjorssparreboom/inbox +sjorssparreboom/sent +sjorssparreboom/drafts +
 # Always sourced
 # ----------------------------------------------------
 source ~/.mutt/gpg.rc                                    # use GPG
+
 source ~/.mutt/colours.muttrc                            # colorscheme
 source ~/.mutt/sjorssparreboom.muttrc                    # source as default
 source $alias_file                                       # required for functionality
@@ -214,3 +215,15 @@ macro index,pager \Cu "<enter-command> set my_pdsave=\$pipe_decode<enter>\
     <enter-command> unset pipe_decode<enter>\
     <pipe-message>extract_url<enter>\
     <enter-command> set pipe_decode=\$my_pdsave<enter>" "get URLs"
+
+# Search with notmuch
+# ----------------------------------------------------
+macro index <F8> \
+     "<enter-command>unset wait_key<enter><shell-escape>notmuch-mutt --prompt search<enter><change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>" \
+     "notmuch: search mail"
+macro index <F9> \
+     "<enter-command>unset wait_key<enter><pipe-message>notmuch-mutt thread<enter><change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter><enter-command>set wait_key<enter>" \
+     "notmuch: reconstruct thread"
+macro index <F6> \
+     "<enter-command>unset wait_key<enter><pipe-message>notmuch-mutt tag -inbox<enter>" \
+     "notmuch: remove message from inbox"

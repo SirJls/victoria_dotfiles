@@ -98,7 +98,7 @@
     
     # Should a notification popped up from history be sticky or timeout
     # as if it would normally do.
-    sticky_history = yes
+    sticky_history = no
     
     # Maximum amount of notifications kept in history
     history_length = 20
@@ -109,12 +109,12 @@
     # The height of a single line.  If the height is smaller than the
     # font height, it will get raised to the font height.
     # This adds empty space above and under the text.
-    line_height = 0
+    line_height = 2
     
     # Draw a line of "separatpr_height" pixel height between two
     # notifications.
     # Set to 0 to disable.
-    separator_height = 8
+    separator_height = 1
     
     # Padding between text and separator.
     padding = 8
@@ -139,7 +139,7 @@
     dmenu = /usr/bin/dmenu -p dunst:
     
     # Browser for opening urls in context menu.
-    browser = /usr/bin/firefox -new-tab
+    browser = ~/scripts/run_browser
 
     # Align icons left/right/off
     icon_position = off
@@ -149,7 +149,7 @@
 
 [frame]
     width = 3
-    color = "#aaaaaa"
+    color = "#444444"
 
 [shortcuts]
 
@@ -175,8 +175,8 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#222222"
-    foreground = "#888888"
+    background = "#444444"
+    foreground = "#f5f5f5"
     timeout = 10
 
 [urgency_normal]
