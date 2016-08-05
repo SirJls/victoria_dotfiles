@@ -6,7 +6,7 @@
 # export dirs to path
 # ----------------------------------------------------
 declare -U path
-path=($HOME/scripts $path)
+path=($HOME/scripts /usr/lib/surfraw $path)
 
 # start keychain
 # ----------------------------------------------------
