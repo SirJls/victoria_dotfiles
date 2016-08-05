@@ -1,0 +1,19 @@
+#compdef soundctl
+
+_soundctl() {
+local -a options
+options=(
+	'headphone:move sink to the external usb headphones'
+	'speakers:move sink to the built-in speakers'
+	'hdmi:move sink to the hdmi device'
+	'volume:set the volume of the sinks'
+	'device:information about the current sound handling device'
+	'profiles:overview of all the profiles available'
+	'list:list all the sinks'
+	'restart:restart the sound server'
+	'help:show the unit manual page'
+)
+_describe 'options' options\
+    && return 0
+  return 1
+}

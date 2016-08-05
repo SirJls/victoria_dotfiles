@@ -243,7 +243,7 @@ song_columns_list_format = "(60)[]{t|f:Title} (40)[red]{b|D:Album}(8f)[green]{lr
 # Attention: It doesn't support song format anymore.
 # Use `ncmpcpp --now-playing SONG_FORMAT` instead.
 
-execute_on_song_change = "bash $HOME/scripts/ncmpcpp_notification"
+execute_on_song_change = "bash $HOME/scripts/ncmpcpp-notification"
 
 #playlist_show_remaining_time = "no"
 

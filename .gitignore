@@ -39,6 +39,7 @@ config/awesome/themes/miro/wallpaper.*
 config/.isolated-storage/
 config/.protobuild-cache/
 config/libfm
+config/skypeforlinux/
 mutt/*/cache
 mutt/temp
 mutt/mailboxes

@@ -1,10 +1,9 @@
 # ----------------------------------------------------
 # file:     $HOME/dotfiles/mutt/.gpg.rc
 # author    jls - http://sjorssparreboom.nl
-# vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=conf:
 # ----------------------------------------------------
 
-# GPG settings sourced from $HOME//mutt/.muttrc
+# GPG settings sourced from $HOME/mutt/.muttrc
 # Use GPGME
 # ----------------------------------------------------
 set crypt_use_gpgme = yes

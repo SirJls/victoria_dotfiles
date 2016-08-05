@@ -1,7 +1,6 @@
 # ----------------------------------------------------
 # file: $HOME/dotfiles/zsh/zshrc
 # author    jls - http://sjorssparreboom.nl
-# vim:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=zsh:
 # ----------------------------------------------------
 
 # Autoload & colours
@@ -16,9 +15,12 @@ if [[ -e /usr/share/chruby ]]; then
     chruby $(<"$XDG_CONFIG_HOME"/ruby-version)
 fi
 
-# Autostartx
+# keychain setting
 # ----------------------------------------------------
-[[ $(tty) = "/dev/tty1" ]] && exec startx
+
+[[ -z $HOSTNAME ]] && HOSTNAME=$(uname -n)
+[[ -f $HOME/.keychain/${HOSTNAME}-sh ]] && source "$HOME/.keychain/${HOSTNAME}-sh"
+[[ -f $HOME/.keychain/${HOSTNAME}-sh-gpg ]] && source "$HOME/.keychain/${HOSTNAME}-sh-gpg"
 
 # Prompts
 # ----------------------------------------------------

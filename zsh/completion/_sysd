@@ -10,7 +10,7 @@ options=(
 	'is-enabled:check status'
 	'status:current state'
 	'disable:do not load at boot'
-	'list:list all running serverices'
+	'list:list all running services'
 	'read:read the relevant service file'
 	'fail:list failed services'
 	'reboot:restart'

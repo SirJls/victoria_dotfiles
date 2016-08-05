@@ -41,7 +41,7 @@ URxvt.resize-font.bigger:  M-Up
 URxvt.keysym.M-c:          perl:clipboard:copy
 URxvt.keysym.M-v:          perl:clipboard:paste
 URxvt.keysym.M-C-v:        perl:clipboard:paste_escaped
-URxvt.url-select.launcher: /home/enigma/scripts/run_browser
+URxvt.url-select.launcher: /home/enigma/scripts/run-browser
 URxvt.matcher.rend.0:      -Uline fg16
 URxvt.matcher.button:      1
 

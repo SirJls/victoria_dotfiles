@@ -1,13 +1,11 @@
 # ----------------------------------------------------
 # file:     $HOME/dotfiles/offlineimaprc
 # author    jls - http://sjorssparreboom.nl
-# vim:nu:ai:et:sw=4:ts=4:ft=conf
 # ----------------------------------------------------
 
 [general]
 metadata = ~/.offlineimap
 accounts = sjorssparreboom, school, gmail
-maxsyncaccounts = 3
 socktimeout = 60
 ui = basic
 
@@ -18,48 +16,47 @@ pythonfile = /home/enigma/scripts/offlineimap.py
 [mbnames]
 # Create a list of available mailboxes for mutt
 # ----------------------------------------------------
-
+# enabled = yes
+# filename = ~/.mutt/mailboxes
+# header = "mailboxes "
+# peritem = "+%(accountname)s/%(foldername)s"
+# sep = .
+# footer = "\n"
 enabled = yes
-
 filename = ~/.mutt/mailboxes
-
 header = "mailboxes "
-
 peritem = "+%(accountname)s/%(foldername)s"
-sep = .
+sep = "."
 footer = "\n"
 
 [Account school]
 localrepository = local-school
 remoterepository = remote-school
-autorefresh = 0
 status_backend = sqlite
 
 [Account gmail]
 localrepository = local-gmail
 remoterepository = remote-gmail
-autorefresh = 0
 status_backend = sqlite
 
 [Account sjorssparreboom]
 localrepository = local-sjorssparreboom
 remoterepository = remote-sjorssparreboom
-autorefresh = 0
 status_backend = sqlite
 
 [Repository remote-sjorssparreboom]
 type = IMAP
 auth_mechanisms = LOGIN
-maxconnections = 2
 remotehost     = www70.totaalholding.nl
 remoteuser     = mail@sjorssparreboom.nl
-remotepasseval = keyring.get_password('sjorssparreboom', 'mail')
+remotepasseval = get_pass("mail@sjorssparreboom.nl")
+sync_deletes   = no
 
 # If using ssl, you will need to specify certificates to use with them
 # ----------------------------------------------------
 ssl            = yes
 sslcacertfile  = /etc/ssl/certs/ca-certificates.crt
-realdelete     = no
+realdelete     = yes
 
 # Exclude these mailboxes from the above mailbox list
 # ----------------------------------------------------
@@ -104,11 +101,11 @@ nametrans = lambda foldername: re.sub('inbox', 'INBOX',
 [Repository remote-school]
 type = IMAP
 auth_mechanisms = LOGIN
-maxconnections = 2
 remotehost     = outlook.office365.com
 # remotehost     = imap.hro.nl
 remoteuser     = 0890040@hr.nl
-remotepasseval = keyring.get_password('school', '0890040')
+remotepasseval = get_pass("0890040@hr.nl")
+sync_deletes   = no
 
 # If using ssl, you will need to specify certificates to use with them
 # ----------------------------------------------------
@@ -146,16 +143,17 @@ nametrans = lambda folder: re.sub('inbox', 'INBOX',
 type = Gmail
 type = IMAP
 auth_mechanisms = LOGIN
-maxconnections = 2
 remotehost     = imap.gmail.com
 remoteuser     = jlssparreboom@gmail.com
-remotepasseval = keyring.get_password('gmail', 'jls')
+remotepasseval = get_pass("jlssparreboom@gmail.com")
+sync_deletes   = no
 
 # If using ssl, you will need to specify certificates to use with them
 # ----------------------------------------------------
 ssl = yes
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 realdelete = yes
+
 # Note the nametrans above in local-gmail: it undoes this one
 # ----------------------------------------------------
 nametrans = lambda folder: re.sub('.*INBOX$', 'inbox',

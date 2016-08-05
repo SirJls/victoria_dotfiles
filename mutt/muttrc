@@ -1,7 +1,6 @@
 # ----------------------------------------------------
 # file:     $HOME/dotfiles/mutt/muttrc
 # author    jls - http://sjorssparreboom.nl
-# vim:fenc=utf-8:nu:ai:si:et:ts=4:sw=4:ft=muttrc
 # ----------------------------------------------------
 
 # Configuration settings
@@ -225,5 +224,5 @@ macro index <F9> \
      "<enter-command>unset wait_key<enter><pipe-message>notmuch-mutt thread<enter><change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter><enter-command>set wait_key<enter>" \
      "notmuch: reconstruct thread"
 macro index <F6> \
-     "<enter-command>unset wait_key<enter><pipe-message>notmuch-mutt tag -inbox<enter>" \
+     "<enter-command>unset wait_key<enter><pipe-message>notmuch-mutt tag -- -inbox<enter>" \
      "notmuch: remove message from inbox"
