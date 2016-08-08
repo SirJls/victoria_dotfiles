@@ -32,7 +32,7 @@ set nofoldenable                        " disable folding
 set timeoutlen=1000                     " faster
 set ttimeoutlen=10                      " faster
 set mouse=a                             " let me use the mouse (on special ocassions)
-set pdev=Canon-MP620-series             " setup the printer
+set pdev=Canon-MP2900-series            " setup the printer
 
 let mapleader='\'                       " Bind/set leader key
 let g:is_posix=1                        " POSIX shell scripts
@@ -47,11 +47,6 @@ set nocursorline                        " do not highlight line
 syntax sync minlines=256                " start highlighting from 256 lines backwards
 set synmaxcol=300                       " do not highlith very long lines
 set re=1                                " use explicit old regexpengine, seems to be more faster
-
-" fix spell check not always working in tex documents
-" ----------------------------------------------------
-syn sync maxlines=200
-syn sync minlines=50
 
 " Auto commands
 " ----------------------------------------------------
@@ -113,6 +108,7 @@ set list listchars=trail:·,precedes:«,extends:»,tab:▸\
 set statusline=\%f%m%r%h%w\ ::\ %y\ [%{&ff}]\%=\ [wc:%{WordCount()}]\ ::\ [%p%%:\ %l/%c/%L]
 set laststatus=2
 set cmdheight=1
+set shortmess=a
 
 " default to very magic
 " ----------------------------------------------------

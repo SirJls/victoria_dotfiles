@@ -43,6 +43,7 @@ alias makeup="updpkgsums && makepkg -ci"
 alias irc="rm -f $HOME/.irssi/saved_colors && irssi"
 alias printers="system-config-printer"
 alias reload="rm -f ~/dotfiles/zsh/.zcompdump* && . ~/.zsh/.zshrc autload -Ux compinit compinit"
+alias o="xdg-open"
 
 # management
 # ----------------------------------------------------
@@ -52,10 +53,6 @@ alias usrall="cut -d: -f1 /etc/passwd"
 # audio management
 # ----------------------------------------------------
 alias alsamixer="alsamixer -g"
-
-# thefuck plugin for zsh
-# ----------------------------------------------------
-eval $(thefuck --alias)
 
 # vpn
 # ----------------------------------------------------
@@ -68,10 +65,6 @@ alias fp="gpg --list-keys --fingerprint"
 # code & file editing related
 # ----------------------------------------------------
 alias tx="tmux -f ~/.tmux/conf"
-
-# viewers
-# ----------------------------------------------------
-alias z='zathura $1 --fork'
 
 # editor
 # ----------------------------------------------------

@@ -93,8 +93,8 @@ nnoremap gO O<ESC>j
 
 " Window splitting
 " ----------------------------------------------------
-nnoremap gv :vsplit<CR>
-nnoremap gh :split<CR>
+nnoremap <leader>v :vsplit<CR>
+nnoremap <leader>h :split<CR>
 
 " Tabs
 " ----------------------------------------------------
@@ -147,10 +147,6 @@ nmap :ed :edit %:p:h/
 " Tagbar
 " ----------------------------------------------------
 nmap <F2> :TagbarToggle<cr>
-
-" NERDTree
-" ----------------------------------------------------
-map <C-b> :NERDTreeToggle<CR>
 
 " vim-go
 " ----------------------------------------------------

@@ -48,6 +48,10 @@ pids() { ps aux | grep "$1" ;}
 # ----------------------------------------------------
 sprung() { curl -F "sprunge=<-" http://sprunge.us <"$1" ;}
 
+# grab list of updates
+# ----------------------------------------------------
+aurup() { awk '{print $2}' </tmp/aurupdates* ;}
+
 # check pacman's log
 # ----------------------------------------------------
 paclog() { tail -n"$1" /var/log/pacman.log ;}
@@ -110,11 +114,15 @@ manp() { man -t "$@" | lpr -pPrinter; }
 # ----------------------------------------------------
 manpdf() { man -t "$@" | ps2pdf - /tmp/manpdf_$1.pdf && xdg-open /tmp/manpdf_$1.pdf ;}
 
+# Convert office documents to pdf
+# ----------------------------------------------------
+officepdf() { (( $# != 2 )) && printf "%s\n" "I accept input and produce output!" || unoconv -f pdf -o "$2" "$1"}
+
 # simple notes
 # ----------------------------------------------------
 n() {
   local files
-  files=(${@/#/$HOME/.notes/})
+  files=(${@/#/$HOME/.notes/*/*)})
   ${EDITOR:-vi} $files
 }
 

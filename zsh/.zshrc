@@ -156,7 +156,7 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 
 # manual pages for current command
 # ----------------------------------------------------
-bindkey "^[h" run-help
+bindkey "^h" run-help
 
 # quoting URLs
 # ----------------------------------------------------
@@ -168,6 +168,10 @@ zle -N self-insert url-quote-magic
 # colors for ls
 # ----------------------------------------------------
 eval $(dircolors "$ZDOTDIR/dircolors/paperflies")
+
+# thefuck plugin for zsh
+# ----------------------------------------------------
+eval $(thefuck --alias)
 
 # to run bash functions
 # ----------------------------------------------------

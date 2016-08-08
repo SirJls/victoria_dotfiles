@@ -29,6 +29,21 @@ export PAGER="/usr/bin/less"
 export SDCV_PAGER="/usr/bin/less"
 export SYSTEMD_PAGER="less -j4aR"
 export PASS_DIR="$HOME/.password-store"
+export GOPATH="$HOME/workspace/go" # for bin see zprofile
+
+# Environment variables used by soundctl
+# ----------------------------------------------------
+export DEFAULT_PROFILE="output:analog-stereo+input:analog-stereo"
+export DEFAULT_SND_CARD="alsa_card.pci-0000_00_1b.0"
+export DEFAULT_SINK="alsa_output.pci-0000_00_1b.0.analog-stereo"
+
+export HDMI_PROFILE="output:hdmi-stereo-extra1"
+export HDMI_SND_CARD="alsa_card.pci-0000_00_03.0"
+export HDMI_SINK=""
+
+export EXTERNAL_PROFILE_00="output:analog-stereo+input:analog-mono"
+export EXTERNAL_SND_CARD_00="alsa_card.usb-C-Media_Electronics_Inc._USB_PnP_Sound_Device-00"
+export EXTERNAL_SINK_00="alsa_output.usb-C-Media_Electronics_Inc._USB_PnP_Sound_Device-00.analog-stereo"
 
 # To stop ranger from loading both the default and my custom rc.conf
 # ----------------------------------------------------

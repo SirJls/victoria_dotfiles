@@ -3,13 +3,14 @@
 _soundctl() {
 local -a options
 options=(
-	'headphone:move sink to the external usb headphones'
-	'speakers:move sink to the built-in speakers'
+	'external:move sink to your external[n] device'
+	'default:move sink to the default device'
 	'hdmi:move sink to the hdmi device'
-	'volume:set the volume of the sinks'
-	'device:information about the current sound handling device'
+	'set-volume:set the volume of the sinks'
 	'profiles:overview of all the profiles available'
-	'list:list all the sinks'
+	'cards:list card information'
+	'sinks:list sink information'
+	'volume:list volume levels'
 	'restart:restart the sound server'
 	'help:show the unit manual page'
 )
