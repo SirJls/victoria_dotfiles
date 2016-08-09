@@ -118,11 +118,22 @@ manpdf() { man -t "$@" | ps2pdf - /tmp/manpdf_$1.pdf && xdg-open /tmp/manpdf_$1.
 # ----------------------------------------------------
 officepdf() { (( $# != 2 )) && printf "%s\n" "I accept input and produce output!" || unoconv -f pdf -o "$2" "$1"}
 
+# open preconfigured project setups
+# ----------------------------------------------------
+po() { 
+    (( $# != 1 )) && printf "%s\n" "I need a tmuxinator project to start!" && exit 1
+    tmuxinator start "$1"
+}
+
+# Create .bak for file
+# ----------------------------------------------------
+bak() { cp "$1" ${1}.bak }
+
 # simple notes
 # ----------------------------------------------------
 n() {
   local files
-  files=(${@/#/$HOME/.notes/*/*)})
+  files=(${@/#/$HOME/.notes/})
   ${EDITOR:-vi} $files
 }
 

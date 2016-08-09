@@ -1,3 +1,6 @@
+config/Popcorn-Time/
+config/configstore/
+config/gocode
 config/VirtualBox/
 config/remmina/
 config/psysh/

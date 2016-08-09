@@ -65,13 +65,7 @@ shortcut-add B=https://api-ssl.bitly.com/v3/shorten?access_token=20e9827b9c5ddee
 # quick tabs
 # -------------------------------------------------
 nnoremap gh  :tabopen https://github.com/git-jls<CR>
-nnoremap ge  :tabopen https://wiki.archlinux.org/index.php/Forum_Etiquette<CR>
 nnoremap gw  :tabopen http://sjorssparreboom.nl<CR>
-nnoremap gp  :tabopen http://portfolio.dev<CR>
-# nnoremap gf  :tabopen https://www.flickr.com/photos/<CR>
-nnoremap go  :tabopen https://stackoverflow.com<CR>
-nnoremap gs  :tabopen https://hermansbanden.slack.com/messages/general/<CR>
-nnoremap ga  :tabopen https://app.asana.com/<CR>
 
 # basic mappings
 # -------------------------------------------------
