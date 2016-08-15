@@ -63,7 +63,7 @@ PROMPT_EOL_MARK=" •"
 # completions
 # add custom completion scripts
 # ----------------------------------------------------
-fpath=(~/.zsh/completion $fpath) 
+fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit
 compinit
 

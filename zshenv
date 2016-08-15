@@ -30,6 +30,7 @@ export SDCV_PAGER="/usr/bin/less"
 export SYSTEMD_PAGER="less -j4aR"
 export PASS_DIR="$HOME/.password-store"
 export GOPATH="$HOME/workspace/go" # for bin see zprofile
+export NOTES_DIR="$HOME/.notes"
 
 # Environment variables used by soundctl
 # ----------------------------------------------------

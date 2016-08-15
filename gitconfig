@@ -6,7 +6,7 @@
 [mergetool]
 	keepBackup = false
 [user]
-	name = jls
+	name = git-jls
 	email = mail@sjorssparreboom.nl
 [push]
 	default = simple

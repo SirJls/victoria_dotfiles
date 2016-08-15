@@ -48,6 +48,10 @@ ino [ []<left>
 ino { {}<left>
 ino {<CR> {<CR>}<ESC>O
 
+" help in new tab
+" ----------------------------------------------------
+cabbrev help tab help
+
 " Let me escape!
 " ----------------------------------------------------
 inoremap <leader><space> \ 

@@ -1,7 +1,7 @@
 " ----------------------------------------------------
 " file:     $HOME/dotfiles/vim/startup/settings.vim
 " author    jls - http://sjorssparreboom.nl
-" vim:nu:ai:et:sw=4:ts=4:tw=78:ft=vim
+" vim:nu:ai:et:sw=4:ts=4:tw=78:
 " ----------------------------------------------------
 
 " The actual settings
@@ -48,10 +48,6 @@ syntax sync minlines=256                " start highlighting from 256 lines back
 set synmaxcol=300                       " do not highlith very long lines
 set re=1                                " use explicit old regexpengine, seems to be more faster
 
-" Auto commands
-" ----------------------------------------------------
-au FileType c,cpp,go setlocal comments-=:// comments+=f://
-
 " tabs and indenting
 " ----------------------------------------------------
 set modeline
@@ -62,7 +58,7 @@ set noexpandtab
 set shiftwidth=8                        " n cols for auto-indenting
 " set expandtab                           " spaces instead of tabs
 set autoindent                          " auto indents next new line
-set copyindent                          " copy the prevois indentation on autoindenting
+set copyindent                          " copy the previous indentation on autoindenting
 
 " Splits
 " ----------------------------------------------------
@@ -76,24 +72,19 @@ set incsearch                           " increment search
 set ignorecase                          " case-insensitive search
 set smartcase                           " uppercase causes case-sensitive search
 
-" Set default filetype to txt
+" Extended Text Objects
 " ----------------------------------------------------
-autocmd BufEnter * if &filetype == "" | setlocal ft=text | endif
-
-" Add spell for LaTeX documents
-" ----------------------------------------------------
-autocmd FileType tex setlocal spell spelllang=en_gb
-
-" All tex files as tex
-" ----------------------------------------------------
-let g:tex_flavor = "latex"
-set suffixes+=.log,.aux,.bbl,.blg,.idx,.ilg,.ind,.out,.pdf
-
-" Associate blade with html, php
-" ----------------------------------------------------
-autocmd BufNewFile,BufRead *.php set ft=html | set ft=php
-autocmd BufNewFile,BufRead *.blade.php set ft=blade.html.php
-" autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+let s:items = [ "<bar>", "\\", "/", ":", ".", "*", "_" ]
+for item in s:items
+    exe "nnoremap yi".item." T".item."yt".item
+    exe "nnoremap ya".item." F".item."yf".item
+    exe "nnoremap ci".item." T".item."ct".item
+    exe "nnoremap ca".item." F".item."cf".item
+    exe "nnoremap di".item." T".item."dt".item
+    exe "nnoremap da".item." F".item."df".item
+    exe "nnoremap vi".item." T".item."vt".item
+    exe "nnoremap va".item." F".item."vf".item
+endfor
 
 " Let Ctags look recursively down to $HOME/code
 " ----------------------------------------------------
@@ -102,7 +93,6 @@ set tags=./tags,tags;$HOME/code
 " listchars
 " ----------------------------------------------------
 set list listchars=trail:·,precedes:«,extends:»,tab:▸\
-
 " status bar info and appearance
 " ----------------------------------------------------
 set statusline=\%f%m%r%h%w\ ::\ %y\ [%{&ff}]\%=\ [wc:%{WordCount()}]\ ::\ [%p%%:\ %l/%c/%L]
@@ -113,18 +103,6 @@ set shortmess=a
 " default to very magic
 " ----------------------------------------------------
 no / /\v
-
-" Autocmd
-" ----------------------------------------------------
-if has("autocmd")
-    " always jump to the last cursor position
-    autocmd BufReadPost * if line("'\"")>0 && line("'\"")<=line("$") | exe "normal g`\""|endif
-
-    " settings for specific filetypes
-    autocmd BufRead *.txt set tw=79
-    autocmd BufRead *.tex,*.markdown,*.md,*.txt set spell
-    autocmd BufRead,BufNewFile ~/.mutt/temp/mutt-* set ft=mail wrap lbr nolist spell wm=0
-endif
 
 " Load colorscheme
 " ----------------------------------------------------
@@ -149,7 +127,7 @@ let g:UltiSnipsExpandTrigger = "<c-j>"
 let g:UltiSnipsSnippetsDir = "/home/jls/dotfiles/vim/snips/"
 let g:UltiSnipsSnippetDirectories=["snips"]
 let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsListSnippets="<c-e>"
+let g:UltiSnipsListSnippets="<c-l>"
 
 " Uncomment if you use (YCM)
 " YouCompleteMe (YCM) 
@@ -170,11 +148,12 @@ let g:deoplete#enable_ignore_case = 1
 let g:deoplete#auto_complete_start_length = 1
 call deoplete#custom#set('buffer', 'rank', 9999)
 call deoplete#custom#set('ultisnips', 'rank', 9999)
-
+"
 " libclang for neovim
 " ----------------------------------------------------
 let g:deoplete#sources#clang#libclang_path = "/usr/lib/libclang.so"
 let g:deoplete#sources#clang#clang_header ="/usr/include/clang/"
+
 
 " Go environment setting
 " ----------------------------------------------------
@@ -185,6 +164,79 @@ let g:go_highlight_functions = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
+
+
+" Set autocmd command && groups
+" ----------------------------------------------------
+
+" filetypes
+" ----------------------------------------------------
+augroup filetypes
+    au!
+    au BufNewFile,BufRead,BufWrite *.csv setl ft=csv
+    au BufNewFile,BufRead,BufWrite *.ejs setl ft=html
+    au FileType ruby    setl sw=2 makeprg=ruby\ % efm=
+                \%+E%f:%l:\ parse\ error,
+                \%W%f:%l:\ warning:\ %m,
+                \%E%f:%l:in\ %*[^:]:\ %m,
+                \%E%f:%l:\ %m,
+                \%-C%\tfrom\ %f:%l:in\ %.%#,
+                \%-Z%\tfrom\ %f:%l,
+                \%-Z%p^,
+                \%-G%.%#
+    au FileType ruby    nnoremap <leader>p Yp^Cbinding.pry<Esc>
+    " au FileType ruby    set makeprg=clear;\ bundle\ exec\ rake
+    au FileType python  setl sw=4 makeprg=python\ % efm=
+                \%A\ \ File\ \"%f\"\\\,\ line\ %l\\\,%m,
+                \%C\ \ \ \ %.%#,
+                \%+Z%.%#Error\:\ %.%#,
+                \%A\ \ File\ \"%f\"\\\,\ line\ %l,
+                \%+C\ \ %.%#,
+                \%-C%p^,
+                \%Z%m,
+                \%-G%.%#
+    au FileType python  nnoremap <leader>p Yp^Cinteract()<Esc>
+    au FileType xml     set equalprg=xmllint\ --format\ --recover\ -
+    autocmd BufNewFile,BufRead *.php set ft=html | set ft=php
+    autocmd BufNewFile,BufRead *.blade.php set ft=blade.html.php
+    autocmd BufEnter * if &filetype == ".tex" | setlocal ft=tex spell spelllang=en_gb | endif
+augroup end
+
+" whitespace
+" ----------------------------------------------------
+
+highlight ExtraWhitespace guibg=#bd5353 ctermbg=131
+augroup whitespace
+    au!
+    au ColorScheme * highlight ExtraWhitespace guibg=#bd5353 ctermbg=131
+    au BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t/
+    au BufWrite * match ExtraWhitespace /\s\+$\| \+\ze\t/
+    2match ExtraWhitespace /\%81v.\+/
+augroup end
+
+" markdown
+" ----------------------------------------------------
+augroup markdown
+    au!
+    au BufEnter * let &complete=".,w,b,u,t,i"
+    au BufNewFile,BufRead,BufWrite   *.txt,*.md,*.mkd,*.markdown,*.mdwn setl ft=markdown ts=3 sw=3
+    au BufNewFile,BufRead,BufWrite   *.txt,*.md,*.mkd,*.markdown,*.mdwn let &complete="k".expand("%:p:h")."/*.md"
+    au BufRead,BufWrite,InsertChange *.txt,*.md,*.mkd,*.markdown,*.mdwn syn match ErrorMsg '\%>77v.\+'
+    au BufNewFile,BufRead */_posts/*.markdown setl completefunc=TagComplete | cd $BLOG
+    au BufRead *.tex,*.markdown,*.md,*.txt set spell
+augroup end
+
+" extras
+" ----------------------------------------------------
+if has("autocmd")
+    " always jump to the last cursor position
+    autocmd BufReadPost * if line("'\"")>0 && line("'\"")<=line("$") | exe "normal g`\""|endif
+
+    " settings for specific filetypes
+    autocmd BufRead *.txt set tw=79
+    autocmd BufRead,BufNewFile ~/.mutt/temp/mutt-* set ft=mail wrap lbr nolist spell wm=0
+endif
+
 
 " tmux
 " ----------------------------------------------------

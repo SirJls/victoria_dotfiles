@@ -94,4 +94,6 @@ mutt/aliases
 vim/pythonx/__pycache__/
 vim/.init.vim-rplugin~
 vim/.netrwhist
-shaman/cache.json   
+shaman/cache.json
+w3m/history
+w3m/cookie

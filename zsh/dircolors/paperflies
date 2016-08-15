@@ -87,6 +87,13 @@ OTHER_WRITABLE 34;42 # dir that is other-writable (o+w) and not sticky
 STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
 EXEC 01;32 # This is for files with execute permission:
 
+.erl 38;5;21
+.ml 38;5;21
+.go 38;5;22
+.scala 38;5;23
+.asm 38;5;24
+.p 38;5;25
+.pas 38;5;25
 .m3u8 38;5;28
 .m3u 38;5;28
 .pls 38;5;28
@@ -469,13 +476,6 @@ EXEC 01;32 # This is for files with execute permission:
 .r 38;5;224
 .tcl 38;5;225
 .tk 38;5;225
-.go 38;5;226
-.erl 38;5;227
-.ml 38;5;227
-.scala 38;5;227
-.asm 38;5;228
-.p 38;5;229
-.pas 38;5;229
 .gitignore 38;5;238
 .hgignore 38;5;238
 .bzrignore 38;5;238
