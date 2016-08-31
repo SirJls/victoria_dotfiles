@@ -116,18 +116,36 @@ manpdf() { man -t "$@" | ps2pdf - /tmp/manpdf_$1.pdf && xdg-open /tmp/manpdf_$1.
 
 # Convert office documents to pdf
 # ----------------------------------------------------
-officepdf() { (( $# != 2 )) && printf "%s\n" "I accept input and produce output!" || unoconv -f pdf -o "$2" "$1"}
+officepdf() { (( $# != 2 )) && printf "%s\n" "I accept input and produce output!" || unoconv -f pdf -o "$2" "$1" }
 
-# open preconfigured project setups
+# Create an iso
 # ----------------------------------------------------
-po() { 
-    (( $# != 1 )) && printf "%s\n" "I need a tmuxinator project to start!" && exit 1
-    tmuxinator start "$1"
+iso() {
+    if (( $# != 3 )) then;
+        printf "%s\n" "Specify a filename, block size with extension and a count!"
+        return 1
+    else
+        dd if=/dev/zero of="$1" bs="$2" count="$3"
+        printf "%s\n" "Don't forget to mount a filesystem, goodbye!"
+        return 0
+    fi
 }
 
 # Create .bak for file
 # ----------------------------------------------------
 bak() { [[ ${1: -4} == ".bak" ]] && cp -rf "$1" ${1%.bak} || cp -rf "$1" ${1}.bak }
+
+
+# snap from webcam
+# ----------------------------------------------------
+selfie() { fswebcam --resolution 640x480 --no-banner --jpeg 95 --skip 10 $HOME/pictures/webcam/$(date +%H:%M-%d%m%y).jpeg ; }
+
+# open preconfigured project setups
+# ----------------------------------------------------
+po() {
+    (( $# != 1 )) && printf "%s\n" "I need a tmuxinator project to start!" && exit 1
+    tmuxinator start "$1"
+}
 
 # simple notes
 # ----------------------------------------------------
@@ -146,10 +164,6 @@ nls() {
     else if (NF==3) printf "  %s\n", $3
   }'
 }
-
-# snap from webcam
-# ----------------------------------------------------
-selfie() { fswebcam --resolution 640x480 --no-banner --jpeg 95 --skip 10 $HOME/pictures/webcam/$(date +%H:%M-%d%m%y).jpeg ; }
 
 # ranger
 # ----------------------------------------------------
