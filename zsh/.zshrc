@@ -15,11 +15,9 @@ if [[ -e /usr/share/chruby ]]; then
     chruby $(<"$XDG_CONFIG_HOME"/ruby-version)
 fi
 
-# keychain setting
+# Broaden my knowledge!
 # ----------------------------------------------------
-[[ -z $HOSTNAME ]] && HOSTNAME=$(uname -n)
-[[ -f $HOME/.keychain/${HOSTNAME}-sh ]] && source "$HOME/.keychain/${HOSTNAME}-sh"
-[[ -f $HOME/.keychain/${HOSTNAME}-sh-gpg ]] && source "$HOME/.keychain/${HOSTNAME}-sh-gpg"
+# cat "$HOME/.wikidates/$(date +%B_%d)" | shuf -n 1
 
 # Prompts
 # ----------------------------------------------------

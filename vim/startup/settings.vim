@@ -211,7 +211,7 @@ augroup whitespace
     au ColorScheme * highlight ExtraWhitespace guibg=#bd5353 ctermbg=131
     au BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t/
     au BufWrite * match ExtraWhitespace /\s\+$\| \+\ze\t/
-    2match ExtraWhitespace /\%81v.\+/
+    " 2match ExtraWhitespace /\%81v.\+/
 augroup end
 
 " markdown

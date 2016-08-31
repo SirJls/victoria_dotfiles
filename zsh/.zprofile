@@ -11,6 +11,9 @@ path=($HOME/scripts /usr/lib/surfraw $GOPATH/bin $path)
 # start keychain
 # ----------------------------------------------------
 if [[ -z $(pidof ssh-agent) && -z $(pidof gpg-agent) ]]; then
+  [[ -z $HOSTNAME ]] && HOSTNAME=$(uname -n)
+  [[ -f $HOME/.keychain/${HOSTNAME}-sh ]] && source "$HOME/.keychain/${HOSTNAME}-sh"
+  [[ -f $HOME/.keychain/${HOSTNAME}-sh-gpg ]] && source "$HOME/.keychain/${HOSTNAME}-sh-gpg"
   eval $(/usr/bin/keychain --eval -Q -q --nogui --agents "ssh,gpg" id_rsa 534064D4)
 fi
 

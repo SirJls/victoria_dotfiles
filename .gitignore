@@ -1,6 +1,7 @@
 config/Popcorn-Time/
 config/configstore/
 config/gocode
+config/deluge
 config/VirtualBox/
 config/remmina/
 config/psysh/
@@ -96,4 +97,5 @@ vim/.init.vim-rplugin~
 vim/.netrwhist
 shaman/cache.json
 w3m/history
+w3m/w3mtmp*
 w3m/cookie
