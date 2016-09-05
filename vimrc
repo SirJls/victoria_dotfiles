@@ -36,6 +36,9 @@ Plug 'Colorizer'
 " YouCompeleteMe (YCM)
 " Plug 'Valloric/YouCompleteMe'
 
+" Ack for vim
+Plug 'mileszs/ack.vim'
+
 " Deoplete
 function! DoRemote(arg)
   UpdateRemotePlugins

@@ -68,9 +68,9 @@ if  ( hash autocutsel ); then
     autocutsel -selection PRIMARY -fork &
 fi
 
-# # turn of screensaver
-# # ----------------------------------------------------
-# xset s off -dpms
+# turn of screensaver
+# ----------------------------------------------------
+xset s off -dpms
 
 # # let me print pdf files
 # # ----------------------------------------------------

@@ -40,7 +40,7 @@ export DEFAULT_SINK="alsa_output.pci-0000_00_1b.0.analog-stereo"
 
 export HDMI_PROFILE="output:hdmi-stereo-extra1"
 export HDMI_SND_CARD="alsa_card.pci-0000_00_03.0"
-export HDMI_SINK=""
+export HDMI_SINK="alsa_output.pci-0000_00_03.0.hdmi-stereo-extra1"
 
 export EXTERNAL_PROFILE_00="output:analog-stereo+input:analog-mono"
 export EXTERNAL_SND_CARD_00="alsa_card.usb-C-Media_Electronics_Inc._USB_PnP_Sound_Device-00"

@@ -52,6 +52,14 @@ sprung() { curl -F "sprunge=<-" http://sprunge.us <"$1" ;}
 # ----------------------------------------------------
 aurup() { awk '{print $2}' </tmp/aurupdates* ;}
 
+# all aur packages
+# ----------------------------------------------------
+allaurpkgs() { pacman -Qqettm ; }
+
+# all packman packages
+# ----------------------------------------------------
+allpacpkgs() { pacman -Qqettn ; }
+
 # check pacman's log
 # ----------------------------------------------------
 paclog() { tail -n"$1" /var/log/pacman.log ;}
@@ -120,7 +128,24 @@ officepdf() { (( $# != 2 )) && printf "%s\n" "I accept input and produce output!
 
 # Create an iso
 # ----------------------------------------------------
-iso() {
+isocreate() {
+    if (( $# != 2 )) then;
+        printf "%s\n" "Specify a file{name/path} and a source."
+        return 1
+    else
+        mkisofs -o "$1" "$2"
+        printf "%s\n" "Done... ISO ${1} created!"
+        return 0
+    fi
+}
+
+# check iso
+# ----------------------------------------------------
+isoinspect() { [[ ! -e ~/.mtoolsrc ]] && echo mtools_skip_check=1 >> ~/.mtoolsrc; mdir -i "$1" ; }
+
+# Create a zero files
+# ----------------------------------------------------
+zerofile() {
     if (( $# != 3 )) then;
         printf "%s\n" "Specify a filename, block size with extension and a count!"
         return 1
@@ -131,10 +156,17 @@ iso() {
     fi
 }
 
+# check if two strings are the same
+# ----------------------------------------------------
+equal() { [[ "$1" == "$2" ]] && echo "True" || echo "False"; }
+
+# rename usb
+# ----------------------------------------------------
+usbrename() { sudo dosfslabel "$1" "$2" ; }
+
 # Create .bak for file
 # ----------------------------------------------------
 bak() { [[ ${1: -4} == ".bak" ]] && cp -rf "$1" ${1%.bak} || cp -rf "$1" ${1}.bak }
-
 
 # snap from webcam
 # ----------------------------------------------------
