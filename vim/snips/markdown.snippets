@@ -1,10 +1,6 @@
 # blade snippets for ultisnips
 # ----------------------------------------------------
-priority 1
-
-###########################
-# Sections and Paragraphs #
-###########################
+priority -50
 
 snippet sec "Section" b
 # ${1:Section Name} #
@@ -37,11 +33,6 @@ snippet note_meta "meta data for the note"
 > Date: ${3:`date +%d-%m-%Y`}
 > Instructor: $4
 endsnippet
-
-################
-# Common stuff #
-################
-
 
 snippet link "Link to something"
 [${1:${VISUAL:Text}}](${3:http://${2:www.url.com}})$0

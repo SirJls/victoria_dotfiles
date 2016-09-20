@@ -25,8 +25,8 @@ set x-hint-command=:sh! /home/enigma/scripts/tube <C-R>;<CR>
 
 # appearance
 # -------------------------------------------------
-set fontsize=10
-set monofontsize=9
+set fontsize=14
+set monofontsize=16
 set minimumfontsize=7
 set status-color-bg=#f5f5f5
 set status-color-fg=#696969

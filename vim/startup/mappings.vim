@@ -9,10 +9,6 @@
 nnoremap j jzz
 nnoremap k kzz
 
-" Jump out of parenthesis
-" ----------------------------------------------------
-inoremap <leader>e <C-o>a<space>
-
 " Allows writing to files with root priviledges
 " ----------------------------------------------------
 cmap w!! w !sudo tee % > /dev/null
@@ -56,14 +52,6 @@ cabbrev help tab help
 " ----------------------------------------------------
 inoremap <leader><space> \ 
 
-" Helpers
-" ----------------------------------------------------
-noremap <leader>a =ip
-noremap cp yap<S-}>p
-
-nnoremap Q @q
-vnoremap Q :norm @q<cr>
-
 " Insert current date and time
 " ----------------------------------------------------
 nnoremap <leader>D "=strftime("%d %b, %Y %X")<CR>p
@@ -95,74 +83,12 @@ vnoremap > >gv
 nnoremap go o<ESC>k
 nnoremap gO O<ESC>j
 
-" Window splitting
-" ----------------------------------------------------
-nnoremap <leader>v :vsplit<CR>
-nnoremap <leader>h :split<CR>
-
-" Tabs
-" ----------------------------------------------------
-nnoremap ,t :tabnew<CR>
-
-" Window resizing mappings (ALT KEY)
-" ----------------------------------------------------
-if has("nvim")
-    nnoremap <a-h> :vertical resize -5<cr>
-    nnoremap <a-j> :resize +5<cr>
-    nnoremap <a-k> :resize -5<cr>
-    nnoremap <a-l> :vertical resize +5<cr>
-    nnoremap <a-0> <C-w>=
-else
-    execute "set <M-h>=\eh"
-    nnoremap <M-h> :vertical resize -5<cr>
-    execute "set <M-j>=\ej"
-    nnoremap <M-j> :resize +5<cr>
-    execute "set <M-k>=\ek"
-    nnoremap <M-k> :resize -5<cr>
-    execute "set <M-l>=\el"
-    nnoremap <M-l> :vertical resize +5<cr>
-    execute "set <M-0>=\e0"
-    nnoremap <M-0> <C-w>=
-endif
-
-" Allow all window commands in insert mode
-" ----------------------------------------------------
-" imap <C-w> <C-o><C-w>
-" imap <s-h> <c-o><c-w>h
-" imap <s-j> <c-o><c-w>j
-" imap <s-k> <c-o><c-w>k
-" imap <s-l> <c-o><c-w>l
-
-" Fast navigation
-" ----------------------------------------------------
-nnoremap m :MRU<CR>
-
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving
 " insert mode
 " ----------------------------------------------------
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endi
-
-" Create/edit file in the current directory
-" ----------------------------------------------------
-nmap :ed :edit %:p:h/
-
-" Tagbar
-" ----------------------------------------------------
-nmap <F2> :TagbarToggle<cr>
-
-" vim-go
-" ----------------------------------------------------
-au FileType go nmap <leader>rt <Plug>(go-run-tab)
-let g:go_term_enabled = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_interfaces = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-
 
 " Keys & functions
 " ----------------------------------------------------
@@ -177,5 +103,16 @@ MapToggle <F8> wrap
 " ----------------------------------------------------
 map <c-t> :call DmenuOpen("tabe")<cr>
 map <c-f> :call DmenuOpen("e")<cr>
+
+" Fast navigation
+" ----------------------------------------------------
+nnoremap m :MRU<CR>
+
+" Abbreviations
+" ----------------------------------------------------
+iab mymail mail@sjorssparreboom.nl
+iab myname sjors sparreboom
+iab mysite http://sjorssparreboom.nl
+iab myalias git-jls
 
 " vim: ft=vim

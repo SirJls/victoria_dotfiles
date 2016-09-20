@@ -15,14 +15,8 @@ call plug#begin('~/dotfiles/vim/plugged')
 " vim-matchit
 Plug 'edsono/vim-matchit'
 
-" vim R plugin
-Plug 'vim-scripts/Vim-R-plugin'
-
-" Go plugin
-Plug 'fatih/vim-go'
-
-" Comment lines
-Plug 'tpope/vim-commentary'
+" Ruby for vim!
+Plug 'vim-ruby/vim-ruby'
 
 " Show the git diff in the gutter
 Plug 'airblade/vim-gitgutter'
@@ -33,9 +27,6 @@ Plug 'tpope/vim-surround'
 " Show color for the color codes
 Plug 'Colorizer'
 
-" YouCompeleteMe (YCM)
-" Plug 'Valloric/YouCompleteMe'
-
 " Ack for vim
 Plug 'mileszs/ack.vim'
 
@@ -44,19 +35,12 @@ function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-Plug 'zchee/deoplete-clang'
 
 " Track engine for snippets
 Plug 'SirVer/UltiSnips'
 
 " Paper colorscheme
 Plug 'NLKNguyen/papercolor-theme'
-
-" Tagbar
-Plug 'majutsushi/tagbar'
-
-" Colorschemes
-Plug 'flazz/vim-colorschemes'
 
 " Fast navigation
 Plug 'yegappan/mru'

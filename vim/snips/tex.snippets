@@ -1,6 +1,6 @@
 # Latex Snippets for UltiSnips
 # ----------------------------------------------------
-priority 1
+priority -50
 
 extends texmath
 
@@ -16,7 +16,7 @@ snippet "docstyle" "documentstyle" b
 \documentstyle{${1:article}}
 endsnippet
 
-snippet "be?" "begin{} / end{}" b
+snippet "be" "begin{} / end{}" b
 \begin{${1:something}}
 	${0:${VISUAL}}
 \end{$1}
@@ -83,6 +83,10 @@ snippet cha "Chapter" b
 \label{cha:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
 
 ${0}
+endsnippet
+
+snippet cl "contentsline" b
+\addcontentsline{toc}{${1:section}}{${2:name}}
 endsnippet
 
 snippet sec "Section" b

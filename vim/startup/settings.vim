@@ -25,7 +25,8 @@ set ww=b,s,h,l,<,>,[,]                  " whichwrap -- left/right keys can trave
 set linebreak                           " attempt to wrap lines cleanly
 set wildmenu                            " enhanced tab-completion shows all matching cmds in a popup menu
 set wildmode=list:longest,full          " full completion options
-set spelllang=en_gb                     " real English spelling
+" set spelllang=en_gb                     " real English spelling
+set spelllang=nl                        " real Dutch spelling
 set dictionary+=/usr/share/dict/words
 set wmh=0                               " no displaying current line for minimized files
 set nofoldenable                        " disable folding
@@ -45,17 +46,17 @@ let g:vimsyn_noerror=1                  " hack for correct syntax highlighting
 set nocursorcolumn                      " do not highlight column
 set nocursorline                        " do not highlight line
 syntax sync minlines=256                " start highlighting from 256 lines backwards
-set synmaxcol=300                       " do not highlith very long lines
+set synmaxcol=300                       " do not highligth very long lines
 set re=1                                " use explicit old regexpengine, seems to be more faster
 
 " tabs and indenting
 " ----------------------------------------------------
 set modeline
 set linespace=2
-set tabstop=8                           " tabs appear as n number of columns
-set softtabstop=8
+set tabstop=2                           " tabs appear as n number of columns
+set softtabstop=2
 set noexpandtab
-set shiftwidth=8                        " n cols for auto-indenting
+set shiftwidth=2                        " n cols for auto-indenting
 " set expandtab                           " spaces instead of tabs
 set autoindent                          " auto indents next new line
 set copyindent                          " copy the previous indentation on autoindenting
@@ -86,13 +87,10 @@ for item in s:items
     exe "nnoremap va".item." F".item."vf".item
 endfor
 
-" Let Ctags look recursively down to $HOME/code
-" ----------------------------------------------------
-set tags=./tags,tags;$HOME/code
-
 " listchars
 " ----------------------------------------------------
 set list listchars=trail:·,precedes:«,extends:»,tab:▸\
+
 " status bar info and appearance
 " ----------------------------------------------------
 set statusline=\%f%m%r%h%w\ ::\ %y\ [%{&ff}]\%=\ [wc:%{WordCount()}]\ ::\ [%p%%:\ %l/%c/%L]
@@ -124,122 +122,55 @@ endif
 " Utlisnips, because it's awesome
 " ----------------------------------------------------
 let g:UltiSnipsExpandTrigger = "<c-j>"
-let g:UltiSnipsSnippetsDir = "/home/jls/dotfiles/vim/snips/"
+let g:UltiSnipsSnippetsDir = "/home/enigma/dotfiles/vim/snips/"
 let g:UltiSnipsSnippetDirectories=["snips"]
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsListSnippets="<c-l>"
-
-" Uncomment if you use (YCM)
-" YouCompleteMe (YCM) 
-" ----------------------------------------------------
-" let g:ycm_confirm_extra_conf    = 0
-" let g:ycm_complete_in_comments  = 1
-" let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
-" let g:ycm_extra_conf_vim_data   = ['&filetype']
-" let g:ycm_seed_identifiers_with_syntax = 1
-" let g:ycm_filetype_blacklist = { 'help': 1 }
-" let g:ycm_disable_for_files_larger_than_kb = 500
 
 " Deoplete
 " ----------------------------------------------------
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_refresh_always = 1
-let g:deoplete#enable_ignore_case = 1 
+let g:deoplete#enable_ignore_case = 1
 let g:deoplete#auto_complete_start_length = 1
-call deoplete#custom#set('buffer', 'rank', 9999)
-call deoplete#custom#set('ultisnips', 'rank', 9999)
-"
-" libclang for neovim
-" ----------------------------------------------------
-let g:deoplete#sources#clang#libclang_path = "/usr/lib/libclang.so"
-let g:deoplete#sources#clang#clang_header ="/usr/include/clang/"
-
-
-" Go environment setting
-" ----------------------------------------------------
-let g:go_fmt_command = "goimports"
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-
 
 " Set autocmd command && groups
 " ----------------------------------------------------
-
-" filetypes
-" ----------------------------------------------------
 augroup filetypes
     au!
-    au BufNewFile,BufRead,BufWrite *.csv setl ft=csv
-    au BufNewFile,BufRead,BufWrite *.ejs setl ft=html
-    au FileType ruby    setl sw=2 makeprg=ruby\ % efm=
-                \%+E%f:%l:\ parse\ error,
-                \%W%f:%l:\ warning:\ %m,
-                \%E%f:%l:in\ %*[^:]:\ %m,
-                \%E%f:%l:\ %m,
-                \%-C%\tfrom\ %f:%l:in\ %.%#,
-                \%-Z%\tfrom\ %f:%l,
-                \%-Z%p^,
-                \%-G%.%#
-    au FileType ruby    nnoremap <leader>p Yp^Cbinding.pry<Esc>
-    " au FileType ruby    set makeprg=clear;\ bundle\ exec\ rake
-    au FileType python  setl sw=4 makeprg=python\ % efm=
-                \%A\ \ File\ \"%f\"\\\,\ line\ %l\\\,%m,
-                \%C\ \ \ \ %.%#,
-                \%+Z%.%#Error\:\ %.%#,
-                \%A\ \ File\ \"%f\"\\\,\ line\ %l,
-                \%+C\ \ %.%#,
-                \%-C%p^,
-                \%Z%m,
-                \%-G%.%#
-    au FileType python  nnoremap <leader>p Yp^Cinteract()<Esc>
-    au FileType xml     set equalprg=xmllint\ --format\ --recover\ -
-    autocmd BufNewFile,BufRead *.php set ft=html | set ft=php
-    autocmd BufNewFile,BufRead *.blade.php set ft=blade.html.php
-    autocmd BufEnter * if &filetype == ".tex" | setlocal ft=tex spell spelllang=en_gb | endif
+
+    " follow symlink and set working directory
+    au BufRead *
+        \ call FollowSymlink() |
+        \ call SetProjectRoot()
+
+    au BufRead,BufNewFile,BufWrite *.tex,*latex set ft=tex
+    au BufNewFile,BufRead,BufWrite *.csv setlocal ft=csv
+    au BufNewFile,BufRead,BufWrite *.conf setlocal ft=conf set tw=79 fo=cqt wm=0
+    au BufRead,BufWrite,BufNewFile *.txt,*.md,*.text,*.tex set spell tw=79 fo=cqt wm=0
+
+    au Filetype tex,latex syntax spell toplevel
+
+    au FileType xml set equalprg=xmllint\ --format\ --recover\ -
+
+    au FileType ruby,eruby setlocal ts=2 sts=-1 sw=2 et ai 
+    au FileType ruby,erub compiler ruby
+
+    au FileType haskell, setlocal ts=8 sts=4 sw=4 sr et ai
+
 augroup end
 
-" whitespace
+" latex
 " ----------------------------------------------------
-
-highlight ExtraWhitespace guibg=#bd5353 ctermbg=131
-augroup whitespace
-    au!
-    au ColorScheme * highlight ExtraWhitespace guibg=#bd5353 ctermbg=131
-    au BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t/
-    au BufWrite * match ExtraWhitespace /\s\+$\| \+\ze\t/
-    " 2match ExtraWhitespace /\%81v.\+/
-augroup end
-
-" markdown
-" ----------------------------------------------------
-augroup markdown
-    au!
-    au BufEnter * let &complete=".,w,b,u,t,i"
-    au BufNewFile,BufRead,BufWrite   *.txt,*.md,*.mkd,*.markdown,*.mdwn setl ft=markdown ts=3 sw=3
-    au BufNewFile,BufRead,BufWrite   *.txt,*.md,*.mkd,*.markdown,*.mdwn let &complete="k".expand("%:p:h")."/*.md"
-    au BufRead,BufWrite,InsertChange *.txt,*.md,*.mkd,*.markdown,*.mdwn syn match ErrorMsg '\%>77v.\+'
-    au BufNewFile,BufRead */_posts/*.markdown setl completefunc=TagComplete | cd $BLOG
-    au BufRead *.tex,*.markdown,*.md,*.txt set spell
-augroup end
+let g:tex_comment_nospell= 1
 
 " extras
 " ----------------------------------------------------
 if has("autocmd")
     " always jump to the last cursor position
-    autocmd BufReadPost * if line("'\"")>0 && line("'\"")<=line("$") | exe "normal g`\""|endif
-
-    " settings for specific filetypes
-    autocmd BufRead *.txt set tw=79
-    autocmd BufRead,BufNewFile ~/.mutt/temp/mutt-* set ft=mail wrap lbr nolist spell wm=0
+    au BufReadPost * if line("'\"")>0 && line("'\"")<=line("$") | exe "normal g`\""|endif
+    au BufRead,BufNewFile ~/.mutt/temp/mutt-* set ft=mail wrap lbr nolist spell wm=0
+    au BufReadPost,FileReadPost,BufNewFile,BufEnter * call system("tmux rename-window 'nvim | " . expand("%:t") . "'")
 endif
-
-
-" tmux
-" ----------------------------------------------------
-autocmd BufReadPost,FileReadPost,BufNewFile,BufEnter * call system("tmux rename-window 'nvim | " . expand("%:t") . "'")
 
 " vim: ft=vim
