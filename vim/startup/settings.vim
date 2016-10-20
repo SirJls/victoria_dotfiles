@@ -153,6 +153,7 @@ augroup filetypes
 
     au FileType xml set equalprg=xmllint\ --format\ --recover\ -
 
+    au FileType javascript,coffee setlocal ts=2 sts=-1 sw=2 et ai
     au FileType ruby,eruby setlocal ts=2 sts=-1 sw=2 et ai 
     au FileType ruby,erub compiler ruby
 

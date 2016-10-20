@@ -71,6 +71,7 @@ fi
 # turn of screensaver
 # ----------------------------------------------------
 xset s off -dpms
+xset s noblank
 
 # # let me print pdf files
 # # ----------------------------------------------------

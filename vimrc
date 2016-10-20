@@ -24,11 +24,15 @@ Plug 'airblade/vim-gitgutter'
 " Surround t-pope quoting/parenthesizing made simple
 Plug 'tpope/vim-surround'
 
+Plug 'tpope/vim-commentary'
+
 " Show color for the color codes
 Plug 'Colorizer'
 
 " Ack for vim
 Plug 'mileszs/ack.vim'
+
+Plug 'kchmck/vim-coffee-script'
 
 " Deoplete
 function! DoRemote(arg)
