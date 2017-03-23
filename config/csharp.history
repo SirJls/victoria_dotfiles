@@ -1,0 +1,136 @@
+ls
+eit
+exit
+exit
+exit
+exit
+int[] hello = [1,2,3,4,5,6,7,8,9,10]
+int[] hello = {1,2,3,4,5,6,7,8,9,10}
+hello.Sum();
+hello.Sum();
+1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10
+float check = hello.Sum();
+check
+double c = 0.0;
+c
+double c = 10.0;
+double d = 5.2;
+c - d;
+exit
+HashSet<double> h = new HashSet(){4,5,6,7,3,561,23234,53453}
+HashSet<double> h = new HashSet() {4,5,6,7,3,561,23234,53453}
+HashSet<double> h = new HashSet();
+HashSet<double> h;
+HashSet<double> h;
+h
+HashSet<double> h = new HashSet();
+HashSet<double> hello = new HashSet();
+HashSet<double> hello = new HashSet();
+HashSet<double> hello = new HashSet(1,2,3);
+HashSet<int> evenNumbers = new HashSet<int>();
+HashSet<int> evenNumbers = new HashSet<int>();
+HashSet<int> evenNumbers = new HashSet<int>(){1,2,3,3,3};
+evenNumbers
+evenNumbers
+HashSet<int> SortedNumbers = new SortedSet<int>(){1,2,3,3,3};
+SortedSet<int> SortedNumbers = new SortedSet<int>(){1,2,3,3,3};
+SortedNumbers
+exit
+new Hello()
+new Hello()
+check = new Hello()
+var check = new Hello()
+check
+class Hello { public Hello() {} public string say { printf "%s" "hello" } }
+class Wa { public Wa() {} public string say { printf "%s" "hello" } }
+class Wa { public Wa() {} public string say { printf "%s" "hello" } }
+exit
+exit
+quit
+int[] hello = new int[10];
+hello.Length;
+exit
+exit
+hello.Count;
+  class GenericVector
+  {
+    public double[] Points { get; set; }
+    public int Cluster { get; set; }
+    public GenericVector(double[] numbers) {
+      this.Points = numbers;
+    }
+  }
+  class GenericVector
+  {
+    public double[] Points { get; set; }
+    public int Cluster { get; set; }
+    public GenericVector(double[] numbers) {
+      this.Points = numbers;
+    }
+  }
+exit
+int[] hello = new int[]{1,2,3,4,4,4,4,5,5,5,5,5,6,1,2,5,71,2,3467,2,233423423,234}
+hello
+hello.GroupBy(v => v);
+hello.OrderBy(v => v);
+hello.GroupBy(v => v);
+var hello = new int[] { 1,2,3,4,5,6,7,8,9,10 }
+var hello = new int[] { 1,2,3,4,5,6,7,8,9,10 }
+var hello = new int[] { 1,2,3,4,5,6,7,8,9,10,10,1,2,3,3,3,3,3,3,10,1,1,100 }
+hello.Gro
+hello.GroupBy(v => v);
+hello.GroupBy(v => v).ToArray();
+hello.GroupBy(v => v).ToArray()[0];
+hello.GroupBy(v => v).ToArray()[0][0];
+hello.GroupBy(v => v).ToArray()[0];
+hello.GroupBy(v => v).ToArray()[0].First();
+hello.GroupBy(v => v).ToArray()[0].ToArray();
+hello.GroupBy(v => v).ToArray()[0].ToArray()[0];
+hello.GroupBy(v => v).ToArray()[0]0];
+hello.GroupBy(v => v).ToArray()[0][0];
+hello.GroupBy(v => v).ToArray()[0]
+hello.GroupBy(v => v).ToArray()
+hello.GroupBy(v => v).ToArray().ToArray[]
+var hello = new int[] { 1,2,3,4,5,6,7,8,9,10,10,1,2,3,3,3,3,3,3,10,1,1,100 }
+hello.GroupBy(v => v).ToArray();
+hello.GroupBy(v => v).ToArray().ToArray();
+hello.GroupBy(v => v).ToList();
+hello.GroupBy(v => v).ToLiist();
+hello.GroupBy(v => v).ToList();
+hello.GroupBy(v => v);
+hello.GroupBy(v => v).Take(2);
+exit
+var h = [ [1,2,3,4,5] [1,2,3,4,5]]
+var h = new int[ new int[1,2,3,4,5] new int[1,2,3,4,5]]
+;;
+var h = new int[5][5]{ [1,2,3,4,5] [1,2,3,4,5] }
+var h = new int[5][5]{ new int[]{1,2,3,4,5]} new int[] {1,2,3,4,5} }
+var h = new int[5][5]{ new int[]{1,2,3,4,5]}, new int[] {1,2,3,4,5} }
+var h = new int[,] = new int[4,2];
+var h = new int[,] = new int[4,2]
+class V { public List<double> me {get;set;} public V(List<double> v) { me = v } }
+class V { public List<double> me {get;set;} public V(List<double> v) { me = v; } }
+h = new V();
+h = new V(List<double>() {1,2,3,3,4,5,6,7,7});
+h = new V(new List<double>(){1,2,3,3,4,5,6,7,7});
+hel = new V(new List<double>(){1,2,3,3,4,5,6,7,7});
+var hel = new V(new List<double>(){1,2,3,3,4,5,6,7,7});
+hel
+hel.me 
+class V { public List<double> me {get;set;} public V(List<double> v) { me = v; } public V times(int val) { for (int i = 0; i < me.Count; i++) { me[i] *= val } return this } }
+class V { public List<double> me {get;set;} public V(List<double> v) { me = v; } public V times(int val) { for (int i = 0; i < me.Count; i++) { me[i] *= val } return this; } }
+class X { public List<double> me {get;set;} public V(List<double> v) { me = v; } public X times(int val) { for (int i = 0; i < me.Count; i++) { me[i] *= val } return this; } }
+class X { public List<double> me {get;set;} public X(List<double> v) { me = v; } public X times(int val) { for (int i = 0; i < me.Count; i++) { me[i] *= val } return this; } }
+class X { public List<double> me {get;set;} public X(List<double> v) { me = v; } public X times(int val) { for (int i = 0; i < me.Count; i++) { me[i] *= val; } return this; } }
+var hel = new X(new List<double>(){1,2,3,3,4,5,6,7,7});
+hel
+hel.me
+hel.times(5);
+var c = hel.times(5);
+hel.me
+c
+c.me
+hel
+hel.me
+
+

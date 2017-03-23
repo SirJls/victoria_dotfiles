@@ -9,20 +9,6 @@
 alias grep="grep --color=auto"
 alias "ls=ls --color=auto"
 
-# the 'ls' family
-# ----------------------------------------------------
-alias ll="ls -l --group-directories-first"
-alias ls="ls -h --color"                                    # add colors for filetype recognition
-alias la="ls -A"                                            # show hidden files
-alias lx="ls -xb"                                           # sort by extension
-alias lk="ls -lSr"                                          # sort by size, biggest last
-alias lc="ls -ltcr"                                         # sort by and show change time, most recent last
-alias lu="ls -ltur"                                         # sort by and show access time, most recent last
-alias lt="ls -ltr"                                          # sort by date, most recent last
-alias lm="ls -Al |more"                                     # pipe through 'more'
-alias lr="ls -lR"                                           # recursive ls
-alias lsr="tree -Csu"                                       # nice alternative to 'recursive ls'
-
 # network
 # ----------------------------------------------------
 alias pong="ping -c 3 google.com"
@@ -32,23 +18,9 @@ alias edu='python $HOME/scripts/edu && sudo netctl start eduroam'
 # convenience
 # ----------------------------------------------------
 alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""'
-alias say="fortune | cowsay -f tux"
 alias vbmod="sudo modprobe vboxdrv"
 alias upterm='xrdb $HOME/.Xresources'
 alias rm='rm -iv'
-alias mpvw="mpv --video-aspect=16:9"
-alias cd..="cd .."
-alias dush="du -sm *|sort -n|tail"
-alias makeup="updpkgsums && makepkg -ci"
-alias irc="rm -f $HOME/.irssi/saved_colors && irssi"
-alias printers="system-config-printer"
-alias reload="rm -f ~/dotfiles/zsh/.zcompdump* && . ~/.zsh/.zshrc autload -Ux compinit compinit"
-alias o="xdg-open"
-
-# management
-# ----------------------------------------------------
-alias grpall="cut -d: -f1 /etc/group"
-alias usrall="cut -d: -f1 /etc/passwd"
 
 # audio management
 # ----------------------------------------------------
@@ -62,21 +34,24 @@ alias vpn="sudo ip route add default dev ppp0"
 # ----------------------------------------------------
 alias fp="gpg --list-keys --fingerprint"
 
-# code & file editing related
-# ----------------------------------------------------
-alias tx="tmux -f ~/.tmux/conf"
-
 # editor
 # ----------------------------------------------------
-alias ve='vim -u ~/.vimencrypt -x'
-
-if hash nvim 2>/dev/null; then
-  alias vim='nvim'
-  alias vimdiff='nvim -d'
-fi
-
 alias vi="vim"
 alias v="vim"
+
+# the 'ls' family
+# ----------------------------------------------------
+alias ll="ls -l --group-directories-first"
+alias ls="ls -h --color"                                    # add colors for filetype recognition
+alias la="ls -A"                                            # show hidden files
+alias lx="ls -xb"                                           # sort by extension
+alias lk="ls -lSr"                                          # sort by size, biggest last
+alias lc="ls -ltcr"                                         # sort by and show change time, most recent last
+alias lu="ls -ltur"                                         # sort by and show access time, most recent last
+alias lt="ls -ltr"                                          # sort by date, most recent last
+alias lm="ls -Al |more"                                     # pipe through 'more'
+alias lr="ls -lR"                                           # recursive ls
+alias lsr="tree -Csu"                                       # nice alternative to 'recursive ls'
 
 # pacman
 # ----------------------------------------------------

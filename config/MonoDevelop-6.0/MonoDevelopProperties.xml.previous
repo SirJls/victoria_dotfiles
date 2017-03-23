@@ -1,0 +1,46 @@
+﻿<MonoDevelopProperties version="2.0">
+  <Property key="FontProperties" />
+  <Property key="Dialogs.NewProjectDialog.CreateGitIgnoreFile" value="True" />
+  <Property key="MonoDevelop.Projects.Text.ConversionEncodings" value="" />
+  <Property key="Monodevelop.TaskListTokens" value="FIXME:2;TODO:1;HACK:1;UNDONE:0" />
+  <Property key="SharpDevelop.Workbench.WorkbenchMemento">
+    <Property key="windowState" value="Maximized" />
+    <Property key="fullscreen" value="False" />
+    <Property key="bounds" value="50, 50, 1820, 930" />
+  </Property>
+  <Property key="Monodevelop.FileSelector.LastPattern" value="*" />
+  <Property key="CodeActionUsages" />
+  <Property key="Monodevelop.CommentTasksColumns" value="TRUE;TRUE;TRUE;TRUE" />
+  <Property key="MonoDevelop.Ide.AddinUpdater.CheckForUpdates" value="True" />
+  <Property key="MonoDevelop.Core.LastRunVersion" value="6.2" />
+  <Property key="PackageManagementSettings" />
+  <Property key="MonoDevelop.FileSelector.LastPath" value="/home/sjors/code/fsharp" />
+  <Property key="MonoDevelop.Ide.AddinUpdater.LastCheck" value="02/10/2017 17:57:42" />
+  <Property key="MonoDevelop.Ide.AddinUpdater.UpdateSpanValue" value="1" />
+  <Property key="MonoDevelop.GtkCore.ShowNonContainerWarning" value="True" />
+  <Property key="AutoFormatDocumentOnSave" value="False" />
+  <Property key="MonoDevelop.Core.Gui.CurrentWorkbenchLayout" value="Solution" />
+  <Property key="FavoriteRecentFiles">
+    <ArrayOfString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+  </Property>
+  <Property key="MonoDevelop.Ide.ExtensibleTreeView.Zoom.MonoDevelop.UnitTesting.TestPad" value="1" />
+  <Property key="Dialogs.NewProjectDialog.SelectedLanguage" value="C#" />
+  <Property key="MonoDevelop.Ide.AddinUpdater.UpdateSpanUnit" value="Day" />
+  <Property key="MonoDevelop.Core.LastRunRevision" value="5" />
+  <Property key="MonoDevelop.Core.Gui.Dialogs.NewProjectDialog.AutoCreateProjectSubdir" value="True" />
+  <Property key="MonoDevelop.Ide.ExtensibleTreeView.Zoom.ProjectPad" value="1" />
+  <Property key="XmlEditor.AddIn.Options">
+    <Property key="AutoInsertFragment" value="False" />
+    <Property key="ShowSchemaAnnotation" value="False" />
+    <Property key="AutoCompleteElements" value="False" />
+  </Property>
+  <Property key="WelcomePage.UpdateFromInternet" value="True" />
+  <Property key="MonoDevelop.Core.FirstRun" value="False" />
+  <Property key="MonoDevelop.Ide.AddinUpdater.UpdateLevel" value="Stable" />
+  <Property key="ToolboxIsInCompactMode" value="False" />
+  <Property key="Monodevelop.ErrorListColumns" value="TRUE;TRUE;TRUE;TRUE;TRUE;TRUE;TRUE;TRUE" />
+  <Property key="MonoDevelop.TextEditor.Document.Document.DefaultDocumentAggregatorProperties" />
+  <Property key="Monodevelop.TaskList.ActiveView" value="MonoDevelop.Ide.Tasks.CommentTasksView" />
+  <Property key="ScrollBar.Mode" value="Overview" />
+  <Property key="Dialogs.NewProjectDialog.UseGit" value="False" />
+</MonoDevelopProperties>

@@ -1,0 +1,79 @@
+"-----------------------------------------------------
+"  file:   $HOME/dotfiles/vim/vimrc
+"  author: jls - http://sjorssparreboom.nl
+" ----------------------------------------------------
+
+" Load Plugs
+" ----------------------------------------------------
+
+" set the runtime path to include Plugged and initialize
+set rtp^=~/dotfiles/vim
+call plug#begin('~/dotfiles/vim/plugged')
+
+" colorscheme
+Plug 'morhetz/gruvbox'
+
+" vim-matchit
+Plug 'vim-scripts/matchit.zip'
+
+" Show the git diff in the gutter
+Plug 'airblade/vim-gitgutter'
+
+" comments
+Plug 'tpope/vim-commentary'
+
+" let me surround stuff
+Plug 'tpope/vim-surround'
+
+" Show color for the color codes
+Plug 'Colorizer'
+
+" Track the engine.
+Plug 'SirVer/ultisnips'
+
+" Syntastic
+Plug 'vim-syntastic/syntastic'
+
+" Omnisharp
+Plug 'OmniSharp/omnisharp-vim'
+
+" Extend omnisharp highlighting plus extra
+Plug 'OrangeT/vim-csharp'
+
+" fuzzy finder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" Displatch
+Plug 'tpope/vim-dispatch'
+
+" Plug 'fsharp/vim-fsharp'
+
+" Snippets
+Plug 'honza/vim-snippets'
+
+" Syntax highlighting rust
+Plug 'rust-lang/rust.vim'
+
+" Code completion for rust
+Plug 'racer-rust/vim-racer'
+
+" We really need docs!
+Plug 'rhysd/rust-doc.vim'
+
+" Code completion
+Plug 'Valloric/YouCompleteMe'
+
+call plug#end()
+
+" filetype stuff on
+" ----------------------------------------------------
+syntax on
+filetype plugin on
+filetype plugin indent on
+
+" settings / functions / mappings
+" ----------------------------------------------------
+source $HOME/dotfiles/vim/settings.vim
+source $HOME/dotfiles/vim/functions.vim
+source $HOME/dotfiles/vim/mappings.vim

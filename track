@@ -1,0 +1,11 @@
+vim/vimrc
+zsh/zprofile
+zsh/zshrc
+zsh/zprofile
+zsh/zshenv
+startup/xinitrc
+startup/inputrc
+startup/xbindkeysrc
+ack/ackrc
+tmux/tmux.conf
+config
