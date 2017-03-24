@@ -1,6 +1,6 @@
 #! /bin/sh
 # -------------------------------------------------
-# file: $HOME/dotfiles/startup/xbindkeysrc
+# file: ${DOTFILES}/startup/xbindkeysrc
 # author    jls - http://sjorssparreboom.nl
 # -------------------------------------------------
 

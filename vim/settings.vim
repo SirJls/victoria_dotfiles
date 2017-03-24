@@ -1,5 +1,5 @@
 "-----------------------------------------------------
-"  file:   $HOME/dotfiles/vim/settings.vim
+"  file:   ${DOTFILES}/vim/settings.vim
 "  author: jls - http://sjorssparreboom.nl
 " ----------------------------------------------------
 
@@ -21,7 +21,7 @@ set ww=b,s,h,l,<,>,[,]
 set linebreak
 set wildmenu
 set wildmode=list:longest,full
-set spellfile=~/dotfiles/vim/spell/en.utf-8.add
+set spellfile=$DOTFILES/vim/spell/en.utf-8.add
 set spelllang=nl
 set dictionary+=/usr/share/dict/words
 set wmh=0
@@ -32,8 +32,8 @@ set clipboard=unnamed
 
 " backups
 " ----------------------------------------------------
-set backupdir=~/dotfiles/vim/backup/                  " backup files directories
-set directory=~/dotfiles/vim/backup/                  " store backup swp files
+" set backupdir=$DOTFILES/vim/backup/                  " backup files directories
+" set directory=$DOTFILES/vim/backup/                  " store backup swp files
 set nobackup
 
 " tweaks for browsing
@@ -88,8 +88,7 @@ set laststatus=2
 
 " Load colorscheme
 " ----------------------------------------------------
-set background=dark
-colorscheme gruvbox
+colorscheme seagull
 
 " Completion
 " ----------------------------------------------------

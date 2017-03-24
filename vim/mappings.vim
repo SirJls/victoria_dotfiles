@@ -1,5 +1,5 @@
 " ----------------------------------------------------
-" file:     $HOME/dotfiles/vim/startup/mappings.vim
+" file:     ${DOTFILES}/vim/startup/mappings.vim
 " author    jls - http://sjorssparreboom.nl
 " ----------------------------------------------------
 

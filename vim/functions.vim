@@ -1,5 +1,5 @@
 "-----------------------------------------------------
-"  file:   $HOME/dotfiles/vim/startup/functions.vim
+"  file:   ${DOTFILES}/vim/startup/functions.vim
 "  author: jls - http://sjorssparreboom.nl
 " ----------------------------------------------------
 

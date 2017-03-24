@@ -6,12 +6,11 @@
 " Load Plugs
 " ----------------------------------------------------
 
+let &runtimepath .= ',' . expand('$DOTFILES/vim')
 " set the runtime path to include Plugged and initialize
-set rtp^=~/dotfiles/vim
-call plug#begin('~/dotfiles/vim/plugged')
-
-" colorscheme
-Plug 'morhetz/gruvbox'
+"set rtp^=~/victoria/victoria_dotfiles/vim
+" set rtp+=~/victoria/victoria_dotfiles/vim
+call plug#begin('$DOTFILES/vim/plugged')
 
 " vim-matchit
 Plug 'vim-scripts/matchit.zip'
@@ -61,6 +60,9 @@ Plug 'racer-rust/vim-racer'
 " We really need docs!
 Plug 'rhysd/rust-doc.vim'
 
+" Colorscheme
+Plug 'git-jls/seabird'
+
 " Code completion
 Plug 'Valloric/YouCompleteMe'
 
@@ -74,6 +76,6 @@ filetype plugin indent on
 
 " settings / functions / mappings
 " ----------------------------------------------------
-source $HOME/dotfiles/vim/settings.vim
-source $HOME/dotfiles/vim/functions.vim
-source $HOME/dotfiles/vim/mappings.vim
+source $DOTFILES/vim/settings.vim
+source $DOTFILES/vim/functions.vim
+source $DOTFILES/vim/mappings.vim

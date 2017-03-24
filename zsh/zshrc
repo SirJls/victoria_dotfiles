@@ -1,5 +1,5 @@
 # -----------------------------------------------------
-#  file:   $HOME/dotfiles/zsh/zshrc
+#  file:   ${DOTFILES}/zsh/zshrc
 #  author: jls - http://sjorssparreboom.nl
 # ----------------------------------------------------
 
@@ -47,7 +47,7 @@ PROMPT_EOL_MARK=" •"
 # completions
 # add custom completion scripts
 # ----------------------------------------------------
-fpath=($HOME/dotfiles/zsh/completion $fpath)
+fpath=(${DOTFILES}/zsh/completion $fpath)
 autoload -Uz compinit
 compinit
 
@@ -73,7 +73,7 @@ zstyle ':completion:*' group-name ''
 zstyle ':completion:*:pacman:*' force-list always
 zstyle ':completion:*:*:pacman:*' menu yes select
 zstyle -e ':completion:*' hosts 'reply=(anderson)'
-zstyle :compinstall filename '$HOME/dotfiles/zsh/zshrc'
+zstyle :compinstall filename '${DOTFILES}/zsh/zshrc'
 
 # completion for sudo
 # ----------------------------------------------------
@@ -82,9 +82,9 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
 
 # History
 # ----------------------------------------------------
-mkdir -p "${HOME}/dotfiles/zsh/history" &>/dev/null
-touch "${HOME}/dotfiles/zsh/history/histfile" &>/dev/null
-export HISTFILE="${HOME}/dotfiles/zsh/history/histfile"
+mkdir -p "${DOTFILES}/zsh/history" &>/dev/null
+touch "${DOTFILES}/zsh/history/histfile" &>/dev/null
+export HISTFILE="${DOTFILES}/zsh/history/histfile"
 export HISTSIZE=10000
 export SAVEHIST=$((HISTSIZE/2))
 setopt HIST_IGNORE_ALL_DUPS
@@ -144,7 +144,7 @@ zle -N self-insert url-quote-magic
 
 # color ls
 # ----------------------------------------------------
-eval $(dircolors -b ${HOME}/dotfiles/zsh/configs/dir_colors)
+eval $(dircolors -b ${DOTFILES}/zsh/configs/dir_colors)
 
 # to run bash functions
 # ----------------------------------------------------
@@ -153,8 +153,8 @@ bashcompinit
 
 # functions
 # ----------------------------------------------------
-if [[ -d "${HOME}/dotfiles/zsh" ]]; then
-  for file in "${HOME}/dotfiles/zsh/configs/"*.zsh; do
+if [[ -d "${DOTFILES}/zsh" ]]; then
+  for file in "${DOTFILES}/zsh/configs/"*.zsh; do
     source "$file"
   done
 fi

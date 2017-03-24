@@ -1,5 +1,5 @@
 # ----------------------------------------------------
-# file:     $HOME/dotfiles/zsh/functions.zsh
+# file:     ${DOTFILES}/zsh/functions.zsh
 # author:   jls - http://sjorssparreboom.nl
 # vim:fenc=utf-8:nu:ai:si:et:ts=4:sw=4:ft=zsh:
 # ----------------------------------------------------

@@ -1,5 +1,5 @@
 # ----------------------------------------------------
-# file:   $HOME/dotfiles/startup/inputrc
+# file:   ${DOTFILES}/startup/inputrc
 # author: jls - http://sjorssparreboom.nl
 # ----------------------------------------------------
 $include /etc/inputrc
