@@ -131,9 +131,10 @@ client.focused                  #FFFFFF   #FFFFFF     #A96500   #FFFFFF    #FFFF
 # GAPS & PIXELS
     gaps outer 0
     gaps inner 10
+    new_window pixel 4
 
 include /etc/sway/config.d/*
 include ~/.config/sway/config.d/*
 
-# DEFAULT WALLPAPER (MORE RESOLUTIONS ARE AVAILABLE IN /USR/SHARE/SWAY/)
-output * bg /usr/share/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg `wallpaper` fill
+include ~/.config/sway/config.d/*

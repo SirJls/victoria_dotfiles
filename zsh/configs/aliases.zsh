@@ -13,13 +13,9 @@ alias "ls=ls --color=auto"
 # ----------------------------------------------------
 alias pong="ping -c 3 google.com"
 alias wifi="sudo wifi-menu"
-alias edu='python $HOME/scripts/edu && sudo netctl start eduroam'
 
 # convenience
 # ----------------------------------------------------
-alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""'
-alias vbmod="sudo modprobe vboxdrv"
-alias upterm='xrdb $HOME/.Xresources'
 alias rm='rm -iv'
 
 # audio management

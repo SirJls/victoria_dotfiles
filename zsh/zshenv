@@ -23,12 +23,6 @@ export GPGKEY="2D302E05"
 export PAGER="/usr/bin/less"
 export SDCV_PAGER="/usr/bin/less"
 export SYSTEMD_PAGER="less -j4aR"
-export XKB_DEFAULT_OPTIONS=caps:swapescape
-export WLC_DEBUG=xwm
-export _JAVA_AWT_WM_NONREPARENTING=1
-export GTK_IM_MOUDLE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
 export DOTFILES="/home/sjors/victoria/victoria_dotfiles"
 export SCRIPTS="/home/sjors/victoria/victoria_scripts"
 export BUILDS="/home/sjors/victoria/victoria_builds"
@@ -38,6 +32,15 @@ export RACER_CMD="${RUST_CARGO}/racer"
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 export RUST_NIGHTLY="${HOME}/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu"
 export RUST_SRC_PATH="${RUST_NIGHTLY}/lib/rustlib/src/rust/src"
+
+# sway specifics
+# ----------------------------------------------------
+export XKB_DEFAULT_OPTIONS=caps:swapescape
+export WLC_DEBUG=xwm
+export _JAVA_AWT_WM_NONREPARENTING=1
+export GTK_IM_MOUDLE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
 
 # setup default dirs
 # ----------------------------------------------------

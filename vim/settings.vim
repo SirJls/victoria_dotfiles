@@ -32,9 +32,8 @@ set clipboard=unnamed
 
 " backups
 " ----------------------------------------------------
-" set backupdir=$DOTFILES/vim/backup/                  " backup files directories
-" set directory=$DOTFILES/vim/backup/                  " store backup swp files
-set nobackup
+set backupdir=$DOTFILES/vim/backup/                  " backup files directories
+set directory=$DOTFILES/vim/backup/                  " store backup swp files
 
 " tweaks for browsing
 " ----------------------------------------------------
@@ -163,7 +162,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 " Rust
 " ----------------------------------------------------
-let g:rustfmt_autosave = 1
+let g:rustfmt_autosave = 0
 let g:racer_cmd = $RACER_CMD
 " let g:racer_experimental_completer = 1
 let g:rust_doc#downloaded_rust_doc_dir = $RUST_NIGHTLY
