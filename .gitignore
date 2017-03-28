@@ -1,0 +1,27 @@
+# Ignore everything
+*
+# We need to recurse into sub directories, don't ignore!
+!*/
+# We need to ignore everything inside subfolders
+*/*/
+# But don't ignore these files
+!.gitignore
+!README.md
+!track
+!/tmux/*
+!/tmux/*
+!/ack/*
+!/startup/*
+!/vim/*.vim
+!/vim/vimrc
+!/config/ruby-version
+!/config/sway
+!/config/termite
+!/config/zathura
+!**/sway/*
+!**/termite/*
+!**/zathura/*
+!/zsh/**
+
+# But ignore these sub directories
+/zsh/history
