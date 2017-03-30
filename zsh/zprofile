@@ -17,8 +17,9 @@ if [[ -z $(pidof ssh-agent) && -z $(pidof gpg-agent) ]]; then
   eval $(/usr/bin/keychain --eval -Q -q --nogui --agents "ssh,gpg" id_rsa 2D302E05)
 fi
 
-# Start sway on tty1
+# Start WM
 # ----------------------------------------------------
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-  exec i3 &> /dev/null
+  exec startx -- vt1 -keeptty &>/dev/null
+  logout
 fi
