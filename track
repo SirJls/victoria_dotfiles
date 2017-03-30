@@ -7,3 +7,4 @@ startup/inputrc
 ack/ackrc
 tmux/tmux.conf
 config
+startup/xinitrc

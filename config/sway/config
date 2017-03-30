@@ -98,7 +98,7 @@
     }
     bindsym $mod+w mode "window"
 
-# DMENU WITH MOD+D FOR ARBITUARY PROGRAMS
+# DMENU WITH MOD+D FOR ARBITRARY PROGRAMS
     bindsym $mod+d exec dmenu_run -p "Run:" -l 10
 
 # VOLUME CONTROLS (SPECIAL KEYS ON KEYBOARD)

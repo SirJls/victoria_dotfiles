@@ -15,10 +15,12 @@
 !/vim/*.vim
 !/vim/vimrc
 !/config/ruby-version
-!/config/sway
+!/**/config/sway
+!/**/config/i3
 !/config/termite
 !/config/zathura
 !**/sway/*
+!**/i3/*
 !**/termite/*
 !**/zathura/*
 !/zsh/**
