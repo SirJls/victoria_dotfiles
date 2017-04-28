@@ -5,13 +5,14 @@
 
 # Setup environment
 # ----------------------------------------------------
+export CC=/usr/bin/clang
 export LC_ALL=
 export LC_COLLATE="C"
 export LC_CTYPE="${LANG}"
 export LESS='-iMRgj.5'
 export PERL_SIGNALS="unsafe"
 export EDITOR="/usr/bin/vim"
-export BROWSER="/usr/bin/chromium"
+export BROWSER="/usr/bin/firefox"
 export FT2_SUBPIXEL_HINTING="1"
 export QUOTING_STYLE="literal"
 export JavaScriptCoreUseJIT="0"
@@ -27,20 +28,12 @@ export DOTFILES="/home/sjors/Victoria/victoria_dotfiles"
 export SCRIPTS="/home/sjors/Victoria/victoria_scripts"
 export BUILDS="/home/sjors/Victoria/victoria_builds"
 export PASS_DIR="${HOME}/.password-store"
+export SNIPPETS_DIR="${HOME}/.snippets"
 export RUST_CARGO="${HOME}/.cargo/bin"
 export RACER_CMD="${RUST_CARGO}/racer"
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 export RUST_NIGHTLY="${HOME}/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu"
 export RUST_SRC_PATH="${RUST_NIGHTLY}/lib/rustlib/src/rust/src"
-
-# sway specifics
-# ----------------------------------------------------
-export XKB_DEFAULT_OPTIONS=caps:swapescape
-export WLC_DEBUG=xwm
-export _JAVA_AWT_WM_NONREPARENTING=1
-export GTK_IM_MOUDLE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
 
 # setup default dirs
 # ----------------------------------------------------

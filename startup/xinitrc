@@ -35,4 +35,4 @@ fi
 
 # Start i3 on tty1
 # ----------------------------------------------------
-exec sway &/dev/null
+exec $SCRIPTS/i3-start

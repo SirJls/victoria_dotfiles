@@ -60,8 +60,8 @@
 
 # TOGGLE FLOATING WITH MOD+SHIFT+SPACE
     bindsym $mod+Shift+space floating toggle
-# TOGGLE FULLSCREEN WITH MOD+M
-    bindsym $mod+m fullscreen
+# TOGGLE FULLSCREEN WITH MOD+F
+    bindsym $mod+f fullscreen
     bindsym $mod+Escape exec xkill
 # SWAP FOCUS BETWEEN TILING WINDOWS AND FLOATING WINDOWS
     bindsym $mod+space focus mode_toggle
@@ -134,7 +134,4 @@ client.focused                  #FFFFFF   #FFFFFF     #A96500   #FFFFFF    #FFFF
     new_window pixel 4
 
 include /etc/sway/config.d/*
-include ~/.config/sway/config.d/*
-
 output * bg `wallpaper` fill
-include ~/.config/sway/config.d/*

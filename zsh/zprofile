@@ -9,17 +9,19 @@ declare -U path
 path=($SCRIPTS $HOME/.cargo/bin $path)
 
 # start keychain
-# ----------------------------------------------------
+#----------------------------------------------------
 if [[ -z $(pidof ssh-agent) && -z $(pidof gpg-agent) ]]; then
+  eval $(/usr/bin/keychain --eval -Q -q --nogui --agents "ssh,gpg" id_rsa 2D302E05)
   [[ -z $HOSTNAME ]] && HOSTNAME=$(uname -n)
   [[ -f $HOME/.keychain/${HOSTNAME}-sh ]] && source "$HOME/.keychain/${HOSTNAME}-sh"
   [[ -f $HOME/.keychain/${HOSTNAME}-sh-gpg ]] && source "$HOME/.keychain/${HOSTNAME}-sh-gpg"
-  eval $(/usr/bin/keychain --eval -Q -q --nogui --agents "ssh,gpg" id_rsa 2D302E05)
 fi
 
-# Start WM
+# Enter the world!
 # ----------------------------------------------------
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
   exec startx -- vt1 -keeptty &>/dev/null
   logout
+elif [[ $(tty) = /dev/tty2 ]]; then
+  tmux -f $HOME/.tmux.conf new -s secured
 fi

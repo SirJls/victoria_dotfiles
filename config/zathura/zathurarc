@@ -33,7 +33,7 @@ set tabbar-bg                   "#000000"
 set tabbar-fg                   "#ffffff"
 set tabbar-focus-bg             "#000000"
 set tabbar-focus-fg             "#9fbc00"
-set recolor-lightcolor          "#fdf6e3" 
+set recolor-lightcolor          "#fdf6e3"
 set recolor-darkcolor           "#002b36"
 set recolor                     "false"
 

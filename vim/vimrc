@@ -6,10 +6,7 @@
 " Load Plugs
 " ----------------------------------------------------
 
-let &runtimepath .= ',' . expand('$DOTFILES/vim')
-" set the runtime path to include Plugged and initialize
-"set rtp^=~/victoria/victoria_dotfiles/vim
-" set rtp+=~/victoria/victoria_dotfiles/vim
+let &runtimepath .= ',' . expand('$DOTFILES/vim') .  ',' . expand('$SNIPPETS_DIR')
 call plug#begin('$DOTFILES/vim/plugged')
 
 " vim-matchit
@@ -18,8 +15,13 @@ Plug 'vim-scripts/matchit.zip'
 " Show the git diff in the gutter
 Plug 'airblade/vim-gitgutter'
 
+" Support for expanding abbreviations similar.
+Plug 'mattn/emmet-vim'
+
 " comments
 Plug 'tpope/vim-commentary'
+
+Plug 'honza/vim-snippets'
 
 " let me surround stuff
 Plug 'tpope/vim-surround'
@@ -33,12 +35,6 @@ Plug 'SirVer/ultisnips'
 " Syntastic
 Plug 'vim-syntastic/syntastic'
 
-" Omnisharp
-Plug 'OmniSharp/omnisharp-vim'
-
-" Extend omnisharp highlighting plus extra
-Plug 'OrangeT/vim-csharp'
-
 " fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -46,22 +42,14 @@ Plug 'junegunn/fzf.vim'
 " Displatch
 Plug 'tpope/vim-dispatch'
 
-" Plug 'fsharp/vim-fsharp'
-
-" Snippets
-Plug 'honza/vim-snippets'
-
-" Syntax highlighting rust
-Plug 'rust-lang/rust.vim'
-
-" Code completion for rust
-Plug 'racer-rust/vim-racer'
-
-" We really need docs!
-Plug 'rhysd/rust-doc.vim'
-
 " Colorscheme
-Plug 'git-jls/seabird'
+Plug 'nightsense/seabird'
+
+" Night and day colorscheme switcher
+Plug 'nightsense/night-and-day'
+" Dependencies
+Plug 'xolox/vim-colorscheme-switcher'
+Plug 'xolox/vim-misc'
 
 " Code completion
 Plug 'Valloric/YouCompleteMe'
@@ -79,3 +67,5 @@ filetype plugin indent on
 source $DOTFILES/vim/settings.vim
 source $DOTFILES/vim/functions.vim
 source $DOTFILES/vim/mappings.vim
+
+" vim:ft=vim

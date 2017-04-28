@@ -10,7 +10,6 @@
 !track
 !/tmux/*
 !/tmux/*
-!/ack/*
 !/startup/*
 !/vim/*.vim
 !/vim/vimrc
@@ -24,6 +23,7 @@
 !**/termite/*
 !**/zathura/*
 !/zsh/**
+!**/snippets/*
 
 # But ignore these sub directories
 /zsh/history

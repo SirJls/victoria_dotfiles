@@ -4,6 +4,7 @@ zsh/zshrc
 zsh/zprofile
 zsh/zshenv
 startup/inputrc
-ack/ackrc
+startup/xinitrc
 tmux/tmux.conf
 config
+snippets

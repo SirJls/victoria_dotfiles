@@ -26,6 +26,20 @@ augroup end
 """
 
 """
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set nornu
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <C-n> :call NumberToggle()<cr>
+"""
+
+
+"""
 set colorcolumn=0
 let s:color_column_old = 80
 
@@ -49,44 +63,4 @@ function! MapToggle(key, opt)
 endfunction
 
 command! -nargs=+ MapToggle call MapToggle(<f-args>)
-"""
-
-"""
-let s:width = 80
-
-function! HaskellModuleSection(...)
-    let name = 0 < a:0 ? a:1 : inputdialog("Section name: ")
-
-    return  repeat('-', s:width) . "\n"
-    \       . "--  " . name . "\n"
-    \       . "\n"
-
-endfunction
-
-nmap <silent> --s "=HaskellModuleSection()<CR>gp
-"""
-
-"""
-let s:width = 80
-
-
-function! HaskellModuleHeader(...)
-    let name = 0 < a:0 ? a:1 : inputdialog("Module: ")
-    let note = 1 < a:0 ? a:2 : inputdialog("Note: ")
-    let description = 2 < a:0 ? a:3 : inputdialog("Describe this module: ")
-    
-    return  repeat('-', s:width) . "\n" 
-    \       . "-- | \n" 
-    \       . "-- Module      : " . name . "\n"
-    \       . "-- Note        : " . note . "\n"
-    \       . "-- \n"
-    \       . "-- " . description . "\n"
-    \       . "-- \n"
-    \       . repeat('-', s:width) . "\n"
-    \       . "\n"
-
-endfunction
-
-
-nmap <silent> --h "=HaskellModuleHeader()<CR>:0put =<CR>
 """
