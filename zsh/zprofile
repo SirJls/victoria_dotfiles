@@ -1,27 +1,26 @@
-# ----------------------------------------------------
+# -- Meta ---------------------------------------------------------------------
 # file:   ${DOTFILES}/zsh/zprofile
 # author: SirJls - http://sjorssparreboom.nl
-# ----------------------------------------------------
+# -----------------------------------------------------------------------------
 
-# export dirs to path
-# ----------------------------------------------------
 declare -U path
 path=($SCRIPTS $HOME/.cargo/bin $path)
 
-# start keychain
-#----------------------------------------------------
+# -- Keychain -----------------------------------------------------------------
+
 if [[ -z $(pidof ssh-agent) && -z $(pidof gpg-agent) ]]; then
   eval $(/usr/bin/keychain --eval -Q -q --nogui --agents "ssh,gpg" id_rsa 2D302E05)
   [[ -z $HOSTNAME ]] && HOSTNAME=$(uname -n)
-  [[ -f $HOME/.keychain/${HOSTNAME}-sh ]] && source "$HOME/.keychain/${HOSTNAME}-sh"
-  [[ -f $HOME/.keychain/${HOSTNAME}-sh-gpg ]] && source "$HOME/.keychain/${HOSTNAME}-sh-gpg"
+  [[ -f $HOME/.keychain/${HOSTNAME}-sh ]] && source "${HOME}/.keychain/${HOSTNAME}-sh"
+  [[ -f $HOME/.keychain/${HOSTNAME}-sh-gpg ]] && source "${HOME}/.keychain/${HOSTNAME}-sh-gpg"
 fi
 
-# Enter the world!
-# ----------------------------------------------------
+# -- Manage tty ---------------------------------------------------------------
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
   exec startx -- vt1 -keeptty &>/dev/null
   logout
 elif [[ $(tty) = /dev/tty2 ]]; then
-  tmux new -s secured
+  tmux -f ${DOTFILES}/tmux/tmux.conf new -s secured
 fi
+
+# vim:set ft=zsh et sw=2 ts=2:
