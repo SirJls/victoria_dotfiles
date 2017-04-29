@@ -154,6 +154,9 @@ bindsym XF86AudioMute exec pactl set-sink-mute $(pacmd list-sinks |awk '/* index
 bindsym XF86MonBrightnessDown exec dsplight down 5
 bindsym XF86MonBrightnessUp exec dsplight up 5
 
+# Make screenshot
+bindsym $mod+p exec screenie
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {

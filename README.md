@@ -1,8 +1,9 @@
-REPO FOR THE ANDERSON DOTFILES
+REPO FOR THE VICTORIA DOTFILES
 
-machine: anderson
+Machine: Victoria
 
 SPECIAL NOTICES:
 
-The file 'track' inside this directory is used to keep track of the dotfiles
-that will be symlinked by $HOME/scripts/symlink.sh
+The file 'track' inside this directory is used by
+https://github.com/SirJls/victoria_scripts/blob/master/dotfiles-install to
+determine which dotfiles needs to be installed (symlinked).

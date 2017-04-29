@@ -1,6 +1,6 @@
 " ----------------------------------------------------
 " file:     ${DOTFILES}/vim/startup/mappings.vim
-" author    jls - http://sjorssparreboom.nl
+" author    sjors - http://sjorssparreboom.nl
 " ----------------------------------------------------
 
 " default to very magic

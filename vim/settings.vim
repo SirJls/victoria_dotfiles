@@ -1,6 +1,6 @@
 "-----------------------------------------------------
 "  file:   ${DOTFILES}/vim/settings.vim
-"  author: jls - http://sjorssparreboom.nl
+"  author: SirJls - http://sjorssparreboom.nl
 " ----------------------------------------------------
 
 " general
@@ -171,6 +171,7 @@ let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-x>"
 let g:UltiSnipsEditSplit = "vertical"
 let g:UltiSnipsSnippetDirectories=["ultisnips"]
+let g:UltiSnipsSnippetsDir=$SNIPPETS_DIR . "/ultisnips"
 
 " YouCompleteMe
 " ----------------------------------------------------

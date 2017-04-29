@@ -1,6 +1,6 @@
 # ----------------------------------------------------
 # file:   ${DOTFILES}/startup/xinitrc
-# author: jls - http://sjorssparreboom.nl
+# author: SirJls - http://sjorssparreboom.nl
 # ----------------------------------------------------
 
 # init
@@ -36,3 +36,5 @@ fi
 # Start i3 on tty1
 # ----------------------------------------------------
 exec $SCRIPTS/i3-start
+
+# vim:set ft=conf noet sts=2 sw=8 ts=8:

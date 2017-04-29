@@ -1,6 +1,6 @@
 # ----------------------------------------------------
 # file:   ${DOTFILES}/zsh/zprofile
-# author: jls - http://sjorssparreboom.nl
+# author: SirJls - http://sjorssparreboom.nl
 # ----------------------------------------------------
 
 # export dirs to path
@@ -23,5 +23,5 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
   exec startx -- vt1 -keeptty &>/dev/null
   logout
 elif [[ $(tty) = /dev/tty2 ]]; then
-  tmux -f $HOME/.tmux.conf new -s secured
+  tmux new -s secured
 fi

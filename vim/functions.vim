@@ -1,6 +1,6 @@
 "-----------------------------------------------------
 "  file:   ${DOTFILES}/vim/startup/functions.vim
-"  author: jls - http://sjorssparreboom.nl
+"  author: SirJls - http://sjorssparreboom.nl
 " ----------------------------------------------------
 
 """

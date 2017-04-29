@@ -1,7 +1,6 @@
 # ----------------------------------------------------
 # file:     ${DOTFILES}/zsh/functions.zsh
-# author:   jls - http://sjorssparreboom.nl
-# vim:fenc=utf-8:nu:ai:si:et:ts=4:sw=4:ft=zsh:
+# author:   sjors - http://sjorssparreboom.nl
 # ----------------------------------------------------
 # Heavily based on the work of Json Ryan
 # ----------------------------------------------------
