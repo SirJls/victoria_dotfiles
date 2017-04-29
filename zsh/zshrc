@@ -1,52 +1,41 @@
-# -----------------------------------------------------
-#  file:   ${DOTFILES}/zsh/zshrc
-#  author: SirJls - http://sjorssparreboom.nl
-# ----------------------------------------------------
+# -- Meta ---------------------------------------------------------------------
+# -- File:   ${DOTFILES}/zsh/zshrc
+# -- Author: SirJls - http://sjorssparreboom.nl
+# -----------------------------------------------------------------------------
 
-# Autoload & colours
-# ----------------------------------------------------
+# -- Autoload Colors ----------------------------------------------------------
 autoload -U colors && colors
 zmodload zsh/complist
 
-# ruby settings
-# ----------------------------------------------------
-if [[ -e /usr/share/chruby ]]; then
-    source /usr/share/chruby/{chruby,auto}.sh
-    chruby $(<"$XDG_CONFIG_HOME"/ruby-version)
-fi
+# -- Prompt -------------------------------------------------------------------
 
-# Prompts
-# ----------------------------------------------------
 LPROMPT () {
-PS1=""
-PS1+="┌─[%{$fg[red]%}%m%{$fg_bold[blue]%}"
-# PS1+="[%T]%F{red}%(?.. exited %1v)%F{reset}"
-PS1+="%F{yellow}${vcs_info_msg_0_}%F{reset}"
-PS1+="%~ %{$fg_no_bold[yellow]%}%(0?..%?)%{$reset_color%}]
-└─╼ "
+  PS1=""
+  PS1+="┌─[%{$fg[red]%}%m%{$fg_bold[blue]%}"
+  # PS1+="[%T]%F{red}%(?.. exited %1v)%F{reset}"
+  PS1+="%F{yellow}${vcs_info_msg_0_}%F{reset}"
+  PS1+="%~ %{$fg_no_bold[yellow]%}%(0?..%?)%{$reset_color%}]
+  └─╼ "
 }
 
-# Show vi mode
-# ----------------------------------------------------
 function zle-line-init zle-keymap-select {
-    RPS1="%{$fg[yellow]%}${${KEYMAP/vicmd/%B Command Mode %b}/(main|viins)/ }%{$reset_color%}"
-    RPS2=$RPS1
-    zle reset-prompt
+  RPS1="%{$fg[yellow]%}${${KEYMAP/vicmd/%B Command Mode %b}/(main|viins)/ }%{$reset_color%}"
+  RPS2=$RPS1
+  zle reset-prompt
 }
 
 zle -N zle-line-init
 zle -N zle-keymap-select
 
 function precmd {
-   vcs_info
-   LPROMPT
+  vcs_info
+  LPROMPT
 }
 
 PROMPT_EOL_MARK=" •"
 
-# completions
-# add custom completion scripts
-# ----------------------------------------------------
+# -- Completions --------------------------------------------------------------
+
 fpath=(${DOTFILES}/zsh/completion $fpath)
 autoload -Uz compinit
 compinit
@@ -60,28 +49,24 @@ zstyle ':completion:*' ignore-parents pwd
 zstyle ':completion:*' list-colors ${(s.:.)ls_colors}
 zstyle ':completion:*' matcher-list 'm:{a-za-z}={a-za-z}'
 
-# group matches and describe
-# ----------------------------------------------------
 zstyle ':completion:*:matches' group 'yes'
 zstyle ':completion:*:options' description 'yes'
 zstyle ':completion:*:options' auto-description '%d'
 zstyle ':completion:*:descriptions' format $'\e[01;33m -- %d --\e[0m'
 zstyle ':completion:*:messages' format $'\e[01;35m -- %d --\e[0m'
 zstyle ':completion:*:warnings' format $'\e[01;31m -- no matches found --\e[0m'
-zstyle ':completion:*' group-name '' 
+zstyle ':completion:*' group-name ''
 
 zstyle ':completion:*:pacman:*' force-list always
 zstyle ':completion:*:*:pacman:*' menu yes select
 zstyle -e ':completion:*' hosts 'reply=(anderson)'
 zstyle :compinstall filename '${DOTFILES}/zsh/zshrc'
 
-# completion for sudo
-# ----------------------------------------------------
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
-    /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
+  /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 
-# History
-# ----------------------------------------------------
+# -- History ------------------------------------------------------------------
+
 mkdir -p "${DOTFILES}/zsh/history" &>/dev/null
 touch "${DOTFILES}/zsh/history/histfile" &>/dev/null
 export HISTFILE="${DOTFILES}/zsh/history/histfile"
@@ -94,8 +79,6 @@ setopt HIST_VERIFY
 setopt INC_APPEND_HISTORY
 setopt EXTENDED_HISTORY
 
-# edit history
-# ----------------------------------------------------
 autoload edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
@@ -104,19 +87,15 @@ setopt autocd extendedglob nomatch completealiases
 setopt correct
 setopt no_correctall
 
-# keybinds
-# ----------------------------------------------------
+# -- Keybindings --------------------------------------------------------------
+
 bindkey -v
 KEYTIMEOUT=1
 
-# fix for cursor position
-# ----------------------------------------------------
 autoload -U history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 
-# prevent protected characters
-# ----------------------------------------------------
 zle -A kill-whole-line vi-kill-line
 zle -A backward-kill-word vi-backward-kill-word
 zle -A backward-delete-char vi-backward-delete-char
@@ -128,37 +107,30 @@ bindkey "\e." insert-last-word
 bindkey "\eq" quote-line
 bindkey "\ek" backward-kill-line
 
-# use the vi navigation keys in menu completion
-# ----------------------------------------------------
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
-# quoting URLs
-# ----------------------------------------------------
+# -- URL Quote ----------------------------------------------------------------
+
 autoload -U url-quote-magic
 zstyle ':urlglobber' url-other-schema ftp git http https magnet
 zstyle ':url-quote-magic:*' url-metas '*?[]^(|)~#='
 zle -N self-insert url-quote-magic
 
-# color ls
-# ----------------------------------------------------
-eval $(dircolors -b ${DOTFILES}/zsh/configs/dir_colors)
+# -- Misc ---------------------------------------------------------------------
 
-# to run bash functions
-# ----------------------------------------------------
 autoload bashcompinit
 bashcompinit
+eval $(dircolors -b ${DOTFILES}/zsh/configs/dir_colors)
 
-# functions
-# ----------------------------------------------------
 if [[ -d "${DOTFILES}/zsh" ]]; then
   for file in "${DOTFILES}/zsh/configs/"*.zsh; do
     source "$file"
   done
 fi
 
-# FZF
-# ----------------------------------------------------
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# vim:set ft=zsh et sw=2 ts=2 tw=79:

@@ -1,7 +1,7 @@
-"-----------------------------------------------------
-"  file:   ${DOTFILES}/vim/startup/functions.vim
-"  author: SirJls - http://sjorssparreboom.nl
-" ----------------------------------------------------
+" -- Meta ---------------------------------------------------------------------
+" -- File:   ${DOTFILES}/vim/functions.vim
+" -- Author: SirJls - http://sjorssparreboom.nl
+" -----------------------------------------------------------------------------
 
 """
 let g:word_count=" "
@@ -64,3 +64,5 @@ endfunction
 
 command! -nargs=+ MapToggle call MapToggle(<f-args>)
 """
+
+" vim:set ft=vim et sw=2 ts=2 tw=79:

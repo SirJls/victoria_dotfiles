@@ -1,3 +1,10 @@
+# -- Meta ---------------------------------------------------------------------
+# -- File:   ${DOTFILES}/config/zathura/zathurarc
+# -- Author: SirJls - http://sjorssparreboom.nl
+# -----------------------------------------------------------------------------
+
+# -- Display ------------------------------------------------------------------
+
 # zathurarc - with solarized color scheme
 
 set font                        "Minion Pro 9"
@@ -37,6 +44,8 @@ set recolor-lightcolor          "#fdf6e3"
 set recolor-darkcolor           "#002b36"
 set recolor                     "false"
 
+# -- Misc ---------------------------------------------------------------------
+
 # setting recolor-keep true will keep any color your pdf has.
 # if it is false, it'll just be black and white
 set recolor-keephue             "false"
@@ -53,3 +62,5 @@ set window-width                "800"
 map w adjust_window "width"
 map z adjust_window "bestfit"
 map i set recolor
+
+# vim:set ft=conf noet sts=2 sw=2 ts=2 tw=79:

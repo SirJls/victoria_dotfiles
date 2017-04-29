@@ -56,6 +56,7 @@ let g:vimsyn_noerror=1
 " tabs and indenation
 " ----------------------------------------------------
 set modeline
+set textwidth=79
 set linespace=2
 set tabstop=2
 set softtabstop=2
@@ -189,3 +190,5 @@ let g:nd_dusk_time = 20
 
 let g:nd_day_bgdark    = 0
 let g:nd_night_bgdark  = 1
+
+" vim:set ft=vim et sw=2 ts=2 tw=79:

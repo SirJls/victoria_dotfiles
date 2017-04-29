@@ -1,3 +1,8 @@
+! -- Meta ---------------------------------------------------------------------
+! -- File:   ${DOTFILES}/startup/Xresources
+! -- Author: SirJls - http://sjorssparreboom.nl
+! -----------------------------------------------------------------------------
+
 URxvt.buffered: true
 URxvt.cursorColor: #395573
 URxvt.cursorUnderline: false
@@ -74,3 +79,5 @@ URxvt*font:xft:Meslo LG L DZ Bold::size=12
 *color2:  S_green
 *color13: S_purple
 *color5:  S_pink
+
+! vim:set ft=Xresources et sw=2 ts=2 tw=79:

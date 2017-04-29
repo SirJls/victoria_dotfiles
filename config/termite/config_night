@@ -1,72 +1,62 @@
+# -- Meta ---------------------------------------------------------------------
+# -- File:   ${XDG_CONFIG_HOME}/termite/config_night
+# -- Author: SirJls - http://sjorssparreboom.nl
+# -----------------------------------------------------------------------------
+
+# -- Options ------------------------------------------------------------------
+
 [options]
-allow_bold = true
-audible_bell = false
-clickable_url = true
-#dynamic_title = true
-font = Mono 12
-#fullscreen = true
-geometry = 640x480
-#icon_name = terminal
-#mouse_autohide = false
-#scroll_on_output = false
-#scroll_on_keystroke = true
-scrollback_lines = 10000
-#search_wrap = true
-#urgent_on_bell = true
+allow_bold        = true
+audible_bell      = false
+clickable_url     = true
+font              = Meslo LG L DZ 12
+geometry          = 640x480
+scrollback_lines  = 10000
+browser           = xdg-open             # $BROWSER default / xdg-open fallback
 
-# $BROWSER is used by default if set, with xdg-open as a fallback
-browser = xdg-open
+# -- Display  -----------------------------------------------------------------
 
-# "system", "on" or "off"
-cursor_blink = system
-
-# "block", "underline" or "ibeam"
-cursor_shape = block
-
-# Hide links that are no longer valid in url select overlay mode
-#filter_unmatched_urls = true
-
-# Emit escape sequences for extra modified keys
-#modify_other_keys = false
+cursor_shape      = block                # "block", "underline" or "ibeam"
+cursor_blink      = system               # "system", "on" or "off"
 
 [colors]
 
 # special
-foreground      = #787e82
-foreground_bold = #787e82
-cursor          = #787e82
-background      = #0b141a
+foreground        = #787e82
+foreground_bold   = #787e82
+cursor            = #787e82
+background        = #0b141a
 
 # black
-color0  = #1d252b
-color8  = #0b141a
+color0            = #1d252b
+color8            = #0b141a
 
 # red
-color1  = #ba656d
-color9  = #b06d43
+color1            = #ba656d
+color9            = #b06d43
 
 # green
-color2  = #3f8f36
-color10 = #61707a
+color2            = #3f8f36
+color10           = #61707a
 
 # yellow
-color3  = #947b38
-color11 = #6d767d
+color3            = #947b38
+color11           = #6d767d
 
 # blue
-color4  = #4384b0
-color12 = #787e82
+color4            = #4384b0
+color12           = #787e82
 
 # magenta
-color5  = #b06886
-color13 = #8e6fbd
+color5            = #b06886
+color13           = #8e6fbd
 
 # cyan
-color6  = #35898c
-color14 = #808487
+color6            = #35898c
+color14           = #808487
 
 # white
-color7  = #e6eaed
-color15 = #ffffff
+color7            = #e6eaed
+color15           = #ffffff
 
 # vim: ft=dosini cms=#%s

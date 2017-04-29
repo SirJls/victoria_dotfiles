@@ -1,9 +1,9 @@
-#  -- Meta --------------------------------------------------------------------
-# file:   ${DOTFILES}/zsh/zshenv
-# author: SirJls - http://sjorssparreboom.nl
+# -- Meta ---------------------------------------------------------------------
+# -- File:   ${DOTFILES}/zsh/zshenv
+# -- Author: SirJls - http://sjorssparreboom.nl
 # -----------------------------------------------------------------------------
 
-#  -- Environment -------------------------------------------------------------
+# -- Environment --------------------------------------------------------------
 
 export CC=/usr/bin/clang
 export LC_ALL=
@@ -35,14 +35,21 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 export RUST_NIGHTLY="${HOME}/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu"
 export RUST_SRC_PATH="${RUST_NIGHTLY}/lib/rustlib/src/rust/src"
 
-#  -- XDG ---------------------------------------------------------------------
+# -- XDG ----------------------------------------------------------------------
 
 [[ $XDG_CACHE_HOME ]] || export XDG_CACHE_HOME="$HOME/.cache"
 [[ $XDG_CONFIG_HOME ]] || export XDG_CONFIG_HOME="$HOME/.config"
 [[ $XDG_DATA_HOME ]] || export XDG_DATA_HOME="$HOME/.local/share"
 [[ $XDG_RUNTIME_DIR ]] || export XDG_RUNTIME_DIR="/tmp"
 
-#  -- Less colors -------------------------------------------------------------
+# -- Chruby -------------------------------------------------------------------
+
+if [[ -e /usr/share/chruby ]]; then
+    source /usr/share/chruby/{chruby,auto}.sh
+    chruby $(<"$XDG_CONFIG_HOME"/ruby-version)
+fi
+
+# -- Less colors --------------------------------------------------------------
 
 export LESS_TERMCAP_mb=$(tput bold)                # begin blinking
 export LESS_TERMCAP_md=$(tput bold; tput setaf 4)  # begin bold (blue)
@@ -52,4 +59,4 @@ export LESS_TERMCAP_so=$(tput bold; tput setaf 3)  # begin standout-mode (yellow
 export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)     # end underline
 export LESS_TERMCAP_us=$(tput smul; tput setaf 2)  # begin underline (green)
 
-# vim:set ft=zsh et sw=2 ts=2:
+# vim:set ft=zsh et sw=2 ts=2 tw=79:

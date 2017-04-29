@@ -1,26 +1,26 @@
-# ----------------------------------------------------
-# file:   ${DOTFILES}/startup/inputrc
-# author: SirJls - http://sjorssparreboom.nl
-# ----------------------------------------------------
+# -- Meta ---------------------------------------------------------------------
+# -- File:   ${DOTFILES}/startup/inputrc
+# -- Author: SirJls - http://sjorssparreboom.nl
+# -----------------------------------------------------------------------------
+
 $include /etc/inputrc
 
-# coloured completions
-# ----------------------------------------------------
+# -- Colors -------------------------------------------------------------------
+
 set colored-stats on
 
-# TAB completion
-# ----------------------------------------------------
+# -- Completion ---------------------------------------------------------------
+
 set show-all-if-ambiguous on
 set show-all-if-unmodified on
 
-# for vi mode
-# ----------------------------------------------------
+# -- Vi Mode ----------------------------------------------------------------
+
 set editing-mode vi
 $if mode=vi
 
 set keymap vi-command
-# these are for vi-command mode
-# ----------------------------------------------------
+
 "\e[A": history-search-backward
 "\e[B": history-search-forward
 "\e.": yank-last-arg
@@ -28,12 +28,13 @@ set keymap vi-command
 Control-l: clear-screen
 
 set keymap vi-insert
-# these are for vi-insert mode
-# ----------------------------------------------------
+
 "\e[A": history-search-backward
 "\e[B": history-search-forward
 "\e.": yank-last-arg
 "\en": yank-nth-arg
-Control-l: clear-screen 
+Control-l: clear-screen
 
 $endif
+
+# vim:set ft=inputrcnoet sts=2 sw=2 ts=2 tw=79:

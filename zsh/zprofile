@@ -1,6 +1,6 @@
 # -- Meta ---------------------------------------------------------------------
-# file:   ${DOTFILES}/zsh/zprofile
-# author: SirJls - http://sjorssparreboom.nl
+# -- File:   ${DOTFILES}/zsh/zprofile
+# -- Author: SirJls - http://sjorssparreboom.nl
 # -----------------------------------------------------------------------------
 
 declare -U path
@@ -23,4 +23,4 @@ elif [[ $(tty) = /dev/tty2 ]]; then
   tmux -f ${DOTFILES}/tmux/tmux.conf new -s secured
 fi
 
-# vim:set ft=zsh et sw=2 ts=2:
+# vim:set ft=zsh et sw=2 ts=2 tw=79:
