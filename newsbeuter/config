@@ -49,7 +49,7 @@ text-width 80
 
 # -- Bookmarks ----------------------------------------------------------------
 
-bookmark-cmd                ~/.newsbeuter/bookmark.sh
+bookmark-cmd                ~/.newsbeuter/bookmark
 bookmark-interactive        no
 bookmark-autopilot          yes
 

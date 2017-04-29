@@ -15,7 +15,7 @@ LPROMPT () {
   # PS1+="[%T]%F{red}%(?.. exited %1v)%F{reset}"
   PS1+="%F{yellow}${vcs_info_msg_0_}%F{reset}"
   PS1+="%~ %{$fg_no_bold[yellow]%}%(0?..%?)%{$reset_color%}]
-  └─╼ "
+└─╼ "
 }
 
 function zle-line-init zle-keymap-select {
