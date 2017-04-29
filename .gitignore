@@ -9,21 +9,27 @@
 !README.md
 !track
 !/tmux/*
-!/tmux/*
+!/snippets/*
 !/startup/*
 !/vim/*.vim
 !/vim/vimrc
+!/newsbeuter/config
+!/weechat/weechat.conf
+!/newsbeuter/urls
+!/newsbeuter/bookmark
+!/newsbeuter/bookmarks.txt
 !/config/ruby-version
-!/**/config/sway
-!/**/config/i3
 !/config/termite
+!/config/i3
+!/config/sway
 !/config/zathura
-!**/sway/*
-!**/i3/*
 !**/termite/*
 !**/zathura/*
+!**/sway/*
+!**/i3/*
 !/zsh/**
-!**/snippets/*
+!/snippets/**
 
-# But ignore these sub directories
+# But ignore these sub directories/files
 /zsh/history
+snippets/pythonx/__pycache__/vimsnippets*

@@ -1,0 +1,134 @@
+snippet init
+# Uncomment his to see all commands cmake actually executes
+# set(CMAKE_VERBOSE_MAKEFILE ON)
+
+cmake_minimum_required(VERSION ${1:2.8.2})
+project(${2:ProjectName})
+
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -std=c11")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wextra")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-unused-parameter")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Werror")
+set(CMAKE_C_STANDARD 11)
+
+# purely needed for c style completion for ycm
+# see https://github.com/valloric/youcompleteme
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_BUILD_TYPE Debug)
+
+if(EXISTS "${CMAKE_CURRENT_BINARY_DIR}/compile_commands.json")
+	execute_process( command ${CMAKE_COMMAND} -E copy_if_different
+		"${CMAKE_CURRENT_BINARY_DIR}/compile_commands.json"
+		"${CMAKE_CURRENT_SOURCE_DIR}/compile_commands.json"
+	)
+endif()
+
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
+
+${3:include_directories(${4:include})}
+
+${5:add_subdirectory(${6:common})}
+${6:add_subdirectory(${7:$2})}$0
+endsnippet
+
+snippet min "specifiy a minimum required version" b
+cmake_minimum_required(version ${1:2.8.2})$0
+endsnippet
+
+snippet proj "specifiy a name for the project" b
+project(${1:Name})$0
+endsnippet
+
+snippet compile_commands "dump compile commands for YCM" b
+if(exists "${CMAKE_CURRENT_BINARY_DIR}/compile_commands.json")
+	execute_process(COMMAND ${CMAKE_COMMAND} -E copy_if_different
+		"${CMAKE_CURRENT_BINARY_DIR}/compile_commands.json"
+		"${CMAKE_CURRENT_SOURCE_DIR}/compile_commands.json"
+	)
+endif()
+endsnippet
+
+snippet find
+find_package(${1:library} ${2:REQUIRED})$0
+endsnippet
+
+snippet include "location of include files" b
+include_directories(${${1:include_dir}})$0
+endsnippet
+
+snippet glob "expand glob and store into variable" b
+file(glob ${1:srcs} *.${2:cpp})$0
+endsnippet
+
+snippet subdir "location of src files" b
+add_subdirectory(${1:src})$0
+endsnippet
+
+snippet lib "create/add a library" b
+add_library(${1:lib}
+	${2:srcs}
+)$0
+endsnippet
+
+snippet link "link libraries" b
+target_link_libraries(${1:bin} ${2:somelib})$0
+endsnippet
+
+snippet exec "create/add a executable" b
+add_executable(${1:bin}
+	${2:srcs}
+)$0
+endsnippet
+
+snippet set "set a variable" b
+set(${1:var} ${2:val})$0
+endsnippet
+
+snippet dep "add dependencies" b
+add_dependencies(${1:target}
+	${2:dep}
+)$0
+
+snippet Ext_url
+include(ExternalProject)
+ExternalProject_Add(${1:googletest}
+	URL ${2:http://googletest.googlecode.com/files/gtest-1.7.0.zip}
+	URL_HASH SHA1=${3:f85f6d2481e2c6c4a18539e391aa4ea8ab0394af}
+	SOURCE_DIR "${4:${CMAKE_BINARY_DIR}/gtest-src}"
+	BINARY_DIR "${5:${CMAKE_BINARY_DIR}/gtest-build}"
+	CONFIGURE_COMMAND ""
+	BUILD_COMMAND     ""
+	INSTALL_COMMAND   ""
+	TEST_COMMAND      ""
+)$0
+endsnippet
+
+snippet Ext_git
+include(ExternalProject)
+ExternalProject_Add(${1:googletest}
+	GIT_REPOSITORY    ${2:https://github.com/google/googletest.git}
+	GIT_TAG           ${3:master}
+	SOURCE_DIR        "${4:${CMAKE_BINARY_DIR}/googletest-src}"
+	BINARY_DIR        "${5:${CMAKE_BINARY_DIR}/googletest-build}"
+	CONFIGURE_COMMAND ""
+	BUILD_COMMAND     ""
+	INSTALL_COMMAND   ""
+	TEST_COMMAND      ""
+)$0
+endsnippet
+
+snippet props "set property for a specified target" b
+set_target_properties(${1:target}
+	${2:properties} ${3:compile_flags}
+	${4:"-O3 -Wall -pedantic"}
+)$0
+endsnippet
+
+snippet test "add a test" b
+add_test(${1:ATestName} ${2:testCommand --options})$0
+endsnippet
+
