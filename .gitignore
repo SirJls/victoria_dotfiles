@@ -9,7 +9,6 @@
 !README.md
 !track
 !/tmux/*
-!/snippets/*
 !/startup/*
 !/vim/*.vim
 !/vim/vimrc
@@ -28,8 +27,6 @@
 !**/sway/*
 !**/i3/*
 !/zsh/**
-!/snippets/**
 
 # But ignore these sub directories/files
 /zsh/history
-snippets/pythonx/__pycache__/vimsnippets*

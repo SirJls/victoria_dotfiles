@@ -7,6 +7,5 @@ startup/inputrc
 startup/xinitrc
 tmux/tmux.conf
 config
-snippets
 weechat
 newsbeuter
