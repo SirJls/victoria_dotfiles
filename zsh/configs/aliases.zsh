@@ -38,9 +38,11 @@ alias pacc="sudo paccache -r"
 alias pacca="sudo paccache -ruk0"
 
 # -- Exec Scripts -------------------------------------------------------------
-alias newsbeuter="exec-newsbeuter"
-alias termite="exec-terminal"
-alias dmenu="exec-dmenu"
+
+alias rss="newsbeuter"
+alias term="termite"
+alias dmenu="dmenu_run"
+alias pdf="zathura"
 
 # -- Misc ---------------------------------------------------------------------
 

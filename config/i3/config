@@ -11,13 +11,13 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec exec-terminal
+bindsym $mod+Return exec termite-run
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec exec-dmenu
+bindsym $mod+d exec dmenu-run
 
 # change focus
 bindsym $mod+j focus left
@@ -122,6 +122,9 @@ bindsym XF86MonBrightnessUp exec dsplight up 5
 
 # make screenshot
 bindsym $mod+p exec screenie
+
+# start zathura
+bindsym $mod+z exec zathura-run
 
 bar {
         status_command i3-status
