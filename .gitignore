@@ -19,6 +19,8 @@
 !/newsbeuter/bookmarks.txt
 !/config/ruby-version
 !/config/termite
+!/w3m/config
+!/w3m/bookmark.html
 !/config/i3
 !/config/sway
 !/config/zathura

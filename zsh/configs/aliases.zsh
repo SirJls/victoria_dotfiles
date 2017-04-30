@@ -37,12 +37,13 @@ alias upmirrors='sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backu
 alias pacc="sudo paccache -r"
 alias pacca="sudo paccache -ruk0"
 
-# -- Exec Scripts -------------------------------------------------------------
+# -- Application  -------------------------------------------------------------
 
-alias rss="newsbeuter"
-alias term="termite"
-alias dmenu="dmenu_run"
-alias pdf="zathura"
+alias irc="weechat"
+alias rss="newsbeuter-run"
+alias term="termite-run"
+alias dmenu="dmenu-run"
+alias pdf="zathura-run"
 
 # -- Misc ---------------------------------------------------------------------
 
