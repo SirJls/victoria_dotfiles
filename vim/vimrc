@@ -21,8 +21,6 @@ Plug 'mattn/emmet-vim'
 " comments
 Plug 'tpope/vim-commentary'
 
-Plug 'honza/vim-snippets'
-
 " let me surround stuff
 Plug 'tpope/vim-surround'
 
