@@ -30,4 +30,4 @@ map w adjust_window "width"
 map z adjust_window "bestfit"
 map i set recolor
 
-# vim:set ft=conf noet sts=2 sw=2 ts=2 tw=79:
+# vim:set ft=conf et sts=2 sw=2 ts=2 tw=79:

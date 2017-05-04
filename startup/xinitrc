@@ -31,4 +31,4 @@ fi
 
 exec $SCRIPTS/i3-start
 
-# vim:set ft=xinitrc noet sts=2 sw=2 ts=2 tw=79:
+# vim:set ft=xinitrc et sts=2 sw=2 ts=2 tw=79:
