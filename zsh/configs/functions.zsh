@@ -54,7 +54,7 @@ paclog() { tail -n"$1" /var/log/pacman.log ;}
 
 px() { printf '%s\n' $(xsel -b); }
 
-contool() { units "$1" "$2" | awk 'NR==1 {print $2}'; }
+conv() { units "$1" "$2" | awk 'NR==1 {print $2}'; }
 
 sx() { sxiv -trq "$@" 2>/dev/null ;}
 

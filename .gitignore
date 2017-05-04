@@ -17,6 +17,8 @@
 !/newsbeuter/urls
 !/newsbeuter/bookmark
 !/newsbeuter/bookmarks.txt
+!/offlineimap/offlineimaprc
+!/offlineimap/helpers.py
 !/config/ruby-version
 !/config/termite
 !/w3m/config

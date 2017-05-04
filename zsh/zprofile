@@ -9,7 +9,7 @@ path=($SCRIPTS $HOME/.cargo/bin $path)
 # -- Keychain -----------------------------------------------------------------
 
 if [[ -z $(pidof ssh-agent) && -z $(pidof gpg-agent) ]]; then
-  eval $(/usr/bin/keychain --eval -Q -q --nogui --agents "ssh,gpg" id_rsa 2D302E05)
+  eval $(/usr/bin/keychain --eval -Q -q --nogui --agents "ssh,gpg" id_rsa 36BEBC5B)
   [[ -z $HOSTNAME ]] && HOSTNAME=$(uname -n)
   [[ -f $HOME/.keychain/${HOSTNAME}-sh ]] && source "${HOME}/.keychain/${HOSTNAME}-sh"
   [[ -f $HOME/.keychain/${HOSTNAME}-sh-gpg ]] && source "${HOME}/.keychain/${HOSTNAME}-sh-gpg"

@@ -1,0 +1,180 @@
+# -- Meta ---------------------------------------------------------------------
+# -- File:   ${DOTFILES}/offlineimap/offlineimaprc
+# -- Author: SirJls - http://sjorssparreboom.nl
+# -----------------------------------------------------------------------------
+
+[general]
+accounts                = jls, school, sjorssparreboom, gmail
+ui                      = ttyui
+maxsyncaccounts         = 4
+socktimeout             = 90
+pythonfile              = ~/.offlineimap/helpers.py
+
+[mbnames]
+enabled                 = no
+filename                = ~/Mutt/muttrc.mailboxes
+header                  = "mailboxes "
+peritem                 = "+%(accountname)s/%(foldername)s"
+sep                     = " "
+footer                  = "\n"
+
+[Account jls]
+localrepository         = local-jls
+remoterepository        = remote-jls
+autorefresh             = 0
+
+[Account school]
+localrepository         = local-school
+remoterepository        = remote-school
+autorefresh             = 0
+
+[Account sjorssparreboom]
+localrepository         = local-sjorssparreboom
+remoterepository        = remote-sjorssparreboom
+autorefresh             = 0
+
+[Account gmail]
+localrepository         = local-gmail
+remoterepository        = remote-gmail
+autorefresh             = 0
+
+[Repository local-jls]
+type                    = Maildir
+localfolders            = ~/Documents/Mail/JLS
+
+nametrans               = lambda folder: (re.sub('Inbox', folder.upper(),
+                            re.sub('Spam', 'INBOX.' + folder,
+                            re.sub('Sent', 'INBOX.' + folder,
+                            re.sub('Trash', 'INBOX.' + folder,
+                            re.sub('Drafts', 'INBOX.' + folder,
+                            folder
+                          ))))))
+
+[Repository local-school]
+type                    = Maildir
+localfolders            = ~/Documents/Mail/School
+
+nametrans               = lambda folder: re.sub('Inbox', 'INBOX',
+                            re.sub('Sent', 'Sent Items',
+                            re.sub('Trash', 'Deleted Items',
+                            folder
+                          )))
+
+[Repository local-gmail]
+type                    = Maildir
+localfolders            = ~/Documents/Mail/Gmail
+
+nametrans               = lambda folder: re.sub('Inbox', 'INBOX',
+                            re.sub('Bin$', '[Gmail].Bin',
+                            re.sub('Drafts', '[Gmail].Drafts',
+                            re.sub('Sent Mail', '[Gmail].Sent Mail',
+                            re.sub('Spam', '[Gmail].Spam',
+                            folder
+                          )))))
+
+
+[Repository local-sjorssparreboom]
+type                    = Maildir
+localfolders            = ~/Documents/Mail/Sjorssparreboom
+
+nametrans               = lambda folder: (re.sub('Inbox', folder.upper(),
+                            re.sub('Spam', 'INBOX.' + folder,
+                            re.sub('Sent', 'INBOX.' + folder,
+                            re.sub('Trash', 'INBOX.' + folder,
+                            re.sub('Drafts', 'INBOX.' + folder,
+                            folder
+                          ))))))
+
+[Repository remote-jls]
+type                    = IMAP
+auth_mechanisms         = LOGIN
+maxconnections          = 2
+remotehost              = www83.totaalholding.nl
+remoteuser              = mail@sirjls.nl
+remotepasseval          = get_password('mail@sirjls.nl')
+
+ssl                     = yes
+sslcacertfile           = /etc/ssl/certs/ca-certificates.crt
+realdelete              = no
+
+folderfilter            = lambda folder: not re.search(
+                            '(.*\.Archive$|.*\.Junk$)',
+                            folder
+                          )
+
+nametrans               = lambda folder: re.sub(
+                            '(INBOX\.)', '',
+                            folder
+                          ).capitalize()
+
+[Repository remote-school]
+type                    = IMAP
+auth_mechanisms         = LOGIN
+maxconnections          = 2
+remotehost              = outlook.office365.com
+remoteuser              = 0890040@hr.nl
+remotepasseval          = get_password('0890040@hr.nl')
+
+ssl                     = yes
+sslcacertfile           = /etc/ssl/certs/ca-certificates.crt
+realdelete              = no
+
+folderfilter            = lambda folder: re.search(
+                            '(Sent Items$|INBOX$|Drafts|Deleted Items)',
+                            folder
+                          )
+
+nametrans               = lambda folder: re.sub('INBOX', 'Inbox',
+                            re.sub('Sent Items', 'Sent',
+                            re.sub('Deleted Items', 'Trash',
+                            folder
+                          )))
+
+[Repository remote-sjorssparreboom]
+type                    = IMAP
+auth_mechanisms         = LOGIN
+maxconnections          = 2
+remotehost              = www70.totaalholding.nl
+remoteuser              = mail@sjorssparreboom.nl
+remotepasseval          = get_password('mail@sirjls.nl')
+
+ssl                     = yes
+sslcacertfile           = /etc/ssl/certs/ca-certificates.crt
+realdelete              = no
+
+folderfilter            = lambda folder: not re.search(
+                            '(.*Archive.*$|.*Junk$|INBOX\.INBOX.*)',
+                            folder
+                          )
+
+nametrans               = lambda folder: re.sub(
+                            '(INBOX\.)', '',
+                            folder
+                          ).capitalize()
+
+[Repository remote-gmail]
+type                    = IMAP
+auth_mechanisms         = LOGIN
+maxconnections          = 2
+remotehost              = imap.gmail.com
+remoteuser              = jlssparreboom@gmail.com
+remotepasseval          = get_password('jlssparreboom@gmail.com')
+
+ssl                     = yes
+sslcacertfile           = /etc/ssl/certs/ca-certificates.crt
+realdelete              = no
+
+folderfilter            = lambda folder: not re.search(
+                            '(^Sent$|.*\.Junk$)',
+                            folder
+                           )
+
+nametrans               = lambda folder: re.sub('INBOX', 'Inbox',
+                            re.sub('.*Bin$', 'Bin',
+                            re.sub('.*Drafts', 'Drafts',
+                            re.sub('.*Sent Mail', 'Sent',
+                            re.sub('.*Spam', 'Spam',
+                            folder
+                          )))))
+
+# vim:set ft=dosini et sts=2 sw=2 ts=2 tw=79:

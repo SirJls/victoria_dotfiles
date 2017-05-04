@@ -58,8 +58,6 @@ alias m='make'
 
 alias alsamixer="alsamixer -g"
 
-alias fp="gpg --list-keys --fingerprint"
-
 alias vi="vim"
 alias v="vim"
 

@@ -7,6 +7,8 @@ startup/inputrc
 startup/xinitrc
 tmux/tmux.conf
 config
+w3m
+mutt
 weechat
 newsbeuter
-w3m
+offlineimap
