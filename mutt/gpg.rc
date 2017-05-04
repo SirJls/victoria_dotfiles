@@ -1,0 +1,30 @@
+# -- Meta ---------------------------------------------------------------------
+# -- File:   ${DOTFILES}/mutt/gpg.rc
+# -- Author: SirJls - http://sjorssparreboom.nl
+# -----------------------------------------------------------------------------
+
+# -- Settings  ----------------------------------------------------------------
+
+# Use GPGME
+set crypt_use_gpgme          = yes
+set crypt_autosign           = yes
+set pgp_sign_as              = B1BD4E40
+set pgp_timeout              = 3600
+set pgp_good_sign            ="^gpgv?: Good signature from "
+
+# Sign replies to signed email
+set crypt_replysign          = yes
+
+# Encrypt replies to encrypted email
+set crypt_replyencrypt       = yes
+
+# Encrypt and sign replies to encrypted and signed email
+set crypt_replysignencrypted = yes
+
+# Attempt to verify email signatures automatically
+set crypt_verify_sig         = yes
+
+# fetch keys
+# set pgp_getkeys_command="pkspxycwrap %r"
+
+# vim:set ft=conf et sw=2 ts=2 tw=79:

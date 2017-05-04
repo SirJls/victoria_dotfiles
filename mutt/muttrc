@@ -1,0 +1,164 @@
+# -- Meta ---------------------------------------------------------------------
+# -- File:   ${DOTFILES}/mutt/muttrc
+# -- Author: SirJls - http://sjorssparreboom.nl
+# -----------------------------------------------------------------------------
+
+# -- Directories --------------------------------------------------------------
+
+set alias_file          = ~/.mutt/alias
+set header_cache        = ~/.mutt/cache/headers
+set message_cachedir    = ~/.mutt/cache/bodies
+set certificate_file    = ~/.mutt/certificates
+
+set mailcap_path        = ~/.mutt/mailcap
+set signature           = ~/.mutt/jls.sig
+set tmpdir              = ~/.mutt/temp
+set folder              = $HOME/Documents/Mail
+
+# -- General Options ----------------------------------------------------------
+
+set mbox_type           = Maildir
+set spoolfile           = "+JLS/INBOX"
+set sort_alias          = alias
+set timeout             = 3
+set mail_check          = 0
+set sleep_time          = 0
+
+set text_flowed         = yes
+set quit                = yes
+set delete              = yes
+set reverse_alias       = yes
+set beep_new            = yes
+set pipe_decode         = yes
+set thorough_search     = yes
+set uncollapse_jump     = yes
+
+set imap_peek           = no
+set move                = no
+set mark_old            = no
+set help                = no
+
+set ispell              = "/usr/bin/aspell -e -c"
+set editor              = "/usr/bin/vim -c 'set tw=72 ft=mail' -c 'set wrap' -c 'set nocp' -c '+/^--.$/-1'"
+
+# -- Index Options ------------------------------------------------------------
+
+set sort_re             = yes
+set sort                = threads
+set sort_aux            = reverse-last-date-received
+
+set reply_regexp        = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+
+# -- Pages Options  -----------------------------------------------------------
+
+set pager_stop          = yes
+set menu_scroll         = yes
+set smart_wrap          = yes
+set tilde               = yes
+set status_on_top       = yes
+
+set markers             = no
+
+set pager_index_lines   = 10
+set pager_context       = 5
+
+set quote_regexp        = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+
+auto_view text/html
+auto_view text/calendar
+alternative_order text/plain text/html text/*
+alternative_order text/plain text/enriched text/html
+
+# -- Display Options ----------------------------------------------------------
+
+set date_format         = "%d-%m-%y %H:%M"
+set index_format        = "%3C %?X?A& ? %S   %D  •  %-25.25L %s %> %c"
+set pager_format        = "Reading message %C/%m %> %lL [%P]"
+set folder_format       = "%2C %t %N %8s %d %f"
+set status_format       = " %?M?%M/?%m Mails %?n?%n new, ?%?u?%u unread, ?%?p?%p drafts, ?%?t?%t +tagged, ?%?d?%d deleted, ?[%f %l]  %?b?%b unread messages. ?%>  %V  [%P]"
+set alias_format        = "%4n %t %-20a  %r"
+
+# -- Compose Options ----------------------------------------------------------
+
+set envelope_from       = yes
+set sig_dashes          = yes
+set edit_headers        = yes
+set fast_reply          = yes
+set askcc               = yes
+set askbcc              = yes
+set fcc_attach          = yes
+set mime_forward        = yes
+set mime_forward_rest   = yes
+set forward_decode      = yes
+set reply_to            = yes
+set reverse_name        = yes
+set include             = yes
+set forward_quote       = yes
+
+set sendmail_wait       = -1
+
+set realname            = "Joris Leendert Sparreboom"
+set forward_format      = "Fwd: %s"
+set attribution         = "On %d, %n wrote:"
+set print_command       = "muttprint"
+
+ignore *
+unignore from: to: cc: date: subject:
+hdr_order from: to: cc: date: subject:
+
+# -- Navigation ---------------------------------------------------------------
+
+bind pager q            exit
+bind pager /            search
+bind pager k            previous-line
+bind pager j            next-line
+bind pager gg           top
+bind pager G            bottom
+bind index gg           first-entry
+bind index G            last-entry
+bind index D            purge-message
+bind pager K            previous-undeleted
+bind pager J            next-undeleted
+bind index K            previous-unread
+bind index J            next-unread
+bind index W            clear-flag
+bind index w            set-flag
+bind index,pager R      group-reply
+bind compose p          pgp-menu
+
+bind attach <return>    view-mailcap
+bind pager <up>         previous-line
+bind pager <down>       next-line
+
+# -- Macros -------------------------------------------------------------------
+
+macro compose \Cg       "Fgpg --clearsign\ny"
+macro compose \Cp       "Fgpg --clearsign\ny^T^Uapplication/pgp; format=text; x-action=sign\n"
+macro compose Y pfy     "send mail without pgp"
+macro index,pager <F5>  ":source ~/.mutt/muttrc\n"
+macro index Z           "<shell-escape>/usr/bin/offlineimap -q -u TTYUI<enter>" "sync IMAP"
+
+# -- Mailboxes ----------------------------------------------------------------
+
+mailboxes +JLS/INBOX +JLS/sent +JLS/drafts +JLS/trash +JLS/archive
+
+# -- Sourced files ------------------------------------------------------------
+
+source $alias_file
+source ~/.mutt/colorscheme
+source ~/.mutt/jls.config
+source ~/.mutt/gpg.rc
+
+# -- Hooks --------------------------------------------------------------------
+
+folder-hook JLS/* source ~/.mutt/jls.config
+
+# -- Mailing lists ------------------------------------------------------------
+
+lists arch-announce@archlinux.org
+subscribe arch-announce@archlinux.org
+
+lists arch-general@archlinux.org
+subscribe arch-general@archlinux.org
+
+# vim:set ft=conf et sw=2 ts=2 tw=79:

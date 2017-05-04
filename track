@@ -6,6 +6,7 @@ zsh/zshenv
 startup/inputrc
 startup/xinitrc
 tmux/tmux.conf
+mutt
 config
 w3m
 mutt

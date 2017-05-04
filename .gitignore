@@ -12,6 +12,12 @@
 !/startup/*
 !/vim/*.vim
 !/vim/vimrc
+!/mutt/gpg.rc
+!/mutt/colorscheme
+!/mutt/jls.config
+!/mutt/jls.sig
+!/mutt/mailcap
+!/mutt/muttrc
 !/newsbeuter/config
 !/weechat/weechat.conf
 !/newsbeuter/urls
