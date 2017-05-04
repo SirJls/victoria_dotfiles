@@ -18,7 +18,7 @@ set folder              = $HOME/Documents/Mail
 # -- General Options ----------------------------------------------------------
 
 set mbox_type           = Maildir
-set spoolfile           = "+JLS/INBOX"
+set spoolfile           = "+JLS/Inbox"
 set sort_alias          = alias
 set timeout             = 3
 set mail_check          = 0
@@ -136,11 +136,13 @@ macro compose \Cg       "Fgpg --clearsign\ny"
 macro compose \Cp       "Fgpg --clearsign\ny^T^Uapplication/pgp; format=text; x-action=sign\n"
 macro compose Y pfy     "send mail without pgp"
 macro index,pager <F5>  ":source ~/.mutt/muttrc\n"
-macro index Z           "<shell-escape>/usr/bin/offlineimap -q -u TTYUI<enter>" "sync IMAP"
+macro index Z           "<shell-escape>/usr/bin/offlineimap -c ~/.offlineimap/offlineimaprc -q -u TTYUI<enter>" "sync IMAP"
 
 # -- Mailboxes ----------------------------------------------------------------
 
-mailboxes +JLS/INBOX +JLS/sent +JLS/drafts +JLS/trash +JLS/archive
+mailboxes +JLS/Inbox +JLS/Sent +JLS/Drafts +JLS/Trash +JLS/Archive
+mailboxes +Sjorssparreboom/Inbox +Sjorssparreboom/Sent +Sjorssparreboom/Drafts +Sjorssparreboom/Trash +Sjorssparreboom/Archive
+mailboxes +School/Inbox +School/Sent +School/Drafts +School/Trash +School/Archive
 
 # -- Sourced files ------------------------------------------------------------
 

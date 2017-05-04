@@ -47,8 +47,9 @@ nametrans               = lambda folder: (re.sub('Inbox', folder.upper(),
                             re.sub('Sent', 'INBOX.' + folder,
                             re.sub('Trash', 'INBOX.' + folder,
                             re.sub('Drafts', 'INBOX.' + folder,
+                            re.sub('Archive', 'INBOX.' + folder,
                             folder
-                          ))))))
+                          )))))))
 
 [Repository local-school]
 type                    = Maildir
@@ -62,7 +63,7 @@ nametrans               = lambda folder: re.sub('Inbox', 'INBOX',
 
 [Repository local-gmail]
 type                    = Maildir
-localfolders            = ~/Documents/Mail/Gmail
+localfolders            = ~/Documents/Mail/GMail
 
 nametrans               = lambda folder: re.sub('Inbox', 'INBOX',
                             re.sub('Bin$', '[Gmail].Bin',
@@ -82,8 +83,9 @@ nametrans               = lambda folder: (re.sub('Inbox', folder.upper(),
                             re.sub('Sent', 'INBOX.' + folder,
                             re.sub('Trash', 'INBOX.' + folder,
                             re.sub('Drafts', 'INBOX.' + folder,
+                            re.sub('Archive', 'INBOX.' + folder,
                             folder
-                          ))))))
+                          )))))))
 
 [Repository remote-jls]
 type                    = IMAP
@@ -98,7 +100,7 @@ sslcacertfile           = /etc/ssl/certs/ca-certificates.crt
 realdelete              = no
 
 folderfilter            = lambda folder: not re.search(
-                            '(.*\.Archive$|.*\.Junk$)',
+                            '(Archive.spam|.*\.Junk$)',
                             folder
                           )
 
@@ -120,7 +122,7 @@ sslcacertfile           = /etc/ssl/certs/ca-certificates.crt
 realdelete              = no
 
 folderfilter            = lambda folder: re.search(
-                            '(Sent Items$|INBOX$|Drafts|Deleted Items)',
+                            '(Sent Items|INBOX|Drafts|Deleted Items|Archive)',
                             folder
                           )
 
@@ -143,7 +145,7 @@ sslcacertfile           = /etc/ssl/certs/ca-certificates.crt
 realdelete              = no
 
 folderfilter            = lambda folder: not re.search(
-                            '(.*Archive.*$|.*Junk$|INBOX\.INBOX.*)',
+                            '(Archive.spam|.*Junk$|INBOX\.INBOX.*)',
                             folder
                           )
 
