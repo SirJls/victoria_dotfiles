@@ -1,0 +1,14 @@
+# -- Meta ---------------------------------------------------------------------
+# -- File:   ${DOTFILES}/mutt/colors/sidebar_day
+# -- Author: SirJls - http://sjorssparreboom.nl
+# -----------------------------------------------------------------------------
+
+color sidebar_indicator color16        color15
+color sidebar_highlight color16        color34
+color sidebar_spoolfile color136       color15
+color sidebar_new       color34        color15
+color sidebar_ordinary  color243       color15
+color sidebar_flagged   color202       color15
+color sidebar_divider   color16        color15
+
+# vim:set ft=conf et sw=2 ts=2 tw=79:

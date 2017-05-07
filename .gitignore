@@ -12,10 +12,10 @@
 !/config/zathura
 !.gitignore
 !/msmtp/*
-!/mutt/colorscheme
-!/mutt/gpg.rc
-!/mutt/jls.config
-!/mutt/jls.sig
+!/mutt/accounts
+!/mutt/configs
+!/mutt/colors
+!/mutt/sigs
 !/mutt/mailcap
 !/mutt/muttrc
 !/newsbeuter/bookmark
@@ -35,6 +35,10 @@
 !track
 
 !**/i3/*
+!**/mutt/colors/*
+!**/mutt/configs/*
+!**/mutt/accounts/*
+!**/mutt/sigs/*
 !**/sway/*
 !**/termite/*
 !**/zathura/*

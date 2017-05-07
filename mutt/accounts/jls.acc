@@ -1,13 +1,11 @@
 # -- Meta ---------------------------------------------------------------------
-# -- File:   ${DOTFILES}/mutt/jls.config
+# -- File:   ${DOTFILES}/mutt/colors/jls.acc
 # -- Author: SirJls - http://sjorssparreboom.nl
 # -----------------------------------------------------------------------------
 
 # -- Display ------------------------------------------------------------------
 
-#     Element               Foreground   Background
-color status                brightwhite  black
-color indicator             brightwhite  black
+source ~/.mutt/colors/jls_day
 
 set from      = "mail@sirjls.nl"
 set sendmail  = "/usr/bin/msmtp -a JLS"

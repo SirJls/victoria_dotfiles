@@ -1,0 +1,86 @@
+# -- Meta ---------------------------------------------------------------------
+# -- File:   ${DOTFILES}/mutt/colors/day
+# -- Author: SirJls - http://sjorssparreboom.nl
+# -- Credits: Jason W Ryan's color theme was used as a template
+# -----------------------------------------------------------------------------
+
+# -- General ------------------------------------------------------------------
+
+color normal            color243       color15
+color tree              color99        color15
+color error             color203       color15
+color message           color34        color15
+color prompt            color33        color15
+
+# -- Index --------------------------------------------------------------------
+
+# color all ML mails
+color index             color205      color15 "~u"
+
+# uncolor certain messages
+uncolor index "~P"          # mail addressed to me
+uncolor index "~C @.com"    # mails addressed  to: or cc: EXPR
+uncolor index "~N ~u"       # new ML mail
+uncolor index "~N !~u"      # new non-ML mail
+uncolor index "~T"          # tagged mails
+uncolor index "~D"          # (tagged) deleted mail
+
+# and recolor them appropriately
+color index             color136       color15 "~P"        # mail adressed to me
+color index             color33        color15 "~C @.com"  # mail addressed to: or cc: EXPR
+color index             color202       color15 "~N ~u"     # new ML mail
+color index             color34        color15 "~N !~u"    # new non-ML mail
+color index             color33        color15 "~T"        # tagged mail
+color index             color203       color15 "~D"        # deleted mail
+
+# -- Headers ------------------------------------------------------------------
+
+color header            color205       color15 "^from:"
+color header            color34        color15 "^to:"
+color header            color36        color15 "^cc:"
+color header            color33        color15 "^date:"
+color header            color16        color15 "^subject:"
+
+# -- Message bodies -----------------------------------------------------------
+
+color attachment        color16        color15
+color search            color136       color15
+color signature         color243       color15
+color tilde             color243       color15
+color hdrdefault        color99        color15
+color bold              color136       color15
+
+# -- URLS ---------------------------------------------------------------------
+
+color body              color33        color15 "(^|<| )mailto:[^ ]+@[^ ]( |>|$)"
+color body              color33        color15 "(^|<| )(http|https|ftp|file|telnet|news|finger)://[^ ]+( |>|$)"
+
+# -- Smileys/Euro -------------------------------------------------------------
+
+color body              color205       color15 "(^| )+(|[<>|])[8;:](|[^ ])[)(/|DOPS]( |$)+"
+color body              color205       color15 "(^| )+[)(/|DOPS](|[^ ])[8;:](|[<>|])( |$)+"
+
+# -- *Bold*|_Underline_|/Italic/ ----------------------------------------------
+
+color body              color136       color15 "(^| )\\*[^ ]+\\*( |$)"
+color body              color136       color15 "(^| )_[^ ]+_( |$)"
+color body              color136       color15 "(^| )/[^ ]+/( |$)"
+
+# -- Quoted blocks ------------------------------------------------------------
+
+color quoted            color205       color15
+color quoted1           color36        color15
+color quoted2           color34        color15
+color quoted3           color136       color15
+color quoted4           color207       color15
+color quoted5           color35        color15
+color quoted6           color137       color15
+color quoted7           color37        color15
+
+# -- PGP ----------------------------------------------------------------------
+
+color body              color34        color15 "^gpg: Good signature .*"
+color body              color136       color15 "^gpg: "
+color body              color203       color15 "^gpg: BAD signature from. *"
+
+# vim:set ft=conf et sw=2 ts=2 tw=79:

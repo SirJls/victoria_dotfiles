@@ -1,0 +1,19 @@
+# -- Meta ---------------------------------------------------------------------
+# -- File:   ${DOTFILES}/mutt/accounts/gmail.acc
+# -- Author: SirJls - http://sjorssparreboom.nl
+# -----------------------------------------------------------------------------
+
+# -- Display ------------------------------------------------------------------
+
+source ~/.mutt/colors/gmail_day
+
+set from      = "jlssparreboom@gmail.com"
+set sendmail  = "/usr/bin/msmtp -a GMail"
+set mbox      = "+GMail/Archive"
+set record    = "+GMail/Sent"
+set postponed = "+GMail/Draft"
+set trash     = "+GMail/Trash"
+
+macro index S "<save-message>+GMail/Spam<enter>"
+
+# vim:set ft=conf et sw=2 ts=2 tw=79:

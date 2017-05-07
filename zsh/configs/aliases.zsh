@@ -44,6 +44,7 @@ alias rss="newsbeuter-run"
 alias term="termite-run"
 alias dmenu="dmenu-run"
 alias pdf="zathura-run"
+alias mutt="mutt-run"
 
 # -- Misc ---------------------------------------------------------------------
 

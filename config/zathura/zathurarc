@@ -9,7 +9,7 @@
 
 set font                        "Minion Pro 9"
 
-include config_night
+include config_day
 
 # -- Misc ---------------------------------------------------------------------
 

@@ -1,17 +1,18 @@
 # -- Meta ---------------------------------------------------------------------
 # -- File:   ${DOTFILES}/mutt/muttrc
 # -- Author: SirJls - http://sjorssparreboom.nl
+# -- Credits: Jason Wryan's config was used as a template
 # -----------------------------------------------------------------------------
 
 # -- Directories --------------------------------------------------------------
 
 set alias_file          = ~/.mutt/alias
 set header_cache        = ~/.mutt/cache/headers
-set message_cachedir    = ~/.mutt/cache/bodies
-set certificate_file    = ~/.mutt/certificates
+# set message_cachedir    = ~/.mutt/cache/bodies
+# set certificate_file    = ~/.mutt/certificates
 
 set mailcap_path        = ~/.mutt/mailcap
-set signature           = ~/.mutt/jls.sig
+set signature           = ~/.mutt/sigs/jls.sig
 set tmpdir              = ~/.mutt/temp
 set folder              = $HOME/Documents/Mail
 
@@ -33,7 +34,7 @@ set pipe_decode         = yes
 set thorough_search     = yes
 set uncollapse_jump     = yes
 
-set imap_peek           = no
+# set imap_peek           = no
 set move                = no
 set mark_old            = no
 set help                = no
@@ -132,28 +133,54 @@ bind pager <down>       next-line
 
 # -- Macros -------------------------------------------------------------------
 
+macro index,pager <F1> "<shell-escape>less /usr/share/doc/mutt/manual.txt<enter>" "Show Mutt documentation"
+macro index,pager <F2> ":toggle help<enter>:set ?help<enter>"  "toggle help status line"
+macro index,pager <F5>  ":source ~/.mutt/muttrc\n"
+
+macro index \Cr         "<tag-prefix><clear-flag>N"               "mark tagged messages as read"
+macro index Z           "<shell-escape>/usr/bin/offlineimap -c ~/.offlineimap/offlineimaprc -q -u TTYUI<enter>" "sync IMAP"
+
 macro compose \Cg       "Fgpg --clearsign\ny"
 macro compose \Cp       "Fgpg --clearsign\ny^T^Uapplication/pgp; format=text; x-action=sign\n"
 macro compose Y pfy     "send mail without pgp"
-macro index,pager <F5>  ":source ~/.mutt/muttrc\n"
-macro index Z           "<shell-escape>/usr/bin/offlineimap -c ~/.offlineimap/offlineimaprc -q -u TTYUI<enter>" "sync IMAP"
+
+macro index,pager \Cu "<enter-command> set my_pdsave=\$pipe_decode<enter>\
+    <enter-command> unset pipe_decode<enter>\
+    <pipe-message>extract_url<enter>\
+    <enter-command> set pipe_decode=\$my_pdsave<enter>" "get URLs"
 
 # -- Mailboxes ----------------------------------------------------------------
 
-mailboxes +JLS/Inbox +JLS/Sent +JLS/Drafts +JLS/Trash +JLS/Archive
-mailboxes +Sjorssparreboom/Inbox +Sjorssparreboom/Sent +Sjorssparreboom/Drafts +Sjorssparreboom/Trash +Sjorssparreboom/Archive
-mailboxes +School/Inbox +School/Sent +School/Drafts +School/Trash +School/Archive
+mailboxes =JLS
+mailboxes =JLS/Inbox =JLS/Sent =JLS/Drafts =JLS/Trash =JLS/Archive
+
+mailboxes =Sjorssparreboom
+mailboxes =Sjorssparreboom/Inbox =Sjorssparreboom/Sent =Sjorssparreboom/Drafts =Sjorssparreboom/Trash =Sjorssparreboom/Archive
+
+mailboxes =School
+mailboxes =School/Inbox =School/Sent =School/Drafts =School/Trash =School/Archive
+
+mailboxes =GMail
+mailboxes =GMail/Inbox =GMail/Sent =GMail/Drafts =GMail/Trash =GMail/Archive
 
 # -- Sourced files ------------------------------------------------------------
 
 source $alias_file
-source ~/.mutt/colorscheme
-source ~/.mutt/jls.config
-source ~/.mutt/gpg.rc
+source ~/.mutt/accounts/jls.acc
+source ~/.mutt/colors/day
+
+source ~/.mutt/configs/gpg.config
+
+source ~/.mutt/configs/sidebar.config
+source ~/.mutt/configs/progress.config
+source ~/.mutt/configs/forgotten_attachment.config
 
 # -- Hooks --------------------------------------------------------------------
 
-folder-hook JLS/* source ~/.mutt/jls.config
+folder-hook JLS/*               source ~/.mutt/accounts/jls.acc
+folder-hook GMail/*             source ~/.mutt/accounts/gmail.acc
+folder-hook Sjorssparreboom/*   source ~/.mutt/accounts/sjorssparreboom.acc
+folder-hook School/*            source ~/.mutt/accounts/school.acc
 
 # -- Mailing lists ------------------------------------------------------------
 

@@ -1,0 +1,20 @@
+# -- Meta ---------------------------------------------------------------------
+# -- File:   ${DOTFILES}/mutt/colors/sjorssparreboom.acc
+# -- Author: SirJls - http://sjorssparreboom.nl
+# -----------------------------------------------------------------------------
+
+# -- Display ------------------------------------------------------------------
+
+source ~/.mutt/colors/sjorssparreboom_day
+
+set from      = "mail@sjorssparreboom.nl"
+set sendmail  = "/usr/bin/msmtp -a Sjorssparreboom"
+
+set mbox      = "+Sjorssparreboom/Archive"
+set record    = "+Sjorssparreboom/Sent"
+set postponed = "+Sjorssparreboom/Draft"
+set trash     = "+Sjorssparreboom/Trash"
+
+macro index S "<save-message>+Sjorssparreboom/Spam<enter>"
+
+# vim:set ft=conf et sw=2 ts=2 tw=79:

@@ -1,0 +1,20 @@
+# -- Meta ---------------------------------------------------------------------
+# -- File:   ${DOTFILES}/mutt/colors/school.acc
+# -- Author: SirJls - http://sjorssparreboom.nl
+# -----------------------------------------------------------------------------
+
+# -- Display ------------------------------------------------------------------
+
+source ~/.mutt/colors/school_day
+
+set from      = "0890040@hr.nl"
+set sendmail  = "/usr/bin/msmtp -a School"
+
+set mbox      = "+School/Archive"
+set record    = "+School/Sent"
+set postponed = "+School/Draft"
+set trash     = "+School/Trash"
+
+macro index S "<save-message>+School/Spam<enter>"
+
+# vim:set ft=conf et sw=2 ts=2 tw=79:

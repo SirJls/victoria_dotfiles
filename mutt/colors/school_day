@@ -1,0 +1,9 @@
+# -- Meta ---------------------------------------------------------------------
+# -- File:   ${DOTFILES}/mutt/colors/school_day
+# -- Author: SirJls - http://sjorssparreboom.nl
+# -----------------------------------------------------------------------------
+
+color status                color15      color203
+color indicator             color15      color203
+
+# vim:set ft=conf et sw=2 ts=2 tw=79:

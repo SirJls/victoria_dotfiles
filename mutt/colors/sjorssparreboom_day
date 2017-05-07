@@ -1,0 +1,9 @@
+# -- Meta ---------------------------------------------------------------------
+# -- File:   ${DOTFILES}/mutt/colors/sjorssparreboom_day
+# -- Author: SirJls - http://sjorssparreboom.nl
+# -----------------------------------------------------------------------------
+
+color status                color16      color33
+color indicator             color16      color33
+
+# vim:set ft=conf et sw=2 ts=2 tw=79:
