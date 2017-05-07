@@ -20,7 +20,8 @@
 !/mutt/muttrc
 !/newsbeuter/bookmark
 !/newsbeuter/bookmarks.txt
-!/newsbeuter/config
+!/newsbeuter/config_day
+!/newsbeuter/config_night
 !/newsbeuter/urls
 !/offlineimap/helpers.py
 !/offlineimap/offlineimaprc
