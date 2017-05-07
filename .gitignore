@@ -33,7 +33,7 @@
 !/w3m/config
 !/weechat/weechat.conf
 !README.md
-!track
+!install
 
 !**/i3/*
 !**/mutt/colors/*

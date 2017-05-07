@@ -1,0 +1,27 @@
+# -- Meta ---------------------------------------------------------------------
+# -- File:   ${DOTFILES}/track
+# -- Author: SirJls - http://sjorssparreboom.nl
+# -----------------------------------------------------------------------------
+
+# -- Files --------------------------------------------------------------------
+
+msmtp/msmtprc
+startup/inputrc
+startup/xinitrc
+tmux/tmux.conf
+vim/vimrc
+zsh/zprofile
+zsh/zprofile
+zsh/zshenv
+zsh/zshrc
+
+# -- Directories --------------------------------------------------------------
+
+config
+mutt
+newsbeuter
+offlineimap
+w3m
+weechat
+
+# vim:set ft=conf et sw=2 ts=2 tw=79:
