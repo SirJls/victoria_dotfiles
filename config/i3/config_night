@@ -123,6 +123,9 @@ bindsym XF86MonBrightnessUp exec dsplight up 5
 # make screenshot
 bindsym $mod+p exec screenie
 
+# run dpass
+bindsym $mod+c dpass
+
 # start zathura
 bindsym $mod+z exec zathura-run
 

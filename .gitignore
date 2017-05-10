@@ -5,20 +5,21 @@
 # We need to ignore everything inside subfolders
 */*/
 # But don't ignore these files
+!.gitignore
 !/config/i3
 !/config/ruby-version
+!/config/surfraw
 !/config/sway
 !/config/termite
 !/config/zathura
-!.gitignore
 !/msmtp/*
 !/mutt/accounts
-!/mutt/configs
 !/mutt/colors
-!/mutt/sigs
+!/mutt/configs
 !/mutt/mailcap
 !/mutt/muttrc
 !/mutt/notmuch-poll.asc
+!/mutt/sigs
 !/newsbeuter/bookmark
 !/newsbeuter/bookmarks.txt
 !/newsbeuter/config_day
@@ -37,10 +38,11 @@
 !install
 
 !**/i3/*
+!**/mutt/accounts/*
 !**/mutt/colors/*
 !**/mutt/configs/*
-!**/mutt/accounts/*
 !**/mutt/sigs/*
+!**/surfraw/*
 !**/sway/*
 !**/termite/*
 !**/zathura/*
