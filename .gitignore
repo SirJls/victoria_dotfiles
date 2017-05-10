@@ -18,6 +18,7 @@
 !/mutt/sigs
 !/mutt/mailcap
 !/mutt/muttrc
+!/mutt/notmuch-poll.asc
 !/newsbeuter/bookmark
 !/newsbeuter/bookmarks.txt
 !/newsbeuter/config_day

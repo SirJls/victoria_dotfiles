@@ -73,7 +73,7 @@ alternative_order text/plain text/enriched text/html
 # -- Display Options ----------------------------------------------------------
 
 set date_format         = "%d-%m-%y %H:%M"
-set index_format        = "%3C %?X?A& ? %S   %D  •  %-25.25L %s %> %c"
+set index_format        = "%3C %?GF?%GF& ?%?GV?%GV& ?%?X?A& ? %S %?GK?%GK& ?%?GS?%GS& ?%?GT?%GT& ? %D  •  %-25.25L %s %> %c"
 set pager_format        = "Reading message %C/%m %> %lL [%P]"
 set folder_format       = "%2C %t %N %8s %d %f"
 set status_format       = " %?M?%M/?%m Mails %?n?%n new, ?%?u?%u unread, ?%?p?%p drafts, ?%?t?%t +tagged, ?%?d?%d deleted, ?[%f %l]  %?b?%b unread messages. ?%>  %V  [%P]"
@@ -133,12 +133,13 @@ bind pager <down>       next-line
 
 # -- Macros -------------------------------------------------------------------
 
-macro index,pager <F1> "<shell-escape>less /usr/share/doc/mutt/manual.txt<enter>" "Show Mutt documentation"
-macro index,pager <F2> ":toggle help<enter>:set ?help<enter>"  "toggle help status line"
+macro index,pager <F1> "<shell-escape>less /usr/share/doc/mutt/manual.txt<enter>"                              # Show Mutt documentation"
+macro index,pager <F2> ":toggle help<enter>:set ?help<enter>"                                                  # Toggle help status line"
 macro index,pager <F5>  ":source ~/.mutt/muttrc\n"
 
-macro index \Cr         "<tag-prefix><clear-flag>N"               "mark tagged messages as read"
-macro index Z           "<shell-escape>/usr/bin/offlineimap -c ~/.offlineimap/offlineimaprc -q -u TTYUI<enter>" "sync IMAP"
+macro index \Cp         "<pipe-message>cat > ~/"                                                                # save message as
+macro index \Cr         "<tag-prefix><clear-flag>N"                                                             # mark tagged messages as read
+macro index Z           "<shell-escape>/usr/bin/offlineimap -c ~/.offlineimap/offlineimaprc -q -u TTYUI<enter>" # sync IMAP
 
 macro compose \Cg       "Fgpg --clearsign\ny"
 macro compose \Cp       "Fgpg --clearsign\ny^T^Uapplication/pgp; format=text; x-action=sign\n"
@@ -150,6 +151,8 @@ macro index,pager \Cu "<enter-command> set my_pdsave=\$pipe_decode<enter>\
     <enter-command> set pipe_decode=\$my_pdsave<enter>" "get URLs"
 
 # -- Mailboxes ----------------------------------------------------------------
+
+set virtual_spoolfile   = yes
 
 mailboxes =JLS
 mailboxes =JLS/Inbox =JLS/Sent =JLS/Drafts =JLS/Trash =JLS/Archive
@@ -169,8 +172,10 @@ source $alias_file
 source ~/.mutt/accounts/jls.acc
 source ~/.mutt/colors/day
 
-source ~/.mutt/configs/gpg.config
+source ~/.mutt/mailboxes
 
+source ~/.mutt/configs/gpg.config
+source ~/.mutt/configs/notmuch.config
 source ~/.mutt/configs/sidebar.config
 source ~/.mutt/configs/progress.config
 source ~/.mutt/configs/forgotten_attachment.config
