@@ -5,11 +5,9 @@
 
 # -- Display ------------------------------------------------------------------
 
-# zathurarc - with night and day config
-
 set font                        "Minion Pro 9"
 
-include config_day
+include                         "colors/day"
 
 # -- Misc ---------------------------------------------------------------------
 

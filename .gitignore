@@ -12,6 +12,7 @@
 !/config/sway
 !/config/termite
 !/config/zathura
+!/config/zathura/colors
 !/msmtp/*
 !/mutt/accounts
 !/mutt/colors
@@ -47,6 +48,7 @@
 !**/sway/*
 !**/termite/*
 !**/zathura/*
+!**/zathura/colors/*
 !/zsh/**
 
 # But ignore these sub directories/files
