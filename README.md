@@ -2,6 +2,10 @@ REPO FOR THE VICTORIA DOTFILES
 
 Machine: Victoria
 
+REQUIREMENTS:
+
+Terminal supporting 256-colors
+
 SPECIAL NOTICES:
 
 The file 'install' inside this directory is used by

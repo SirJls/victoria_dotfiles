@@ -1,0 +1,15 @@
+# -- Meta ---------------------------------------------------------------------
+# -- File:   ${DOTFILES}/newsbeuter/config_day
+# -- Author: SirJls - http://sjorssparreboom.nl
+# -----------------------------------------------------------------------------
+
+#     Element               Foreground Background
+color background            color16    color15
+color listfocus             color16    color34
+color listnormal            color243   color15
+color listfocus_unread      color16    color34 bold
+color listnormal_unread     color34    color15 bold
+color info                  color16    color34
+color article               color243   color15
+
+# vim:set ft=conf et sw=2 ts=2:

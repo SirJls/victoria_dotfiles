@@ -7,7 +7,6 @@
 
 auto-reload                 yes
 reload-time                 120
-# suppress-first-reload       yes
 reload-threads              4
 download-retries            4
 download-timeout            10
@@ -42,14 +41,7 @@ show-read-articles          yes
 feed-sort-order             unreadarticlecount-asc
 display-article-progress    yes
 
-#     Element               Foreground Background
-color background            color102   color8
-color listfocus             color16    color65
-color listnormal            color244   color8
-color listfocus_unread      color16    color65 bold
-color listnormal_unread     color102   color8 bold
-color info                  color16    color65
-color article               color102   color8
+include ~/.newsbeuter/colors/day
 
 text-width 80
 
@@ -66,3 +58,4 @@ confirm-exit no
 cleanup-on-quit yes
 
 # vim:set ft=conf et sw=2 ts=2:
+

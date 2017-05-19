@@ -4,7 +4,7 @@
 # -----------------------------------------------------------------------------
 
 declare -U path
-path=($SCRIPTS $HOME/.cargo/bin $path)
+path=($SCRIPTS $CARGO_DIR "/usr/lib/ccache/bin" $path)
 
 # -- Keychain -----------------------------------------------------------------
 

@@ -22,8 +22,8 @@
 !/mutt/sigs
 !/newsbeuter/bookmark
 !/newsbeuter/bookmarks.txt
-!/newsbeuter/config_day
-!/newsbeuter/config_night
+!/newsbeuter/config
+!/newsbeuter/colors
 !/newsbeuter/urls
 !/offlineimap/helpers.py
 !/offlineimap/offlineimaprc
@@ -43,6 +43,7 @@
 !**/mutt/configs/*
 !**/mutt/sigs/*
 !**/surfraw/*
+!**/newsbeuter/colors/*
 !**/sway/*
 !**/termite/*
 !**/zathura/*

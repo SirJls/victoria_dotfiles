@@ -1,0 +1,15 @@
+# -- Meta ---------------------------------------------------------------------
+# -- File:   ${DOTFILES}/newsbeuter/night
+# -- Author: SirJls - http://sjorssparreboom.nl
+# -----------------------------------------------------------------------------
+
+#     Element               Foreground Background
+color background            color102   color8
+color listfocus             color16    color65
+color listnormal            color244   color8
+color listfocus_unread      color16    color65 bold
+color listnormal_unread     color102   color8 bold
+color info                  color16    color65
+color article               color102   color8
+
+# vim:set ft=conf et sw=2 ts=2:
