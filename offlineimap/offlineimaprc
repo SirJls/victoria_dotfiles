@@ -142,7 +142,7 @@ remotepasseval          = get_password('mail@sirjls.nl')
 
 ssl                     = yes
 sslcacertfile           = /etc/ssl/certs/ca-certificates.crt
-realdelete              = no
+realdelete              = yes
 
 folderfilter            = lambda folder: not re.search(
                             '(Archive.spam|.*Junk$|INBOX\.INBOX.*)',

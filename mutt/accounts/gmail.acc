@@ -5,7 +5,7 @@
 
 # -- Display ------------------------------------------------------------------
 
-source ~/.mutt/colors/gmail_day
+source ~/.mutt/colors/gmail_night
 
 set from      = "jlssparreboom@gmail.com"
 set sendmail  = "/usr/bin/msmtp -a GMail"

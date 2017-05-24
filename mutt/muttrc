@@ -170,7 +170,7 @@ mailboxes =GMail/Inbox =GMail/Sent =GMail/Drafts =GMail/Trash =GMail/Archive
 
 source $alias_file
 source ~/.mutt/accounts/jls.acc
-source ~/.mutt/colors/day
+source ~/.mutt/colors/night
 
 source ~/.mutt/mailboxes
 
