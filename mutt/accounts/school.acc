@@ -5,7 +5,7 @@
 
 # -- Display ------------------------------------------------------------------
 
-source ~/.mutt/colors/school_night
+source ~/.mutt/colors/school_day
 
 set from      = "0890040@hr.nl"
 set sendmail  = "/usr/bin/msmtp -a School"

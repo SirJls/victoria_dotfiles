@@ -116,19 +116,14 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-" let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
-" let g:syntastic_rust_checkers = ['rustc']
-" let g:syntastic_rust_rustc_exe = 'cargo check'
-" let g:syntastic_rust_rustc_fname = ''
-" let g:syntastic_rust_rustc_args = '--'
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
+let g:syntastic_loc_list_height = 3
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" checkers
+let g:syntastic_tex_checkers = ['']
 
 " FZF
 " ----------------------------------------------------

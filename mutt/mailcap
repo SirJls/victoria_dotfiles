@@ -11,6 +11,7 @@ image/*; feh %s &>/dev/null
 video/*; mpv %s
 audio/*; mpv %s
 text/*; vim %s
+application/pgp-signature; vim %s
 application/pdf; zathura %s
 application/odt; libreoffice %s
 application/ods; libreoffice %s

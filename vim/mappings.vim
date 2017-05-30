@@ -19,6 +19,9 @@ nnoremap <leader>r :Find<cr>
 inoremap ,% <%%><esc>F%i<space><space><esc>i
 inoremap ,= <%=%><esc>F%i<space><space><esc>i
 
+nnoremap <Leader>[ :lprev<CR>
+nnoremap <Leader>] :lnext<CR>
+
 command! -nargs=+ MapToggle call MapToggle(<f-args>)
 " nnoremap <F4> :buffers<CR>:buffer<Space>
 MapToggle <F4> wrap

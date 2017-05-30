@@ -6,6 +6,7 @@
 */*/
 # But don't ignore these files
 !.gitignore
+!/abook/abookrc
 !/config/i3
 !/config/ruby-version
 !/config/surfraw
@@ -23,8 +24,8 @@
 !/mutt/sigs
 !/newsbeuter/bookmark
 !/newsbeuter/bookmarks.txt
-!/newsbeuter/config
 !/newsbeuter/colors
+!/newsbeuter/config
 !/newsbeuter/urls
 !/offlineimap/helpers.py
 !/offlineimap/offlineimaprc

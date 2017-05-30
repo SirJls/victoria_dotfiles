@@ -17,6 +17,7 @@ zsh/zshrc
 
 # -- Directories --------------------------------------------------------------
 
+abook
 config
 mutt
 newsbeuter

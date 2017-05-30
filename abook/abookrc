@@ -1,0 +1,32 @@
+field birthday        = Birthday, date
+field irc             = IRC, list
+field skype           = Skype
+field twitter         = Twitter
+field github          = Github
+field linkedin        = Linkedin
+
+field 2address        = Address
+field 2address2       = Address2
+field 2city           = City
+field 2country        = Country
+field 2state          = State/Province
+field 2zip            = "ZIP/Postal Code"
+
+field textphone       = Text
+
+view Address          = address, address2, city, state, zip, country
+view Address2         = 2address, 2address2, 2city, 2state, 2zip, 2country
+view Contact          = name, email, birthday, nick
+view Internet         = irc, skype, twitter, github, linkedin, url
+view Other            = notes
+view Phone            = mobile, textphone, phone, workphone
+
+set index_format      = " {name:23} {email:34} {mobile:12|phone|workphone} {birthday:10} {nick}"
+
+set address_style     = eu
+set preserve_fields   = all
+set show_all_emails   = false
+set sort_field        = name
+set www_command       = firefox
+
+# vim:set ft=conf et sts=2 sw=4 ts=4 tw=79:
