@@ -5,7 +5,7 @@
 
 # -- Display ------------------------------------------------------------------
 
-source ~/.mutt/colors/jls_day
+source ~/.mutt/colors/jls_night
 
 set from      = "mail@sirjls.nl"
 set sendmail  = "/usr/bin/msmtp -a JLS"
