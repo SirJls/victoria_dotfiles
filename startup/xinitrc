@@ -18,7 +18,7 @@ if ( hash xset ); then
   xset s noblank
 fi
 
-if  ( hash autocutsel ); then
+if ( hash autocutsel ); then
     autocutsel -fork &
     autocutsel -selection PRIMARY -fork &
 fi

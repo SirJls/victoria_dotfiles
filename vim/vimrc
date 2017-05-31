@@ -25,7 +25,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 
 " Show color for the color codes
-Plug 'Colorizer'
+Plug 'lilydjwg/Colorizer'
 
 " Track the engine.
 Plug 'SirVer/ultisnips'

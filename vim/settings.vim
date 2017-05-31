@@ -167,7 +167,11 @@ let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-x>"
 let g:UltiSnipsEditSplit = "vertical"
 let g:UltiSnipsSnippetDirectories=["ultisnips"]
-let g:UltiSnipsSnippetsDir=$SNIPPETS_DIR . "/ultisnips"
+let g:UltiSnipsSnippetsDir = $SNIPPETS_DIR . "/ultisnips"
+
+" Colorizers
+" ----------------------------------------------------
+let g:colorizer_maxlines = 1000
 
 " YouCompleteMe
 " ----------------------------------------------------
