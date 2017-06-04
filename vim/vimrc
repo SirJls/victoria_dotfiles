@@ -1,10 +1,9 @@
-"-----------------------------------------------------
-"  file:   $HOME/dotfiles/vim/vimrc
-"  author: SirJls - http://sjorssparreboom.nl
-" ----------------------------------------------------
+" -- Meta ---------------------------------------------------------------------
+" -- File:   ${DOTFILES}/vim/vimrc
+" -- Author: SirJls - http://sjorssparreboom.nl
+" -----------------------------------------------------------------------------
 
-" Load Plugs
-" ----------------------------------------------------
+" -- Load Plugs ---------------------------------------------------------------
 
 let &runtimepath .= ',' . expand('$DOTFILES/vim') .  ',' . expand('$SNIPPETS_DIR')
 call plug#begin('$DOTFILES/vim/plugged')
@@ -23,6 +22,9 @@ Plug 'tpope/vim-commentary'
 
 " let me surround stuff
 Plug 'tpope/vim-surround'
+
+" Distact free reading
+Plug 'chrisbra/DistractFree'
 
 " Show color for the color codes
 Plug 'lilydjwg/Colorizer'
@@ -54,16 +56,16 @@ Plug 'Valloric/YouCompleteMe'
 
 call plug#end()
 
-" filetype stuff on
-" ----------------------------------------------------
+" -- Filetype stuff on --------------------------------------------------------
+
 syntax on
 filetype plugin on
 filetype plugin indent on
 
-" settings / functions / mappings
-" ----------------------------------------------------
+" -- Settings / Functions / Mappings ------------------------------------------
+
 source $DOTFILES/vim/settings.vim
 source $DOTFILES/vim/functions.vim
 source $DOTFILES/vim/mappings.vim
 
-" vim:ft=vim
+" vim:set ft=vim noet sts=2 sw=8 ts=8 tw=79:

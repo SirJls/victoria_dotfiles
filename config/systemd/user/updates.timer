@@ -1,0 +1,9 @@
+[Unit]
+Description=Run update check hourly and on boot
+
+[Timer]
+OnActiveSec=15min
+OnUnitActiveSec=2h
+
+[Install]
+WantedBy=default.target

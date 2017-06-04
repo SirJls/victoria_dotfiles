@@ -5,7 +5,7 @@
 
 # -- Display ------------------------------------------------------------------
 
-source ~/.mutt/colors/sjorssparreboom_night
+source ~/.mutt/colors/sjorssparreboom_day
 
 set from      = "mail@sjorssparreboom.nl"
 set sendmail  = "/usr/bin/msmtp -a Sjorssparreboom"

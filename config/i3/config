@@ -1,5 +1,5 @@
 # -- Meta ---------------------------------------------------------------------
-# -- File:   ${XDG_CONFIG_HOME}/i3/config_night
+# -- File:   ${XDG_CONFIG_HOME}/i3/config_day
 # -- Author: SirJls - http://sjorssparreboom.nl
 # -----------------------------------------------------------------------------
 
@@ -121,7 +121,7 @@ bindsym XF86MonBrightnessDown exec dsplight down 5
 bindsym XF86MonBrightnessUp exec dsplight up 5
 
 # make screenshot
-bindsym $mod+p exec screenie
+bindsym $mod+p screenie
 
 # run dpass
 bindsym $mod+c exec dpass
@@ -134,17 +134,16 @@ bar {
         position top
         strip_workspace_numbers yes
         colors {
-          statusline #ba656d
-          background #0b141a
-          focused_background #0b141a
-          focused_workspace #0b141a #0b141a #3f8f36
-          inactive_workspace #0b141a #0b141a #b06d43
+          statusline #6D767D
+          background #FFFFFF
+          focused_background #FFFFFF
+          focused_workspace #FFFFFF #FFFFFF #11AD00
+          inactive_workspace #FFFFFF #FFFFFF #FC6500
         }
 }
-
 #                               border    background  text      indicator  child
-client.unfocused                #0b141a   #0b141a     #787e82   #0b141a    #0b141a
-client.unfocused_inactive       #0b141a   #0b141a     #787e82   #0b141a    #0b141a
-client.focused                  #0b141a   #0b141a     #b06d43   #0b141a    #0b141a
+client.unfocused                #FFFFFF   #FFFFFF     #6D767D   #FFFFFF    #FFFFFF
+client.unfocused_inactive       #FFFFFF   #FFFFFF     #6D767D   #FFFFFF    #FFFFFF
+client.focused                  #FFFFFF   #FFFFFF     #A96500   #FFFFFF    #FFFFFF
 
 new_window pixel 0

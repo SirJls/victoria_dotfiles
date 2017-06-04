@@ -11,6 +11,7 @@
 !/config/ruby-version
 !/config/surfraw
 !/config/sway
+!/config/systemd
 !/config/termite
 !/config/zathura
 !/config/zathura/colors
@@ -18,6 +19,7 @@
 !/mutt/accounts
 !/mutt/colors
 !/mutt/configs
+!/mutt/mailboxes
 !/mutt/mailcap
 !/mutt/muttrc
 !/mutt/notmuch-poll.asc
@@ -44,12 +46,13 @@
 !**/mutt/colors/*
 !**/mutt/configs/*
 !**/mutt/sigs/*
-!**/surfraw/*
 !**/newsbeuter/colors/*
+!**/surfraw/*
 !**/sway/*
 !**/termite/*
 !**/zathura/*
 !**/zathura/colors/*
+!**/systemd/**
 !/zsh/**
 
 # But ignore these sub directories/files

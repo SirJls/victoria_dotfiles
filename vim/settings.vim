@@ -1,10 +1,10 @@
-"-----------------------------------------------------
-"  file:   ${DOTFILES}/vim/settings.vim
-"  author: SirJls - http://sjorssparreboom.nl
-" ----------------------------------------------------
+" -- Meta ---------------------------------------------------------------------
+" -- File:   ${DOTFILES}/vim/settings.vim
+" -- Author: SirJls - http://sjorssparreboom.nl
+" -----------------------------------------------------------------------------
 
-" general
-" ----------------------------------------------------
+" -- General ------------------------------------------------------------------
+
 set t_Co=256
 set encoding=utf-8
 set fileencoding=utf-8
@@ -22,7 +22,7 @@ set linebreak
 set wildmenu
 set wildmode=list:longest,full
 set spellfile=$DOTFILES/vim/spell/en.utf-8.add
-set spelllang=nl
+set spelllang=en_gb
 set dictionary+=/usr/share/dict/words
 set wmh=0
 set timeoutlen=500
@@ -30,31 +30,18 @@ set mouse=a
 set pdev=Canon-MP2900-series
 set clipboard=unnamed
 
-" backups
-" ----------------------------------------------------
+" -- Backups ------------------------------------------------------------------
+
 set backupdir=$DOTFILES/vim/backup/                  " backup files directories
 set directory=$DOTFILES/vim/backup/                  " store backup swp files
 
-" tweaks for browsing
-" ----------------------------------------------------
-" check netrw-browse-maps for shortcuts
-let g:netrw_banner=0                                  " disable annoying banner (top)
-let g:netrw_browse_split=4                            " open in prior window
-let g:netrw_altv=1                                    " splits open to the right
-let g:netrw_liststyle=3                               " tree view
-let g:netrw_winsize=25                                " a little smaller please
-let g:netrw_list_hide=netrw_gitignore#Hide()          " hide stuff in gitignore
-let netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
+" -- Indentation --------------------------------------------------------------
 
-" tabs and indenation
-" ----------------------------------------------------
 let g:is_posix=1
 let g:loaded_matchparen=1
 let g:is_bash=1
 let g:vimsyn_noerror=1
 
-" tabs and indenation
-" ----------------------------------------------------
 set modeline
 set textwidth=79
 set linespace=2
@@ -65,37 +52,39 @@ set shiftwidth=2
 set autoindent
 set copyindent
 
-" searching
-" ----------------------------------------------------
+" -- Searching ----------------------------------------------------------------
+
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
 set path+=**
 
-" boost
-" ----------------------------------------------------
+" -- Speed up -----------------------------------------------------------------
+
 set nocursorcolumn
 set nocursorline
 set ttyscroll=3
 
-" status line / listchars
-" ----------------------------------------------------
+" -- Statusline ---------------------------------------------------------------
+
 set statusline=\%f%m%r%h%w\ ::\ %y\ [%{&ff}]\%=\ [wc:%{WordCount()}]\ ::\ [%p%%:\ %l/%c/%L]
 set list listchars=trail:·,precedes:«,extends:»,tab:▸·
 set shortmess=a
 set laststatus=2
 
-"
-" ----------------------------------------------------
+" -- Autocommands -------------------------------------------------------------
+
 augroup files
   au!
   au BufRead,BufNewFile *.h,*c setlocal ft=c ts=8 sw=8 sta ai noet
   au FileType *cmake setlocal ts=4 sw=4 sta ai et
+
+  au BufRead *.md,*tex call DistractFree#DistractFreeToggle() | wincmd w
 augroup END
 
-" Completion
-" ----------------------------------------------------
+" -- Completion ---------------------------------------------------------------
+
 set splitbelow
 set updatetime=500
 set cmdheight=1
@@ -103,15 +92,15 @@ set hidden
 set pumheight=10                          " so the complete menu doesn't get too big
 set completeopt=menu,longest              " menu, menuone, longest and preview
 
-" Clang
-" ----------------------------------------------------
+" -- Clang --------------------------------------------------------------------
+
 let g:clang_complete_auto=0               " I can start the autocompletion myself, thanks..
 let g:clang_snippets=1                    " use a snippet engine for placeholders
 let g:clang_snippets_engine='ultisnips'
 let g:clang_auto_select=2                 " automatically select and insert the first match
 
-" Syntastic
-" ----------------------------------------------------
+" -- Syntastic ----------------------------------------------------------------
+
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -122,11 +111,10 @@ let g:syntastic_loc_list_height = 3
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-" checkers
 let g:syntastic_tex_checkers = ['']
 
-" FZF
-" ----------------------------------------------------
+" -- FZF ----------------------------------------------------------------------
+
 " This is the default extra key bindings
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
@@ -160,8 +148,8 @@ command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-h
 " explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
 let g:fzf_history_dir = '~/.fzf/fzf-history'
 
-" Ultisnips
-" ----------------------------------------------------
+" -- UltiSnips ----------------------------------------------------------------
+
 let g:UltiSnipsListSnippets ="<c-l>"
 let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-x>"
@@ -169,18 +157,18 @@ let g:UltiSnipsEditSplit = "vertical"
 let g:UltiSnipsSnippetDirectories=["ultisnips"]
 let g:UltiSnipsSnippetsDir = $SNIPPETS_DIR . "/ultisnips"
 
-" Colorizers
-" ----------------------------------------------------
+" -- Colorizer ----------------------------------------------------------------
+
 let g:colorizer_maxlines = 1000
 
-" YouCompleteMe
-" ----------------------------------------------------
+" -- YCM ----------------------------------------------------------------------
+
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 
-" Night and Day switch
-" ----------------------------------------------------
+" -- Night/Day ----------------------------------------------------------------
+
 let g:nd_day_theme = 'seagull'
 let g:nd_night_theme = 'petrel'
 
