@@ -23,6 +23,10 @@ if ( hash autocutsel ); then
     autocutsel -selection PRIMARY -fork &
 fi
 
+if ( hash unclutter ); then
+  unclutter &
+fi
+
 if ( hash xmodmap ); then
     xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 fi

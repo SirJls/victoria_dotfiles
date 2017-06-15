@@ -154,8 +154,8 @@ macro index,pager \Cu "<enter-command> set my_pdsave=\$pipe_decode<enter>\
 
 set query_command = "lbdbq %s 2>/dev/null"
 
-macro index \cA           "!$SCRIPTS/abook-autoexport\n:source ~/.mutt/alias\n"                                   # Start abook
-macro index \Ca           "|$SCRIPTS//abook-autoexport --add-email-quiet\n:source ~/.mutt/alias\n"                # Create new alias from the actual message
+macro index \cl           "!$SCRIPTS/abook-autoexport\n:source ~/.mutt/alias\n"                                  # Start abook
+macro index \ca           "|$SCRIPTS/abook-autoexport --add-email-quiet\n:source ~/.mutt/alias\n"                # Create new alias from the actual message
 
 # -- Mailboxes ----------------------------------------------------------------
 
@@ -177,7 +177,7 @@ mailboxes =GMail/Inbox =GMail/Sent =GMail/Drafts =GMail/Trash =GMail/Archive
 
 source $alias_file
 source ~/.mutt/accounts/jls.acc
-source ~/.mutt/colors/day
+source ~/.mutt/colors/night
 
 source ~/.mutt/mailboxes
 
