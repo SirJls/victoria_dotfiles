@@ -109,6 +109,8 @@ hdr_order from: to: cc: date: subject:
 
 # -- Navigation ---------------------------------------------------------------
 
+bind pager,index  g     noop # https://www.neomutt.org/guide/configuration.html#bind-warnings
+
 bind pager q            exit
 bind pager /            search
 bind pager k            previous-line

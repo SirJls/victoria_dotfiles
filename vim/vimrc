@@ -23,9 +23,6 @@ Plug 'tpope/vim-commentary'
 " let me surround stuff
 Plug 'tpope/vim-surround'
 
-" Distact free reading
-Plug 'chrisbra/DistractFree'
-
 " Show color for the color codes
 Plug 'lilydjwg/Colorizer'
 
@@ -33,7 +30,10 @@ Plug 'lilydjwg/Colorizer'
 Plug 'SirVer/ultisnips'
 
 " Syntastic
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
+
+" Plug Asynchronous Lint Engine
+Plug 'w0rp/ale'
 
 " fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -53,6 +53,14 @@ Plug 'xolox/vim-misc'
 
 " Code completion
 Plug 'Valloric/YouCompleteMe'
+
+" Completion plugin haskell
+Plug 'eagletmt/neco-ghc'
+
+" Frontend vim ghc-mod
+Plug 'eagletmt/ghcmod-vim'
+" Used by background checker for haskell
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
 call plug#end()
 

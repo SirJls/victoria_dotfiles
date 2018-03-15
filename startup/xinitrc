@@ -19,8 +19,8 @@ if ( hash xset ); then
 fi
 
 if ( hash autocutsel ); then
-    autocutsel -fork &
-    autocutsel -selection PRIMARY -fork &
+  autocutsel -fork &
+  autocutsel -selection PRIMARY -fork &
 fi
 
 if ( hash unclutter ); then
@@ -28,11 +28,9 @@ if ( hash unclutter ); then
 fi
 
 if ( hash xmodmap ); then
-    xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+  xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 fi
 
 # -- Start --------------------------------------------------------------------
 
 exec $SCRIPTS/i3-start
-
-# vim:set ft=xinitrc et sts=2 sw=2 ts=2 tw=79:

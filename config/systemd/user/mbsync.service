@@ -1,0 +1,8 @@
+[Unit]
+Description=Start mbsync as a daemon
+Documentation=man:mbsync(1)
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/sjors/Victoria/victoria_scripts/fetch-mail

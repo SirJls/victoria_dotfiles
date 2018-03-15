@@ -6,8 +6,11 @@
 # -- Files --------------------------------------------------------------------
 
 msmtp/msmtprc
+mbsync/mbsyncrc
 startup/inputrc
 startup/xinitrc
+spacemacs/spacemacs
+spacemacs/emacs
 tmux/tmux.conf
 vim/vimrc
 zsh/zprofile

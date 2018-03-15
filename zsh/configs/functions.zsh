@@ -90,8 +90,8 @@ manpdf() {
 }
 
 officepdf() {
-  (( $# != 2 )) && exit 1
-  unoconv -f pdf -o "${1}" "${2}"
+  (( $# != 1 )) && exit 1
+  abiword --to=pdf "${1}"
 }
 
 bak() {

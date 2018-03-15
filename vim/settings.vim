@@ -78,10 +78,37 @@ set laststatus=2
 augroup files
   au!
   au BufRead,BufNewFile *.h,*c setlocal ft=c ts=8 sw=8 sta ai noet
-  au FileType *cmake setlocal ts=4 sw=4 sta ai et
+  au FileType cmake setlocal ts=4 sw=4 sta ai et
+  au FileType cs setlocal ts=4 sw=4 sta ai et
+  au BufRead,BufNewFile *.hs setlocal ts=8 sts=4 sw=4 et sr
+  au BufRead,BufNewFile *.fs setlocal ts=8 sts=4 sw=4 et sr
+augroup end
 
-  au BufRead *.md,*tex call DistractFree#DistractFreeToggle() | wincmd w
-augroup END
+augroup omnisharp_commands
+    autocmd!
+
+    "Set autocomplete function to OmniSharp (if not using YouCompleteMe completion plugin)
+    autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
+
+    "show type information automatically when the cursor stops moving
+    autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
+
+augroup end
+
+" -- OmniSharp ----------------------------------------------------------------
+
+let g:OmniSharp_server_type = 'roslyn'
+let g:OmniSharp_selector_ui = 'fzf'       " Use fzf.vim
+
+" -- Haskell ------------------------------------------------------------------
+
+let g:haskellmode_completion_ghc = 1
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
+let g:ycm_semantic_triggers =  {
+  \   'cs,java,javascript,d,vim,python,perl6,scala,vb,elixir,go,haskell' : ['.'],
+  \ }
+
 
 " -- Completion ---------------------------------------------------------------
 
@@ -94,24 +121,22 @@ set completeopt=menu,longest              " menu, menuone, longest and preview
 
 " -- Clang --------------------------------------------------------------------
 
-let g:clang_complete_auto=0               " I can start the autocompletion myself, thanks..
+let g:clang_complete_auto=1               " I can start the autocompletion myself, thanks..
 let g:clang_snippets=1                    " use a snippet engine for placeholders
 let g:clang_snippets_engine='ultisnips'
 let g:clang_auto_select=2                 " automatically select and insert the first match
 
 " -- Syntastic ----------------------------------------------------------------
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_loc_list_height = 3
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_tex_checkers = ['']
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_loc_list_height = 3
 
 " -- FZF ----------------------------------------------------------------------
 
@@ -169,13 +194,9 @@ let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 
 " -- Night/Day ----------------------------------------------------------------
 
-let g:nd_day_theme = 'seagull'
-let g:nd_night_theme = 'petrel'
-
-let g:nd_dawn_time = 8
-let g:nd_dusk_time = 20
-
-let g:nd_day_bgdark    = 0
-let g:nd_night_bgdark  = 1
+let g:nd_themes = [
+  \ ['8:00',  'seagull', 'light' ],
+  \ ['20:00', 'petrel',  'dark' ],
+  \ ]
 
 " vim:set ft=vim et sw=2 ts=2 tw=79:

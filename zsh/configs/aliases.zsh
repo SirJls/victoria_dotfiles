@@ -54,6 +54,7 @@ alias "ls=ls --color=auto"
 
 alias pong="ping -c 3 google.com"
 alias wifi="sudo wifi-menu"
+alias exip="curl http://ipecho.net/plain; echo"
 
 alias rm='rm -iv'
 alias m='make'
@@ -62,5 +63,9 @@ alias alsamixer="alsamixer -g"
 
 alias vi="vim"
 alias v="vim"
+
+alias latex-report="git clone https://github.com/SirJls/latex-report.git && ./latex-report/bootstrap.sh main"
+
+alias clean="rm -rf $DOTFILES/vim/backup/*"
 
 # vim:set ft=zsh et sw=2 ts=2 tw=79:

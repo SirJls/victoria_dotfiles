@@ -15,6 +15,7 @@
 !/config/termite
 !/config/zathura
 !/config/zathura/colors
+!/mbsync/*
 !/msmtp/*
 !/mutt/accounts
 !/mutt/colors
@@ -37,6 +38,8 @@
 !/vim/vimrc
 !/w3m/bookmark.html
 !/w3m/config
+!/spacemacs/spacemacs
+!/spacemacs/emacs
 !/weechat/weechat.conf
 !README.md
 !install

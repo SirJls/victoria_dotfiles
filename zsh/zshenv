@@ -14,6 +14,7 @@ export PERL_SIGNALS="unsafe"
 export EDITOR="/usr/bin/vim"
 export BROWSER="/usr/bin/firefox"
 export FT2_SUBPIXEL_HINTING="1"
+export PAKET_RESOLVER_TASK_TIMEOUT=-1
 export QUOTING_STYLE="literal"
 export JavaScriptCoreUseJIT="0"
 export FCEDIT="${EDITOR}"
@@ -27,13 +28,11 @@ export SYSTEMD_PAGER="less -j4aR"
 export DOTFILES="/home/sjors/Victoria/victoria_dotfiles"
 export SCRIPTS="/home/sjors/Victoria/victoria_scripts"
 export BUILDS="/home/sjors/Victoria/victoria_builds"
-export PASS_DIR="${HOME}/.password-store"
+export PASSWORD_STORE_DIR="${HOME}/Dropbox/password-store"
 export SNIPPETS_DIR="${HOME}/.snippets"
-export RUST_CARGO="${HOME}/.cargo/bin"
-export RACER_CMD="${RUST_CARGO}/racer"
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
-export RUST_NIGHTLY="${HOME}/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu"
-export RUST_SRC_PATH="${RUST_NIGHTLY}/lib/rustlib/src/rust/src"
+export STACK_DIR="${HOME}/.stack"
+export NODE_MODULES="${HOME}/.node_modules/bin"
 
 # -- XDG ----------------------------------------------------------------------
 

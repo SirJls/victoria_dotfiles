@@ -4,6 +4,7 @@ Requires=media-PHILIPS.mount
 After=media-PHILIPS.mount
 
 [Service]
+User=sjors
 ExecStart=/home/sjors/Victoria/victoria_scripts/sync-philips
 
 [Install]

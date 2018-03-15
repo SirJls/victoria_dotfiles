@@ -121,7 +121,7 @@ bindsym XF86MonBrightnessDown exec dsplight down 5
 bindsym XF86MonBrightnessUp exec dsplight up 5
 
 # make screenshot
-bindsym $mod+p screenie
+bindsym $mod+p exec screenie
 
 # run dpass
 bindsym $mod+c exec dpass

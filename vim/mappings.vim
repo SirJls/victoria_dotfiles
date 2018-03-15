@@ -22,6 +22,12 @@ inoremap ,= <%=%><esc>F%i<space><space><esc>i
 nnoremap <Leader>[ :lprev<CR>
 nnoremap <Leader>] :lnext<CR>
 
+map <Leader>s :SyntasticToggleMode<CR>
+map <silent> tw :GhcModTypeInsert<CR>
+map <silent> ts :GhcModSplitFunCase<CR>
+map <silent> tq :GhcModType<CR>
+map <silent> te :GhcModTypeClear<CR>
+
 command! -nargs=+ MapToggle call MapToggle(<f-args>)
 " nnoremap <F4> :buffers<CR>:buffer<Space>
 MapToggle <F4> wrap

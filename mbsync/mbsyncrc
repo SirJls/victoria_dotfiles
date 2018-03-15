@@ -1,0 +1,215 @@
+# -- Meta ---------------------------------------------------------------------
+# -- File:   ${DOTFILES}/mbsyncrc
+# -- Author: SirJls - http://sjorssparreboom.nl
+# -----------------------------------------------------------------------------
+MaildirStore gmail-local
+Path ~/Documents/Mail/
+Inbox ~/Documents/Mail/INBOX
+SubFolders Verbatim
+
+IMAPAccount GMail
+Host imap.gmail.com
+User jlssparreboom@gmail.com
+PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/Dropbox/password-store/jlssparreboom@gmail.com.gpg"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore gmail-remote
+Account GMail
+
+Channel sync-gmail-all
+Master :gmail-remote:"[Gmail]/All Mail"
+Slave :gmail-local:GMail/All
+Create Both
+Sync All
+Expunge Both
+SyncState *
+
+Channel sync-gmail-trash
+Master :gmail-remote:"[Gmail]/Bin"
+Slave :gmail-local:GMail/Trash
+Create Both
+Sync All
+Expunge Both
+SyncState *
+
+Channel sync-gmail-spam
+Master :gmail-remote:"[Gmail]/Spam"
+Slave :gmail-local:GMail/Spam
+Create Both
+Sync All
+Expunge Both
+SyncState *
+
+Channel sync-gmail-sent
+Master :gmail-remote:"[Gmail]/Sent Mail"
+Slave :gmail-local:GMail/Sent
+Create Both
+Sync All
+Expunge Both
+SyncState *
+
+Group sync-gmail
+Channel sync-gmail-all
+Channel sync-gmail-trash
+Channel sync-gmail-spam
+Channel sync-gmail-sent
+
+MaildirStore jls-local
+Path ~/Documents/Mail/
+Inbox ~/Documents/Mail/INBOX
+SubFolders Verbatim
+
+IMAPAccount JLS
+Host www83.totaalholding.nl
+User mail@sirjls.nl
+PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/Dropbox/password-store/mail@sirjls.nl.gpg"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore jls-remote
+Account JLS
+
+Channel sync-jls-inbox
+Master :jls-remote:INBOX
+Slave :jls-local:JLS/Inbox
+Create Both
+Sync All
+Expunge Both
+SyncState *
+
+Channel sync-jls-archive
+Master :jls-remote:Archive
+Slave :jls-local:JLS/Archive
+Create Both
+Sync All
+Expunge Both
+SyncState *
+
+Channel sync-jls-trash
+Master :jls-remote:Trash
+Slave :jls-local:JLS/Trash
+Create Both
+Sync All
+Expunge Both
+SyncState *
+
+Channel sync-jls-sent
+Master :jls-remote:Sent
+Slave :jls-local:JLS/Sent
+Create Both
+Sync All
+Expunge Both
+SyncState *
+
+Group sync-jls
+Channel sync-jls-inbox
+Channel sync-jls-archive
+Channel sync-jls-trash
+Channel sync-jls-sent
+
+MaildirStore sjors-local
+Path ~/Documents/Mail/
+Inbox ~/Documents/Mail/INBOX
+SubFolders Verbatim
+
+IMAPAccount Sjors
+Host www70.totaalholding.nl
+User mail@sjorssparreboom.nl
+PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/Dropbox/password-store/mail@sjorssparreboom.nl.gpg"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore sjors-remote
+Account Sjors
+
+Channel sync-sjors-inbox
+Master :sjors-remote:INBOX
+Slave :sjors-local:Sjors/Inbox
+Create Both
+Sync All
+Expunge Both
+SyncState *
+
+Channel sync-sjors-archive
+Master :sjors-remote:Archive
+Slave :sjors-local:Sjors/Archive
+Create Both
+Sync All
+Expunge Both
+SyncState *
+
+Channel sync-sjors-trash
+Master :sjors-remote:Trash
+Slave :sjors-local:Sjors/Trash
+Create Both
+Sync All
+Expunge Both
+SyncState *
+
+Channel sync-sjors-sent
+Master :sjors-remote:Sent
+Slave :sjors-local:Sjors/Sent
+Create Both
+Sync All
+Expunge Both
+SyncState *
+
+Group sync-sjors
+Channel sync-sjors-inbox
+Channel sync-sjors-archive
+Channel sync-sjors-trash
+Channel sync-sjors-sent
+
+MaildirStore school-local
+Path ~/Documents/Mail/
+Inbox ~/Documents/Mail/INBOX
+SubFolders Verbatim
+
+IMAPAccount School
+Host outlook.office365.com
+User 0890040@hr.nl
+PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/Dropbox/password-store/0890040@hr.nl.gpg"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore school-remote
+Account School
+
+Channel sync-school-inbox
+Master :school-remote:INBOX
+Slave :school-local:School/Inbox
+Create Both
+Sync All
+Expunge Both
+SyncState *
+
+Channel sync-school-archive
+Master :school-remote:Archive
+Slave :school-local:School/Archive
+Create Both
+Sync All
+Expunge Both
+SyncState *
+
+Channel sync-school-trash
+Master :school-remote:"Deleted Items"
+Slave :school-local:School/Trash
+Create Both
+Sync All
+Expunge Both
+SyncState *
+
+Channel sync-school-sent
+Master :school-remote:"Sent Items"
+Slave :school-local:School/Sent
+Create Both
+Sync All
+Expunge Both
+SyncState *
+
+Group sync-school
+Channel sync-school-inbox
+Channel sync-school-archive
+Channel sync-school-trash
+Channel sync-school-sent
