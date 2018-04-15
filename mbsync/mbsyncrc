@@ -7,7 +7,7 @@ Path ~/Documents/Mail/
 Inbox ~/Documents/Mail/INBOX
 SubFolders Verbatim
 
-IMAPAccount GMail
+IMAPAccount gmail.com
 Host imap.gmail.com
 User jlssparreboom@gmail.com
 PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/Dropbox/password-store/jlssparreboom@gmail.com.gpg"
@@ -15,11 +15,11 @@ SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 IMAPStore gmail-remote
-Account GMail
+Account gmail.com
 
 Channel sync-gmail-all
 Master :gmail-remote:"[Gmail]/All Mail"
-Slave :gmail-local:GMail/All
+Slave :gmail-local:gmail.com/All
 Create Both
 Sync All
 Expunge Both
@@ -27,7 +27,7 @@ SyncState *
 
 Channel sync-gmail-trash
 Master :gmail-remote:"[Gmail]/Bin"
-Slave :gmail-local:GMail/Trash
+Slave :gmail-local:gmail.com/Trash
 Create Both
 Sync All
 Expunge Both
@@ -35,7 +35,7 @@ SyncState *
 
 Channel sync-gmail-spam
 Master :gmail-remote:"[Gmail]/Spam"
-Slave :gmail-local:GMail/Spam
+Slave :gmail-local:gmail.com/Spam
 Create Both
 Sync All
 Expunge Both
@@ -43,7 +43,7 @@ SyncState *
 
 Channel sync-gmail-sent
 Master :gmail-remote:"[Gmail]/Sent Mail"
-Slave :gmail-local:GMail/Sent
+Slave :gmail-local:gmail.com/Sent
 Create Both
 Sync All
 Expunge Both
@@ -60,7 +60,7 @@ Path ~/Documents/Mail/
 Inbox ~/Documents/Mail/INBOX
 SubFolders Verbatim
 
-IMAPAccount JLS
+IMAPAccount sirjls.nl
 Host www83.totaalholding.nl
 User mail@sirjls.nl
 PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/Dropbox/password-store/mail@sirjls.nl.gpg"
@@ -68,11 +68,11 @@ SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 IMAPStore jls-remote
-Account JLS
+Account sirjls.nl
 
 Channel sync-jls-inbox
 Master :jls-remote:INBOX
-Slave :jls-local:JLS/Inbox
+Slave :jls-local:sirjls.nl/Inbox
 Create Both
 Sync All
 Expunge Both
@@ -80,7 +80,7 @@ SyncState *
 
 Channel sync-jls-archive
 Master :jls-remote:Archive
-Slave :jls-local:JLS/Archive
+Slave :jls-local:sirjls.nl/Archive
 Create Both
 Sync All
 Expunge Both
@@ -88,7 +88,7 @@ SyncState *
 
 Channel sync-jls-trash
 Master :jls-remote:Trash
-Slave :jls-local:JLS/Trash
+Slave :jls-local:sirjls.nl/Trash
 Create Both
 Sync All
 Expunge Both
@@ -96,7 +96,7 @@ SyncState *
 
 Channel sync-jls-sent
 Master :jls-remote:Sent
-Slave :jls-local:JLS/Sent
+Slave :jls-local:sirjls.nl/Sent
 Create Both
 Sync All
 Expunge Both
@@ -113,7 +113,7 @@ Path ~/Documents/Mail/
 Inbox ~/Documents/Mail/INBOX
 SubFolders Verbatim
 
-IMAPAccount Sjors
+IMAPAccount sjorssparreboom.nl
 Host www70.totaalholding.nl
 User mail@sjorssparreboom.nl
 PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/Dropbox/password-store/mail@sjorssparreboom.nl.gpg"
@@ -121,11 +121,11 @@ SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 IMAPStore sjors-remote
-Account Sjors
+Account sjorssparreboom.nl
 
 Channel sync-sjors-inbox
 Master :sjors-remote:INBOX
-Slave :sjors-local:Sjors/Inbox
+Slave :sjors-local:sjorssparreboom.nl/Inbox
 Create Both
 Sync All
 Expunge Both
@@ -133,7 +133,7 @@ SyncState *
 
 Channel sync-sjors-archive
 Master :sjors-remote:Archive
-Slave :sjors-local:Sjors/Archive
+Slave :sjors-local:sjorssparreboom.nl/Archive
 Create Both
 Sync All
 Expunge Both
@@ -141,7 +141,7 @@ SyncState *
 
 Channel sync-sjors-trash
 Master :sjors-remote:Trash
-Slave :sjors-local:Sjors/Trash
+Slave :sjors-local:sjorssparreboom.nl/Trash
 Create Both
 Sync All
 Expunge Both
@@ -149,7 +149,7 @@ SyncState *
 
 Channel sync-sjors-sent
 Master :sjors-remote:Sent
-Slave :sjors-local:Sjors/Sent
+Slave :sjors-local:sjorssparreboom.nl/Sent
 Create Both
 Sync All
 Expunge Both
@@ -166,7 +166,7 @@ Path ~/Documents/Mail/
 Inbox ~/Documents/Mail/INBOX
 SubFolders Verbatim
 
-IMAPAccount School
+IMAPAccount hr.nl
 Host outlook.office365.com
 User 0890040@hr.nl
 PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/Dropbox/password-store/0890040@hr.nl.gpg"
@@ -174,11 +174,11 @@ SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 IMAPStore school-remote
-Account School
+Account hr.nl
 
 Channel sync-school-inbox
 Master :school-remote:INBOX
-Slave :school-local:School/Inbox
+Slave :school-local:hr.nl/Inbox
 Create Both
 Sync All
 Expunge Both
@@ -186,7 +186,7 @@ SyncState *
 
 Channel sync-school-archive
 Master :school-remote:Archive
-Slave :school-local:School/Archive
+Slave :school-local:hr.nl/Archive
 Create Both
 Sync All
 Expunge Both
@@ -194,7 +194,7 @@ SyncState *
 
 Channel sync-school-trash
 Master :school-remote:"Deleted Items"
-Slave :school-local:School/Trash
+Slave :school-local:hr.nl/Trash
 Create Both
 Sync All
 Expunge Both
@@ -202,7 +202,7 @@ SyncState *
 
 Channel sync-school-sent
 Master :school-remote:"Sent Items"
-Slave :school-local:School/Sent
+Slave :school-local:hr.nl/Sent
 Create Both
 Sync All
 Expunge Both

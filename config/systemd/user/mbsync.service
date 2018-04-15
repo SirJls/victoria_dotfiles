@@ -5,4 +5,6 @@ After=network.target
 
 [Service]
 Type=oneshot
+Environment="PATH=/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin"
+Environment="PASSWORD_STORE_DIR=/home/sjors/Dropbox/password-store"
 ExecStart=/home/sjors/Victoria/victoria_scripts/fetch-mail
